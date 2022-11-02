@@ -2,7 +2,7 @@
 base_url = "https://blackheaven.github.io"
 
 theme = "abridge"
-title = "Gautier DI FOLCO's Website"
+title = "Gautier DI FOLCO"
 description = "A software designer website"
 default_language = "en"
 output_dir = "public"
