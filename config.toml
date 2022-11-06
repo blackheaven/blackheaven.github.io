@@ -200,7 +200,7 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 [extra.social]
 feed = true
 mail_encode = true # This obfuscates your email address, javascript is used to decode it at page load.
-mail = "gautier.difolco+githubsite@gmail.com"
+mail = "gautier.difolco+githubsite0@gmail.com"
 # mastodon = "@your-user-name"
 # element = "matrix.example.com"
 #matrix = "matrix.example.com"
