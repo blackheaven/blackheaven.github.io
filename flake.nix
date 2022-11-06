@@ -1,5 +1,5 @@
 {
-  description = "cyberuniversity-soc-course";
+  description = "gautier-website";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
