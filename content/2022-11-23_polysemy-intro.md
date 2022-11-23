@@ -57,6 +57,6 @@ Step by step we do the following things:
 * Emit a `Trace` effect with `trace`
 * Emit an `Embed IO` effect with `embed` of `readFile`
 * Emit an `Embed IO` effect with `embed` of `putStr`
-* Produce the `content`'s length'
+* Produce the `content`'s length
 
 See the full the code [here](https://github.com/blackheaven/blackheaven.github.io/content/code/polysemy/src/Intro.hs).
