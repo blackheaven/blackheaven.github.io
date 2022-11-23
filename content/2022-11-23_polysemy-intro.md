@@ -31,7 +31,7 @@ Since September 2020 I'm using [Polysemy](https://hackage.haskell.org/package/po
 
 This log is the first one of a long series going through Polysemy.
 
-I'll use Polysemy `1.7.1.0` with GHC `9.2.5`, I'll drop the code [here](https://github.com/blackheaven/blackheaven.github.io/content/code/polysemy).
+I'll use Polysemy `1.7.1.0` with GHC `9.2.5`, I'll drop the code [here](https://github.com/blackheaven/blackheaven.github.io/blob/master/content/code/polysemy).
 
 Let's start with a simple example:
 
@@ -59,4 +59,4 @@ Step by step we do the following things:
 * Emit an `Embed IO` effect with `embed` of `putStr`
 * Produce the `content`'s length
 
-See the full the code [here](https://github.com/blackheaven/blackheaven.github.io/content/code/polysemy/src/Intro.hs).
+See the full the code [here](https://github.com/blackheaven/blackheaven.github.io/blob/master/content/code/polysemy/src/Intro.hs).
