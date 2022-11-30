@@ -22,6 +22,7 @@ library
   hs-source-dirs: src
   exposed-modules:
       Intro
+      EffectRow
   other-modules:
       Paths_playground
   autogen-modules:
