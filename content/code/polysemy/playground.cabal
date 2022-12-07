@@ -24,6 +24,7 @@ library
       Intro
       EffectRow
       EffectRowDesign
+      EffectDefinitionIntro
   other-modules:
       Paths_playground
   autogen-modules:
