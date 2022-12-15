@@ -26,6 +26,7 @@ library
       EffectRowDesign
       EffectDefinitionIntro
       EffectInterpretationIntro
+      EffectInjection
   other-modules:
       Paths_playground
   autogen-modules:
