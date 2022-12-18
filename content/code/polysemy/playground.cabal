@@ -27,6 +27,7 @@ library
       EffectDefinitionIntro
       EffectInterpretationIntro
       EffectInjection
+      EffectInlineInjection
   other-modules:
       Paths_playground
   autogen-modules:
