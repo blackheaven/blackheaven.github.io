@@ -29,6 +29,7 @@ library
       EffectInjection
       EffectInlineInjection
       Tagged
+      Interceptors
   other-modules:
       Paths_playground
   autogen-modules:
