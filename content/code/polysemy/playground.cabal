@@ -31,6 +31,7 @@ library
       Tagged
       Interceptors
       Embed
+      Input
   other-modules:
       Paths_playground
   autogen-modules:
