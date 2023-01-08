@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - Time sensitive</title>
+	<subtitle>A software designer website</subtitle>
+	<link href="https://gautier.difolco.dev/categories/time-sensitive/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-11-01T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/categories/time-sensitive/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Initial log</title>
+		<published>2022-11-01T00:00:00+00:00</published>
+		<updated>2022-11-01T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/initial-log/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/initial-log/</id>
+		<content type="html">&lt;p&gt;I am to start a short web log (aka blog&#x2F;microblog) in order to share some insight I get in my day-to-day work&#x2F;practice.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll mainly talk about about:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Functional programming (Haskell)&lt;&#x2F;li&gt;
+&lt;li&gt;Software engineering&#x2F;design&#x2F;crafting&lt;&#x2F;li&gt;
+&lt;li&gt;Ops&#x2F;DevOps (Nix&#x2F;NixOS&#x2F;Kubernetes)&lt;&#x2F;li&gt;
+&lt;li&gt;Leading insights&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

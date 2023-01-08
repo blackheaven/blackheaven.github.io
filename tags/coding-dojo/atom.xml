@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - coding dojo</title>
+	<subtitle>A software designer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/coding-dojo/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-11-09T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/coding-dojo/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Write for debug</title>
+		<published>2022-11-09T00:00:00+00:00</published>
+		<updated>2022-11-09T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/write-for-debug/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/write-for-debug/</id>
+		<content type="html">&lt;p&gt;In my last session of the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;gdcr-summary&#x2F;&quot;&gt;GDCR&lt;&#x2F;a&gt;, during the Red phase I ended up with this test:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;spec&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Spec&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;spec &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;SpaceX&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+    describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;computeLaunchCost&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Reused rocket should be launch only&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;ReusedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; launchCost
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;First launched rocket should be launch and build&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;FirstLaunchedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; (launchCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; buildCost)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And thie result:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  test&#x2F;Spec.hs:17:47:
+  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {getCost = 2873037}
+        but got: Cost {getCost = 336552}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this time, I lack adding the build cost, which is normal.&lt;&#x2F;p&gt;
+&lt;p&gt;But what if I came back several days&#x2F;weeks later on it?&lt;&#x2F;p&gt;
+&lt;p&gt;I would have to:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Figure out how the computation is done&lt;&#x2F;li&gt;
+&lt;li&gt;Compute the diffrence&lt;&#x2F;li&gt;
+&lt;li&gt;Find out that this number is the build cost&lt;&#x2F;li&gt;
+&lt;li&gt;Check that the specs are confirming it&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;However, if I change my design so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; {getCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;become&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt;
+ { builds &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;   &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;launches&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt; }
+ &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;then failure is obvious:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {builds = 1, launches = 1}
+        but got: Cost {builds = 0, launches = 1}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>GDCR 2022: My feedback</title>
+		<published>2022-11-06T00:00:00+00:00</published>
+		<updated>2022-11-06T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/gdcr-summary/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/gdcr-summary/</id>
+		<content type="html">&lt;p&gt;As every year, the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.coderetreat.org&#x2F;events&#x2F;&quot;&gt;Global day of code retreat&lt;&#x2F;a&gt; is a good excuse to work and rework the same kata a full day.&lt;&#x2F;p&gt;
+&lt;p&gt;Thie year I have participated to the one organized by the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;swcraftlyon&quot;&gt;Software Crafters Lyon&lt;&#x2F;a&gt; (I&#x27;m a member of the organizating team, but I didn&#x27;t organized the Code Retreat this time).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;&#x2F;em&gt; (For a global&#x2F;official summary, have a look &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;swcraftlyon.github.io&#x2F;posts&#x2F;2022-11-05-code-retreat&#x2F;&quot;&gt;here&lt;&#x2F;a&gt; (in french)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;subject&quot;&gt;Subject&lt;&#x2F;h2&gt;
+&lt;p&gt;It was a custom subject which initially aim to support &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20180822100852&#x2F;alistair.cockburn.us&#x2F;Hexagonal+architecture&quot;&gt;Hexagonal architecture&lt;&#x2F;a&gt; during team coaching.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Theme: Expose a Web Service that displays SpaceX launches CO2 cost in a given period of time&lt;&#x2F;li&gt;
+&lt;li&gt;Source API endpoint: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;api.spacexdata.com&#x2F;v5&#x2F;launches&quot;&gt;https:&#x2F;&#x2F;api.spacexdata.com&#x2F;v5&#x2F;launches&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Rules:
+&lt;ul&gt;
+&lt;li&gt;Each rocket built emit 2 536 485 kg of CO2&lt;&#x2F;li&gt;
+&lt;li&gt;Each rocket launch emit 336 552 kg of CO2&lt;&#x2F;li&gt;
+&lt;li&gt;The cost of the rockt construction is included in the launch(es) for which the request was made&lt;&#x2F;li&gt;
+&lt;li&gt;The cost should be expressed as:
+&lt;ul&gt;
+&lt;li&gt;Number of Kg of CO2 emitted&lt;&#x2F;li&gt;
+&lt;li&gt;Equivalent in Kgs of beef (1 Kg of beef takes 13.1 kg of CO2 to produce)&lt;&#x2F;li&gt;
+&lt;li&gt;Equivalent in flights Paris to New-York (1.178 tons)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;my-iterations&quot;&gt;My iterations&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a seasoned crafter&lt;&#x2F;li&gt;
+&lt;li&gt;I was with another longtime crafter I used to pair with&lt;&#x2F;li&gt;
+&lt;li&gt;We focused on computing the total sum of CO2 and equivalents of multiple launches&lt;&#x2F;li&gt;
+&lt;li&gt;I was an exploratory sessions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Java&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a newcomer&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Immutable and&#x2F;or Blind navigator&lt;&#x2F;li&gt;
+&lt;li&gt;We barely achieved CO2 sum as I spent some time explaining the issue with boolean-base and inheritance based design&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Additional constraints: TCR and&#x2F;or Object Calisthenics&lt;&#x2F;li&gt;
+&lt;li&gt;I was forced to take a break at this session as I had to tackle a person issue during group creation time&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Mute and&#x2F;or Ping Pong&lt;&#x2F;li&gt;
+&lt;li&gt;I took another break as there were no one compatible to my setup&lt;&#x2F;li&gt;
+&lt;li&gt;I decided to do it on my own, but a facilitator came to talk shortly about functional design&lt;&#x2F;li&gt;
+&lt;li&gt;I ended up completing the implementation of the sum and equivalents in a record of &lt;code&gt;Int&lt;&#x2F;code&gt;s&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Java&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a newcomer&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Random constraints (I get &amp;quot;no loop&amp;quot; and my pair &amp;quot;TCR&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;We started by computing CO2 sum (with a &lt;code&gt;Stream&lt;&#x2F;code&gt; of enum), then we got stuck trying to compute equivalents&lt;&#x2F;li&gt;
+&lt;li&gt;We started to introduce &lt;code&gt;Cost&lt;&#x2F;code&gt; at the end&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a seasoned crafter&lt;&#x2F;li&gt;
+&lt;li&gt;I was with another longtime crafter I used to pair with&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Primitive Obsessions and&#x2F;or Evil TDD&lt;&#x2F;li&gt;
+&lt;li&gt;For a change we started by design &lt;code&gt;Cost&lt;&#x2F;code&gt;s (build vs launch)&lt;&#x2F;li&gt;
+&lt;li&gt;Sadly, my pair was drained and we ended early&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;my-feedback&quot;&gt;My feedback&lt;&#x2F;h2&gt;
+&lt;p&gt;I didn&#x27;t get hooked by the subject:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I dislike the theme for personal reasons&lt;&#x2F;li&gt;
+&lt;li&gt;The subject was too wide to be addressed in 40 minutes
+&lt;ul&gt;
+&lt;li&gt;The core domain was too small&lt;&#x2F;li&gt;
+&lt;li&gt;The Service part was mostly technology-related&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I didn&#x27;t get much from my pairs (which is my fault).&lt;&#x2F;p&gt;
+&lt;p&gt;I have given a ROTI of 1&#x2F;5.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

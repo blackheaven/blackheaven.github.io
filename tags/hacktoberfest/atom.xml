@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - hacktoberfest</title>
+	<subtitle>A software designer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/hacktoberfest/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-11-16T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/hacktoberfest/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Hacktoberfest 2022: My feedback</title>
+		<published>2022-11-16T00:00:00+00:00</published>
+		<updated>2022-11-16T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/hacktoberfest-feedback/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/hacktoberfest-feedback/</id>
+		<content type="html">&lt;p&gt;Following &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;hacktoberfest-contributions&#x2F;&quot;&gt;my Hacktoberfest participation&lt;&#x2F;a&gt;, I had the chance to have a variety contribution of experiences.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pendings-prs&quot;&gt;Pendings PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;m always a bit sad whenever my PR don&#x27;t get comments, but it&#x27;s the life of projects, they depend of their maintainers priorities.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I get confused sometimes when direction changes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;outdated-prs&quot;&gt;Outdated PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;This one is really frustrating, you start some contribution, they stale for a while and suddenly, another PR is pushed and merged in few hours.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I came across an interesting situation where my PR raised a number of concerns, starting a new set feature.
+Even though I didn&#x27;t get something merged, raising the discussion was a good way to contribute.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;accepted-prs&quot;&gt;Accepted PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;While I like to get my PRs merged, I&#x27;ve found myself it three cases:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;My PR got merged without discussion: I think it&#x27;s quite damaging since the maintainers will rework it after the merge, so I didn&#x27;t get the opportunity to learn&lt;&#x2F;li&gt;
+&lt;li&gt;Some discussions happen, changes are requested: I really enjoy this kind of PRs, I have the chance to debate, to talk to the maintainers, learn about the projet and its spirit&lt;&#x2F;li&gt;
+&lt;li&gt;The discussion takes place over days, direction changes, maintainers do not take the time to articulate their request: it&#x27;s particulary complicated to work on a project with moving objectives, but it&#x27;s even harder when objective are given based on a wrong context or once a week&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Hacktoberfest 2022: My contributions</title>
+		<published>2022-11-13T00:00:00+00:00</published>
+		<updated>2022-11-13T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/hacktoberfest-contributions/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/hacktoberfest-contributions/</id>
+		<content type="html">&lt;p&gt;This year I decided to contribute a lot to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hacktoberfest.com&#x2F;&quot;&gt;Hacktoberfest&lt;&#x2F;a&gt; for three main reasons:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I wanted to give back to the community&lt;&#x2F;li&gt;
+&lt;li&gt;I wanted to change my contribution routing to expanded to non-essential&#x2F;needed ones&lt;&#x2F;li&gt;
+&lt;li&gt;I wanted to be challenged, see how I can handle coming to new codebases&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I actually completed my first four accepted PRs on October 2and at 7 PM (CEST), I was proud.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are my contributions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;tchoutri&#x2F;pg-entity&quot;&gt;pg-entity&lt;&#x2F;a&gt;: A pleasant PostgreSQL database layer for Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Fix &lt;code&gt;resource-pool&lt;&#x2F;code&gt; &lt;code&gt;&amp;gt;= 0.3&lt;&#x2F;code&gt; compilation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cachix&#x2F;cachix-action&quot;&gt;cachix-action&lt;&#x2F;a&gt;: Build software only once and put it in a global cache
+&lt;ul&gt;
+&lt;li&gt;Pending: Add flake support&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;flora-pm&#x2F;flora-server&quot;&gt;flora-server&lt;&#x2F;a&gt;: A package index for the Haskell ecosystem
+&lt;ul&gt;
+&lt;li&gt;Outdated: Restore nix flake&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Add nix flake CI&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Improve bulk performances&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wasp-lang&#x2F;get-wasp&quot;&gt;get-wasp&lt;&#x2F;a&gt;: &lt;code&gt;wasp&lt;&#x2F;code&gt; installer
+&lt;ul&gt;
+&lt;li&gt;Outdated: Rework update usecase&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;aeson&quot;&gt;aeson&lt;&#x2F;a&gt;: A fast JSON library
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;@since&lt;&#x2F;code&gt; in documentation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;hackage-server&quot;&gt;hackage-server&lt;&#x2F;a&gt;: Hackage-Server: A Haskell Package Repository
+&lt;ul&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;lastVersion&lt;&#x2F;code&gt; in listings&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;cabal&quot;&gt;cabal&lt;&#x2F;a&gt;: Official upstream development repository for Cabal and cabal-install
+&lt;ul&gt;
+&lt;li&gt;Pending: Add generate &lt;code&gt;PackageInfos&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;hie-bios&quot;&gt;hie-bios&lt;&#x2F;a&gt;: Set up a GHC API session for various Haskell Projects
+&lt;ul&gt;
+&lt;li&gt;Pending: Add logs over commands&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wasp-lang&#x2F;wasp&quot;&gt;wasp&lt;&#x2F;a&gt;: A programming language that understands what a web app is.
+&lt;ul&gt;
+&lt;li&gt;Pending: Add cli &lt;code&gt;update&lt;&#x2F;code&gt; command&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cdepillabout&#x2F;password&quot;&gt;password&lt;&#x2F;a&gt;: datatypes and functions for easily working with passwords in Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add utilities functions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;maralorn&#x2F;nix-output-monitor&quot;&gt;nix-output-monitor&lt;&#x2F;a&gt;: Pipe your nix-build output through the nix-output-monitor a.k.a nom to get additional information while building.
+&lt;ul&gt;
+&lt;li&gt;Accepted: Drop &lt;code&gt;flow&lt;&#x2F;code&gt;-file operators&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ludat&#x2F;conferer&quot;&gt;conferer&lt;&#x2F;a&gt;: Configuration management for Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Fix missing projects CI&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;astynax&#x2F;hemmet&quot;&gt;hemmet&lt;&#x2F;a&gt;: Emmet-like text expansion tool capable to produce HTML, CSS, file trees, that stuff
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; &amp;amp; CI Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kowainik&#x2F;tomland&quot;&gt;tomland&lt;&#x2F;a&gt;: Bidirectional TOML serialization
+&lt;ul&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;Codec&lt;&#x2F;code&gt; &lt;code&gt;Selective&lt;&#x2F;code&gt; instance&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;chshersh&#x2F;iris&quot;&gt;iris&lt;&#x2F;a&gt;: Haskell CLI Framework supporting Command Line Interface Guidelines
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;luc-tielen&#x2F;eclair-lang&quot;&gt;eclair-lang&lt;&#x2F;a&gt;: A minimal, fast Datalog implementation in Haskell that compiles to LLVM
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Which gives:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pendings: 9&lt;&#x2F;li&gt;
+&lt;li&gt;Accepted: 8&lt;&#x2F;li&gt;
+&lt;li&gt;Outdated: 2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - Design</title>
+	<subtitle>A software designer website</subtitle>
+	<link href="https://gautier.difolco.dev/categories/design/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-11-09T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/categories/design/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Write for debug</title>
+		<published>2022-11-09T00:00:00+00:00</published>
+		<updated>2022-11-09T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/write-for-debug/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/write-for-debug/</id>
+		<content type="html">&lt;p&gt;In my last session of the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;gdcr-summary&#x2F;&quot;&gt;GDCR&lt;&#x2F;a&gt;, during the Red phase I ended up with this test:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;spec&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Spec&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;spec &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;SpaceX&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+    describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;computeLaunchCost&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Reused rocket should be launch only&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;ReusedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; launchCost
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;First launched rocket should be launch and build&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;FirstLaunchedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; (launchCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; buildCost)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And thie result:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  test&#x2F;Spec.hs:17:47:
+  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {getCost = 2873037}
+        but got: Cost {getCost = 336552}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this time, I lack adding the build cost, which is normal.&lt;&#x2F;p&gt;
+&lt;p&gt;But what if I came back several days&#x2F;weeks later on it?&lt;&#x2F;p&gt;
+&lt;p&gt;I would have to:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Figure out how the computation is done&lt;&#x2F;li&gt;
+&lt;li&gt;Compute the diffrence&lt;&#x2F;li&gt;
+&lt;li&gt;Find out that this number is the build cost&lt;&#x2F;li&gt;
+&lt;li&gt;Check that the specs are confirming it&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;However, if I change my design so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; {getCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;become&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt;
+ { builds &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;   &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;launches&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt; }
+ &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;then failure is obvious:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {builds = 1, launches = 1}
+        but got: Cost {builds = 0, launches = 1}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>

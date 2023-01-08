@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO</title>
+	<subtitle>A software designer website</subtitle>
+	<link href="https://gautier.difolco.dev/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2023-01-08T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Polysemy: Higher-order effects introductions</title>
+		<published>2023-01-08T00:00:00+00:00</published>
+		<updated>2023-01-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-01/polysemy-hoe-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-01/polysemy-hoe-intro/</id>
+		<content type="html">&lt;p&gt;One thing that sets polysemy apart is that it allows defining &lt;em&gt;Higher-order effects&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;As &lt;em&gt;higher-order functions&lt;&#x2F;em&gt;, &lt;em&gt;higher-order effects&lt;&#x2F;em&gt; are effects defined in terms of other effects, let&#x27;s try a simple one:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;When&lt;&#x2F;span&gt; (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;WhenM&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;When&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+
+makeSem &amp;#39;&amp;#39;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;When&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;m ()&lt;&#x2F;code&gt; is the effect (it will be replaced by &lt;code&gt;Sem _ ()&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;In order to properly interpret this effect, we can rely on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;polysemy-1.7.1.0&#x2F;docs&#x2F;Polysemy-Internal-Tactics.html&quot;&gt;tactics&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;interpretWhenEmbed&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;InterpreterFor&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;When&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;interpretWhenEmbed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  interpretH &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;WhenM&lt;&#x2F;span&gt; act &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; runTSimple act
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Two elements have to be noticed:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;interpretH&lt;&#x2F;code&gt; gives a context to interpret higher-order effects&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;runTSimple&lt;&#x2F;code&gt; which converts &lt;code&gt;m ()&lt;&#x2F;code&gt; to the previously mentionned context (&lt;code&gt;m&lt;&#x2F;code&gt; is &lt;code&gt;Sem rInitial&lt;&#x2F;code&gt; and cannot be used directly)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;finally, we can use it as any other interpreters:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;runM &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; interpretWhenEmbed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; whenM &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello,&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;HoE.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Input</title>
+		<published>2023-01-04T00:00:00+00:00</published>
+		<updated>2023-01-04T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-01/polysemy-input/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-01/polysemy-input/</id>
+		<content type="html">&lt;p&gt;Whenever you might have varying strategies to fetch some data, you might want to use &lt;code&gt;Input&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; i m a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; i m i
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;it comes with three interpreters:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;runInputConst&lt;&#x2F;code&gt; to provide an unvarying value&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runInputConst&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;runInputConst c &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; interpret &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; pure c
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;usable as:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;runInputConst @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello, world!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; input &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;gt;&amp;gt;=&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; putStrLn
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;runInputList&lt;&#x2F;code&gt; which aims to give a constant list of values one by one&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runInputList&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt;
+  [&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt;) &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;runInputList is &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  evalState is
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; reinterpret
+      ( &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+          &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+            s &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; gets uncons
+            for_ s &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; put &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; snd
+            pure &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; fst &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;$&amp;gt;&lt;&#x2F;span&gt; s
+      )
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;usable as:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;    runInputList @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Char&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; whileJust (input @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Char&lt;&#x2F;span&gt;)) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; print
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;runInputSem&lt;&#x2F;code&gt; to dynamically provide values (which should have been used instead of &lt;code&gt;View&lt;&#x2F;code&gt; in &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-12&#x2F;polysemy-interpretation-effects-injection&#x2F;&quot;&gt;a previous log&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runInputSem&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;forall&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;. &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;i&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;runInputSem m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; interpret &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Input&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; m
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;usable as:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;message &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; newMVar @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello, world!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+runInputSem (embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; tryTakeMVar message) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; whileJust (input @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;)) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; putStrLn
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Input.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Embed</title>
+		<published>2023-01-01T00:00:00+00:00</published>
+		<updated>2023-01-01T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-01/polysemy-embed/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-01/polysemy-embed/</id>
+		<content type="html">&lt;p&gt;While you could perfectly stay in pure computation, using already defined &lt;code&gt;Monad&lt;&#x2F;code&gt; (such as &lt;code&gt;IO&lt;&#x2F;code&gt;) is a widespread usage.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s what &lt;code&gt;Embed&lt;&#x2F;code&gt; has been designed for:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; m (z &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; { unEmbed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; m a } &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; m z a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;used as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;logic&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;logic &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello, world!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;finally we have &lt;code&gt;runM&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runM&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Monad&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;m&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;m&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;m&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;usable as:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;runM logic
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Embed.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Interceptors to buffer</title>
+		<published>2022-12-28T00:00:00+00:00</published>
+		<updated>2022-12-28T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-interceptors-buffering/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-interceptors-buffering/</id>
+		<content type="html">&lt;p&gt;In &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-12&#x2F;polysemy-interceptors-intro&#x2F;&quot;&gt;the previous post&lt;&#x2F;a&gt; we have introduced an effect which mimics ElasticSearch indexing:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; {getId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; {getDocument &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CreateDocument&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UpdateDocument&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;used as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;logic&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;logic &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; createDocument &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;initial&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; const &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Updated&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;getDocument)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;One of the issue with this piece of code is, when run against a real ElasticSearch server, it can suffer from dirty read.&lt;&#x2F;p&gt;
+&lt;p&gt;A way to mitigate that is to buffer (accumulate) calls and run them all at once, we can create an interceptor for that:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;BufferedState&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;bufferize&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;bufferize sem &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  (s&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; a) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;BufferedState&lt;&#x2F;span&gt; mempty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; acc &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; raise sem
+  forM_ (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;toList s) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+    uncurry updateDocument
+  return a
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+    acc &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+      intercept &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+          &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CreateDocument&lt;&#x2F;span&gt; doc &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; createDocument doc
+          &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UpdateDocument&lt;&#x2F;span&gt; docId f &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt;
+            modify @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;BufferedState&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+              &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;alter (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Just&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; maybe f (f &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;)) docId
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;then simply add it to the interpretation:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;print &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; run &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt; mempty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;InMemoryState&lt;&#x2F;span&gt; (mempty&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;0&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; interpreterInMemory &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; countUpdates &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; bufferize logic
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;which gives:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;(fromList [(Id {getId = 0},1)],((fromList [(Id {getId = 0},Document {getDocument = &amp;quot;Updated!&amp;quot;})],1),()))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;we can now see more precisely that the updates count has been reduced to 1:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fromList [(Id {getId = 0},1)]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;While buffering that way avoid dirty reads and reduce pressure on the backend, without changing the code, it may result in consistency issue.&lt;&#x2F;p&gt;
+&lt;p&gt;To mitigate that, we could simply apply the buffering locally:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;logicBuffered&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;logicBuffered &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; createDocument &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;initial&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  bufferize &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+    updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; const &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Updated&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+    updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;getDocument)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;we can drop it from the interpretation:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;print &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; run &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt; mempty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;InMemoryState&lt;&#x2F;span&gt; (mempty&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;0&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; interpreterInMemory &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; countUpdates logicBuffered
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;which keeps the same number of updates:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;(fromList [(Id {getId = 0},1)],((fromList [(Id {getId = 0},Document {getDocument = &amp;quot;Updated!&amp;quot;})],1),()))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Interceptors.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Introduction to Interceptors</title>
+		<published>2022-12-25T00:00:00+00:00</published>
+		<updated>2022-12-25T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-interceptors-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-interceptors-intro/</id>
+		<content type="html">&lt;p&gt;From time to time, you already have a some effects and interpreters setup, but you want to add some actions without changing the behavior.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s one of the mechanism allowed by &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Aspect-oriented_programming&quot;&gt;Aspect Oriented Programming&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s imagine an effect which mimics ElasticSearch indexing:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; {getId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; {getDocument &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CreateDocument&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UpdateDocument&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;we can use it as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;logic&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;logic &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; createDocument &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;initial&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; const &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Updated&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  updateDocument docId &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Document&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;getDocument)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When thinking of multiple interpreters we might think of tests (and mechanisms such as &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;TestDouble.html&quot;&gt;mocks and spies&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;In order to do a spy which counts the number of updates we can create an interceptor:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Id&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;countUpdates&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;State&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;DocumentEffect&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;countUpdates &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  intercept &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CreateDocument&lt;&#x2F;span&gt; doc &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; createDocument doc
+      &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UpdateDocument&lt;&#x2F;span&gt; docId f &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+        modify @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+          &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;alter (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Just&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; maybe &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;1&lt;&#x2F;span&gt; succ) docId
+        updateDocument docId f
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note that we should explicitly forward calls to keep the behavior.&lt;&#x2F;p&gt;
+&lt;p&gt;Then we can apply it in addition to the other interpreters:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;print &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; run &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;CountUpdatesState&lt;&#x2F;span&gt; mempty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runState @&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;InMemoryState&lt;&#x2F;span&gt; (mempty&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;0&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; interpreterInMemory &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; countUpdates logic
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Giving the number of updates (2):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;(fromList [(Id {getId = 0},2)],((fromList [(Id {getId = 0},Document {getDocument = &amp;quot;Updated!&amp;quot;})],1),()))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;here:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fromList [(Id {getId = 0},2)]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Interceptors.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Tagged effects</title>
+		<published>2022-12-21T00:00:00+00:00</published>
+		<updated>2022-12-21T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-tagged-effects/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-tagged-effects/</id>
+		<content type="html">&lt;p&gt;At some point you&#x27;ll have a lot of effects, which is not an issue, however you might duplicated types (usually, I would advise to use &lt;code&gt;newtype&lt;&#x2F;code&gt;, but you might not have the hand on the consumer code).&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s why you have the &lt;code&gt;Tagged&lt;&#x2F;code&gt; effect:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; k e m a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; forall k e m a&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; e m a &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; k e m a
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;tag&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;forall&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;e&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;. &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;e&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;e&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can use directly:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayJoined&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;name&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;location&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayJoined &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  name &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; tag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;name&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;) ask
+  location &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; tag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;location&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;) ask
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your name is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your location is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; location
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Or to wrap existing code:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayName&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayName &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  name &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; ask
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your name is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayLocation&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayLocation &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  location &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; ask
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your location is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; location
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displaySplit&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;name&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;location&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displaySplit &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  tag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;name&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;) displayName
+  tag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;location&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt;) displayLocation
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then we have &lt;code&gt;untag&lt;&#x2F;code&gt; which unwraps the underlying effect:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runApp&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;name&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Tagged&lt;&#x2F;span&gt; &amp;quot;&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;location&lt;&#x2F;span&gt;&amp;quot; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Reader&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;), &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;runApp &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  runM
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runReader &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;France&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; untag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;location&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runReader &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Gautier&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; untag @&lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;name&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, here&#x27;s what it gives:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Your name is Gautier
+Your location is France
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Tagged.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Interpretation and effects inline injection</title>
+		<published>2022-12-18T00:00:00+00:00</published>
+		<updated>2022-12-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-interpretation-effects-inline-injection/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-interpretation-effects-inline-injection/</id>
+		<content type="html">&lt;p&gt;In a &lt;a href=&quot;.&#x2F;2022-12-14_polysemy-interpretation-effects-injection.md&quot;&gt;previous log&lt;&#x2F;a&gt; we have seen a way to cache computation and a way to inject effects.&lt;&#x2F;p&gt;
+&lt;p&gt;Let see what it take to build a caching effect:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cache&lt;&#x2F;span&gt; k v (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cached&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; k &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cache&lt;&#x2F;span&gt; k v m v
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As opposed to &lt;code&gt;View&lt;&#x2F;code&gt;, we have a cache per key and not a global cache, it could lead to memory leaks.&lt;&#x2F;p&gt;
+&lt;p&gt;We can use it as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;app&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Cache&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;app &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  name0 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; cached &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;name&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your name is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name0
+  location0 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; cached &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;location&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your location is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; location0
+  name1 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; cached &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;name&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  location1 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; cached &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;location&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name1 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt; from &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; location1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It let use with the interpreter:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;runCache&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;forall&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;v&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;. &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; (&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;v&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;InterpreterFor&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Cache&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;k&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;v&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;runCache f &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  evalState mempty
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; interpret (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+        &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cached&lt;&#x2F;span&gt; k &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+          currentCache &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; get @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;M&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt; k v)
+          &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt; currentCache &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;M&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.!?&lt;&#x2F;span&gt; k &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;of&lt;&#x2F;span&gt;
+            &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Nothing&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+              v &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; raise &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; f k
+              put &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;M&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;insert k v currentCache
+              return v
+            &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Just&lt;&#x2F;span&gt; v &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; return v
+      )
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; raiseUnder @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;State&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;M&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt; k v))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It can be understood this way:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add a new effect with &lt;code&gt;raiseUnder&lt;&#x2F;code&gt; (so we have &lt;code&gt;(State (M.Map k v) &#x27;: r)&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Get current cache&lt;&#x2F;li&gt;
+&lt;li&gt;Run the computation when key is missing (here we are forced to use &lt;code&gt;raise&lt;&#x2F;code&gt; since &lt;code&gt;f&lt;&#x2F;code&gt; only gives &lt;code&gt;Sem r&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Run the &lt;code&gt;State&lt;&#x2F;code&gt; effect&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Finally, here&#x27;s what it gives:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;What&amp;#39;s your name?
+Gautier
+Your name is Gautier
+What&amp;#39;s your location?
+France
+Your location is France
+Hello Gautier from France
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectInlineInjection.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Interpretation and effects injection</title>
+		<published>2022-12-14T00:00:00+00:00</published>
+		<updated>2022-12-14T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-interpretation-effects-injection/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-interpretation-effects-injection/</id>
+		<content type="html">&lt;p&gt;As seen previously we can have interpreters which relies on other interpreters.&lt;&#x2F;p&gt;
+&lt;p&gt;While you could simply add the required effects to the list, you may want to hide it (eg. to have dynamique interpreters).&lt;&#x2F;p&gt;
+&lt;p&gt;In order to do it, you have many &lt;code&gt;raise*&lt;&#x2F;code&gt; functions.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s have a look at &lt;code&gt;View&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;View&lt;&#x2F;span&gt; v m a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;See&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;View&lt;&#x2F;span&gt; v m v
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;viewToState&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;State&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;s&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; (&lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;s&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;v&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;InterpreterFor&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;View&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;v&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;View&lt;&#x2F;code&gt; gives a way to cache expensive computations dynamically.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s imagine a simple app:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;app&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;View&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;app &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  name0 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; see
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Your name is &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name0
+  name1 &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; see
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Hello &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; name1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;we can leverage &lt;code&gt;raiseUnder&lt;&#x2F;code&gt; which injects an effect as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;intrApp&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;View&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;intrApp &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  runM
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; evalState &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; viewToState (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;What&amp;#39;s your name?&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt; getLine)
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; raiseUnder @(&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;State&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here &lt;code&gt;raiseUnder&lt;&#x2F;code&gt; will change effects to &lt;code&gt;&#x27;[View String, State (), Embed IO]&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;See how it runs:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;What&amp;#39;s your name?
+Gautier
+Your name is Gautier
+Hello Gautier
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note: actually &lt;code&gt;viewToState&lt;&#x2F;code&gt; is more general and invalidate the cache once the state changes&lt;&#x2F;p&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectInjection.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Introduction to Effect interpretation</title>
+		<published>2022-12-11T00:00:00+00:00</published>
+		<updated>2022-12-11T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-effect-interpretation-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-effect-interpretation-intro/</id>
+		<content type="html">&lt;p&gt;In my &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-12&#x2F;polysemy-effect-definition-intro&#x2F;&quot;&gt;last log&lt;&#x2F;a&gt; we defined the &lt;code&gt;Trace&lt;&#x2F;code&gt; effect:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-preprocessor z-haskell&quot;&gt;{-# &lt;span class=&quot;z-keyword z-other z-preprocessor z-haskell&quot;&gt;LANGUAGE&lt;&#x2F;span&gt; TemplateHaskell #-}&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-declaration z-module z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;module&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;EffectDefinitionIntro&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-meta z-declaration z-exports z-haskell&quot;&gt;( &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-function z-infix z-haskell&quot;&gt;(..)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;trace&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+  )&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.Kind&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+
+makeSem &amp;#39;&amp;#39;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;One of the main interest of effects systems is to be able to define multiple interpretations for the same effects.&lt;&#x2F;p&gt;
+&lt;p&gt;The simplest interpreter we can write is to drop simply the action:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;ignoreTrace&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;ignoreTrace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; interpret &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; _ &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; pure &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;interpret&lt;&#x2F;code&gt; will &amp;quot;consume&amp;quot; &lt;code&gt;Trace&lt;&#x2F;code&gt; contructor-by-constructor.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: we have a useful type alias &lt;code&gt;InterpreterFor&lt;&#x2F;code&gt; for interpreters definitions.&lt;&#x2F;p&gt;
+&lt;p&gt;However, &lt;code&gt;Trace&lt;&#x2F;code&gt; is simple enough to have a dropping interpreter, let&#x27;s come with a more useful definition:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;traceToStdout&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;InterpreterFor&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;traceToStdout &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; interpret &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStrLn m
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can also compose interpreters:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;traceToStderr&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;traceToStderr &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; traceToHandle stderr
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;traceToHandle&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Handle&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &amp;#39;: &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;traceToHandle handle &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; interpret &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;case&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; hPutStrLn handle m
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectInterpretationIntro.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Introduction to Effect definition</title>
+		<published>2022-12-07T00:00:00+00:00</published>
+		<updated>2022-12-07T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-effect-definition-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-effect-definition-intro/</id>
+		<content type="html">&lt;p&gt;In the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;polysemy-intro&#x2F;&quot;&gt;first log&lt;&#x2F;a&gt; we explained that in the expression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;trace&lt;&#x2F;code&gt; is emiting an effect of &lt;code&gt;Trace&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;trace&lt;&#x2F;code&gt; has the following type:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;forall&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;. &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and is generated via:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-preprocessor z-haskell&quot;&gt;{-# &lt;span class=&quot;z-keyword z-other z-preprocessor z-haskell&quot;&gt;LANGUAGE&lt;&#x2F;span&gt; TemplateHaskell #-}&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-declaration z-module z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;module&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;EffectDefinitionIntro&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-meta z-declaration z-exports z-haskell&quot;&gt;( &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-function z-infix z-haskell&quot;&gt;(..)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;trace&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+  )&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.Kind&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; (m &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Type&lt;&#x2F;span&gt;) a &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; m &lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+
+makeSem &amp;#39;&amp;#39;&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;makeSem&lt;&#x2F;code&gt; will generate something like:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;forall&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r_a44O&lt;&#x2F;span&gt;. &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r_a44O&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;String&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r_a44O&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;trace a &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; emit &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So, whenever &lt;code&gt;trace&lt;&#x2F;code&gt; is called, the value is sent to the interpreter.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: to keep it short &lt;code&gt;m&lt;&#x2F;code&gt; will be replaced by &lt;code&gt;Sem r&lt;&#x2F;code&gt; during interpretation&lt;&#x2F;p&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectDefinitionIntro.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: EffectRow design</title>
+		<published>2022-12-04T00:00:00+00:00</published>
+		<updated>2022-12-04T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-12/polysemy-effectrow-design/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-12/polysemy-effectrow-design/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;polysemy-effectrow&#x2F;&quot;&gt;Previous log&lt;&#x2F;a&gt; introduced &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;polysemy-1.7.1.0&#x2F;docs&#x2F;Polysemy.html#t:EffectRow&quot;&gt;&lt;code&gt;EffectRow&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It could be tempting to create a &lt;code&gt;type&lt;&#x2F;code&gt; and apply it everywhere in the codebase as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;AppEffects&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;]
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;AppEffects&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;intrDisplayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;AppEffects&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;intrDisplayFile &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  runM
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; traceToStdout
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;While it sounds to be a way to save time, it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Obfuscate expression&#x27;s type&lt;&#x2F;li&gt;
+&lt;li&gt;Reduce reusability&lt;&#x2F;li&gt;
+&lt;li&gt;Can hide potentila implementation issues&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We can argue that specifying by hand, only necessary effect can be cumbersome (especially we you add an effect in a big stack call), it&#x27;s actually a strong hint that you&#x27;re probably doing something you should be thoughtful about.&lt;&#x2F;p&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectRowDesign.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: EffectRow</title>
+		<published>2022-11-30T00:00:00+00:00</published>
+		<updated>2022-11-30T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/polysemy-effectrow/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/polysemy-effectrow/</id>
+		<content type="html">&lt;p&gt;As seen in the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;polysemy-interpreters-intro&#x2F;&quot;&gt;previous log&lt;&#x2F;a&gt; we ended up with:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy.Trace&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;intrDisplayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;intrDisplayFile &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  runM
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; traceToStdout
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As you can see &lt;code&gt;&#x27;[Trace, Embed IO]&lt;&#x2F;code&gt; is repeated twice:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;During expression definition&lt;&#x2F;li&gt;
+&lt;li&gt;During interpretation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It&#x27;s actually an &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;polysemy-1.7.1.0&#x2F;docs&#x2F;Polysemy.html#t:EffectRow&quot;&gt;&lt;code&gt;EffectRow&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; which represents a type-level list of &lt;code&gt;Effect&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This duplication looks nice but would be impractical.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, switching order in the expression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Would create an error:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;src&#x2F;Intro.hs:24:36-63: error:
+    • Couldn&amp;#39;t match type: Embed IO
+                     with: Trace
+      Expected: Sem &amp;#39;[Trace, Embed IO] Int
+        Actual: Sem &amp;#39;[Embed IO, Trace] Int
+    • In the first argument of ‘intrDisplayFile’, namely
+        ‘(displayFile &amp;quot;&#x2F;tmp&#x2F;hello.txt&amp;quot;)’
+      In the first argument of ‘(&amp;gt;&amp;gt;=)’, namely
+        ‘intrDisplayFile (displayFile &amp;quot;&#x2F;tmp&#x2F;hello.txt&amp;quot;)’
+      In the expression:
+        intrDisplayFile (displayFile &amp;quot;&#x2F;tmp&#x2F;hello.txt&amp;quot;) &amp;gt;&amp;gt;= print
+   |
+24 | mainDisplayFile = intrDisplayFile (displayFile &amp;quot;&#x2F;tmp&#x2F;hello.txt&amp;quot;) &amp;gt;&amp;gt;= print
+   |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We would have the same issue calling it from another function:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&amp;#39;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile&amp;#39; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; displayFile
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;src&#x2F;Intro.hs:24:16-26: error:
+    • Couldn&amp;#39;t match type: Trace
+                     with: Embed IO
+      Expected: FilePath -&amp;gt; Sem &amp;#39;[Embed IO, Trace] Int
+        Actual: FilePath -&amp;gt; Sem &amp;#39;[Trace, Embed IO] Int
+    • In the expression: displayFile
+      In an equation for ‘displayFile&amp;#39;’: displayFile&amp;#39; = displayFile
+   |
+24 | displayFile&amp;#39; = displayFile
+   | 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Actually &lt;code&gt;&#x27;[Trace, Embed IO]&lt;&#x2F;code&gt; is a &lt;em&gt;concrete&lt;&#x2F;em&gt; &lt;code&gt;EffectRow&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;There is also a &lt;code&gt;constrained&lt;&#x2F;code&gt; &lt;code&gt;EffectRow&lt;&#x2F;code&gt;, which is defined like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Members&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;we can also define them one by one:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&amp;#39;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Member&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;) &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;r&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile&amp;#39; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; displayFile
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;in these example, function definitonsare unchanged.&lt;&#x2F;p&gt;
+&lt;p&gt;However the &lt;code&gt;EffectRow&lt;&#x2F;code&gt; is now polymorphic and has constraints attached to it.&lt;&#x2F;p&gt;
+&lt;p&gt;Now we are able to call any function with other &lt;code&gt;EffectRow&lt;&#x2F;code&gt; (as long as it fits the constraints).&lt;&#x2F;p&gt;
+&lt;p&gt;While &lt;em&gt;concrete&lt;&#x2F;em&gt; &lt;code&gt;EffectRow&lt;&#x2F;code&gt; is mandatory at interpretation time, during expression building it&#x27;s limiting.&lt;&#x2F;p&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;EffectRow.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: Introduction to interpreters</title>
+		<published>2022-11-27T00:00:00+00:00</published>
+		<updated>2022-11-27T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/polysemy-interpreters-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/polysemy-interpreters-intro/</id>
+		<content type="html">&lt;p&gt;As seen in the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;polysemy-intro&#x2F;&quot;&gt;previous log&lt;&#x2F;a&gt; we have an expression as follows:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy.Trace&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In order to do something useful we need to interpret them in term of &lt;code&gt;IO&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;intrDisplayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;intrDisplayFile &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  runM
+    &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; traceToStdout
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It can be read that way:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;traceToStdout&lt;&#x2F;code&gt; interprets &lt;code&gt;Trace&lt;&#x2F;code&gt; (after the application we have &lt;code&gt;Sem &#x27;[Embed IO] a&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;runM&lt;&#x2F;code&gt; lowers the &lt;code&gt;Embed IO&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;One of the benefit of &lt;em&gt;effects systems&lt;&#x2F;em&gt; is to be able to change the behavior (via the interpretation) without changing the expression.&lt;&#x2F;p&gt;
+&lt;p&gt;As such &lt;code&gt;Trace&lt;&#x2F;code&gt; could be:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Redirected to &lt;code&gt;stderr&lt;&#x2F;code&gt; with &lt;code&gt;traceToStderr&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Redirected to a &lt;code&gt;Handle&lt;&#x2F;code&gt; with &lt;code&gt;traceToHandle&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Dropped with &lt;code&gt;ignoreTrace&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Accumulated with &lt;code&gt;runTraceList&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;etc.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Intro.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Polysemy: An introduction</title>
+		<published>2022-11-23T00:00:00+00:00</published>
+		<updated>2022-11-23T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/polysemy-intro/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/polysemy-intro/</id>
+		<content type="html">&lt;p&gt;I used to teach functional programming using Haskell in an engineering.&lt;&#x2F;p&gt;
+&lt;p&gt;I was starting my course by defining functional programming being defined by three interdependent components:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Types&lt;&#x2F;li&gt;
+&lt;li&gt;Expressions&lt;&#x2F;li&gt;
+&lt;li&gt;Interpretations&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I was emphasizing Haskell&#x27;s precise type system, and all went well until they encountered &lt;code&gt;IO&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Haskell provides a lot of tools to create a fine grained design for pure computations (with (G)ADTs, types synonyms, etc.), but when it comes to I&#x2F;O, we have one generic type.&lt;&#x2F;p&gt;
+&lt;p&gt;While it may simplify my course, it&#x27;s not helpful for my production-level products.&lt;&#x2F;p&gt;
+&lt;p&gt;A way to mitigate that is to use &lt;em&gt;effects systems&lt;&#x2F;em&gt;, which are design to have small, well-defined effects, grouped in typed.&lt;&#x2F;p&gt;
+&lt;p&gt;A widespread implementation of this mechanism is the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;book.realworldhaskell.org&#x2F;read&#x2F;monad-transformers.html&quot;&gt;&lt;code&gt;mtl&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, but it has &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ro-che.info&#x2F;articles&#x2F;2014-06-11-problem-with-mtl&quot;&gt;a number of issues&lt;&#x2F;a&gt; (and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell-effectful&#x2F;effectful&#x2F;blob&#x2F;master&#x2F;transformers.md&quot;&gt;here&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Since September 2020 I&#x27;m using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;polysemy&quot;&gt;Polysemy&lt;&#x2F;a&gt; (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.hetchr.com&#x2F;polysemy-retrospective&#x2F;&quot;&gt;see my feedback one year later&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;This log is the first one of a long series going through Polysemy.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll use Polysemy &lt;code&gt;1.7.1.0&lt;&#x2F;code&gt; with GHC &lt;code&gt;9.2.5&lt;&#x2F;code&gt;, I&#x27;ll drop the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s start with a simple example:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Polysemy.Trace&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;displayFile&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;FilePath&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Sem&lt;&#x2F;span&gt; &amp;#39;[&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Trace&lt;&#x2F;span&gt;, &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Embed&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt;] &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;displayFile path &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+  trace &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Displaying &lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; path
+  content &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; readFile path
+  embed &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; putStr content
+  return &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; length content
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We define a function &lt;code&gt;displayFile&lt;&#x2F;code&gt; which produce a &lt;code&gt;Sem&lt;&#x2F;code&gt; expression which:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Produces an &lt;code&gt;Int&lt;&#x2F;code&gt; (the file size) once interpreted&lt;&#x2F;li&gt;
+&lt;li&gt;Uses &lt;code&gt;Trace&lt;&#x2F;code&gt; and &lt;code&gt;Embed IO&lt;&#x2F;code&gt; (a &amp;quot;lifted&amp;quot; &lt;code&gt;Monad&lt;&#x2F;code&gt;) effects (&lt;code&gt;&#x27;[Trace, Embed IO]&lt;&#x2F;code&gt; is an &lt;code&gt;EffectRow&lt;&#x2F;code&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Step by step we do the following things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Emit a &lt;code&gt;Trace&lt;&#x2F;code&gt; effect with &lt;code&gt;trace&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Emit an &lt;code&gt;Embed IO&lt;&#x2F;code&gt; effect with &lt;code&gt;embed&lt;&#x2F;code&gt; of &lt;code&gt;readFile&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Emit an &lt;code&gt;Embed IO&lt;&#x2F;code&gt; effect with &lt;code&gt;embed&lt;&#x2F;code&gt; of &lt;code&gt;putStr&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Produce the &lt;code&gt;content&lt;&#x2F;code&gt;&#x27;s length&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;See the full the code &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;blackheaven.github.io&#x2F;blob&#x2F;master&#x2F;content&#x2F;code&#x2F;polysemy&#x2F;src&#x2F;Intro.hs&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Contributors management</title>
+		<published>2022-11-20T00:00:00+00:00</published>
+		<updated>2022-11-20T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/contributors-management/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/contributors-management/</id>
+		<content type="html">&lt;p&gt;I learned a lot during &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;hacktoberfest-feedback&#x2F;&quot;&gt;my Hacktoberfest participation&lt;&#x2F;a&gt;, especially how I like my contributions to be handled.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some guidelines:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write clear issues: the context, where to start in the code, some suggestions on the design&lt;&#x2F;li&gt;
+&lt;li&gt;Give precise review: don&#x27;t only give an overall feedback of the code, point piece of code and give fix examples&lt;&#x2F;li&gt;
+&lt;li&gt;Be consistent in your requests&lt;&#x2F;li&gt;
+&lt;li&gt;Review the surrounding code when you make a comment (the code may have changed since the last time you had a look at it)&lt;&#x2F;li&gt;
+&lt;li&gt;Try to be regular or considerate when you answer&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Hacktoberfest 2022: My feedback</title>
+		<published>2022-11-16T00:00:00+00:00</published>
+		<updated>2022-11-16T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/hacktoberfest-feedback/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/hacktoberfest-feedback/</id>
+		<content type="html">&lt;p&gt;Following &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;hacktoberfest-contributions&#x2F;&quot;&gt;my Hacktoberfest participation&lt;&#x2F;a&gt;, I had the chance to have a variety contribution of experiences.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pendings-prs&quot;&gt;Pendings PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;m always a bit sad whenever my PR don&#x27;t get comments, but it&#x27;s the life of projects, they depend of their maintainers priorities.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I get confused sometimes when direction changes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;outdated-prs&quot;&gt;Outdated PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;This one is really frustrating, you start some contribution, they stale for a while and suddenly, another PR is pushed and merged in few hours.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I came across an interesting situation where my PR raised a number of concerns, starting a new set feature.
+Even though I didn&#x27;t get something merged, raising the discussion was a good way to contribute.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;accepted-prs&quot;&gt;Accepted PRs&lt;&#x2F;h2&gt;
+&lt;p&gt;While I like to get my PRs merged, I&#x27;ve found myself it three cases:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;My PR got merged without discussion: I think it&#x27;s quite damaging since the maintainers will rework it after the merge, so I didn&#x27;t get the opportunity to learn&lt;&#x2F;li&gt;
+&lt;li&gt;Some discussions happen, changes are requested: I really enjoy this kind of PRs, I have the chance to debate, to talk to the maintainers, learn about the projet and its spirit&lt;&#x2F;li&gt;
+&lt;li&gt;The discussion takes place over days, direction changes, maintainers do not take the time to articulate their request: it&#x27;s particulary complicated to work on a project with moving objectives, but it&#x27;s even harder when objective are given based on a wrong context or once a week&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Hacktoberfest 2022: My contributions</title>
+		<published>2022-11-13T00:00:00+00:00</published>
+		<updated>2022-11-13T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/hacktoberfest-contributions/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/hacktoberfest-contributions/</id>
+		<content type="html">&lt;p&gt;This year I decided to contribute a lot to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hacktoberfest.com&#x2F;&quot;&gt;Hacktoberfest&lt;&#x2F;a&gt; for three main reasons:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I wanted to give back to the community&lt;&#x2F;li&gt;
+&lt;li&gt;I wanted to change my contribution routing to expanded to non-essential&#x2F;needed ones&lt;&#x2F;li&gt;
+&lt;li&gt;I wanted to be challenged, see how I can handle coming to new codebases&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I actually completed my first four accepted PRs on October 2and at 7 PM (CEST), I was proud.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are my contributions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;tchoutri&#x2F;pg-entity&quot;&gt;pg-entity&lt;&#x2F;a&gt;: A pleasant PostgreSQL database layer for Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Fix &lt;code&gt;resource-pool&lt;&#x2F;code&gt; &lt;code&gt;&amp;gt;= 0.3&lt;&#x2F;code&gt; compilation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cachix&#x2F;cachix-action&quot;&gt;cachix-action&lt;&#x2F;a&gt;: Build software only once and put it in a global cache
+&lt;ul&gt;
+&lt;li&gt;Pending: Add flake support&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;flora-pm&#x2F;flora-server&quot;&gt;flora-server&lt;&#x2F;a&gt;: A package index for the Haskell ecosystem
+&lt;ul&gt;
+&lt;li&gt;Outdated: Restore nix flake&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Add nix flake CI&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Improve bulk performances&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wasp-lang&#x2F;get-wasp&quot;&gt;get-wasp&lt;&#x2F;a&gt;: &lt;code&gt;wasp&lt;&#x2F;code&gt; installer
+&lt;ul&gt;
+&lt;li&gt;Outdated: Rework update usecase&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;aeson&quot;&gt;aeson&lt;&#x2F;a&gt;: A fast JSON library
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;@since&lt;&#x2F;code&gt; in documentation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;hackage-server&quot;&gt;hackage-server&lt;&#x2F;a&gt;: Hackage-Server: A Haskell Package Repository
+&lt;ul&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;lastVersion&lt;&#x2F;code&gt; in listings&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;cabal&quot;&gt;cabal&lt;&#x2F;a&gt;: Official upstream development repository for Cabal and cabal-install
+&lt;ul&gt;
+&lt;li&gt;Pending: Add generate &lt;code&gt;PackageInfos&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;hie-bios&quot;&gt;hie-bios&lt;&#x2F;a&gt;: Set up a GHC API session for various Haskell Projects
+&lt;ul&gt;
+&lt;li&gt;Pending: Add logs over commands&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wasp-lang&#x2F;wasp&quot;&gt;wasp&lt;&#x2F;a&gt;: A programming language that understands what a web app is.
+&lt;ul&gt;
+&lt;li&gt;Pending: Add cli &lt;code&gt;update&lt;&#x2F;code&gt; command&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;cdepillabout&#x2F;password&quot;&gt;password&lt;&#x2F;a&gt;: datatypes and functions for easily working with passwords in Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add utilities functions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;maralorn&#x2F;nix-output-monitor&quot;&gt;nix-output-monitor&lt;&#x2F;a&gt;: Pipe your nix-build output through the nix-output-monitor a.k.a nom to get additional information while building.
+&lt;ul&gt;
+&lt;li&gt;Accepted: Drop &lt;code&gt;flow&lt;&#x2F;code&gt;-file operators&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ludat&#x2F;conferer&quot;&gt;conferer&lt;&#x2F;a&gt;: Configuration management for Haskell
+&lt;ul&gt;
+&lt;li&gt;Accepted: Fix missing projects CI&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;astynax&#x2F;hemmet&quot;&gt;hemmet&lt;&#x2F;a&gt;: Emmet-like text expansion tool capable to produce HTML, CSS, file trees, that stuff
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; &amp;amp; CI Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kowainik&#x2F;tomland&quot;&gt;tomland&lt;&#x2F;a&gt;: Bidirectional TOML serialization
+&lt;ul&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;li&gt;Pending: Add &lt;code&gt;Codec&lt;&#x2F;code&gt; &lt;code&gt;Selective&lt;&#x2F;code&gt; instance&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;chshersh&#x2F;iris&quot;&gt;iris&lt;&#x2F;a&gt;: Haskell CLI Framework supporting Command Line Interface Guidelines
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;luc-tielen&#x2F;eclair-lang&quot;&gt;eclair-lang&lt;&#x2F;a&gt;: A minimal, fast Datalog implementation in Haskell that compiles to LLVM
+&lt;ul&gt;
+&lt;li&gt;Accepted: Add &lt;code&gt;hlint&lt;&#x2F;code&gt; Github Action&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Which gives:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pendings: 9&lt;&#x2F;li&gt;
+&lt;li&gt;Accepted: 8&lt;&#x2F;li&gt;
+&lt;li&gt;Outdated: 2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Write for debug</title>
+		<published>2022-11-09T00:00:00+00:00</published>
+		<updated>2022-11-09T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/write-for-debug/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/write-for-debug/</id>
+		<content type="html">&lt;p&gt;In my last session of the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;gdcr-summary&#x2F;&quot;&gt;GDCR&lt;&#x2F;a&gt;, during the Red phase I ended up with this test:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;spec&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Spec&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;spec &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;SpaceX&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+    describe &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;computeLaunchCost&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;Reused rocket should be launch only&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;ReusedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; launchCost
+      it &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;First launched rocket should be launch and build&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+        computeLaunchCost &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;FirstLaunchedRocket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-function z-infix z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;shouldBe&lt;span class=&quot;z-punctuation z-definition z-entity z-haskell&quot;&gt;`&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; (launchCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;&amp;gt;&lt;&#x2F;span&gt; buildCost)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And thie result:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  test&#x2F;Spec.hs:17:47:
+  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {getCost = 2873037}
+        but got: Cost {getCost = 336552}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;At this time, I lack adding the build cost, which is normal.&lt;&#x2F;p&gt;
+&lt;p&gt;But what if I came back several days&#x2F;weeks later on it?&lt;&#x2F;p&gt;
+&lt;p&gt;I would have to:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Figure out how the computation is done&lt;&#x2F;li&gt;
+&lt;li&gt;Compute the diffrence&lt;&#x2F;li&gt;
+&lt;li&gt;Find out that this number is the build cost&lt;&#x2F;li&gt;
+&lt;li&gt;Check that the specs are confirming it&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;However, if I change my design so:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; {getCost &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;become&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Cost&lt;&#x2F;span&gt;
+ { builds &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;   &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;launches&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Int&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt; }
+ &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; stock (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;then failure is obvious:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  1) SpaceX.computeLaunchCost First launched rocket should be launch and build
+       expected: Cost {builds = 1, launches = 1}
+        but got: Cost {builds = 0, launches = 1}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>GDCR 2022: My feedback</title>
+		<published>2022-11-06T00:00:00+00:00</published>
+		<updated>2022-11-06T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/gdcr-summary/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/gdcr-summary/</id>
+		<content type="html">&lt;p&gt;As every year, the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.coderetreat.org&#x2F;events&#x2F;&quot;&gt;Global day of code retreat&lt;&#x2F;a&gt; is a good excuse to work and rework the same kata a full day.&lt;&#x2F;p&gt;
+&lt;p&gt;Thie year I have participated to the one organized by the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;swcraftlyon&quot;&gt;Software Crafters Lyon&lt;&#x2F;a&gt; (I&#x27;m a member of the organizating team, but I didn&#x27;t organized the Code Retreat this time).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;&#x2F;em&gt; (For a global&#x2F;official summary, have a look &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;swcraftlyon.github.io&#x2F;posts&#x2F;2022-11-05-code-retreat&#x2F;&quot;&gt;here&lt;&#x2F;a&gt; (in french)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;subject&quot;&gt;Subject&lt;&#x2F;h2&gt;
+&lt;p&gt;It was a custom subject which initially aim to support &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20180822100852&#x2F;alistair.cockburn.us&#x2F;Hexagonal+architecture&quot;&gt;Hexagonal architecture&lt;&#x2F;a&gt; during team coaching.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Theme: Expose a Web Service that displays SpaceX launches CO2 cost in a given period of time&lt;&#x2F;li&gt;
+&lt;li&gt;Source API endpoint: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;api.spacexdata.com&#x2F;v5&#x2F;launches&quot;&gt;https:&#x2F;&#x2F;api.spacexdata.com&#x2F;v5&#x2F;launches&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Rules:
+&lt;ul&gt;
+&lt;li&gt;Each rocket built emit 2 536 485 kg of CO2&lt;&#x2F;li&gt;
+&lt;li&gt;Each rocket launch emit 336 552 kg of CO2&lt;&#x2F;li&gt;
+&lt;li&gt;The cost of the rockt construction is included in the launch(es) for which the request was made&lt;&#x2F;li&gt;
+&lt;li&gt;The cost should be expressed as:
+&lt;ul&gt;
+&lt;li&gt;Number of Kg of CO2 emitted&lt;&#x2F;li&gt;
+&lt;li&gt;Equivalent in Kgs of beef (1 Kg of beef takes 13.1 kg of CO2 to produce)&lt;&#x2F;li&gt;
+&lt;li&gt;Equivalent in flights Paris to New-York (1.178 tons)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;my-iterations&quot;&gt;My iterations&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a seasoned crafter&lt;&#x2F;li&gt;
+&lt;li&gt;I was with another longtime crafter I used to pair with&lt;&#x2F;li&gt;
+&lt;li&gt;We focused on computing the total sum of CO2 and equivalents of multiple launches&lt;&#x2F;li&gt;
+&lt;li&gt;I was an exploratory sessions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Java&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a newcomer&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Immutable and&#x2F;or Blind navigator&lt;&#x2F;li&gt;
+&lt;li&gt;We barely achieved CO2 sum as I spent some time explaining the issue with boolean-base and inheritance based design&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Additional constraints: TCR and&#x2F;or Object Calisthenics&lt;&#x2F;li&gt;
+&lt;li&gt;I was forced to take a break at this session as I had to tackle a person issue during group creation time&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Mute and&#x2F;or Ping Pong&lt;&#x2F;li&gt;
+&lt;li&gt;I took another break as there were no one compatible to my setup&lt;&#x2F;li&gt;
+&lt;li&gt;I decided to do it on my own, but a facilitator came to talk shortly about functional design&lt;&#x2F;li&gt;
+&lt;li&gt;I ended up completing the implementation of the sum and equivalents in a record of &lt;code&gt;Int&lt;&#x2F;code&gt;s&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Java&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a newcomer&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Random constraints (I get &amp;quot;no loop&amp;quot; and my pair &amp;quot;TCR&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;We started by computing CO2 sum (with a &lt;code&gt;Stream&lt;&#x2F;code&gt; of enum), then we got stuck trying to compute equivalents&lt;&#x2F;li&gt;
+&lt;li&gt;We started to introduce &lt;code&gt;Cost&lt;&#x2F;code&gt; at the end&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;Paired with a seasoned crafter&lt;&#x2F;li&gt;
+&lt;li&gt;I was with another longtime crafter I used to pair with&lt;&#x2F;li&gt;
+&lt;li&gt;Additional constraints: Primitive Obsessions and&#x2F;or Evil TDD&lt;&#x2F;li&gt;
+&lt;li&gt;For a change we started by design &lt;code&gt;Cost&lt;&#x2F;code&gt;s (build vs launch)&lt;&#x2F;li&gt;
+&lt;li&gt;Sadly, my pair was drained and we ended early&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;my-feedback&quot;&gt;My feedback&lt;&#x2F;h2&gt;
+&lt;p&gt;I didn&#x27;t get hooked by the subject:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I dislike the theme for personal reasons&lt;&#x2F;li&gt;
+&lt;li&gt;The subject was too wide to be addressed in 40 minutes
+&lt;ul&gt;
+&lt;li&gt;The core domain was too small&lt;&#x2F;li&gt;
+&lt;li&gt;The Service part was mostly technology-related&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I didn&#x27;t get much from my pairs (which is my fault).&lt;&#x2F;p&gt;
+&lt;p&gt;I have given a ROTI of 1&#x2F;5.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Initial log</title>
+		<published>2022-11-01T00:00:00+00:00</published>
+		<updated>2022-11-01T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2022-11/initial-log/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2022-11/initial-log/</id>
+		<content type="html">&lt;p&gt;I am to start a short web log (aka blog&#x2F;microblog) in order to share some insight I get in my day-to-day work&#x2F;practice.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll mainly talk about about:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Functional programming (Haskell)&lt;&#x2F;li&gt;
+&lt;li&gt;Software engineering&#x2F;design&#x2F;crafting&lt;&#x2F;li&gt;
+&lt;li&gt;Ops&#x2F;DevOps (Nix&#x2F;NixOS&#x2F;Kubernetes)&lt;&#x2F;li&gt;
+&lt;li&gt;Leading insights&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>
