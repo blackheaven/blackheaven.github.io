@@ -33,6 +33,7 @@ library
       Embed
       Input
       HoE
+      Final
   other-modules:
       Paths_playground
   autogen-modules:
