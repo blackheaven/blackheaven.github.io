@@ -34,6 +34,7 @@ library
       Input
       HoE
       Final
+      Bind
   other-modules:
       Paths_playground
   autogen-modules:
