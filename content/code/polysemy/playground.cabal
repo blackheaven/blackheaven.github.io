@@ -35,6 +35,7 @@ library
       HoE
       Final
       Bind
+      InterpretersCombination
   other-modules:
       Paths_playground
   autogen-modules:
