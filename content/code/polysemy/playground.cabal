@@ -36,6 +36,19 @@ library
       Final
       Bind
       InterpretersCombination
+      Bundle
+      Fixpoint
+      AtomicState
+      NonDet
+      IO
+      AsyncGotchas
+      DesignHeuristicsIO
+      DesignHeuristicsHidingInterpreters
+      DesignHeuristicsSrp
+      DesignHeuristicsEffectsLayering
+      DesignHeuristicsDispatching
+      DesignHeuristicsHidingExposing
+      Onion
   other-modules:
       Paths_playground
   autogen-modules:

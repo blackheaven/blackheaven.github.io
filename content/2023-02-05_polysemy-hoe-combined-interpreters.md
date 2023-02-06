@@ -2,7 +2,7 @@
 title = "Polysemy: Higher order Effects and combined interpreters"
 date = 2023-02-05
 draft = false
-path = "2023-02/polysemy-final-vs-embed"
+path = "2023-02/polysemy-hoe-combined-interpreters"
 
 [taxonomies]
 categories = ["Haskell"]
