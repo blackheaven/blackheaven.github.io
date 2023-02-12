@@ -66,3 +66,32 @@ findRoot :: Members '[Reader Sources, Fixpoint, Final IO] r => Source -> Sem r S
 findRoot = fix $ \next s -> fetchSource s >>= maybe (return s) next
 ```
 
+PPS: Thanks to Libera's `#haskell-fr` folks (and especially to [Guillaume Bouchard](https://github.com/guibou)), we came up with the following example.
+
+`MonadFix` tends to be used when you have cross-referencing values.
+
+For example, if you want to emulate [OOP's Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern):
+
+```
+data Widget = Widget
+  { name :: String,
+    observers :: [Widget]
+  }
+
+moveWidget :: Members '[Final IO] r => Widget -> Sem r ()
+moveWidget w =
+  embedFinal $ do
+    putStrLn $ "Moving " <> w.name <> " done"
+    forM_ w.observers $ \o ->
+      putStrLn $ "Moving " <> w.name <> " notify " <> o.name
+
+newWidget :: String -> Widget -> Sem r Widget
+newWidget n w = return $ Widget n [w]
+
+observations :: Members '[Fixpoint, Final IO] r => Sem r ()
+observations = mdo
+  marco <- newWidget "Marco" polo
+  polo <- newWidget "Polo" marco
+  moveWidget marco
+  moveWidget polo
+```

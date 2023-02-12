@@ -2,7 +2,7 @@
 
 module Fixpoint where
 
--- import Control.Monad
+import Control.Monad
 import Control.Monad.Fix
 import qualified Data.Map.Strict as Map
 import Data.Maybe
@@ -41,9 +41,32 @@ findRoute4Path i = mdo
   s3 <- fetch s2
   return path
 
+data Widget = Widget
+  { name :: String,
+    observers :: [Widget]
+  }
+
+moveWidget :: Members '[Final IO] r => Widget -> Sem r ()
+moveWidget w =
+  embedFinal $ do
+    putStrLn $ "Moving " <> w.name <> " done"
+    forM_ w.observers $ \o ->
+      putStrLn $ "Moving " <> w.name <> " notify " <> o.name
+
+newWidget :: String -> Widget -> Sem r Widget
+newWidget n w = return $ Widget n [w]
+
+observations :: Members '[Fixpoint, Final IO] r => Sem r ()
+observations = mdo
+  marco <- newWidget "Marco" polo
+  polo <- newWidget "Polo" marco
+  moveWidget marco
+  moveWidget polo
+
 main :: IO ()
 main = do
   root <- runFinal $ fixpointToFinal @IO $ runReader sources $ findRoot "4"
   print root
   root' <- runFinal $ fixpointToFinal @IO $ runReader sources $ findRoute4Path "4"
   print root'
+  runFinal $ fixpointToFinal @IO observations
