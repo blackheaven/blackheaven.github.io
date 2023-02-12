@@ -37,6 +37,7 @@ library
       Bind
       InterpretersCombination
       Bundle
+      Fixpoint
   other-modules:
       Paths_playground
   autogen-modules:
