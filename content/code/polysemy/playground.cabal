@@ -38,6 +38,7 @@ library
       InterpretersCombination
       Bundle
       Fixpoint
+      AtomicState
   other-modules:
       Paths_playground
   autogen-modules:
