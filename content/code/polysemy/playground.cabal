@@ -39,6 +39,7 @@ library
       Bundle
       Fixpoint
       AtomicState
+      NonDet
   other-modules:
       Paths_playground
   autogen-modules:
