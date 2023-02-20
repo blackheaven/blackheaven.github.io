@@ -36,7 +36,7 @@ actFailingFirst = failing <|> working0 <|> working1
 Some interpreters are provided:
 * `runNonDet`: produces a `Sem r (f a)` evaluating both branches of a `<|>`
 * `runNonDetMaybe`: produces a `Sem r (Maybe a)` evaluating only the necessary branch of a `<|>`
-* `runNonDet`: produces a `Sem r a` relying on a `Error e` evaluating only the necessary branch of a `<|>`
+* `nonDetToError`: produces a `Sem r a` relying on a `Error e` evaluating only the necessary branch of a `<|>`
 
 Let's make some tests:
 
