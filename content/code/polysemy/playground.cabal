@@ -40,6 +40,7 @@ library
       Fixpoint
       AtomicState
       NonDet
+      IO
   other-modules:
       Paths_playground
   autogen-modules:
