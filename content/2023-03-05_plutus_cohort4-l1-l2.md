@@ -51,6 +51,7 @@ Let's start with some definitions:
 * [Plutus core](https://docs.cardano.org/plutus/learn-about-plutus): Native on-chain script language used by Cardano for _smart-contracts_ (it is compiled from the _Plutus Application_ by the _Plutus Tx Compiler_, _Plutus Tx_, a GHC plug-in)
 * [Plutus Application Framework](https://github.com/input-output-hk/plutus-apps#the-plutus-application-framework): basis used for _Plutus Applications_, providing a HTTP and Websocket interface
 * Plutus Application Backend: executes off-chain part of an application, provides an HTTP API, manages requests to the node and the wallet while maintaining the application state
+* Collateral: monetary deposit used only if the smart contract fails on-chain (supposed to avoid malicious actors)
 
 A transaction is composed of:
 * inputs: which are spent by _redeemers_ (which are _Datum_ values)
@@ -127,8 +128,9 @@ Let's try a simple validator checking the factorization of a number:
 ```haskell
 --              Datum  Redeemer        ScriptContext
 mkValidator :: Integer -> (Integer, Integer) -> PlutusV2.ScriptContext -> Bool
-mkValidator t (x, y) _ = shouldNotBeOne && shouldBeFactors
-  where shouldNotBeOne = traceIfTrue "No factor should be 1" $ x == 1 || y == 1
+mkValidator t (x, y) _ = shouldNotBeOne x && shouldNotBeOne y && shouldBeFactors
+  where shouldNotBeOne :: Integer -> Bool
+        shouldNotBeOne n = traceIfFalse "No factor should be 1" $ n /= 1
         shouldBeFactors  = traceIfFalse "Not factors" $ x * y == t
 {-# INLINABLE mkValidator #-}
 
@@ -161,4 +163,65 @@ $ scripts/query-address.sh $(cat code/Week02/experiments/factoring.addr)
                            TxHash                                 TxIx        Amount
 --------------------------------------------------------------------------------------
 2d1604d8ba3128cd1526b6c68f94f8eddcd83b530dda4560dd327f25ad39164d     0        3000000 lovelace + TxOutDatumInline ReferenceTxInsScriptsInlineDatumsInBabbageEra (ScriptDataNumber 42)
+```
+
+If we then try to collect (using bob's key address first transaction as collateral and above _TxHash_ as `txin`) with an incorrect _Datum_:
+
+```
+$ code/Week02/experiments/colllect.sh wrong
+# Query the protocol parameters
+# Build the transaction
+Command failed: transaction build  Error: The following scripts have execution failures:
+the script for transaction input 0 (in the order of the TxIds) failed with:
+transaction input 0 (in the order of the TxIds) points to a script hash that is not known.
+
+# Sign the transaction
+# Submit the transaction
+Command failed: transaction submit  Error: Error while submitting tx: ShelleyTxValidationError ShelleyBasedEraBabbage (ApplyTxError [UtxowFailure (FromAlonzoUtxowFail (WrappedShelleyEraFailure (ExtraneousScriptWitnessesUTXOW (fromList [ScriptHash "c06d15e27842d0ccd6c825a13b84830a14215e01c98a93567f8cdbf8"])))),UtxowFailure (FromAlonzoUtxowFail (ExtraRedeemers [RdmrPtr Spend 0])),UtxowFailure (FromAlonzoUtxowFail (PPViewHashesDontMatch (SJust (SafeHash "abb568f2abaa14e3f59d0feaceb981033fdb16850af8339863a05343d8ac19f6")) (SJust (SafeHash "29f1fbb67e8a3f06db19ae5a5f8c6f51968e16920f3b486925beafd1c3e27391")))),UtxowFailure (UtxoFailure (FromAlonzoUtxoFail (ValueNotConservedUTxO (Value 0 (fromList [])) (Value 3000000 (fromList []))))),UtxowFailure (UtxoFailure (FromAlonzoUtxoFail (BadInputsUTxO (fromList [TxIn (TxId {_unTxId = SafeHash "2d1604d8ba3128cd1526b6c68f94f8eddcd83b530dda4560dd327f25ad39164d"}) (TxIx 0)]))))])
+transaction id: ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
+Cardanoscan: https://preview.cardanoscan.io/transaction/ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
+```
+
+if fails right away, without going to the blockchain, while a good _Datum_ works:
+
+```
+$ code/Week02/experiments/colllect.sh good
+Transaction successfully submitted.
+transaction id: ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
+Cardanoscan: https://preview.cardanoscan.io/transaction/ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
+```
+
+Updating transactions:
+
+```
+$ scripts/query-address.sh $(cat keys/bob.addr)
+TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+2e1fe0fe79677804a70bff96b249d9912143a3464f4788d7a42b1f772bfb2050     0        10000000000 lovelace + TxOutDatumNone
+ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590     0        2701365 lovelace + TxOutDatumNone
+$ scripts/query-address.sh $(cat keys/alice.addr)
+TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+2d1604d8ba3128cd1526b6c68f94f8eddcd83b530dda4560dd327f25ad39164d     1        9996833927 lovelace + TxOutDatumNone
+$ scripts/query-address.sh $(cat code/Week02/experiments/factoring.addr)
+TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+```
+
+_Bonus_: At some point I did, mistakenly change the validator, which triggered this error:
+
+```
+Command failed: transaction build  Error: The following scripts have execution failures:
+the script for transaction input 0 (in the order of the TxIds) failed with: 
+The redeemer pointer: RdmrPtr Spend 0 points to a Plutus script that does not exist.
+The pointers that can be resolved are: fromList [(RdmrPtr Spend 0,(Spending (TxIn (TxId {_unTxId = SafeHash "2d1604d8ba3128cd1526b6c68f94f8eddcd83b530dda4560dd327f25ad39164d"}) (TxIx 0)),Nothing,ScriptHash "c06d15e27842d0ccd6c825a13b84830a14215e01c98a93567f8cdbf8"))]
+```
+
+In order to detect it, you can recompute it with:
+
+```
+$ cardano-cli address build-script --testnet-magic 2 --script-file code/Week02/experiments/factoring.plutus
+addr_test1wr5wslr3utlm0vccvveg2z4p0p0jp02fcrwmyeaqqwmglsc6urkf0
+$ cat code/Week02/experiments/factoring.addr
+addr_test1wrqx690z0ppdpnxkeqj6zwuysv9pgg27q8yc4y6k07xdh7qyreaje
 ```
