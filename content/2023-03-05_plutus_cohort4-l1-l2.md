@@ -168,7 +168,7 @@ $ scripts/query-address.sh $(cat code/Week02/experiments/factoring.addr)
 If we then try to collect (using bob's key address first transaction as collateral and above _TxHash_ as `txin`) with an incorrect _Datum_:
 
 ```
-$ code/Week02/experiments/colllect.sh wrong
+$ code/Week02/experiments/collect.sh wrong
 # Query the protocol parameters
 # Build the transaction
 Command failed: transaction build  Error: The following scripts have execution failures:
@@ -185,7 +185,7 @@ Cardanoscan: https://preview.cardanoscan.io/transaction/ee269f32f5eb8abaf580f368
 if fails right away, without going to the blockchain, while a good _Datum_ works:
 
 ```
-$ code/Week02/experiments/colllect.sh good
+$ code/Week02/experiments/collect.sh good
 Transaction successfully submitted.
 transaction id: ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
 Cardanoscan: https://preview.cardanoscan.io/transaction/ee269f32f5eb8abaf580f3684221c8c82066136e6e9ea7b8455fba61ee53f590
