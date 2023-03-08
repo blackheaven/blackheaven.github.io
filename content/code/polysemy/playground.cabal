@@ -41,6 +41,7 @@ library
       AtomicState
       NonDet
       IO
+      AsyncGotchas
   other-modules:
       Paths_playground
   autogen-modules:
