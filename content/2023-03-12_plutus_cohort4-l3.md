@@ -9,7 +9,7 @@ categories = ["Haskell", "Blockchain"]
 tags = ["haskell", "cardano", "smart contracts"]
 +++
 
-Following the [Plutus Pioneers Program 1st & 2nd lectures](@/content/2023-03-05_plutus_cohort4-l1-l2.md), this one takes a step closer to real world use cases.
+Following the [Plutus Pioneers Program 1st & 2nd lectures](@/2023-03-05_plutus_cohort4-l1-l2.md), this one takes a step closer to real world use cases.
 
 We are able to tests validators, let's have a look at on of this week tests:
 
