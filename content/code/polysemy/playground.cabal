@@ -42,6 +42,7 @@ library
       NonDet
       IO
       AsyncGotchas
+      DesignHeuristicsIO
   other-modules:
       Paths_playground
   autogen-modules:
