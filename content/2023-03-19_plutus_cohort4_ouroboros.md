@@ -46,3 +46,4 @@ References:
 * [https://www.vanticatrading.com/post/what-is-ouroboros-the-cardano-consensus-protocol](https://www.vanticatrading.com/post/what-is-ouroboros-the-cardano-consensus-protocol)
 * [https://docs.cardano.org/learn/ouroboros-overview](https://docs.cardano.org/learn/ouroboros-overview)
 * [https://docs.cardano.org/new-to-cardano/how-to-delegate](https://docs.cardano.org/new-to-cardano/how-to-delegate)
+* [https://iohk.io/en/blog/posts/2022/06/03/from-classic-to-chronos-the-implementations-of-ouroboros-explained/?utm_source=pocket_reader](https://iohk.io/en/blog/posts/2022/06/03/from-classic-to-chronos-the-implementations-of-ouroboros-explained/?utm_source=pocket_reader)
