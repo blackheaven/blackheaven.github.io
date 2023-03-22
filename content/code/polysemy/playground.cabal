@@ -43,6 +43,7 @@ library
       IO
       AsyncGotchas
       DesignHeuristicsIO
+      DesignHeuristicsSrp
   other-modules:
       Paths_playground
   autogen-modules:
