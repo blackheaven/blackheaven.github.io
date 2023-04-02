@@ -2,7 +2,7 @@
   description = "gautier-website";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -15,11 +15,6 @@
           # for `vscode-with-extensions`
           config.allowUnfree = true;
         };
-
-        github = owner: repo: rev: sha256:
-          builtins.fetchTarball { inherit sha256; url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz"; };
-
-        sources = { };
       in
       rec
       {
@@ -32,7 +27,7 @@
           in
           pkgs.mkShell {
             buildInputs = with pkgs; [
-              zola
+              # zola
               scripts
             ];
             inputsFrom = [
