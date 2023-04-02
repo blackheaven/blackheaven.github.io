@@ -1,6 +1,6 @@
 +++
 title = "Polysemy: Design heuristics: IO hunting"
-date = 2023-03-08
+date = 2023-03-15
 draft = false
 path = "2023-03/polysemy-design-heuristics-io-hunting"
 
