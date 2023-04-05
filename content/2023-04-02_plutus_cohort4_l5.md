@@ -72,10 +72,41 @@ validator :: PlutusV2.Validator
 validator = PlutusV2.mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])
 ```
 
+More here:
+
 * <https://developers.cardano.org/docs/native-tokens/>
 
+Note: At some points, I tried many variations to solve the homeworks, ie.
+
 ```
-Exception: Error: Unsupported feature: Use of fromString on type other than builtin strings or bytestrings: Plutus.V1.Ledger.Value.TokenName
-Exception: Error: Unsupported feature: Type constructor: GHC.Prim.Char#
+    checkMintedAmount :: Bool
+    checkMintedAmount = case flattenValue (txInfoMint info) of
+        [(_, "", 1)] -> True
+        _            -> False
+
+    -- or
+    checkMintedAmount :: Bool
+    checkMintedAmount = case flattenValue (txInfoMint info) of
+        [(_, tn'', amt)] -> "" == policyTokenName && amt == 1
+        _                -> False
+
+    -- or
+    checkMintedAmount :: Bool
+    checkMintedAmount = case flattenValue (txInfoMint info) of
+        [(_, tn'', amt)] -> tn'' == policyTokenName && amt == 1
+        _                -> False
+
+{-# INLINABLE policyTokenName #-}
+policyTokenName :: TokenName
+policyTokenName = ""
+```
+
+but since Plutus is a subset of Haskell, I ended-up with errors:
+
+```
 Exception: Error: Unsupported feature: Use of == from the Haskell Eq typeclass
+Exception: Error: Unsupported feature: Type constructor: GHC.Prim.Char#
+Exception: Error: Unsupported feature: Use of fromString on type other than builtin strings or bytestrings: Plutus.V1.Ledger.Value.TokenName
 ```
+
+sadly, it's at runtime, which is frustrating to me.
