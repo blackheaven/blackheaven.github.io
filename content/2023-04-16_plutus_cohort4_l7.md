@@ -89,6 +89,9 @@ data Payee
   = Account AccountId
   | Party Party
   deriving stock (Show,Generic,Eq)
+
+data Case = Case Action Contract
+  deriving stock (Show,Generic,Eq)
 ```
 
 We can try a very simple token swap token:
