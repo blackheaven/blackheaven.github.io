@@ -59,6 +59,6 @@ However, liquidating a other user's stablecoin is slightly different as it takes
 Doing so gives you access to the other user's collateral.
 
 If we follows a complete example:
-* _User 1_ mints 100 stablecoins, which locks a collateral of 150 ADA (a threshold of 150%)
-* If the conversion rate drops, then there's an incentive to liquidate _User 1_ position
-* _User 2_ will then mint 100 stablecoins, at a lower price, and liquidates _User 1_ position, keeping the rewards
+* _User 1_ mints 100 stablecoins, which locks a collateral of 150 ADA (a threshold of 150%, as 1 USD = 1 ADA)
+* If the conversion rate drops (let's say 1 ADA = 0.90 USD), then there's an incentive to liquidate _User 1_ position
+* _User 2_ will then mint 100 stablecoins, at a lower price (135 ADA in the collateral, 100 stablecoins * 150% * 0.90 USD/ADA), and liquidates _User 1_ position, keeping the rewards (15 ADA), without affecting stablecoin's stability
