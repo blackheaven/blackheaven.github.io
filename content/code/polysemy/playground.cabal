@@ -46,6 +46,7 @@ library
       DesignHeuristicsSrp
       DesignHeuristicsEffectsLayering
       DesignHeuristicsHidingInterpreters
+      DesignHeuristicsDispatching
   other-modules:
       Paths_playground
   autogen-modules:
