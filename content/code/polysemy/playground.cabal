@@ -47,6 +47,7 @@ library
       DesignHeuristicsEffectsLayering
       DesignHeuristicsHidingInterpreters
       DesignHeuristicsDispatching
+      DesignHeuristicsHidingExposing
   other-modules:
       Paths_playground
   autogen-modules:
