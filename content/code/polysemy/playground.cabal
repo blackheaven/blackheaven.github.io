@@ -48,6 +48,7 @@ library
       DesignHeuristicsHidingInterpreters
       DesignHeuristicsDispatching
       DesignHeuristicsHidingExposing
+      Onion
   other-modules:
       Paths_playground
   autogen-modules:
