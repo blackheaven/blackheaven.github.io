@@ -9,7 +9,7 @@ categories = ["Haskell"]
 tags = ["haskell", "polysemy", "design", "effects systems"]
 +++
 
-With [Polysemy 1.9.0.0](@/2023-05-03_polysemy-v19.md) came the `Opaque` effect.
+With [Polysemy 1.9.0.0](@/2023-05-21_polysemy-v19.md) came the `Opaque` effect.
 
 It's defined as follows:
 
