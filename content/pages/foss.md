@@ -14,6 +14,8 @@ Used as [my cookie jar](https://thewilliamkon.medium.com/david-goggins-the-cooki
 
 I have published some packages over Hackage (Haskell):
 
+- [kill-bool](https://hackage.haskell.org/package/kill-bool) (March 2023): Booleans strong-typing
+- [poolboy](https://hackage.haskell.org/package/poolboy) (March 2023): Simple work queue for bounded concurrency
 - [adhoc-fixtures](https://hackage.haskell.org/package/adhoc-fixtures) (November 2022): Simplify tests fixtures (also [-hspec](https://hackage.haskell.org/package/adhoc-fixtures-hspec))
 - [yarl](https://hackage.haskell.org/package/yarl) (September 2022): simple extensible records library (with `getField` support)
 - [sized-wrapper](https://hackage.haskell.org/package/sized-wrapper) (August 2022): provides a wrapper for sized values (also [-aeson](https://hackage.haskell.org/package/sized-wrapper-aeson), [-quickcheck](https://hackage.haskell.org/package/sized-wrapper-quickcheck), [-text](https://hackage.haskell.org/package/sized-wrapper-text))
@@ -34,6 +36,12 @@ I have published some packages over Hackage (Haskell):
 
 ## Other contributions:
 
+- [purebred-email](https://github.com/purebred-mua/purebred-email): Haskell MIME e-mails parsing and manipulation library
+  - March 2023: Fix documentation
+- [tmux-net-speed](https://github.com/tmux-plugins/tmux-net-speed): tmux status bar net speed fragment
+  - March 2023: Fix `bash` invocation
+- [cardano-documentation](https://github.com/input-output-hk/cardano-documentation): Cardano blockchain documentation
+  - March 2023: Fix a typo
 - [pg-entity](https://github.com/tchoutri/pg-entity): A pleasant PostgreSQL database layer for Haskell
   - October 2022: Fix `resource-pool` `>= 0.3` compilation
 - [cachix-action](https://github.com/cachix/cachix-action): Build software only once and put it in a global cache
@@ -42,12 +50,14 @@ I have published some packages over Hackage (Haskell):
   - October 2022: Restore nix flake
   - October 2022: Add nix flake CI
   - October 2022: Improve bulk performances
+  - March 2023: Improve bulk performances
 - [get-wasp](https://github.com/wasp-lang/get-wasp): `wasp` installer
   - October 2022: Rework update usecase
 - [aeson](https://github.com/haskell/aeson): A fast JSON library
   - October 2022: Add `@since` in documentation
 - [hackage-server](https://github.com/haskell/hackage-server): Hackage-Server: A Haskell Package Repository
   - October 2022: Add `lastVersion` in listings
+  - February 2023: Fix `lastVersion` update in listings
 - [cabal](https://github.com/haskell/cabal): Official upstream development repository for Cabal and cabal-install
   - October 2022: Add generate `PackageInfos`
 - [hie-bios](https://github.com/haskell/hie-bios): Set up a GHC API session for various Haskell Projects
