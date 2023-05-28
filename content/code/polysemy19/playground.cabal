@@ -22,6 +22,7 @@ library
   hs-source-dirs: src
   exposed-modules:
       Opaque
+      Scoped
   other-modules:
       Paths_playground
   autogen-modules:
