@@ -29,6 +29,8 @@ I will rely on my interpretation of [The Clean Architecture](https://blog.cleanc
 
 Note: many shortcuts will be taken, for example, I won't detail all the tests done (except if U get requests on this point), I will also use a file-based event store, without projections.
 
+The basic idea is to log a bunch of entries (expected and actual), when they match, they are "validated", otherwise the entry should be somehow "fixed".
+
 Let's start this series with the basic requirements:
 
 * I should start a _Period_ with a _name_ (i.e. "June 2023"), start and stop dates, an _initial balance_
