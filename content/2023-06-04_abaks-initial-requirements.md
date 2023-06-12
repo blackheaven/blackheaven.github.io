@@ -2,7 +2,7 @@
 title = "Abaks: initial requirements"
 date = 2023-06-04
 draft = false
-path = "2023-06/abbaks-initial-requirements"
+path = "2023-06/abaks-initial-requirements"
 
 [taxonomies]
 categories = ["dev"]
