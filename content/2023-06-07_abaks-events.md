@@ -2,7 +2,7 @@
 title = "Abaks: events"
 date = 2023-06-07
 draft = false
-path = "2023-06/abbaks-events"
+path = "2023-06/abaks-events"
 
 [taxonomies]
 categories = ["dev"]
