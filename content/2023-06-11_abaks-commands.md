@@ -1,8 +1,8 @@
 +++
-title = "Abaks: events"
+title = "Abaks: commands"
 date = 2023-06-11
 draft = false
-path = "2023-06/abaks-events"
+path = "2023-06/abaks-commands"
 
 [taxonomies]
 categories = ["dev"]
