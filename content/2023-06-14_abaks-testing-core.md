@@ -1,6 +1,6 @@
 +++
 title = "Abaks: testing core domain"
-date = 2023-06-16
+date = 2023-06-14
 draft = false
 path = "2023-06/abaks-testing-core"
 
