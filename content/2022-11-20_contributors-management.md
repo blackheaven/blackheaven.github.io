@@ -9,7 +9,7 @@ categories = ["FOSS"]
 tags = ["foss"]
 +++
 
-I learned a lot during [my Hacktoberfest participation](@/2022-11-16_hacktoberfest_feedback.md), especially how I like my contributions to be handled.
+I learned a lot during [my Hacktoberfest participation](@/2022-11-16_hacktoberfest-feedback.md), especially how I like my contributions to be handled.
 
 Here are some guidelines:
 

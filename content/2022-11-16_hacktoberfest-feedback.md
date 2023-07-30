@@ -9,7 +9,7 @@ categories = ["FOSS"]
 tags = ["foss", "hacktoberfest"]
 +++
 
-Following [my Hacktoberfest participation](@/2022-11-13_hacktoberfest_contributions.md), I had the chance to have a variety contribution of experiences.
+Following [my Hacktoberfest participation](@/2022-11-13_hacktoberfest-contributions.md), I had the chance to have a variety contribution of experiences.
 
 ## Pendings PRs
 
