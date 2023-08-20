@@ -2,7 +2,7 @@
 title = "Homelab: server certificates"
 date = 2023-08-20
 draft = false
-path = "2023-08/homelab-init"
+path = "2023-08/homelab-server-certificates"
 
 [taxonomies]
 categories = ["ops"]
