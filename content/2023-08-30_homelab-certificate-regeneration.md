@@ -9,7 +9,7 @@ categories = ["ops"]
 tags = ["ops", "nix", "nixos", "pki"]
 +++
 
-Previously, we spent huge amount of time to [set up an intermediate CA](@/2023-08-227-homelab-intermediate-ca.md).
+Previously, we spent huge amount of time to [set up an intermediate CA](@/2023-08-27-homelab-intermediate-ca.md).
 
 Our goal was to be able to deploy it on _Barracuda_, so it can automatically generate trusted certificates.
 The idea, borrowed from [Meta engineering blog](https://engineering.fb.com/2023/08/07/security/short-lived-certificates-protect-tls-secrets/), is to ensure that, even if a certificate is broken, it won't affect for a long time.
