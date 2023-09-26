@@ -22,7 +22,7 @@ That why we want to rely on an _Intermediate CA_, so we'll end up with:
 
 Note that I base my set-up on [Jamie Nguyen's OpenSSL Certificate Authority guide](https://jamielinux.com/docs/openssl-certificate-authority/),
 
-Firt, we have to generate le _root CA_:
+First, we have to generate le _root CA_:
 
 ```
 ##!/usr/bin/env bash
