@@ -12,7 +12,8 @@ tags = ["ops", "nix", "nixos", "monitoring", "lgtm-stack"]
 Even though I'm not a huge fan of [Web/GUI](@/2023-09-06_homelab-monitoring-introduction.md),
 setting up dashboards can help discoverability and debugging (especially if your alerts where not properly set).
 
-While I could set up a basic dashboard, Grafana has a [community-driven catalog](https://grafana.com/grafana/dashboards/).
+While I could set up a basic dashboard to help with the [USE Method](https://www.brendangregg.com/usemethod.html),
+Grafana has a [community-driven catalog](https://grafana.com/grafana/dashboards/).
 
 First, we have to export a bit more metrics:
 
