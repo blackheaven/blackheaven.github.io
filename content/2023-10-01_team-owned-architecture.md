@@ -1,8 +1,8 @@
 +++
-title = "A reasonable hiring process"
-date = 2023-04-19
+title = "Team owned architecture"
+date = 2023-10-01
 draft = false
-path = "2023-04/reasonable-hiring-process"
+path = "2023-10/team-owned-architecture"
 
 [taxonomies]
 categories = ["Software engineering"]
