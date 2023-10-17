@@ -80,7 +80,7 @@ describe "Not working" $ do
 By default, Haskell does not let you access to type information at runtime,
 we have to rely on [`Typeable`](https://hackage.haskell.org/package/base-4.19.0.0/docs/Type-Reflection.html#t:Typeable).
 
-The base function is define as follows:
+The base function is defined as follows:
 
 ```haskell
 decodeFinal :: forall event content. (Typeable event) => TypeRep content -> content -> Maybe event
@@ -115,6 +115,10 @@ again (regardless `event` is `WithMeta a` or not).
 So, not only you might do extra work, but you'll be forced to add some code here
 for each new wrapping types.
 
+Above all, I think dynamically (via reflection) changing the behavior breaks
+the ability to reason from type signatures, it should be avoided, there are no
+excuses here, as we have this information at Type-Level.
+
 An alternative approach would be to define a type class:
 
 ```haskell
@@ -136,3 +140,7 @@ instance (Typeable event) => Decodable (WithMeta event) where
 
 The usage of `OVERLAPPABLE` is not great, but at least it simplifies the code and
 allows extensibility.
+
+Note: usually I prefer to have Type-Level information regarding which kind of
+events I'm dealing with. Moreover, I would rely on production serialisation
+(e.g. json, avro, etc.)
