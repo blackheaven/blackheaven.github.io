@@ -1,0 +1,56 @@
+cabal-version:       3.0
+name:                monad
+version:             0.1.0.0
+author:              Gautier DI FOLCO
+maintainer:          gautier.difolco@gmail.com
+category:            Data
+build-type:          Simple
+license:             ISC
+license-file:        LICENSE
+synopsis:            Thoughts about monads
+description:         Thoughts about monads.
+Homepage:            http://github.com/blackheaven/blackheaven.github.io
+tested-with:         GHC==9.4.3
+
+library
+  default-language:   Haskell2010
+  build-depends:
+      base == 4.*
+    , mtl
+    , polysemy
+    , polysemy-plugin
+  hs-source-dirs: src
+  exposed-modules:
+      BadMonad
+  other-modules:
+      Paths_monad
+  autogen-modules:
+      Paths_monad
+  default-extensions:
+      DataKinds
+      DefaultSignatures
+      DeriveAnyClass
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      GADTs
+      GeneralizedNewtypeDeriving
+      KindSignatures
+      LambdaCase
+      -- OverloadedLists
+      OverloadedRecordDot
+      -- OverloadedStrings
+      QuasiQuotes
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      TypeApplications
+      TypeFamilies
+      TypeOperators
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , hspec
+  default-language: Haskell2010

@@ -12,7 +12,7 @@ tags = ["haskell", "design"]
 I am currently migrating some hand-crafted `Monad` looking like this:
 
 ```haskell
-class MyAppMonad m where
+class Monad m => MyAppMonad m where
   getSmtpConfig :: m SmtpConfig
   getS3Config :: m S3Config
   getRedisParams :: m RedisParams
