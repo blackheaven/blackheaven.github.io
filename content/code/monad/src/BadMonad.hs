@@ -1,6 +1,11 @@
+{-# LANGUAGE ConstraintKinds #-}
+{-# LANGUAGE OverloadedRecordDot #-}
+
 module BadMonad where
 
 import Control.Monad.Reader (ReaderT, asks)
+import Polysemy
+import Polysemy.Reader (Reader, ask, runReader)
 
 data SmtpConfig = SmtpConfig
 
@@ -58,3 +63,36 @@ instance MyAppMonad' NoopAppM where
   fetchUser' _ = NoopAppM $ return Nothing
   storeAvatar' _ _ = NoopAppM $ return ()
   notifySignUp' _ _ = NoopAppM $ return ()
+
+type MyAppMonadEffects =
+  '[ Reader SmtpConfig,
+     Reader S3Config,
+     Reader RedisParams
+   ]
+
+type MyAppMonad'' m = m ~ Sem MyAppMonadEffects
+
+runMyAppMonad'' :: AppContext -> Sem MyAppMonadEffects a -> a
+runMyAppMonad'' ctx =
+  run
+    . runReader ctx.acRedisParams
+    . runReader ctx.acS3Config
+    . runReader ctx.acSmtpConfig
+
+getSmtpConfig'' :: (Member (Reader SmtpConfig) r) => Sem r SmtpConfig
+getSmtpConfig'' = ask
+
+getS3Config'' :: (Member (Reader S3Config) r) => Sem r S3Config
+getS3Config'' = ask
+
+getRedisParams'' :: (Member (Reader RedisParams) r) => Sem r RedisParams
+getRedisParams'' = ask
+
+fetchUser'' :: (MyAppMonad'' m) => UserName -> m (Maybe User)
+fetchUser'' _ = error "TODO"
+
+storeAvatar'' :: (MyAppMonad'' m) => UserId -> ByteString -> m ()
+storeAvatar'' _ _ = error "TODO"
+
+notifySignUp'' :: (MyAppMonad'' m) => UserId -> PassCode -> m ()
+notifySignUp'' _ _ = error "TODO"
