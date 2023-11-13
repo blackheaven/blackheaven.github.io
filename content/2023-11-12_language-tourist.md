@@ -101,3 +101,8 @@ occurs in non-linear logic, i.e. exceptions most of the time).
 For the rest, I rely on architectural and design principles (transposed SOLID principles,
 coupling, cohesion, etc.)
 
+Note: another important factor, when arriving at a base code, is to grasp
+design choices and habits, in my opinions it's one of the biggest challenge as
+you cannot really be prepared for that (code review and "culture" can help) and
+it varies a lot. For example, I have worked in a team which has created and
+maintained three products at the same time, but had really different styles.
