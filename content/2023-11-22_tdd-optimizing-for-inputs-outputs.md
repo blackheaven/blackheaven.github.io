@@ -30,7 +30,7 @@ On the positive side:
 On the negative side:
 
 * I have overdone it (more than 120 times)
-* When I do it, I tend to not be patient
+* When I do it, I tend to be impatient and prescriptive
 
 I'll use it to illustrate my point, which is: there are two ways to optimize
 a piece of code in TDD, for outputs or for inputs.
@@ -94,7 +94,7 @@ At this point, my implementation is incorrect as a dead cell with two neighbours
 or less should stay dead.
 
 Moreover, in a pure TDD-style, I won't be able to add tests not passing to cover
-rule 1, so I add few "business tests:"
+rule 1, so I add few "business" tests:
 
 ```haskell
 -- ...
@@ -115,7 +115,7 @@ nextGen x =
 ```
 
 That's what I call optimizing for outputs: implementation does not matter, as
-long as you have the correct values, the production code can mask the business
+long as you have the correct values, the production code can omit the business
 side (which are in the tests).
 
 On another hand, there are what I call optimizing for inputs:
@@ -181,9 +181,9 @@ underpopulation :: Neighbourhood
 underpopulation = Neighbourhood $ const Dead
 ```
 
-Of course, it takes an effort to talk with the business department to structure
+Of course, it takes an effort to talk with the business experts to structure
 the problem's understanding, but at least each rule is clearly defined in the
-production code, not only in tests.
+production code, and not only in tests.
 
 Moreover, each rule is independent.
 
