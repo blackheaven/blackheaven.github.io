@@ -1,5 +1,5 @@
 +++
-title = "Game of Like kata: branchless Grid"
+title = "Game of Life kata: branchless Grid"
 date = 2022-11-26
 draft = false
 path = "2023-11/gol-branchless-grid"
