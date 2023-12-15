@@ -11,9 +11,10 @@ tags = ["gdcr", "code kata", "coding dojo", "code retreat"]
 
 As every year, the [Global day of code retreat](https://www.coderetreat.org/events/) is a good excuse to work and rework the same kata a full day.
 
-Thie year I have participated to the one organized by the [Software Crafters Lyon](https://twitter.com/swcraftlyon) (I'm a member of the organizating team, but I didn't organized the Code Retreat this time).
+This year I have attended to the one organized by the [Software Crafters Lyon](https://twitter.com/swcraftlyon)
+(I'm a member of the organizing team, but I didn't organize the Code Retreat this time).
 
-_Note:_ (For a global/official summary, have a look [here](https://swcraftlyon.github.io/posts/2022-11-05-code-retreat/) (in french)
+_Note:_ (For a global/official summary, have a look [here](https://swcraftlyon.github.io/posts/2022-11-05-code-retreat/) (in French)
 
 ## Subject
 
@@ -35,9 +36,9 @@ It was a custom subject which initially aim to support [Hexagonal architecture](
 1.
   * Language: Haskell
   * Paired with a seasoned crafter
+  * It was an exploratory session
   * I was with another longtime crafter I used to pair with
   * We focused on computing the total sum of CO2 and equivalents of multiple launches
-  * I was an exploratory sessions
 2.
   * Language: Java
   * Paired with a newcomer
