@@ -2,10 +2,10 @@
 title = "Architecture Heuristic YNIA: Queues"
 date = 2023-10-18
 draft = false
-path = "2023-10/architecture-heuristic-ynai-queues"
+path = "2023-10/architecture-heuristic-ynia-queues"
 
 [taxonomies]
-categories = ["dev"]
+categories = ["Software engineering"]
 tags = ["architecture", "design", "heuristics"]
 +++
 
