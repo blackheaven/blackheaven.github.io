@@ -9,7 +9,7 @@ categories = ["Software engineering"]
 tags = ["architecture", "design", "heuristics"]
 +++
 
-A while ago, I have introduced [_YNIA_](@/2023-10-18_architecture-heuristic-ynai-queues.md),
+A while ago, I have introduced [_YNIA_](@/2023-10-18_architecture-heuristic-ynia-queues.md),
 which is a set of patterns I set up before _really_ need them.
 
 It's not uncommon, when producing software to have to design collaborative spaces.
