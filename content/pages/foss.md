@@ -55,7 +55,7 @@ I have published some packages over Hackage (Haskell):
 - [ergo](https://github.com/ergochat/ergo): A modern IRC server (daemon/ircd) written in Go
   - October 2023: introduce Prometheus
 - [OpenSearch documentation](https://github.com/opensearch-project/documentation-website): OpenSearch (ElasticSearch fork) documentation
-  - October 2023: drop point in time in 1.3.x 
+  - October 2023: drop point in time in 1.3.x
 - [skip-duplicate-actions](https://github.com/blackheaven/skip-duplicate-actions): Github Action to skip jobs on arbitrary conditions
   - September 2023: Upgrade to NodeJS 20
 - [lyontechhub.github.io](https://github.com/lyontechhub/lyontechhub.github.io): LyonTechHub (Community of tech communities of Lyon)
@@ -66,7 +66,8 @@ I have published some packages over Hackage (Haskell):
   - August 2023: Add `aeson` `2.2.0.0` support
 - [nixpkgs](https://github.com/NixOS/nixpkgs): nix-based packages set
   - June 2023: upgrade `curlie` to `1.7.1`
-  - July 2023: add `meta.mainProgram` to eventstore
+  - July 2023: add `meta.mainProgram` to `eventstore`
+  - December 2023: add desktop icon to `appflowy`
 - [curlie](https://github.com/rs/curlie): `curl` Rust wrapper (like `httpie`)
   - May 2023: Fix `curl` long flags with value
 - [purebred-email](https://github.com/purebred-mua/purebred-email): Haskell MIME e-mails parsing and manipulation library
