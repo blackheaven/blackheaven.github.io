@@ -9,7 +9,7 @@ categories = ["Software engineering"]
 tags = ["software engineering", "product", "team"]
 +++
 
-Few weeks ago, I had a meetup with [Woody Zull](https://woodyzuill.com/),
+Few weeks ago, I had a meetup with [Woody Zuill](https://woodyzuill.com/),
 the inventor of [Software Teaming](https://softwareteaming.com/),
 with the [Software Crafters Lyon](https://www.meetup.com/fr-FR/Software-Craftsmanship-Lyon/).
 
