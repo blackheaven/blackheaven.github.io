@@ -2,7 +2,7 @@
 title = "Screaming Architecture"
 date = 2024-01-24
 draft = false
-path = "2024-01/screaming--architecture"
+path = "2024-01/screaming-architecture"
 
 [taxonomies]
 categories = ["Software engineering"]
@@ -10,7 +10,7 @@ tags = ["software engineering", "product", "design"]
 +++
 
 During my participation to the last [Global Day of Code Retreat](@/2023-11-05_gdcr-summary.md)
-one of the participant came into our room (where we were doing some software teamming,
+one of the participant came into our room (where we were doing some software teaming,
 but we'll talk about it in another log), looking at the hard-to-read code (due
 to the constraint) and he joked about the [Screaming Architecture](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html).
 
