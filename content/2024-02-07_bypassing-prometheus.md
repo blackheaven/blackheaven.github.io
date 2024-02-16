@@ -6,7 +6,7 @@ path = "2024-02/bypassing-prometheus"
 
 [taxonomies]
 categories = ["Software engineering"]
-tags = ["software engineering", "design", "monitoring", "lgtm-stack"]
+tags = ["software engineering", "design", "monitoring", "lgtm-stack", "haskell"]
 +++
 
 I have talked [in an earlier log](@/2023-09-24_homelab-monitoring-withings.md)
