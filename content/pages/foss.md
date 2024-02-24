@@ -93,6 +93,7 @@ I have published some packages over Hackage (Haskell):
   - October 2022: Add `lastVersion` in listings
   - February 2023: Fix `lastVersion` update in listings
   - December 2023: Replace `lastVersion` by `referenceVersion` (ignore deprecated versions)
+  - February 2024: Add vulnerability reporting link
 - [cabal](https://github.com/haskell/cabal): Official upstream development repository for Cabal and cabal-install
   - October 2022: Add generate `PackageInfos`
 - [hie-bios](https://github.com/haskell/hie-bios): Set up a GHC API session for various Haskell Projects
