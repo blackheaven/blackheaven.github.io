@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - leadership</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/leadership/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-01-21T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/leadership/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Personal README</title>
+		<published>2024-01-21T00:00:00+00:00</published>
+		<updated>2024-01-21T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/readme/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/readme/</id>
+		<content type="html">&lt;p&gt;Few days ago I was reading again &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.oreilly.com&#x2F;library&#x2F;view&#x2F;extreme-programming-explained&#x2F;0201616416&#x2F;&quot;&gt;Kent Beck&#x27;s Extreme Programming Explained&lt;&#x2F;a&gt;,
+and I have recalled &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaidesanton.substack.com&#x2F;p&#x2F;how-to-make-your-team-read-your-mind&quot;&gt;How to make your team read your mind&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;While I have never been in a formal Manager position (I don&#x27;t consider being a CTO
+as a manager role, but more as &amp;quot;the ultimate&amp;quot; technical leader of a company),
+I think it&#x27;s a good idea to write it down (even though I do it face to face
+during interviews and in the first months), the goal being sure expectations
+on both sides are perfectly clear, avoiding as much as possible misunderstanding
+and frustrations.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: the CTO role is really complete, it includes helping your employees to grow
+their career, orienting the work to make sure your technical assets sustainably
+support the business, aligning technical vision with business goals in both
+direction (my current CTO is insanely good at it, I&#x27;m so glad I can learn from
+him).&lt;&#x2F;p&gt;
+&lt;p&gt;In not particular order:&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-you-can-expect-from-me&quot;&gt;What you can expect from me&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Be autonomous in most of the design&#x2F;implement&#x2F;test&#x2F;deploy&#x2F;operate activities (obviously, code reviews&#x2F;requirement gatherings&#x2F;software teaming&#x2F;etc. are purely social activities and cannot be done alone)&lt;&#x2F;li&gt;
+&lt;li&gt;Starting work between 9.10am and 9.30am (very conservative)&lt;&#x2F;li&gt;
+&lt;li&gt;Always speak when I have something to say, and stay quiet when I don&#x27;t have good contributions to make&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Disagree_and_commit&quot;&gt;Disagree and commit&lt;&#x2F;a&gt;, this one is probably the more important for my management but the less understood in my experience
+&lt;ul&gt;
+&lt;li&gt;In practice, when a discussion occurs &lt;em&gt;within my team&lt;&#x2F;em&gt; (which is the important point here), I can propose one or more alternatives, I can support it, and when the decision is taken, I support it, disregarding whether it was mine or not&lt;&#x2F;li&gt;
+&lt;li&gt;I do not challenge the agreed solution in my team, unless it can be dangerous or if it prevents achieving business goals&lt;&#x2F;li&gt;
+&lt;li&gt;I do not tell people outside my team it&#x27;s not the best solution (or something else)&lt;&#x2F;li&gt;
+&lt;li&gt;It&#x27;s funny because each time I had a (first) meeting with my leader and an external stakeholder, and we talk about a topic I have made a not selected suggestion, my leader looks at me embarrassed and comes to me afterward telling me (s)he was anxious I would speak-up&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Iterate as quickly as possible, and if it&#x27;s not possible, cut down the administrative burden&lt;&#x2F;li&gt;
+&lt;li&gt;Manage myself (my time, my emotions, my work energy)&lt;&#x2F;li&gt;
+&lt;li&gt;Be respectful in all situations&lt;&#x2F;li&gt;
+&lt;li&gt;Providing on-demand &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;longform.asmartbear.com&#x2F;forecast&#x2F;&quot;&gt;probabilistic (20%&#x2F;50%&#x2F;80%)&lt;&#x2F;a&gt; feature iteration estimations (over unrealistic long term commitment)&lt;&#x2F;li&gt;
+&lt;li&gt;Mentor and learn proactively&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on incremental (self-)improvement and getting feedback (business, user, personal)&lt;&#x2F;li&gt;
+&lt;li&gt;Challenge situation, not criticize or any form of attack people&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;what-i-expect-from-my-team&quot;&gt;What I expect from my team&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Being respectful (no yelling, no insult, no threats)&lt;&#x2F;li&gt;
+&lt;li&gt;Being open to discussions&#x2F;explanations (I tend to explore a lot before making deep propositions)&lt;&#x2F;li&gt;
+&lt;li&gt;Avoid morning meeting meetings as much as possible&lt;&#x2F;li&gt;
+&lt;li&gt;Limit daily meeting to 5 minutes (10 max)&lt;&#x2F;li&gt;
+&lt;li&gt;Looking for improvement and feedback&lt;&#x2F;li&gt;
+&lt;li&gt;Do not impose a complete work schedule&lt;&#x2F;li&gt;
+&lt;li&gt;Do not force 100% software teaming&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Team owned architecture</title>
+		<published>2023-10-01T00:00:00+00:00</published>
+		<updated>2023-10-01T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/team-owned-architecture/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/team-owned-architecture/</id>
+		<content type="html">&lt;p&gt;In early 2013, I was in my penultimate year of my software engineering degree.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time, we were split in groups of 6 people to work on various project
+(ranging from technical to more management-oriented projects).&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, we decided to take leaderships according to our pre-existing
+skills (which is a great tactic if we want to have a high quality delivery
+for the best efficiency, but a poor learning&#x2F;long-term strategy).&lt;&#x2F;p&gt;
+&lt;p&gt;We had a big home automation project (12 weeks), at the time, Google was
+just starting to communicate their plans about it, and the aim of the project
+was to build a home automation center.&lt;&#x2F;p&gt;
+&lt;p&gt;We decided to embed a Java server with a WebUI on a Raspberry Pi (which was launch a year before).
+I took the lead on it, laying out the architecture.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly interface-based:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;An interface for describing devices (and there probes, such as temperature, and actions, such as switching the light)&lt;&#x2F;li&gt;
+&lt;li&gt;An interface for describing data sources (such as local weather website)&lt;&#x2F;li&gt;
+&lt;li&gt;An interface for WebUI components building&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;On top of that, we had a rule system which was connecting everything.&lt;&#x2F;p&gt;
+&lt;p&gt;It was a giant failure in terms of management:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;We worked too hard on it (I worked until the presentation day, sleeping 2 hours)&lt;&#x2F;li&gt;
+&lt;li&gt;I barely explained myself about the design (I actually only support on how to work with it)&lt;&#x2F;li&gt;
+&lt;li&gt;I left little room for debate (my usual reply at the time was trust me: &amp;quot;it will work&amp;quot;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I was actually feeling bad about prior to the presentation.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, one of the teachers asked:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So, you have a monolithic Java application, does it mean that you are
+forced to recompile each time you want to add a new device type?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I went blank.&lt;&#x2F;p&gt;
+&lt;p&gt;One of my teammates jumped on it:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No we don&#x27;t, as Java allows you to dynamically load code&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Another one continued with:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We have interfaces for devices and WebUI, so we don&#x27;t even need to change existing
+code to be extensible.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I was impressed, even with a lack of communication, they were able to strive in the architecture,
+and to own them.&lt;&#x2F;p&gt;
+&lt;p&gt;Aside of that, the results were pretty good:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each of my group mates were able to work independently (each one of them being able to focus on their favorite part, writing devices driver, creating WebUI components, rules)&lt;&#x2F;li&gt;
+&lt;li&gt;The WebUI was clear and swift&lt;&#x2F;li&gt;
+&lt;li&gt;The automation was working like a charm&lt;&#x2F;li&gt;
+&lt;li&gt;We have got the best grade of the class&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It took me a while to learn from this experience, but since then, I have learnt to:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Protect my team from overload (as much as I could)&lt;&#x2F;li&gt;
+&lt;li&gt;Discuss and argue about architecture (instead of forcing it)&lt;&#x2F;li&gt;
+&lt;li&gt;Take small steps when setting up an architecture&lt;&#x2F;li&gt;
+&lt;li&gt;Build a sustainable product development environment&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Over the years, I think of it more and more, should I judged it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;From a process point of view&lt;&#x2F;li&gt;
+&lt;li&gt;From an outcome point of view&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If I transpose it to my day-to-day work:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Should I create technical debt (of sacrifice my team&#x2F;personal well-being) to meet a business deadline? (being effectively important or not)&lt;&#x2F;li&gt;
+&lt;li&gt;Should I favor a middle&#x2F;long-term plan, and risking the loss of unplanned opportunities?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

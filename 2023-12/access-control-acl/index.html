@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Access Control: ACL - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-12/access-control-acl/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-12/access-control-acl/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-12/access-control-acl/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Access Control: ACL | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Access Control: ACL | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-12-06" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-12/access-control-acl/">Access Control: ACL</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> December 06, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/dev/">dev</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/access-control/">access control</a>  #<a href="https://gautier.difolco.dev/tags/security/">security</a>  #<a href="https://gautier.difolco.dev/tags/draft-concepts/">draft concepts</a> </span>
+
+    <p>Few days ago I was watching again <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=FtPTMLJWgp4">Welcome to Zanzibar</a>
+a French talk about authorization which was given at <a rel="noopener" target="_blank" href="https://xcraft.fr/">XCraft</a>,
+an event organized early October by the <a rel="noopener" target="_blank" href="https://www.meetup.com/fr-FR/software-craftsmanship-lyon/">Software Crafters Lyon</a>,
+which I'm part of.</p>
+<p>I realized that I was not really remembering <em>all</em> the authorization schemes,
+and I thought starting a new series on them could be a good idea.</p>
+<p>Let's start with a distinction:</p>
+<ul>
+<li>Authentication: determines <em>who</em> the actor is</li>
+<li>Authorization: determines <em>what</em> can be done</li>
+</ul>
+<p>You can perfectly be authenticated but don't deal with permissions, conversely
+you can authorize action without definite actor.</p>
+<p>Let start with <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Access-control_list">Access-Control list (ACL)</a>,
+which is the most basic scheme.</p>
+<p>The idea is to determine whether an <em>actor</em> can perform an <em>action</em> on a <em>resource</em>.</p>
+<p>Let's take an UNIX-derived Operating System (any GNU/Linux distribution, FreeBSD,
+OpenBSD, NetBSD, etc.), they use this mechanism, especially for file access.</p>
+<p>Let's start with some general types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Resource</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Motd</span> <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Shadow</span> <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+
+<span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Actor</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Alice</span> <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Bob</span> <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+
+<span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Action</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Read</span> <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Write</span> <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span></code></pre>
+<ul>
+<li><code>Actor</code> represent system users</li>
+<li><code>Resource</code> are actual file (<code>motd</code> is the file containing the welcome message when you <code>ssh</code> into a machine, <code>shadow</code> contains users' password)</li>
+</ul>
+<p>The algorithm is pretty simple:</p>
+<blockquote>
+<p>For any <code>Resource</code>, an <code>Actor</code> should have a set of authorized <code>Action</code></p>
+</blockquote>
+<p>We can draft an implementation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">canAcl</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">AclRules</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Resource</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Action</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span>canAcl rules resource actor action <span class="z-keyword z-operator z-haskell">=</span>
+  <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>member action <span class="z-keyword z-operator z-haskell">$</span>
+    <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty actor <span class="z-keyword z-operator z-haskell">$</span>
+      <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty resource rules
+</span></code></pre>
+<p>The main idea is: each time a lookup fail, default on an empty container, so we
+end-up with an empty set of permission and any permission queried will fail.</p>
+<p>To make things simple, I have a type alias as <code>AclRules</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">AclRules</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">Resource</span> (<span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">Actor</span> (<span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> <span class="z-constant z-other z-haskell">Action</span>))
+</span></code></pre>
+<p>Finally, here are some rules and tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">let</span> rules <span class="z-keyword z-operator z-haskell">=</span>
+      <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+        [ ( <span class="z-constant z-other z-haskell">Motd</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+            <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+              [ (<span class="z-constant z-other z-haskell">Alice</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList [<span class="z-constant z-other z-haskell">Read</span>])<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                (<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList [<span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span>])
+              ]
+          )<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+          (<span class="z-constant z-other z-haskell">Shadow</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList [<span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span>])])
+        ]
+forM_
+  [ (<span class="z-constant z-other z-haskell">Alice</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Motd</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Alice</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Motd</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Alice</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Shadow</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Alice</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Shadow</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Motd</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Motd</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Shadow</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+    (<span class="z-constant z-other z-haskell">Bob</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Shadow</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Write</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)
+  ]
+  <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>tc@(actor<span class="z-punctuation z-separator z-comma z-haskell">,</span> resource<span class="z-punctuation z-separator z-comma z-haskell">,</span> action<span class="z-punctuation z-separator z-comma z-haskell">,</span> expected) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+    it (show tc) <span class="z-keyword z-operator z-haskell">$</span>
+      canAcl rules resource actor action <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> expected
+</span></code></pre>
+
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>

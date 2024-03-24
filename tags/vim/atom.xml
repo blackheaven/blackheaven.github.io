@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - vim</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/vim/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2023-08-06T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/vim/atom.xml</id>
+	<entry xml:lang="en">
+		<title>My history with ViM</title>
+		<published>2023-08-06T00:00:00+00:00</published>
+		<updated>2023-08-06T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-08/vim/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-08/vim/</id>
+		<content type="html">&lt;p&gt;Since the &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2022-11&#x2F;initial-log&#x2F;&quot;&gt;beginning&lt;&#x2F;a&gt; of this website, I have a backlog of my next logs (which is becoming smaller and smaller).
+That&#x27;s one of the reason &lt;a href=&quot;.&#x2F;2023-05-21_polysemy-v19.md&quot;&gt;Polysemy update log&lt;&#x2F;a&gt; was published some weeks after its release.&lt;&#x2F;p&gt;
+&lt;p&gt;But today, I don&#x27;t feel like it.
+As some may know, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;groups.google.com&#x2F;g&#x2F;vim_announce&#x2F;c&#x2F;tWahca9zkt4&quot;&gt;Bram Moolenaar passed away 3 days ago&lt;&#x2F;a&gt;,
+I&#x27;m still shocked as he wasn&#x27;t particularly old (61-62) and I didn&#x27;t remind &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;groups.google.com&#x2F;g&#x2F;vim_dev&#x2F;c&#x2F;ivkq22t3LQM&quot;&gt;his health issue announcement&lt;&#x2F;a&gt;.
+Last time I felt this was learning Dennis Richie death, I still remember, me sitting in my Engineering School&#x27;s auditorium, few minutes before the lecture began.
+Anyway, I won&#x27;t be sentimental much longer.&lt;&#x2F;p&gt;
+&lt;p&gt;Even though I didn&#x27;t know Bram Moolenaar, but I used ViM (not NeoViM) for most of my career (actually, my &lt;code&gt;vimrc&lt;&#x2F;code&gt; is dated from 2014, but I started playing with it since 2008-2009).
+It means that I played around with more or less 30 languages, with the same editor.
+To be transparent, I use to used Eclipse&#x2F;IntelliJ for Java&#x2F;Scala, Visual Studio for .NET, and VS Code for mob programming.&lt;&#x2F;p&gt;
+&lt;p&gt;My &lt;code&gt;vimrc&lt;&#x2F;code&gt; is quite messy, but I&#x27;ll try to break it down:&lt;&#x2F;p&gt;
+&lt;p&gt;I use &lt;code&gt;vim-fugitive&lt;&#x2F;code&gt; to deal with &lt;code&gt;git&lt;&#x2F;code&gt; (mostly &lt;code&gt;grep&lt;&#x2F;code&gt;, &lt;code&gt;diff&lt;&#x2F;code&gt;, &lt;code&gt;log&lt;&#x2F;code&gt;, &lt;code&gt;blame&lt;&#x2F;code&gt;), I have few shortcuts to navigate through chunks:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;nmap &amp;gt;C [n
+nmap &amp;lt;c ]n
+nmap dgu :diffg RE
+nmap dgb :diffg BA
+nmap dgl :diffg LO
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;More broadly for &lt;code&gt;Ggrep&lt;&#x2F;code&gt;, which populate my quickfix buffer, I can circle through it thanks to:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;quot; QuickFix
+nmap &amp;lt;n &amp;lt;Plug&amp;gt;(qf_qf_next)
+nmap &amp;gt;N &amp;lt;Plug&amp;gt;(qf_qf_previous)
+nmap &amp;lt;f :cnfile&amp;lt;CR&amp;gt;
+nmap &amp;gt;F :cpfile&amp;lt;CR&amp;gt;
+nmap &amp;lt;l &amp;lt;Plug&amp;gt;(qf_qf_toggle)
+nmap &amp;gt;L &amp;lt;Plug&amp;gt;(qf_qf_toggle)
+
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I have few shortcurts to avoid &lt;code&gt;INSERT&lt;&#x2F;code&gt; mode.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some of them to move lines vertically and horizontally:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;quot; Moving indentation
+nmap gV `[v`]
+nmap &amp;lt;Tab&amp;gt; &amp;gt;&amp;gt;
+nmap &amp;lt;S-Tab&amp;gt; &amp;lt;&amp;lt;
+vmap &amp;lt;Tab&amp;gt; &amp;gt;gv
+vmap &amp;lt;S-Tab&amp;gt; &amp;lt;gv
+
+&amp;quot; vim-easy-align
+vmap A &amp;lt;Plug&amp;gt;(EasyAlign)
+nmap gA &amp;lt;Plug&amp;gt;(EasyAlign)
+
+&amp;quot; unimpaired
+&amp;quot; Move one line vertically
+nmap &amp;lt;C-Up&amp;gt; [e
+nmap &amp;lt;C-Down&amp;gt; ]e
+&amp;quot; Move multiple lines
+vmap &amp;lt;C-Up&amp;gt; [egv
+vmap &amp;lt;C-Down&amp;gt; ]egv
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The other type of change is to circle through alternatives:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;quot; vim-abolish (change case, camelCase, UP_CASE, snake_case, kebab-case)
+map crl guaW
+
+&amp;quot; vim-swap (move arguments and structure position)
+let g:swap_no_default_key_mappings = 1
+nmap &amp;lt;C-Left&amp;gt; &amp;lt;Plug&amp;gt;(swap-prev)
+nmap &amp;lt;C-Right&amp;gt; &amp;lt;Plug&amp;gt;(swap-next)
+
+&amp;quot; Switch between alternative language elements (i.e. True&#x2F;False)
+nnoremap - :Switch&amp;lt;CR&amp;gt;
+autocmd FileType haskell let b:switch_custom_definitions =
+    \ [
+    \   [&amp;#39;Right&amp;#39;, &amp;#39;Left&amp;#39;, &amp;#39;Just&amp;#39;, &amp;#39;Nothing&amp;#39;],
+    \   [&amp;#39;Maybe&amp;#39;, &amp;#39;Either&amp;#39;],
+    \   [&amp;#39;then&amp;#39;, &amp;#39;else&amp;#39;],
+    \   [&amp;#39;all&amp;#39;, &amp;#39;any&amp;#39;, &amp;#39;allM&amp;#39;, &amp;#39;anyM&amp;#39;],
+    \   [&amp;#39;when&amp;#39;, &amp;#39;unless&amp;#39;, &amp;#39;whenM&amp;#39;, &amp;#39;unlessM&amp;#39;],
+    \   {
+        \ &amp;#39;^\(\s*\)let \([^=]*\) =&amp;#39;: &amp;#39;\1\2 &amp;lt;-&amp;#39;,
+        \ &amp;#39;^\(\s*\)    \([^=]*\) =&amp;#39;: &amp;#39;\1let \2 =&amp;#39;,
+        \ &amp;#39;^\(\s*\)\([^=]*\) &amp;lt;-&amp;#39;: &amp;#39;\1let \2 =&amp;#39;,
+        \ &amp;#39;&amp;#39;: &amp;#39;&amp;#39;
+      \ }
+    \ ]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I also have few tricks to select formatters (based on &lt;code&gt;neoformat&lt;&#x2F;code&gt;) through environment variables (which are based on my projects&#x27; &lt;code&gt;direnv&lt;&#x2F;code&gt; configuration):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;let g:neoformat_enabled_nix = [&amp;#39;nixpkgsfmt&amp;#39;]
+if exists(&amp;quot;$WITH_NIXFMT_CMD&amp;quot;)
+    let g:neoformat_enabled_nix = [expand(&amp;quot;$WITH_NIXFMT_CMD&amp;quot;)]
+endif
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Overall, ViM thought me to take a step back on my daily practice, find what&#x27;s work, what does not, and improve what does not.
+It tought me that composition is the key to build robust thing, either in software or in engineering.&lt;&#x2F;p&gt;
+&lt;p&gt;For reference, here&#x27;s my plugins list:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;quot; syntax
+Plug &amp;#39;tweekmonster&#x2F;startuptime.vim&amp;#39;
+Plug &amp;#39;tpope&#x2F;vim-markdown&amp;#39;
+Plug &amp;#39;hspec&#x2F;hspec.vim&amp;#39;
+Plug &amp;#39;blackheaven&#x2F;vim2hs&amp;#39;
+Plug &amp;#39;elzr&#x2F;vim-json&amp;#39;
+Plug &amp;#39;Shougo&#x2F;unite.vim&amp;#39;
+Plug &amp;#39;kongo2002&#x2F;fsharp-vim&amp;#39;
+Plug &amp;#39;AndrewRadev&#x2F;inline_edit.vim&amp;#39;
+Plug &amp;#39;sbdchd&#x2F;neoformat&amp;#39;
+Plug &amp;#39;hashivim&#x2F;vim-terraform&amp;#39;
+Plug &amp;#39;dense-analysis&#x2F;ale&amp;#39;
+Plug &amp;#39;sdiehl&#x2F;vim-ormolu&amp;#39;
+Plug &amp;#39;mpickering&#x2F;hlint-refactor-vim&amp;#39;
+Plug &amp;#39;LnL7&#x2F;vim-nix&amp;#39;
+Plug &amp;#39;bazelbuild&#x2F;vim-ft-bzl&amp;#39;
+Plug &amp;#39;neoclide&#x2F;coc.nvim&amp;#39;
+Plug &amp;#39;purescript-contrib&#x2F;purescript-vim&amp;#39;
+Plug &amp;#39;vmchale&#x2F;dhall-vim&amp;#39;
+Plug &amp;#39;dhruvasagar&#x2F;vim-dotoo&amp;#39;
+Plug &amp;#39;Shougo&#x2F;denite.nvim&amp;#39;
+Plug &amp;#39;rhysd&#x2F;vim-grammarous&amp;#39;
+&amp;quot; textobj&#x2F;move
+Plug &amp;#39;tpope&#x2F;vim-surround&amp;#39;
+Plug &amp;#39;Lokaltog&#x2F;vim-easymotion&amp;#39;
+Plug &amp;#39;wellle&#x2F;targets.vim&amp;#39;
+Plug &amp;#39;kana&#x2F;vim-textobj-user&amp;#39;
+Plug &amp;#39;glts&#x2F;vim-textobj-comment&amp;#39;
+Plug &amp;#39;vimtaku&#x2F;vim-textobj-keyvalue&amp;#39;
+Plug &amp;#39;sgur&#x2F;vim-textobj-parameter&amp;#39;
+Plug &amp;#39;machakann&#x2F;vim-textobj-functioncall&amp;#39;
+Plug &amp;#39;thalesmello&#x2F;vim-textobj-methodcall&amp;#39;
+Plug &amp;#39;blackheaven&#x2F;vim-textobj-function&amp;#39;
+Plug &amp;#39;vim-scripts&#x2F;ReplaceWithRegister&amp;#39;
+Plug &amp;#39;jpalardy&#x2F;vim-slime&amp;#39;
+Plug &amp;#39;christianrondeau&#x2F;vim-base64&amp;#39;
+Plug &amp;#39;wellle&#x2F;tmux-complete.vim&amp;#39;
+&amp;quot; visual
+Plug &amp;#39;Yggdroot&#x2F;indentLine&amp;#39;
+Plug &amp;#39;ivyl&#x2F;vim-bling&amp;#39;
+Plug &amp;#39;RRethy&#x2F;vim-illuminate&amp;#39;
+Plug &amp;#39;vim-airline&#x2F;vim-airline&amp;#39;
+Plug &amp;#39;vim-airline&#x2F;vim-airline-themes&amp;#39;
+Plug &amp;#39;luochen1990&#x2F;rainbow&amp;#39;
+Plug &amp;#39;sainnhe&#x2F;gruvbox-material&amp;#39;
+&amp;quot; search
+Plug &amp;#39;haya14busa&#x2F;incsearch.vim&amp;#39;
+Plug &amp;#39;junegunn&#x2F;fzf.vim&amp;#39;
+Plug &amp;#39;tpope&#x2F;vim-abolish&amp;#39;
+Plug &amp;#39;romainl&#x2F;vim-qf&amp;#39;
+&amp;quot; vcs
+Plug &amp;#39;tpope&#x2F;vim-fugitive&amp;#39;
+Plug &amp;#39;mhinz&#x2F;vim-signify&amp;#39;
+Plug &amp;#39;Yggdroot&#x2F;LeaderF&amp;#39;
+Plug &amp;#39;skywind3000&#x2F;Leaderf-snippet&amp;#39;
+&amp;quot; commands&#x2F;codegen
+Plug &amp;#39;tpope&#x2F;vim-commentary&amp;#39;
+Plug &amp;#39;tpope&#x2F;vim-unimpaired&amp;#39;
+Plug &amp;#39;tpope&#x2F;vim-endwise&amp;#39;
+Plug &amp;#39;machakann&#x2F;vim-swap&amp;#39;
+Plug &amp;#39;AndrewRadev&#x2F;switch.vim&amp;#39;
+Plug &amp;#39;junegunn&#x2F;vim-easy-align&amp;#39;
+Plug &amp;#39;SirVer&#x2F;ultisnips&amp;#39;
+Plug &amp;#39;honza&#x2F;vim-snippets&amp;#39;
+Plug &amp;#39;kana&#x2F;vim-smartinput&amp;#39;
+Plug &amp;#39;mbbill&#x2F;undotree&amp;#39;
+Plug &amp;#39;tpope&#x2F;vim-repeat&amp;#39;
+Plug &amp;#39;kopischke&#x2F;vim-fetch&amp;#39;
+Plug &amp;#39;drmikehenry&#x2F;vim-fixkey&amp;#39;
+Plug &amp;#39;editorconfig&#x2F;editorconfig-vim&amp;#39;
+Plug &amp;#39;octref&#x2F;RootIgnore&amp;#39;
+Plug &amp;#39;chrisbra&#x2F;NrrwRgn&amp;#39;
+Plug &amp;#39;sotte&#x2F;presenting.vim&amp;#39;
+Plug &amp;#39;triglav&#x2F;vim-visual-increment&amp;#39;
+Plug &amp;#39;blackheaven&#x2F;vim-ghcid&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>

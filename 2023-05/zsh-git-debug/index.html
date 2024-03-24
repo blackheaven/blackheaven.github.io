@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Zsh: debugging git remotes completion - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-05/zsh-git-debug/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-05/zsh-git-debug/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-05/zsh-git-debug/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Zsh: debugging git remotes completion | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Zsh: debugging git remotes completion | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-05-31" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-05/zsh-git-debug/">Zsh: debugging git remotes completion</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> May 31, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/dev/">dev</a>] #<a href="https://gautier.difolco.dev/tags/dev/">dev</a>  #<a href="https://gautier.difolco.dev/tags/development/">development</a>  #<a href="https://gautier.difolco.dev/tags/flow/">flow</a>  #<a href="https://gautier.difolco.dev/tags/tools/">tools</a>  #<a href="https://gautier.difolco.dev/tags/zsh/">zsh</a>  #<a href="https://gautier.difolco.dev/tags/git/">git</a> </span>
+
+    <p>I spend most of my day in a linux terminal (<a rel="noopener" target="_blank" href="https://apps.kde.org/fr/konsole/">KDE's konsole</a>), doing so, I interact directly with <a rel="noopener" target="_blank" href="https://git-scm.com/">git</a>.</p>
+<p>I usually starts working on a topic:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> git co<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span> feature/something-useful</span>
+<span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> &#39;co&#39; is an alias for checkout</span><span class="z-comment z-line z-number-sign z-shell">
+</span><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> I create a new branch</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></code></pre>
+<p>Then, I work intensively and I conclude by adding my changes in a commit</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> git add<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span></span>
+<span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> I stage each chuncks</span><span class="z-comment z-line z-number-sign z-shell">
+</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> git ci<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>m</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>feat(area): something useful (#42)<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<p>Finally, I want to push by branch:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> git push <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Tab<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span></span></code></pre>
+<p>I try to trigger <a rel="noopener" target="_blank" href="https://www.zsh.org/">zsh</a>'s git completion, but after several seconds, I've got an unfortunate:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">zsh:</span></span><span class="z-meta z-function-call z-arguments z-shell"> do you wish to see all 148622 possibilities (74311 lines</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">?</span></span>
+</span></code></pre>
+<p>Going deeper, it looks like NSFW domains I have populated in my <code>/etc/hosts</code> with blocked hosts from <a rel="noopener" target="_blank" href="https://github.com/StevenBlack/hosts/tree/master">StevenBlack's hosts</a>.</p>
+<p>So, it breaks my flow, and does not give me relevant results.</p>
+<p>In order to fix that, I have to limit completion to actual registered remotes.</p>
+<p>First, I had to locate the completion function:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> which _git</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">_git</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+        <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> undefined</span><span class="z-comment z-line z-number-sign z-shell">
+</span>        <span class="z-meta z-function-call z-shell"><span class="z-support z-function z-builtin z-shell">builtin</span></span><span class="z-meta z-function-call z-arguments z-shell"> autoload -XUz</span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+</span></code></pre>
+<p>Mmh, it does not look good, I had to pull, well, to fetch the tarball, the relevant functions are the following:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> zsh-5.9/Completion/Unix/Command/_git</span><span class="z-comment z-line z-number-sign z-shell">
+</span><span class="z-meta z-group z-arithmetic z-shell"><span class="z-punctuation z-section z-arithmetic z-begin z-shell">((</span> $<span class="z-keyword z-operator z-arithmetic z-shell">+</span>functions[__git_remotes] <span class="z-punctuation z-section z-arithmetic z-end z-shell">))</span></span> <span class="z-meta z-function-call z-shell"></span><span class="z-keyword z-operator z-logical z-or z-shell">||</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_remotes</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+<span class="z-meta z-function-call z-shell">  <span class="z-storage z-modifier z-shell">local</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">remotes</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">expl</span></span>
+
+  <span class="z-variable z-other z-readwrite z-assignment z-shell">remotes</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">(f)<span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_call_program</span></span><span class="z-meta z-function-call z-arguments z-shell"> remotes git remote <span class="z-constant z-numeric z-integer z-decimal z-file-descriptor z-shell">2</span><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>/dev/null</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span>
+  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">__git_command_successful</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">pipestatus</span></span></span> <span class="z-keyword z-operator z-logical z-or z-shell">||</span> <span class="z-meta z-function-call z-shell"><span class="z-keyword z-control z-flow z-return z-shell">return</span></span><span class="z-meta z-function-call z-arguments z-shell"> 1</span>
+
+  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_wanted</span></span><span class="z-meta z-function-call z-arguments z-shell"> remotes expl remote compadd <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-language z-shell">@</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>a</span> - remotes</span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+
+<span class="z-meta z-group z-arithmetic z-shell"><span class="z-punctuation z-section z-arithmetic z-begin z-shell">((</span> $<span class="z-keyword z-operator z-arithmetic z-shell">+</span>functions[__git_remote_repositories] <span class="z-punctuation z-section z-arithmetic z-end z-shell">))</span></span> <span class="z-meta z-function-call z-shell"></span><span class="z-keyword z-operator z-logical z-or z-shell">||</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_remote_repositories</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+  <span class="z-keyword z-control z-conditional z-if z-shell">if</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">compset</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>P</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>*:<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-keyword z-control z-conditional z-then z-shell">then</span>
+    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_remote_files</span></span><span class="z-meta z-function-call z-arguments z-shell"> -/<span class="z-keyword z-operator z-end-of-options z-shell"> --</span></span><span class="z-meta z-function-call z-arguments z-shell"> ssh</span>
+  <span class="z-keyword z-control z-conditional z-else z-shell">else</span>
+    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_ssh_hosts</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>S</span>:</span>
+  <span class="z-keyword z-control z-conditional z-end z-shell">fi</span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+
+<span class="z-meta z-group z-arithmetic z-shell"><span class="z-punctuation z-section z-arithmetic z-begin z-shell">((</span> $<span class="z-keyword z-operator z-arithmetic z-shell">+</span>functions[__git_local_repositories] <span class="z-punctuation z-section z-arithmetic z-end z-shell">))</span></span> <span class="z-meta z-function-call z-shell"></span><span class="z-keyword z-operator z-logical z-or z-shell">||</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_local_repositories</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+<span class="z-meta z-function-call z-shell">  <span class="z-storage z-modifier z-shell">local</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">expl</span></span>
+
+  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_wanted</span></span><span class="z-meta z-function-call z-arguments z-shell"> local-repositories expl <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>local repository<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> _directories</span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+
+<span class="z-meta z-group z-arithmetic z-shell"><span class="z-punctuation z-section z-arithmetic z-begin z-shell">((</span> $<span class="z-keyword z-operator z-arithmetic z-shell">+</span>functions[__git_any_repositories] <span class="z-punctuation z-section z-arithmetic z-end z-shell">))</span></span> <span class="z-meta z-function-call z-shell"></span><span class="z-keyword z-operator z-logical z-or z-shell">||</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_any_repositories</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> TODO: should also be $GIT_DIR/remotes/origin</span><span class="z-comment z-line z-number-sign z-shell">
+</span>  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">_alternative</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span>    <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>local-repositories::__git_local_repositories<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span>    <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>remotes: :__git_remotes<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span>    <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>remote-repositories::__git_remote_repositories<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+</span></code></pre>
+<p>The entry-point is <code>__git_any_repositories</code> which relies (<code>_alternative</code>) on three functions:</p>
+<ul>
+<li><code>__git_local_repositories</code> which looks-up for my folders</li>
+<li><code>__git_remotes</code> which relies on <code>git remote</code>, what I want</li>
+<li><code>__git_remote_repositories</code> which actually pulls my <code>/etc/hosts</code></li>
+</ul>
+<p>Thankfully with the syntax:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-group z-arithmetic z-shell"><span class="z-punctuation z-section z-arithmetic z-begin z-shell">((</span> $<span class="z-keyword z-operator z-arithmetic z-shell">+</span>functions[__git_fn] <span class="z-punctuation z-section z-arithmetic z-end z-shell">))</span></span> <span class="z-meta z-function-call z-shell"></span><span class="z-keyword z-operator z-logical z-or z-shell">||</span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_fn</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-punctuation z-section z-braces z-begin z-shell">{</span>
+<span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+</span></code></pre>
+<p>the function is only defined when it wasn't defined previously, such as in my <code>~/.zshrc</code>:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_remote_repositories</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span><span class="z-punctuation z-section z-braces z-begin z-shell">{</span><span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+<span class="z-meta z-function z-shell"><span class="z-entity z-name z-function z-shell">__git_local_repositories</span> <span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span><span class="z-punctuation z-section z-braces z-begin z-shell">{</span><span class="z-punctuation z-section z-braces z-end z-shell">}</span></span>
+</span></code></pre>
+<p>which grive me the expected behavior:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> git push <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Tab<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">origin</span></span><span class="z-meta z-function-call z-arguments z-shell">  upstream</span>
+</span></code></pre>
+
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>

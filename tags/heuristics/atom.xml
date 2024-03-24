@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - heuristics</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/heuristics/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-02-18T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/heuristics/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Events metadata</title>
+		<published>2024-02-18T00:00:00+00:00</published>
+		<updated>2024-02-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/architecture-heuristic-ynia-events-metadata/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/architecture-heuristic-ynia-events-metadata/</id>
+		<content type="html">&lt;p&gt;A while ago, I have continued with &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;architecture-heuristic-ynia-participants&#x2F;&quot;&gt;&lt;em&gt;YNIA&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;,
+which is a set of patterns I set up before &lt;em&gt;really&lt;&#x2F;em&gt; need them.&lt;&#x2F;p&gt;
+&lt;p&gt;I work a lot (and enjoy working with) &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourced&lt;&#x2F;a&gt;
+systems.&lt;&#x2F;p&gt;
+&lt;p&gt;Events are composed of two parts:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The business part (which is usually found during &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.eventstorming.com&#x2F;&quot;&gt;Event Storming&lt;&#x2F;a&gt; sessions)&lt;&#x2F;li&gt;
+&lt;li&gt;Metadata (also called envelope), mostly a technical concern&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Usually metadata are quite thin:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;UUID&lt;&#x2F;li&gt;
+&lt;li&gt;Creation date&lt;&#x2F;li&gt;
+&lt;li&gt;(Stream ID)&lt;&#x2F;li&gt;
+&lt;li&gt;(Position (index) in the stream)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The great thing about &lt;em&gt;event sourcing&lt;&#x2F;em&gt; is that it captures exactly what happened,
+which is an issue if you didn&#x27;t captured enough, the problem is two-folds:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;You have forgotten an element in the business part: you can try to rebuild an enriched stream&lt;&#x2F;li&gt;
+&lt;li&gt;You have forgotten an element in the metadata part: good luck!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Metadata are a technical concern, until they became a business concern.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s why I add the following elements:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Occurring time: when the event happened in real-life (see &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;articles&#x2F;bitemporal-history.html&quot;&gt;bi-temporality&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Actor: who (the person) did the action, it is the person in charge of the delegation (leading to &amp;quot;on behalf of&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;Initiator&#x2F;on behalf of: who requested the action to be performed leading to the event&lt;&#x2F;li&gt;
+&lt;li&gt;Distributed trace identifiers: to be able to fetch the traces associated&lt;&#x2F;li&gt;
+&lt;li&gt;Origin system: usually en API or a batch&#x2F;asynchronous process&lt;&#x2F;li&gt;
+&lt;li&gt;Origin system version: usually a deployment version&#x2F;hash&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It is not much, but it covers all the business cases I have faced until now.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Participants</title>
+		<published>2023-11-29T00:00:00+00:00</published>
+		<updated>2023-11-29T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/architecture-heuristic-ynia-participants/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/architecture-heuristic-ynia-participants/</id>
+		<content type="html">&lt;p&gt;A while ago, I have introduced &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-10&#x2F;architecture-heuristic-ynia-queues&#x2F;&quot;&gt;&lt;em&gt;YNIA&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;,
+which is a set of patterns I set up before &lt;em&gt;really&lt;&#x2F;em&gt; need them.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s not uncommon, when producing software to have to design collaborative spaces.&lt;&#x2F;p&gt;
+&lt;p&gt;A good example is the chat.&lt;&#x2F;p&gt;
+&lt;p&gt;You can come up with the design of a message like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt;
+  { author &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UserId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; creation &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UTCTime&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; body &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Text&lt;&#x2F;span&gt;
+  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I think it&#x27;s pretty minimal.&lt;&#x2F;p&gt;
+&lt;p&gt;From my experience, stakeholders tend to be creative with collaborations.&lt;&#x2F;p&gt;
+&lt;p&gt;A common use-case is when the user left the tool.&lt;&#x2F;p&gt;
+&lt;p&gt;If you use RDBMS, you can get in trouble with your queries if you delete the
+user&#x27;s entry.&lt;&#x2F;p&gt;
+&lt;p&gt;You could use a &lt;code&gt;Maybe UserId&lt;&#x2F;code&gt;, but you&#x27;d have to update all user&#x27;s messages.
+Doing so would also make all messages from different past user look the same.&lt;&#x2F;p&gt;
+&lt;p&gt;You may also come up with these requirements:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to have a name per collaborative space (chat session)&lt;&#x2F;li&gt;
+&lt;li&gt;Being anonymized when you leave the group&lt;&#x2F;li&gt;
+&lt;li&gt;Being able to collaborate without being registered (and associate contributions a posteriori)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That&#x27;s why I introduce &lt;code&gt;Participant&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt;
+  { author &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;ParticipantId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; creation &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UTCTime&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; body &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Text&lt;&#x2F;span&gt;
+  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which is linked to:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Participant&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Registered&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DisplayName&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UserId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Anonymous&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DisplayName&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Token&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Deleted&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UUID&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which gives me the freedom to have a dedicated lifecycle for &lt;code&gt;Participant&lt;&#x2F;code&gt;s.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Queues</title>
+		<published>2023-10-18T00:00:00+00:00</published>
+		<updated>2023-10-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/architecture-heuristic-ynia-queues/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/architecture-heuristic-ynia-queues/</id>
+		<content type="html">&lt;p&gt;There is a famous acronym I use over and over again when it comes to design decision: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;You_aren%27t_gonna_need_it&quot;&gt;YAGNI&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s a constant reminder to keep things as simple as possible, however we tend
+to forget that we should over simplify.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s one of the reason I tend to introduce early on components which seems to
+be more complex than they need to be.&lt;&#x2F;p&gt;
+&lt;p&gt;I call it &lt;em&gt;YNIA&lt;&#x2F;em&gt; (You&#x27;ll Need It Anyway).&lt;&#x2F;p&gt;
+&lt;p&gt;Today: queues.&lt;&#x2F;p&gt;
+&lt;p&gt;They are many cases when you add accidental complexity by technically coupling
+things which are not coupled in terms of business:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;fetching distant (on unmanaged services) some information&lt;&#x2F;li&gt;
+&lt;li&gt;performing long-running operations&lt;&#x2F;li&gt;
+&lt;li&gt;acting on distant services&lt;&#x2F;li&gt;
+&lt;li&gt;running not business-related logic inside or around business logic&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are two basic ways to deal with it: synchronously or through some kind
+of local-asynchronous code (e.g. callbacks, threads).&lt;&#x2F;p&gt;
+&lt;p&gt;These are not solutions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;no traceability&lt;&#x2F;li&gt;
+&lt;li&gt;not fault-tolerant&lt;&#x2F;li&gt;
+&lt;li&gt;not restart tolerant&lt;&#x2F;li&gt;
+&lt;li&gt;hard to debug&lt;&#x2F;li&gt;
+&lt;li&gt;hard to evenly scale&lt;&#x2F;li&gt;
+&lt;li&gt;no observability&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To give you an idea, last time I have encountered such implementation, we were
+regularly loosing jobs each time our pods (on Kubernetes) were restarted (on
+failure or on update).
+Which was hard to debug as we had to correlate failure of not tracked side-processes
+with random restarts.&lt;&#x2F;p&gt;
+&lt;p&gt;Adding a queue gives a way to temporally decouple these computations, which
+allow to incrementally add:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a way to monitor each job (current status, history)&lt;&#x2F;li&gt;
+&lt;li&gt;add restart&#x2F;fault-tolerance (add error detection and mitigation, such as retry)&lt;&#x2F;li&gt;
+&lt;li&gt;handle back-pressure&lt;&#x2F;li&gt;
+&lt;li&gt;add observability (throughput, latency, traceability with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.enterpriseintegrationpatterns.com&#x2F;patterns&#x2F;messaging&#x2F;CorrelationIdentifier.html&quot;&gt;correlation identifiers&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

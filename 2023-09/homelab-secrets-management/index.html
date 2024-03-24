@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Homelab: Secrets management - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-09/homelab-secrets-management/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-09/homelab-secrets-management/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-09/homelab-secrets-management/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Homelab: Secrets management | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Homelab: Secrets management | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-09-03" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-09/homelab-secrets-management/">Homelab: Secrets management</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> September 03, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/ops/">ops</a>] #<a href="https://gautier.difolco.dev/tags/ops/">ops</a>  #<a href="https://gautier.difolco.dev/tags/nix/">nix</a>  #<a href="https://gautier.difolco.dev/tags/nixos/">nixos</a>  #<a href="https://gautier.difolco.dev/tags/secrets-management/">secrets-management</a> </span>
+
+    <p>Since the introduction of <a href="https://gautier.difolco.dev/2023-08/homelab-server-certificates/">the certificates</a>,
+each script was ending with some old-fashioned (i.e. <code>ssh</code>/<code>scp</code>-based commands) as follows:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">TARGET_DIR</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">/etc/nixos/certificates/servers/<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">SERVICE</span></span></span>
+<span class="z-variable z-other z-readwrite z-assignment z-shell">TARGET_LOGIN</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">black@192.168.0.4</span>
+<span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>Copy &#39;<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">CRT_DIR</span></span>/server.key&#39; and &#39;<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">CRT_DIR</span></span>/server.crt&#39; to barracuda@<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_DIR</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_LOGIN</span></span> sudo mkdir<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_DIR</span></span></span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">scp</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">CRT_DIR</span></span>/server.<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>key<span class="z-punctuation z-separator z-shell">,</span>crt<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_LOGIN</span></span>:<span class="z-meta z-group z-expansion z-tilde"><span class="z-variable z-language z-tilde z-shell">~</span></span></span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_LOGIN</span></span> sudo chown root:root server.key server.crt</span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_LOGIN</span></span> sudo mv server.key server.crt <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_DIR</span></span></span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">TARGET_LOGIN</span></span> sudo systemctl restart nginx.service</span>
+</span></code></pre>
+<p>I won't say that old things are always bad, but there are many shortcomings:</p>
+<ul>
+<li>My server's IP is hard-coded</li>
+<li>My server file hierarchy is implicitly coupled</li>
+<li>My script handles (poorly) nginx</li>
+<li>My script is stateful and does not handle well failures (no retry/restart/rollback)</li>
+</ul>
+<p>All of these making it hard to maintain/reuse.</p>
+<p>If I really wanted to make this clean from here, I would use something like
+<a rel="noopener" target="_blank" href="https://www.ansible.com/">ansible</a> (I mean <a rel="noopener" target="_blank" href="https://www.jetporch.com/">JetPorch</a>),
+or <a rel="noopener" target="_blank" href="https://www.terraform.io/">Terraform</a>, which I'm more use to.</p>
+<p>I could simply reference the files in my <code>configuration.nix</code> file, but it would
+end-up in my git history, which is not a big deal as it is a local git repository,
+the real concern come from my <code>nix store</code>, which will store the certificate and make
+them available to everyone on my machine, in clear-text, without permission requirements.</p>
+<p>Hopefully, there's a solution called <a rel="noopener" target="_blank" href="https://github.com/ryantm/agenix">agenix</a> for that.</p>
+<p>It relies on <a rel="noopener" target="_blank" href="https://github.com/FiloSottile/age">age</a>, which is a <a rel="noopener" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc4880">pgp</a>
+successor, which aims to provide a simple way to cipher/decipher files.</p>
+<p>Lastly, there's also <a rel="noopener" target="_blank" href="https://github.com/slok/agebox">agebox</a> which helps to manage
+multiple ciphered files/directories.</p>
+<p>Let's start by creating a key:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">age-keygen</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> secrets/age00.txt</span>
+</span></code></pre>
+<p>Then I save the public key:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> age... <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> keys/age00.pub.txt</span>
+</span></code></pre>
+<p>I could generate it from an SSH key, but I'm used to having my SSH keys
+dedicated to SSH usage.</p>
+<p>Then, I use <code>agebox</code> to convert all my secrets (certificates and keys):</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">agebox</span></span><span class="z-meta z-function-call z-arguments z-shell"> init</span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">agebox</span></span><span class="z-meta z-function-call z-arguments z-shell"> encrypt server/generated/services/<span class="z-keyword z-operator z-regexp z-quantifier z-shell">*</span>/server.<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>crt<span class="z-punctuation z-separator z-shell">,</span>key<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span> client/generated/<span class="z-keyword z-operator z-regexp z-quantifier z-shell">*</span>/ca/<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>ca.pem<span class="z-punctuation z-separator z-shell">,</span>crl/crl.pem<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span>
+</span></code></pre>
+<p>Which suffixes all the files with <code>.agebox</code>.</p>
+<p>Then I upload <code>keys</code> to <em>Barracuda</em>.</p>
+<p>Finally, the nix part.</p>
+<p>First, we have to declare all files:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">age</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+  <span class="z-entity z-other z-attribute-name z-multipart z-nix">identityPaths</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/etc/nixos/secrets/age00.txt<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+  <span class="z-entity z-other z-attribute-name z-multipart z-nix">secrets</span> <span class="z-keyword z-operator z-bind z-nix">=</span>
+    <span class="z-keyword z-other z-nix">let</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">nginx</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-function z-4 z-nix">localPath</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">file</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">localPath</span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">mode</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>400<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">owner</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>nginx<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">group</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>nginx<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-keyword z-other z-nix">in</span>
+    <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">resticClientCA</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-unquoted z-path z-nix">./certificates/client/generated/restic/ca/ca.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">resticClientCRL</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-unquoted z-path z-nix">./certificates/client/generated/restic/ca/crl/crl.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">withingsClientCA</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-unquoted z-path z-nix">./certificates/client/generated/withings/ca/ca.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">withingsClientCRL</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-unquoted z-path z-nix">./certificates/client/generated/withings/ca/crl/crl.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+<span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>Quick note here: by default everything is done to use SSH keys, I have to
+explicitly set the private part of the age key.</p>
+<p>Lastly, we can reference the declared secrets:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">virtualHosts</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+  <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>restic.barracuda.local<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+    <span class="z-comment z-line z-number-sign z-nix"># ...</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">extraConfig</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-other z-nix"><span class="z-punctuation z-definition z-string z-other z-start z-nix">&#39;&#39;</span>
+      ssl_client_certificate <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">config</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">age</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">secrets</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withingsClientCA</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>;
+      ssl_crl <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">config</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">age</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">secrets</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withingsClientCRL</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>;
+      ssl_verify_client on;
+    <span class="z-punctuation z-definition z-string z-other z-end z-nix">&#39;&#39;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+<span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>Here we are, now, our scripts aren't tied to <em>Barracuda</em>, IP, file hierarchy or
+deployment failure mishandling.
+There's more, aside of <code>/etc/nixos/secrets</code>, we don't even need a specific file
+organisation, which means less headaches for me.</p>
+
+<p><b><a href="#">Back to top</a></b></p>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+<span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

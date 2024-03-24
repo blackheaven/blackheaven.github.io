@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - lean</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/lean/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-01-28T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/lean/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Software inventory</title>
+		<published>2024-01-28T00:00:00+00:00</published>
+		<updated>2024-01-28T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/software-inventory/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/software-inventory/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;local-global-optimum&#x2F;&quot;&gt;A while ago&lt;&#x2F;a&gt;, I had a meetup with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;woodyzuill.com&#x2F;&quot;&gt;Woody Zuill&lt;&#x2F;a&gt;,
+after the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;softwareteaming.com&#x2F;&quot;&gt;Software Teaming&lt;&#x2F;a&gt; session, he has
+stated that &amp;quot;most companies are bad at &lt;em&gt;Software Inventory&lt;&#x2F;em&gt;&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;He explained that: &lt;em&gt;Software Inventory&lt;&#x2F;em&gt; is the list of all the code which is not
+&amp;quot;in touch&amp;quot; with users.&lt;&#x2F;p&gt;
+&lt;p&gt;I thought it was a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Lean_software_development&quot;&gt;Lean&lt;&#x2F;a&gt;
+practice, but the only related topic I have found is &lt;em&gt;inventory management&lt;&#x2F;em&gt;
+in the original which consist of shrinking down the stock to the minimum
+level without impacting clients.
+If I transpose it to the software engineering field: you should aim pushing
+code as soon as possible, reducing feedbacks loop time (as emphasized in
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.oreilly.com&#x2F;library&#x2F;view&#x2F;extreme-programming-explained&#x2F;0201616416&#x2F;&quot;&gt;Kent Beck&#x27;s Extreme Programming Explained&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Over the years I have set up several ways to have a snapshot of it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding a protected endpoint which responds the commit hashes of all services&lt;&#x2F;li&gt;
+&lt;li&gt;Include commit hash in the built artifacts&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Each time I also built a CLI, to perform a scan and compare the different
+environments to the repositories.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s only a beginning and there are many drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even following &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;trunkbaseddevelopment.com&#x2F;&quot;&gt;Trunk Based Development&lt;&#x2F;a&gt;, without &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;articles&#x2F;continuousIntegration.html&quot;&gt;CI&lt;&#x2F;a&gt;&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;ContinuousDelivery.html&quot;&gt;CD&lt;&#x2F;a&gt;, you will have some &lt;em&gt;stock&lt;&#x2F;em&gt;, which is an issue since you can deploy more (or less) than you intend to&lt;&#x2F;li&gt;
+&lt;li&gt;(Feature) flags hide a part of it (it&#x27;s tempting to push a lot of code, hiding it behind a flag, and never enabling it)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I had negative experiences with both of them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A piece of code which hadn&#x27;t been deployed to the users for weeks, got deployed after a typo fix, blocking the usage and was impossible to roll back&lt;&#x2F;li&gt;
+&lt;li&gt;A feature was started and protected by a compilation flag for months, in the end, it was not compiling anymore&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>
