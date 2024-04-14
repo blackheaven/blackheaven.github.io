@@ -14,6 +14,7 @@ Used as [my cookie jar](https://thewilliamkon.medium.com/david-goggins-the-cooki
 
 I have published some packages over Hackage (Haskell):
 
+- [pure-sum](https://hackage.haskell.org/package/pure-sum) (March 2024): provides a way to properly derive sum types instances (also [-aeson](https://hackage.haskell.org/package/pure-sum-aeson))
 - [kill-bool](https://hackage.haskell.org/package/kill-bool) (March 2023): Booleans strong-typing
 - [poolboy](https://hackage.haskell.org/package/poolboy) (March 2023): Simple work queue for bounded concurrency
 - [adhoc-fixtures](https://hackage.haskell.org/package/adhoc-fixtures) (November 2022): Simplify tests fixtures (also [-hspec](https://hackage.haskell.org/package/adhoc-fixtures-hspec))
@@ -40,8 +41,10 @@ I have published some packages over Hackage (Haskell):
 - [one-time-password](https://github.com/haskell-cryptography/one-time-password): Haskell iimplementation of one-time-password (HOTOP/TOTP)
   - December 2023: add nix (flake) support
   - December 2023: add a full CLI
+  - April 2024: add nix (flake) support
 - [libsodium-bindings](https://github.com/haskell-cryptography/libsodium-bindings): Haskell bindings to libsodium (cryptographic library)
   - December 2023: fix flake (nix) derivation for reuse
+  - April 2024: add nix (flake) support
 - [toml-parser](https://github.com/glguy/toml-parser): Haskell Toml parser
   - November 2023: Add GHC 9.8.1 support
 - [essence-of-live-coding](https://github.com/turion/essence-of-live-coding): Universal Live Coding & Functional Reactive Programming Framework
@@ -136,6 +139,7 @@ I have published some packages over Hackage (Haskell):
 - [wai-extra](https://hackage.haskell.org/package/wai-extra): WAI utilities
   - April 2022: Add `Middleware`s for health checks
   - April 2022: Add a dynamic `Middleware` builder
+  - March 2024: Add NoCache to MaxAge in wai-app-static
 - [vim-slime](https://github.com/jpalardy/vim-slime): ViM plugin for interactions with terminal multiplexers
   - December 2021: Fix tmux support
 - [powerline-go](https://github.com/justjanne/powerline-go): Powerline-like shell prompts customization

@@ -21,6 +21,7 @@ I am a professional *Software Engineer*, I have a solid track record of working 
 - 👯 I’m looking to collaborate on *Haskell open source projects*
 - 💬 Ask me about *Haskell*, *Backend development*, *Architecture*
 - 📫 How to reach me: *gautier [dot] difolco [at] gmail [dot] com*, [![Linkedin: Gautier DI FOLCO](https://img.shields.io/badge/-Gautier%20DI%20FOLCO-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gautier-di-folco/)](https://www.linkedin.com/in/gautier-di-folco/), [![Twitter Gautier DI FOLCO](https://img.shields.io/twitter/follow/gautier_difolco?style=social)](https://twitter.com/gautier_difolco)
+- 🔗 Other links: [Personal website](https://gautier.difolco.dev/) / [Passeport](https://passeport.dev/p/5ed43656-147b-463f-99a6-5255a34cd03a)
 - ⚡ Fun fact: unbeatable pasta eater
 
 ---
