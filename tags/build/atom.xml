@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - build</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/build/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2023-10-08T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/build/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Nix: optimizing Haskell build size</title>
+		<published>2023-10-08T00:00:00+00:00</published>
+		<updated>2023-10-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/nix-build-optimization/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/nix-build-optimization/</id>
+		<content type="html">&lt;p&gt;Nearly three months ago I wrote a log about &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-07&#x2F;nix-docker-optimization&#x2F;&quot;&gt;reducing Docker size&lt;&#x2F;a&gt;,
+mainly by relying on static builds.&lt;&#x2F;p&gt;
+&lt;p&gt;While perfectly relevant in this context, when I introduced Continuous Integration (CI)
+at my work (which was building with a vanilla &lt;code&gt;callCabal2nix&lt;&#x2F;code&gt;), the CI server disk
+filled-up in few hours.&lt;&#x2F;p&gt;
+&lt;p&gt;For each build:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 5 minutes&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 313 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 101 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 212 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;After a quick look at the size per files extension, we got:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hi&lt;&#x2F;code&gt; (interface file): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;p_hi&lt;&#x2F;code&gt; (interface file for profiling): 18 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;&#x2F;code&gt; (static library): 149 MiB (2 files)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Let&#x27;s go for the most obvious:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;We only run dynamically linked executables&lt;&#x2F;li&gt;
+&lt;li&gt;We do not run profiled executables&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We can wrap our final executable with:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;exeOnly&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;haskell&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;lib&lt;&#x2F;span&gt;;
+  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedExecutables&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedLibraries&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableStaticLibraries&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableExecutableProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableLibraryProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Let&#x27;s see the results:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 2 minutes&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 91 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 1.5 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 89 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: the build time drop comes mainly from the profiling support drop&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s have look at the size per files extension, we got:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hi&lt;&#x2F;code&gt; (interface file): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;&#x2F;code&gt; (static library): 44 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: the remaining &lt;code&gt;a&lt;&#x2F;code&gt; file seems to come from a previous derivation.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s a good first step, but actually, I only intend to run it, not to use it
+as the input of another build, let&#x27;s remove files manually:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;exeOnly&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;haskell&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;lib&lt;&#x2F;span&gt;;
+  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;overrideCabal&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedExecutables&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedLibraries&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableStaticLibraries&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableExecutableProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableLibraryProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;drv&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;postFixup&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;drv&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;postFixup&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;or&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;+&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-other z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-other z-start z-nix&quot;&gt;&amp;#39;&amp;#39;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;findutils&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;find $out -name &amp;#39;*.a&amp;#39; -exec rm \{\} \+
+      &lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;findutils&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;find $out -name &amp;#39;*.hi&amp;#39; -exec rm \{\} \+
+    &lt;span class=&quot;z-punctuation z-definition z-string z-other z-end z-nix&quot;&gt;&amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And the final results are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 2 minutes 10 seconds&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 34 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 1.5 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 32 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: I guess the 10 seconds increase is due to &lt;code&gt;find&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Finally we only have the necessary files:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sum-up:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Time: 5 minutes -&amp;gt; 2 minutes 10 seconds (57% drop)&lt;&#x2F;li&gt;
+&lt;li&gt;Size: 313 MiB -&amp;gt; 34 MiB (89% drop)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

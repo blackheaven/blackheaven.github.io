@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - career</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/career/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-03-24T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/career/atom.xml</id>
+	<entry xml:lang="en">
+		<title>The end of a 666 days streak</title>
+		<published>2024-03-24T00:00:00+00:00</published>
+		<updated>2024-03-24T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-03/streak/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-03/streak/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;streak.svg&quot; alt=&quot;666 days streak&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A while ago I have decided to do a 666 days streak of contributions on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly for fun, but also to have a call-to-action for contributions.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time I was CTO and for various reasons (administrative tasks, meetings,
+big feature development) I was not pushing code every week-days.
+I needed a motivation to have faster feedbacks (and feedbacks starts with pushing
+code to users, everything else is just noise).&lt;&#x2F;p&gt;
+&lt;p&gt;Note: 666 is my touch of hard rock fan&lt;&#x2F;p&gt;
+&lt;p&gt;On another I have, as an engineer, to do some technology intelligence regularly,
+that&#x27;s why I have started this web logs site (as a way to force myself to articulate
+things I have learned&#x2F;experimented).&lt;&#x2F;p&gt;
+&lt;p&gt;Over this period I have experienced few events which impacted my challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I had to face a loss in my life&lt;&#x2F;li&gt;
+&lt;li&gt;I switch job (stepping down from my CTO role), my new job requiring a dedicated GitHub account&lt;&#x2F;li&gt;
+&lt;li&gt;I have joined the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sustain the effort necessary to this challenge I had to set up a routine for my commits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Sundays, I was writing logs to be published on Sunday and Wednesday&lt;&#x2F;li&gt;
+&lt;li&gt;I had to plan and prepare (thanks to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.appflowy.io&#x2F;&quot;&gt;Kanban board&lt;&#x2F;a&gt;) my weeks commits&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here are the accomplishments I have made through this challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;56 [FOSS contributions][@&#x2F;pages&#x2F;foss.md] (outside my HSRT and other groups)&lt;&#x2F;li&gt;
+&lt;li&gt;145 logs published (which allowed me to have serious thoughts on Haskell&#x2F;Nix(OS)&#x2F;Software Engineering)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I pretty glad of that as it full-filled it&#x27;s role of call-to-action.&lt;&#x2F;p&gt;
+&lt;p&gt;On the flip side it has some drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many contributions have been delayed in order to fit my calendar&lt;&#x2F;li&gt;
+&lt;li&gt;My logs have a poor quality (I had many feedbacks which look like &amp;quot;I have opened on of your article, it was fun, but I didn&#x27;t understand a thing&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;A constant stress to find my next contribution&lt;&#x2F;li&gt;
+&lt;li&gt;I had to delay tackling some issues in my life (it was not preventing me to address it, but it was a good excuse not to do it)&lt;&#x2F;li&gt;
+&lt;li&gt;A small bore-out (while I was expecting a burnout)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What&#x27;s next:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish all the buffered commits (few dozens)&lt;&#x2F;li&gt;
+&lt;li&gt;Do most of the remaining work on hsec-tools (part of my work in the HSRT)&lt;&#x2F;li&gt;
+&lt;li&gt;End my work on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;bloodhound&quot;&gt;bloodhound&lt;&#x2F;a&gt; and publish a release&lt;&#x2F;li&gt;
+&lt;li&gt;Take a break&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;My long-term will include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restart my Yoga practice&lt;&#x2F;li&gt;
+&lt;li&gt;Learn a new natural language: I have started German for ZuriHac since few weeks, I&#x27;ll try to pick an eight one by the end of the year&lt;&#x2F;li&gt;
+&lt;li&gt;Learn new programming languages: this year I have learned Lua and Rust (with a strong emphasis as I plan to change focus), I plan to learn Verse and Unison&lt;&#x2F;li&gt;
+&lt;li&gt;Refocus my career: I think my career is currently good, but I aim to reach the next level (few years ago I had rejected an offer from a Big Tech, I have some remorse, being part of a Big Tech is still on my bucket list), that&#x27;s why I will:
+&lt;ul&gt;
+&lt;li&gt;Regularly do leetcode challenges (I have done 3 exercises every week since the beginning of the year), in Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Regularly train on system design on article and mock interview per week&lt;&#x2F;li&gt;
+&lt;li&gt;Work on my leadership skills (I have filled my RSS subscription with this topic, I still have to find an efficient way to train)&lt;&#x2F;li&gt;
+&lt;li&gt;Attempt &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;codingchallenges.fyi&#x2F;challenges&#x2F;intro&quot;&gt;Coding challenges&lt;&#x2F;a&gt; in Rust&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While the job market may not be the best at the moment, I will be ready when it&#x27;ll be better.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Luck is what happens when preparation meets opportunity&lt;&#x2F;p&gt;
+&lt;p&gt;-- Seneca&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>A case against Haskell immersion</title>
+		<published>2023-07-30T00:00:00+00:00</published>
+		<updated>2023-07-30T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-07/haskell-immersion/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-07/haskell-immersion/</id>
+		<content type="html">&lt;p&gt;I have just reached the 3-years-mark using Haskell in production, after 3 years as freelance Haskell teacher.&lt;&#x2F;p&gt;
+&lt;p&gt;First and foremost, I&#x27;d like to emphasize that I have willingly chosen to work in Haskell,
+and I think, as a developer, it was one of the best move I could do.&lt;&#x2F;p&gt;
+&lt;p&gt;Over these years, I was able to ship a lot of business value to the users,
+I have never hesitated doing huge refactoring of architectural changes just because I would be afraid of (silently) breaking something,
+I had the fastest feedback on my design I never had (thanks to GHC, which can be stubborn sometime),
+I was able to make major changes in my applications&#x27; semantic in no time.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, Haskell is not the only factor (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Domain-driven_design&quot;&gt;DDD&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;EventSourcing&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;TestDrivenDevelopment.html&quot;&gt;Test-Driven Development&lt;&#x2F;a&gt; played a role), but it clearly was a pillar.&lt;&#x2F;p&gt;
+&lt;p&gt;Aside of my day-to-day job, I&#x27;m one of the organizers of the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.meetup.com&#x2F;fr-FR&#x2F;Software-Craftsmanship-Lyon&#x2F;&quot;&gt;Software Crafters Lyon&lt;&#x2F;a&gt;,
+which focus on practising and reflecting around &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;manifesto.softwarecraftsmanship.org&#x2F;&quot;&gt;Software Crafting&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Along the way, I noticed that the more I was digging into Haskell ecosystem,
+the problem my concerns and my group members concerned diverged.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, while scaling up projects in Haskell in generally not a big deal (thanks to a compiler-backed composition),
+it seems to be a concern for others.
+Conversely, my main struggle was to find Haskell-grade libraries
+(I never had a situation where I didn&#x27;t find a library for what I had to do, but I much more picky when it comes to choose a library that I was when I was working with mainstream languages).
+I also tend to use alternate technologies (Elm vs Angular&#x2F;React, elm-ui vs Pug&#x2F;SASS&#x2F;SCSS, Nix&#x2F;NixOS vs Docker&#x2F;Kubernetes).&lt;&#x2F;p&gt;
+&lt;p&gt;Which made my discussions not always productive with the other members of my group.
+Also, I could say that it can be an issue during hiring as many recruiters are focused on a specific set of technologies,
+disregarding general knowledge on software
+(and my vision and my approach of software engineering changed a lot, thanks to my intensive Haskell practise).&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, I&#x27;m still glad to work in Haskell, and I&#x27;m glad to be part of the Software Crafters Lyon,
+as I learn every day, infusing knowledge from each world.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Language tourist</title>
+		<published>2022-11-12T00:00:00+00:00</published>
+		<updated>2022-11-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/language-tourist/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/language-tourist/</id>
+		<content type="html">&lt;p&gt;When it comes to programming languages, there is a famous quote:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;A language that doesn&#x27;t affect the way you think about programming, is not worth knowing.&amp;quot;&lt;&#x2F;p&gt;
+&lt;p&gt;-- Alan Perlis, Epigrams on Programming.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I hate this one, a bit of background.&lt;&#x2F;p&gt;
+&lt;p&gt;I started my journey in the software development world in 2003 (I was in college,
+which let me a lot of time to explore my programming languages, databases, SDLC
+approaches, deploying patterns, other software fields).&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to collect the programming languages I have learnt these last 20 years
+in the order of learning, it would look like:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP&lt;&#x2F;li&gt;
+&lt;li&gt;C++&lt;&#x2F;li&gt;
+&lt;li&gt;HTML&lt;&#x2F;li&gt;
+&lt;li&gt;CSS&lt;&#x2F;li&gt;
+&lt;li&gt;JavaScript&lt;&#x2F;li&gt;
+&lt;li&gt;SQL&lt;&#x2F;li&gt;
+&lt;li&gt;Bash&lt;&#x2F;li&gt;
+&lt;li&gt;Ruby&lt;&#x2F;li&gt;
+&lt;li&gt;C&lt;&#x2F;li&gt;
+&lt;li&gt;LaTeX&lt;&#x2F;li&gt;
+&lt;li&gt;Java&lt;&#x2F;li&gt;
+&lt;li&gt;Eiffel&lt;&#x2F;li&gt;
+&lt;li&gt;Io&lt;&#x2F;li&gt;
+&lt;li&gt;C#&lt;&#x2F;li&gt;
+&lt;li&gt;VB&lt;&#x2F;li&gt;
+&lt;li&gt;XSLT&lt;&#x2F;li&gt;
+&lt;li&gt;Prolog&lt;&#x2F;li&gt;
+&lt;li&gt;Erlang&lt;&#x2F;li&gt;
+&lt;li&gt;Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;CoffeeScript&lt;&#x2F;li&gt;
+&lt;li&gt;Smalltalk&lt;&#x2F;li&gt;
+&lt;li&gt;Python&lt;&#x2F;li&gt;
+&lt;li&gt;Go&lt;&#x2F;li&gt;
+&lt;li&gt;Awk&lt;&#x2F;li&gt;
+&lt;li&gt;Scheme&lt;&#x2F;li&gt;
+&lt;li&gt;Tcl&lt;&#x2F;li&gt;
+&lt;li&gt;Assembly&lt;&#x2F;li&gt;
+&lt;li&gt;Lucid&lt;&#x2F;li&gt;
+&lt;li&gt;Perl&lt;&#x2F;li&gt;
+&lt;li&gt;Elm&lt;&#x2F;li&gt;
+&lt;li&gt;OCaml&lt;&#x2F;li&gt;
+&lt;li&gt;Scala&lt;&#x2F;li&gt;
+&lt;li&gt;F#&lt;&#x2F;li&gt;
+&lt;li&gt;Clojure&lt;&#x2F;li&gt;
+&lt;li&gt;TypeScript&lt;&#x2F;li&gt;
+&lt;li&gt;Idris&lt;&#x2F;li&gt;
+&lt;li&gt;Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Nix&lt;&#x2F;li&gt;
+&lt;li&gt;Lua&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I may have forgotten some, or the order might not be correct, but the idea is
+to be able to adapt to your environment.&lt;&#x2F;p&gt;
+&lt;p&gt;That being said, I distinguish multiple level of mastery:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntactic: being able to read existing code, write some &amp;quot;simple&amp;quot; code (contribute to an existing code base), have basic interaction with build&#x2F;deployment environment (i.e. building the project)&lt;&#x2F;li&gt;
+&lt;li&gt;Semantic: being able to understand key concept behind the language (beyond their main paradigm: Imperative, Functional, Logic)&lt;&#x2F;li&gt;
+&lt;li&gt;Environmental: get a grasp on the language ecosystem (tools, libraries, frameworks)&lt;&#x2F;li&gt;
+&lt;li&gt;Idiomatic: being able to understand and leverage language idioms and internal structure&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are multiples ways to look at the previous:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I don&#x27;t have the same level of mastery in every programming languages&lt;&#x2F;li&gt;
+&lt;li&gt;All programming languages have not the same complexity (i.e. Io and Smalltalk are simple syntactically and semantically, Nix is syntactically simple but semantically complex, C++ is syntactically and semantically complex)&lt;&#x2F;li&gt;
+&lt;li&gt;Many programming languages inherit from the same paradigms and syntax, so I can rely on other idioms to compensate (i.e. whenever I code in F#, I do it like I would in Haskell, well, I try to)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Whenever I learn a new language, I plan&#x2F;execute my learning as a trip:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Purpose: is it for my professional growth, for fun (i.e. coding dojos), because I have a contribution to make&lt;&#x2F;li&gt;
+&lt;li&gt;Effort: how hard should I learn? If it&#x27;s a legacy which should be shutdown in few weeks, reaching the semantic level might be a bit too much&lt;&#x2F;li&gt;
+&lt;li&gt;Collect and sort resources: I try to mix official documentation and &amp;quot;trending&amp;quot; tutorials, selecting perceived important concepts&lt;&#x2F;li&gt;
+&lt;li&gt;In the field: either I&#x27;m on production code, so I rely on tests (actual or those I can add) and on my colleagues, or I&#x27;m on my own, then I try a pet project for that&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I never learn better than in front of the problem (i.e. initially, I have
+switched to NixOS to learn about Nix).&lt;&#x2F;p&gt;
+&lt;p&gt;My posture is the following: I have to contribute to a code base, most of the
+time it consists of fixing business bugs (either business changed, other business
+was not understood correctly), which does not take a lot of semantic knowledge.&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, from time to time you need environmental&#x2F;idiomatic knowledge when you
+have to build a huge&#x2F;complete (sub-)system, or debug a nasty behavior (it often
+occurs in non-linear logic, i.e. exceptions most of the time).&lt;&#x2F;p&gt;
+&lt;p&gt;For the rest, I rely on architectural and design principles (transposed SOLID principles,
+coupling, cohesion, etc.)&lt;&#x2F;p&gt;
+&lt;p&gt;Another important factor, when arriving at a base code, is to grasp
+design choices and habits, in my opinions it&#x27;s one of the biggest challenge as
+you cannot really be prepared for that (code review and &amp;quot;culture&amp;quot; can help) and
+it varies a lot. For example, I have worked in a team which has created and
+maintained three products at the same time, but had really different styles.&lt;&#x2F;p&gt;
+&lt;p&gt;To make things clear, I don&#x27;t like the introduction quote because learning a
+programming language is mostly about the environment you are envolving in,
+and what your are about to contribute to it.
+Once you have covered the mainstreams paradigm, there is few chances your
+view of the world change. You could stop there, but it will prevent you to
+collaborate with people who has something to share.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

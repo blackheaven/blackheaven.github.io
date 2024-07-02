@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - career</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/categories/career/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-03-24T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/categories/career/atom.xml</id>
+	<entry xml:lang="en">
+		<title>The end of a 666 days streak</title>
+		<published>2024-03-24T00:00:00+00:00</published>
+		<updated>2024-03-24T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-03/streak/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-03/streak/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;streak.svg&quot; alt=&quot;666 days streak&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A while ago I have decided to do a 666 days streak of contributions on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly for fun, but also to have a call-to-action for contributions.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time I was CTO and for various reasons (administrative tasks, meetings,
+big feature development) I was not pushing code every week-days.
+I needed a motivation to have faster feedbacks (and feedbacks starts with pushing
+code to users, everything else is just noise).&lt;&#x2F;p&gt;
+&lt;p&gt;Note: 666 is my touch of hard rock fan&lt;&#x2F;p&gt;
+&lt;p&gt;On another I have, as an engineer, to do some technology intelligence regularly,
+that&#x27;s why I have started this web logs site (as a way to force myself to articulate
+things I have learned&#x2F;experimented).&lt;&#x2F;p&gt;
+&lt;p&gt;Over this period I have experienced few events which impacted my challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I had to face a loss in my life&lt;&#x2F;li&gt;
+&lt;li&gt;I switch job (stepping down from my CTO role), my new job requiring a dedicated GitHub account&lt;&#x2F;li&gt;
+&lt;li&gt;I have joined the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sustain the effort necessary to this challenge I had to set up a routine for my commits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Sundays, I was writing logs to be published on Sunday and Wednesday&lt;&#x2F;li&gt;
+&lt;li&gt;I had to plan and prepare (thanks to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.appflowy.io&#x2F;&quot;&gt;Kanban board&lt;&#x2F;a&gt;) my weeks commits&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here are the accomplishments I have made through this challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;56 [FOSS contributions][@&#x2F;pages&#x2F;foss.md] (outside my HSRT and other groups)&lt;&#x2F;li&gt;
+&lt;li&gt;145 logs published (which allowed me to have serious thoughts on Haskell&#x2F;Nix(OS)&#x2F;Software Engineering)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I pretty glad of that as it full-filled it&#x27;s role of call-to-action.&lt;&#x2F;p&gt;
+&lt;p&gt;On the flip side it has some drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many contributions have been delayed in order to fit my calendar&lt;&#x2F;li&gt;
+&lt;li&gt;My logs have a poor quality (I had many feedbacks which look like &amp;quot;I have opened on of your article, it was fun, but I didn&#x27;t understand a thing&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;A constant stress to find my next contribution&lt;&#x2F;li&gt;
+&lt;li&gt;I had to delay tackling some issues in my life (it was not preventing me to address it, but it was a good excuse not to do it)&lt;&#x2F;li&gt;
+&lt;li&gt;A small bore-out (while I was expecting a burnout)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What&#x27;s next:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish all the buffered commits (few dozens)&lt;&#x2F;li&gt;
+&lt;li&gt;Do most of the remaining work on hsec-tools (part of my work in the HSRT)&lt;&#x2F;li&gt;
+&lt;li&gt;End my work on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;bloodhound&quot;&gt;bloodhound&lt;&#x2F;a&gt; and publish a release&lt;&#x2F;li&gt;
+&lt;li&gt;Take a break&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;My long-term will include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restart my Yoga practice&lt;&#x2F;li&gt;
+&lt;li&gt;Learn a new natural language: I have started German for ZuriHac since few weeks, I&#x27;ll try to pick an eight one by the end of the year&lt;&#x2F;li&gt;
+&lt;li&gt;Learn new programming languages: this year I have learned Lua and Rust (with a strong emphasis as I plan to change focus), I plan to learn Verse and Unison&lt;&#x2F;li&gt;
+&lt;li&gt;Refocus my career: I think my career is currently good, but I aim to reach the next level (few years ago I had rejected an offer from a Big Tech, I have some remorse, being part of a Big Tech is still on my bucket list), that&#x27;s why I will:
+&lt;ul&gt;
+&lt;li&gt;Regularly do leetcode challenges (I have done 3 exercises every week since the beginning of the year), in Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Regularly train on system design on article and mock interview per week&lt;&#x2F;li&gt;
+&lt;li&gt;Work on my leadership skills (I have filled my RSS subscription with this topic, I still have to find an efficient way to train)&lt;&#x2F;li&gt;
+&lt;li&gt;Attempt &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;codingchallenges.fyi&#x2F;challenges&#x2F;intro&quot;&gt;Coding challenges&lt;&#x2F;a&gt; in Rust&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While the job market may not be the best at the moment, I will be ready when it&#x27;ll be better.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Luck is what happens when preparation meets opportunity&lt;&#x2F;p&gt;
+&lt;p&gt;-- Seneca&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+	</entry>
+</feed>

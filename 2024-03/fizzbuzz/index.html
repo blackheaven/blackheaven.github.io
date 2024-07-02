@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Fizzbuzz kata: branchless version - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2024-03/fizzbuzz/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2024-03/fizzbuzz/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2024-03/fizzbuzz/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Fizzbuzz kata: branchless version | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Fizzbuzz kata: branchless version | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2024-03-13" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2024-03/fizzbuzz/">Fizzbuzz kata: branchless version</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> March 13, 2024<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/code-practice/">Code practice</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/code-kata/">code kata</a>  #<a href="https://gautier.difolco.dev/tags/coding-dojo/">coding dojo</a> </span>
+
+    <p>A well known code kata is the <em>fizzbuzz</em>, it can be described as follows:</p>
+<blockquote>
+<p>For any strictly positive number, if the number is a multiple of <code>3</code>
+display <code>Fizz</code>, if the number is a multiple of <code>5</code> display <code>Buzz</code>, is the
+number is a multiple of both <code>3</code> and <code>5</code> display <code>FizzBuzz</code>, otherwise display
+display the number.</p>
+</blockquote>
+<p>We can express this specification with the following tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>FizzBuzz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+    forM_ [(<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span><span class="z-punctuation z-separator z-comma z-haskell">,</span><span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>2<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)] <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(param<span class="z-punctuation z-separator z-comma z-haskell">,</span> result) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+      it (show param <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> should be <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> result) <span class="z-keyword z-operator z-haskell">$</span>
+        fizzbuzz param <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> result
+    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All multiple of three start with &#39;Fizz&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> 
+      property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+        n <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">==&gt;</span> isInfixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Fizz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> fizzbuzz (<span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> * n)
+    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All multiple of five ends with &#39;Buzz&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+      property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+        n <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">==&gt;</span> isSuffixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Buzz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> fizzbuzz (<span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span> * n)
+</span></code></pre>
+<p>One of the constraint we often use at <a rel="noopener" target="_blank" href="https://www.meetup.com/fr-FR/Software-Craftsmanship-Lyon/">Software Crafters Lyon</a>
+in <em>branchless</em> (actually it is <em>if-less</em>, but it is more OOP/procedural-oriented,
+which does not cover pattern-matching).</p>
+<p>To make the FizzBuzz compliant we have to see it as an infinite stream where,
+one every <code>3</code> elements starts with <code>Fizz</code>, one every <code>5</code> elements ends with <code>Buzz</code>,
+otherwise we have the number.</p>
+<p>Let's declare each stream:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">numbers</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">String</span>]
+</span>numbers <span class="z-keyword z-operator z-haskell">=</span> show <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> [<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-keyword z-operator z-haskell">..</span>]
+
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">String</span>]
+</span>fizzs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Fizz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+<span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> fizzs = [Nothing, Nothing, Just &quot;Fizz&quot;, Nothing, Nothing, Just &quot;Fizz&quot;, ..]
+</span>
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">buzzs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">String</span>]
+</span>buzzs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Buzz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+<span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> buzzs = [Nothing, Nothing, Nothing, Nothing, Just &quot;Buzz&quot;, Nothing, Nothing, Nothing, Nothing, Just &quot;Buzz&quot;, ..]
+</span></span></code></pre>
+<p>Note: they are 1-indexed</p>
+<p>Then we have to rely on <code>Semigroup</code> which is defined as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">Semigroup</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-haskell">where</span></span>
+<span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">(&lt;&gt;)</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span></code></pre>
+<p>It has two interesting instances:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Semigroup</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Semigroup</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+  <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Just</span> y <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> y
+  <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> x
+  <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> x
+  <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+
+<span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Semigroup</span> <span class="z-storage z-type z-haskell">String</span> <span class="z-keyword z-other z-haskell">where</span></span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Actually it is defined on any lists (`[a]`)
+</span>  <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-entity z-name z-function z-infix z-haskell">(++)</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> lists/strings concatenation
+</span></span></code></pre>
+<p>That being said, we can zip our <code>fizzs</code> and <code>buzzs</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> fizzs buzzs
+<span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> [Nothing, Nothing, Just &quot;Fizz&quot;, Nothing, Just &quot;Buzz&quot;, Just &quot;Fizz&quot;, Nothing, Nothing, Just &quot;Fizz&quot;, Just &quot;Buzz&quot;, Nothing, Just &quot;Fizz&quot;, Nothing, Nothing, Just &quot;FizzBuzz&quot;, ..]
+</span><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> [   1   ,    2   ,      3     ,    4   ,      5     ,      6     ,    7   ,    8   ,       9    ,     10     ,   11   ,     12     ,   13   ,   14   ,        15      , ..]
+</span></span></code></pre>
+<p>Then, in order to do a proper stream, we have to default the <code>Nothing</code> with
+<code>fromMaybe</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzbuzzStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">String</span>]
+</span>fizzbuzzStream <span class="z-keyword z-operator z-haskell">=</span> zipWith fromMaybe numbers <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> fizzs buzzs
+<span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> [&quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;4&quot;, &quot;Buzz&quot;, &quot;Fizz&quot;, &quot;7&quot;, &quot;8&quot;, &quot;Fizz&quot;, &quot;Buzz&quot;, &quot;11&quot;, &quot;Fizz&quot;, &quot;13&quot;, &quot;14&quot;, &quot;FizzBuzz&quot;, ..]
+</span></span></code></pre>
+<p>Finally we can simply get the matching string by accessing to the corresponding
+element in the stream:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzbuzz</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span>fizzbuzz n <span class="z-keyword z-operator z-haskell">=</span> fizzbuzzStream <span class="z-keyword z-operator z-haskell">!!</span> (n <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span></code></pre>
+<p>Branch-less is an interesting constraint when the type is opaque (e.g. <code>Applicative</code>,
+<code>Monad</code>) because you are able to add code without changing the type.
+In all other cases, GHC checks that all branches of sum types are covered.</p>
+
+<p><b><a href="#">Back to top</a></b></p>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+<span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

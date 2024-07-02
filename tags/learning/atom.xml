@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - learning</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/learning/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-11-12T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/learning/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Language tourist</title>
+		<published>2022-11-12T00:00:00+00:00</published>
+		<updated>2022-11-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/language-tourist/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/language-tourist/</id>
+		<content type="html">&lt;p&gt;When it comes to programming languages, there is a famous quote:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;A language that doesn&#x27;t affect the way you think about programming, is not worth knowing.&amp;quot;&lt;&#x2F;p&gt;
+&lt;p&gt;-- Alan Perlis, Epigrams on Programming.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I hate this one, a bit of background.&lt;&#x2F;p&gt;
+&lt;p&gt;I started my journey in the software development world in 2003 (I was in college,
+which let me a lot of time to explore my programming languages, databases, SDLC
+approaches, deploying patterns, other software fields).&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to collect the programming languages I have learnt these last 20 years
+in the order of learning, it would look like:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP&lt;&#x2F;li&gt;
+&lt;li&gt;C++&lt;&#x2F;li&gt;
+&lt;li&gt;HTML&lt;&#x2F;li&gt;
+&lt;li&gt;CSS&lt;&#x2F;li&gt;
+&lt;li&gt;JavaScript&lt;&#x2F;li&gt;
+&lt;li&gt;SQL&lt;&#x2F;li&gt;
+&lt;li&gt;Bash&lt;&#x2F;li&gt;
+&lt;li&gt;Ruby&lt;&#x2F;li&gt;
+&lt;li&gt;C&lt;&#x2F;li&gt;
+&lt;li&gt;LaTeX&lt;&#x2F;li&gt;
+&lt;li&gt;Java&lt;&#x2F;li&gt;
+&lt;li&gt;Eiffel&lt;&#x2F;li&gt;
+&lt;li&gt;Io&lt;&#x2F;li&gt;
+&lt;li&gt;C#&lt;&#x2F;li&gt;
+&lt;li&gt;VB&lt;&#x2F;li&gt;
+&lt;li&gt;XSLT&lt;&#x2F;li&gt;
+&lt;li&gt;Prolog&lt;&#x2F;li&gt;
+&lt;li&gt;Erlang&lt;&#x2F;li&gt;
+&lt;li&gt;Haskell&lt;&#x2F;li&gt;
+&lt;li&gt;CoffeeScript&lt;&#x2F;li&gt;
+&lt;li&gt;Smalltalk&lt;&#x2F;li&gt;
+&lt;li&gt;Python&lt;&#x2F;li&gt;
+&lt;li&gt;Go&lt;&#x2F;li&gt;
+&lt;li&gt;Awk&lt;&#x2F;li&gt;
+&lt;li&gt;Scheme&lt;&#x2F;li&gt;
+&lt;li&gt;Tcl&lt;&#x2F;li&gt;
+&lt;li&gt;Assembly&lt;&#x2F;li&gt;
+&lt;li&gt;Lucid&lt;&#x2F;li&gt;
+&lt;li&gt;Perl&lt;&#x2F;li&gt;
+&lt;li&gt;Elm&lt;&#x2F;li&gt;
+&lt;li&gt;OCaml&lt;&#x2F;li&gt;
+&lt;li&gt;Scala&lt;&#x2F;li&gt;
+&lt;li&gt;F#&lt;&#x2F;li&gt;
+&lt;li&gt;Clojure&lt;&#x2F;li&gt;
+&lt;li&gt;TypeScript&lt;&#x2F;li&gt;
+&lt;li&gt;Idris&lt;&#x2F;li&gt;
+&lt;li&gt;Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Nix&lt;&#x2F;li&gt;
+&lt;li&gt;Lua&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I may have forgotten some, or the order might not be correct, but the idea is
+to be able to adapt to your environment.&lt;&#x2F;p&gt;
+&lt;p&gt;That being said, I distinguish multiple level of mastery:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntactic: being able to read existing code, write some &amp;quot;simple&amp;quot; code (contribute to an existing code base), have basic interaction with build&#x2F;deployment environment (i.e. building the project)&lt;&#x2F;li&gt;
+&lt;li&gt;Semantic: being able to understand key concept behind the language (beyond their main paradigm: Imperative, Functional, Logic)&lt;&#x2F;li&gt;
+&lt;li&gt;Environmental: get a grasp on the language ecosystem (tools, libraries, frameworks)&lt;&#x2F;li&gt;
+&lt;li&gt;Idiomatic: being able to understand and leverage language idioms and internal structure&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are multiples ways to look at the previous:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I don&#x27;t have the same level of mastery in every programming languages&lt;&#x2F;li&gt;
+&lt;li&gt;All programming languages have not the same complexity (i.e. Io and Smalltalk are simple syntactically and semantically, Nix is syntactically simple but semantically complex, C++ is syntactically and semantically complex)&lt;&#x2F;li&gt;
+&lt;li&gt;Many programming languages inherit from the same paradigms and syntax, so I can rely on other idioms to compensate (i.e. whenever I code in F#, I do it like I would in Haskell, well, I try to)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Whenever I learn a new language, I plan&#x2F;execute my learning as a trip:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Purpose: is it for my professional growth, for fun (i.e. coding dojos), because I have a contribution to make&lt;&#x2F;li&gt;
+&lt;li&gt;Effort: how hard should I learn? If it&#x27;s a legacy which should be shutdown in few weeks, reaching the semantic level might be a bit too much&lt;&#x2F;li&gt;
+&lt;li&gt;Collect and sort resources: I try to mix official documentation and &amp;quot;trending&amp;quot; tutorials, selecting perceived important concepts&lt;&#x2F;li&gt;
+&lt;li&gt;In the field: either I&#x27;m on production code, so I rely on tests (actual or those I can add) and on my colleagues, or I&#x27;m on my own, then I try a pet project for that&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I never learn better than in front of the problem (i.e. initially, I have
+switched to NixOS to learn about Nix).&lt;&#x2F;p&gt;
+&lt;p&gt;My posture is the following: I have to contribute to a code base, most of the
+time it consists of fixing business bugs (either business changed, other business
+was not understood correctly), which does not take a lot of semantic knowledge.&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, from time to time you need environmental&#x2F;idiomatic knowledge when you
+have to build a huge&#x2F;complete (sub-)system, or debug a nasty behavior (it often
+occurs in non-linear logic, i.e. exceptions most of the time).&lt;&#x2F;p&gt;
+&lt;p&gt;For the rest, I rely on architectural and design principles (transposed SOLID principles,
+coupling, cohesion, etc.)&lt;&#x2F;p&gt;
+&lt;p&gt;Another important factor, when arriving at a base code, is to grasp
+design choices and habits, in my opinions it&#x27;s one of the biggest challenge as
+you cannot really be prepared for that (code review and &amp;quot;culture&amp;quot; can help) and
+it varies a lot. For example, I have worked in a team which has created and
+maintained three products at the same time, but had really different styles.&lt;&#x2F;p&gt;
+&lt;p&gt;To make things clear, I don&#x27;t like the introduction quote because learning a
+programming language is mostly about the environment you are envolving in,
+and what your are about to contribute to it.
+Once you have covered the mainstreams paradigm, there is few chances your
+view of the world change. You could stop there, but it will prevent you to
+collaborate with people who has something to share.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

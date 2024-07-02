@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-04/plutus-c4-l9/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-04/plutus-c4-l9/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-04/plutus-c4-l9/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-04-30" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-04/plutus-c4-l9/">Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> April 30, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/haskell/">Haskell</a><a href="https://gautier.difolco.dev/categories/blockchain/">Blockchain</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/cardano/">cardano</a>  #<a href="https://gautier.difolco.dev/tags/smart-contracts/">smart contracts</a> </span>
+
+    <p>Today's lecture aims to be a wrap-up of previous lectures by implementing a stablecoin.</p>
+<p>It's supposed to be the indexed (i.e. synchronized) representation of a real-world currency.</p>
+<p>Cardano already hosts multiple stablecoins indexed on the USD: <a rel="noopener" target="_blank" href="https://djed.xyz/">DJED</a> and <a rel="noopener" target="_blank" href="https://www.anzens.com/">USDA</a>.</p>
+<p>This lecture will present an over-collateralized algorithmic stablecoin which uses a liquidation mechanism to incentivise stability.
+Which can be broke down as follows:</p>
+<ul>
+<li>Over-collateralized: it takes an extra (150%) amount of collateral to mint the stable coin</li>
+<li>Algorithimic: it relies on a smartcontracts enforcing stablecoin's price</li>
+<li>Liquididation mechanism to incentivise stability: the extra amount of collateral (in opposition to the minted coin's value) which is used to reward someone when he/she liquidates someone else position
+<ul>
+<li>Liquidating consists in burning the same amount of token in order get their collateral</li>
+<li>Liquidating can only be done when the value of the coin and the value locked in the collateral are below a certain threshold</li>
+</ul>
+</li>
+<li>Stability: it's ensured by miniting more stablecoins when ADA goes up, and add more collaterals or burn stablecoins when ADA goes down</li>
+</ul>
+<p>Conceptually, it takes:</p>
+<ul>
+<li>A validator script for the oracle which keeps the value up-to-date</li>
+<li>A minting policy for the collateral, to lock and release collaterals</li>
+<li>A minting policy for the minting of the stablecoin</li>
+</ul>
+<p>To deploy the Oracle, we should:</p>
+<ul>
+<li>Mint a NFT</li>
+<li>Actually deploy the oracle validator which is an utxo containing the current ADA/USD rate and the NFT (to identify the oracle)</li>
+</ul>
+<p>Then we should deploy the collateral validator and minting policy  as reference scripts in the same transaction.</p>
+<p>Moreover, we need a smart contract which allows updating the conversion rate, meaning:</p>
+<ul>
+<li>Inputs previous utxo (NFT + old rate)</li>
+<li>Outputs a new utxo (NFT + new rate)</li>
+</ul>
+<p>Then comes the user stable coin minting, which is a transaction containing:</p>
+<ul>
+<li>Inputs: user's collaterals (which will be locked), minting policy as reference script, and the oracle validator as reference input</li>
+<li>Outputs: Collateral validator (an utxo with the collateral, and collateral owner and minted amount as datum), and stables in user's wallet</li>
+</ul>
+<p>Burning stablecoin takes a transaction which unlock collaterals and mint stablecoins based:</p>
+<ul>
+<li>User's stablecoins</li>
+<li>The first collateral validator as reference script</li>
+<li>Minting policy as reference script</li>
+<li>The second collateral validator (the utxo with the collateral, and collateral owner and minted amount as datum), which  ensures it's your stablecoins you're burning</li>
+</ul>
+<p>However, liquidating a other user's stablecoin is slightly different as it takes:</p>
+<ul>
+<li>Liquidator's stablecoins</li>
+<li>The first collateral validator as reference script</li>
+<li>Minting policy as reference script</li>
+<li>The second collateral validator (the utxo with the collateral, and collateral owner and minted amount as datum)</li>
+<li>Oracle validator as reference input (with the NFT and the conversion rate)</li>
+</ul>
+<p>Doing so gives you access to the other user's collateral.</p>
+<p>If we follows a complete example:</p>
+<ul>
+<li><em>User 1</em> mints 100 stablecoins, which locks a collateral of 150 ADA (a threshold of 150%, as 1 USD = 1 ADA)</li>
+<li>If the conversion rate drops (let's say 1 ADA = 0.90 USD), then there's an incentive to liquidate <em>User 1</em> position</li>
+<li><em>User 2</em> will then mint 100 stablecoins, at a lower price (135 ADA in the collateral, 100 stablecoins * 150% * 0.90 USD/ADA), and liquidates <em>User 1</em> position, keeping the rewards (15 ADA), without affecting stablecoin's stability</li>
+</ul>
+
+<p><b><a href="#">Back to top</a></b></p>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+<span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>
