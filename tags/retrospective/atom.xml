@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - retrospective</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/retrospective/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-06-18T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/retrospective/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Haskell Ecosystem Workshop &amp; ZuriHac 2024</title>
+		<published>2024-06-18T00:00:00+00:00</published>
+		<updated>2024-06-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-06/zurihac/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-06/zurihac/</id>
+		<content type="html">&lt;p&gt;Ten days ago I have attended to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;haskell.foundation&#x2F;events&#x2F;2024-haskell-ecosystem-workshop.html&quot;&gt;Haskell Ecosystem Workshop&lt;&#x2F;a&gt;
+followed by &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zfoh.ch&#x2F;zurihac2024&#x2F;&quot;&gt;ZuriHac&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It was my first participation to both events (last year, due to conflicting events,
+I was only able to attend to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;haskell.foundation&#x2F;events&#x2F;2023-ghc-development-workshop.html&quot;&gt;GHC Contributors&#x27; Workshop&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;haskell-ecosystem-workshop&quot;&gt;Haskell Ecosystem Workshop&lt;&#x2F;h3&gt;
+&lt;p&gt;I have attended as part as the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We have collected a lot of feedback (videos will be available at some point),
+but if I have to make two highlights:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Haskell ecosystem has already all the tools it takes to work with Haskell, however, tools are usually not polished enough (see the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pareto_principle&quot;&gt;80&#x2F;20 rule&lt;&#x2F;a&gt;) and&#x2F;or usable easily together&lt;&#x2F;li&gt;
+&lt;li&gt;Specifically to the SRT: there is a huge need for a (better) integration of the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&quot;&gt;security-advisories&lt;&#x2F;a&gt; in the ecosystem (i.e. cabal, hackage-server, flora) and a way to generate &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Software_supply_chain&quot;&gt;SBOM&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This is one of the reasons we are discussing the split of the SRT team,
+which may or may not lead to the creation of another working group or sub-group
+dedicated to security tooling (I wish I&#x27;ll be part of it, as it fits my
+interests and skills more than the current team, which was dedicated to
+vulnerabilities analysis and mitigations efforts coordination).&lt;&#x2F;p&gt;
+&lt;p&gt;Speaking with other attendees made me realize that most of the core contributors
+are volunteers, especially those maintaining critical parts of the infrastructure.
+Moreover, many of them do not work with Haskell in their daily job.&lt;&#x2F;p&gt;
+&lt;p&gt;On one hand I have serious doubts on the sustainability of the effort, on
+another hand, I&#x27;m grateful to my employers for having be able to work with it
+or the last four years and that it is a great opportunity to take the best from
+other ecosystems while avoid many pitfalls.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;zurihac&quot;&gt;ZuriHac&lt;&#x2F;h3&gt;
+&lt;p&gt;I was my first attendance to ZuriHac.&lt;&#x2F;p&gt;
+&lt;p&gt;I was planning to work with various groups (cabal, cabal-audit, hackage-server, flora)
+to integrate &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&quot;&gt;security-advisories&lt;&#x2F;a&gt;
+(I think we have talked maybe one hour about it over 5 days),
+but we had to handle three vulnerabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;Hopefully, I was able to find some extra time to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&#x2F;pull&#x2F;206&quot;&gt;redesign the index&lt;&#x2F;a&gt;,
+which will be useful as we now have a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.haskell.org&#x2F;security&#x2F;&quot;&gt;page on &lt;code&gt;haskell.org&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I also had in mind a GHC improvement and a HLS bug fix from last year.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;While I did not meet my initial goals, I&#x27;m pretty satisfied with my participation.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, I wish to have talked to more people, and make more code contributions,
+but in the end, I think I have a better understanding of the ecosystem state and direction.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>The end of a 666 days streak</title>
+		<published>2024-03-24T00:00:00+00:00</published>
+		<updated>2024-03-24T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-03/streak/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-03/streak/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;streak.svg&quot; alt=&quot;666 days streak&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A while ago I have decided to do a 666 days streak of contributions on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly for fun, but also to have a call-to-action for contributions.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time I was CTO and for various reasons (administrative tasks, meetings,
+big feature development) I was not pushing code every week-days.
+I needed a motivation to have faster feedbacks (and feedbacks starts with pushing
+code to users, everything else is just noise).&lt;&#x2F;p&gt;
+&lt;p&gt;Note: 666 is my touch of hard rock fan&lt;&#x2F;p&gt;
+&lt;p&gt;On another I have, as an engineer, to do some technology intelligence regularly,
+that&#x27;s why I have started this web logs site (as a way to force myself to articulate
+things I have learned&#x2F;experimented).&lt;&#x2F;p&gt;
+&lt;p&gt;Over this period I have experienced few events which impacted my challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I had to face a loss in my life&lt;&#x2F;li&gt;
+&lt;li&gt;I switch job (stepping down from my CTO role), my new job requiring a dedicated GitHub account&lt;&#x2F;li&gt;
+&lt;li&gt;I have joined the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sustain the effort necessary to this challenge I had to set up a routine for my commits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Sundays, I was writing logs to be published on Sunday and Wednesday&lt;&#x2F;li&gt;
+&lt;li&gt;I had to plan and prepare (thanks to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.appflowy.io&#x2F;&quot;&gt;Kanban board&lt;&#x2F;a&gt;) my weeks commits&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here are the accomplishments I have made through this challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;56 [FOSS contributions][@&#x2F;pages&#x2F;foss.md] (outside my HSRT and other groups)&lt;&#x2F;li&gt;
+&lt;li&gt;145 logs published (which allowed me to have serious thoughts on Haskell&#x2F;Nix(OS)&#x2F;Software Engineering)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I pretty glad of that as it full-filled it&#x27;s role of call-to-action.&lt;&#x2F;p&gt;
+&lt;p&gt;On the flip side it has some drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many contributions have been delayed in order to fit my calendar&lt;&#x2F;li&gt;
+&lt;li&gt;My logs have a poor quality (I had many feedbacks which look like &amp;quot;I have opened on of your article, it was fun, but I didn&#x27;t understand a thing&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;A constant stress to find my next contribution&lt;&#x2F;li&gt;
+&lt;li&gt;I had to delay tackling some issues in my life (it was not preventing me to address it, but it was a good excuse not to do it)&lt;&#x2F;li&gt;
+&lt;li&gt;A small bore-out (while I was expecting a burnout)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What&#x27;s next:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish all the buffered commits (few dozens)&lt;&#x2F;li&gt;
+&lt;li&gt;Do most of the remaining work on hsec-tools (part of my work in the HSRT)&lt;&#x2F;li&gt;
+&lt;li&gt;End my work on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;bloodhound&quot;&gt;bloodhound&lt;&#x2F;a&gt; and publish a release&lt;&#x2F;li&gt;
+&lt;li&gt;Take a break&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;My long-term will include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restart my Yoga practice&lt;&#x2F;li&gt;
+&lt;li&gt;Learn a new natural language: I have started German for ZuriHac since few weeks, I&#x27;ll try to pick an eight one by the end of the year&lt;&#x2F;li&gt;
+&lt;li&gt;Learn new programming languages: this year I have learned Lua and Rust (with a strong emphasis as I plan to change focus), I plan to learn Verse and Unison&lt;&#x2F;li&gt;
+&lt;li&gt;Refocus my career: I think my career is currently good, but I aim to reach the next level (few years ago I had rejected an offer from a Big Tech, I have some remorse, being part of a Big Tech is still on my bucket list), that&#x27;s why I will:
+&lt;ul&gt;
+&lt;li&gt;Regularly do leetcode challenges (I have done 3 exercises every week since the beginning of the year), in Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Regularly train on system design on article and mock interview per week&lt;&#x2F;li&gt;
+&lt;li&gt;Work on my leadership skills (I have filled my RSS subscription with this topic, I still have to find an efficient way to train)&lt;&#x2F;li&gt;
+&lt;li&gt;Attempt &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;codingchallenges.fyi&#x2F;challenges&#x2F;intro&quot;&gt;Coding challenges&lt;&#x2F;a&gt; in Rust&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While the job market may not be the best at the moment, I will be ready when it&#x27;ll be better.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Luck is what happens when preparation meets opportunity&lt;&#x2F;p&gt;
+&lt;p&gt;-- Seneca&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my first CTO experience</title>
+		<published>2023-04-12T00:00:00+00:00</published>
+		<updated>2023-04-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/cto-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/cto-retrospective/</id>
+		<content type="html">&lt;p&gt;As I&#x27;ll soon change company, I think it&#x27;s the right time to do a retrospective of these years as CTO, for the first time.
+(Note that, legally speaking I&#x27;ve been &amp;quot;promoted&amp;quot; CTO after more than one year, but, in practice, I acted as CTO from day 1).&lt;&#x2F;p&gt;
+&lt;p&gt;My company was, at the time, an early-stage startup of 4 people (including 3 co-founders, excluding me), which did a first product, and was looking for a new concept to leverage feedbacks.&lt;&#x2F;p&gt;
+&lt;p&gt;I started in early September in a company which aimed to provide a platform for product teams.
+This platform was interacting with various tools (Github, Gitlab, JIRA, Trello, etc.).
+We started with a team of two individuals (a frontend engineer I hired, and me).
+As I knew I won&#x27;t have much time, I preferred each one of us stay in their comfort zone (I will write a log on it), which meant Angular&#x2F;TypeScript for the frontend, Haskell for the backend, AWS&#x2F;Terraform for the infrastructure.
+I started very optimistically at the time, putting everything in place for a long development (e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;adr.github.io&#x2F;&quot;&gt;ADR&lt;&#x2F;a&gt;, a microservices&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Event-driven_architecture&quot;&gt;EDA&lt;&#x2F;a&gt; based architecture, a solid CI&#x2F;CD).
+It was a quite exiting time, we were pair-programming a lot, having a short feedbacks loop in the company.&lt;&#x2F;p&gt;
+&lt;p&gt;The main issue we had at the time, was a problem of speed: we were only 2 developers, and there were 4 individuals gathering feedbacks and pushing features.
+Along the way we tried to rely on freelancers (we hired 6 of them over 6 months), but it was time-consuming and the on-boarding was tedious.
+For instance, I&#x27;m based in France, and I some point I had to onboard someone in Vietnam and someone in Brazil.
+The ADRs, weren&#x27;t used&#x2F;useful as they involved a lot of knowledge in Software Engineering.
+Anyway, as mentioned in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fred_Brooks&quot;&gt;Fred Brooks&lt;&#x2F;a&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Mythical_Man-Month&quot;&gt;The Mythical Man-Month&lt;&#x2F;a&gt;, adding people does not save time in the beginning.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point we decided, with the co-founders, to grow the permanent team, we hired 3 more developers (I plan to write a log on hiring too).
+It was a big change, previously, hiring a freelancers was quite simple:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look for freelancers on upwork&lt;&#x2F;li&gt;
+&lt;li&gt;Check their profile&lt;&#x2F;li&gt;
+&lt;li&gt;Look at their Github account&lt;&#x2F;li&gt;
+&lt;li&gt;Chat with them&lt;&#x2F;li&gt;
+&lt;li&gt;Hire them for a week, and renew if it works&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To a more structured hiring, process.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily we got experienced newcomers (including one which was much more experienced that I was).
+It was interesting to discuss all the choices I made the previous months, sure, I was expecting that many of them would be &amp;quot;negatively&amp;quot; challenged (ie. &amp;quot;why have you done that?&amp;quot;), but some of them were &amp;quot;positively&amp;quot; challenged (ie. &amp;quot;you should have gone further&amp;quot;).
+That&#x27;s when we migrated to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt;, and it was painful, but our reactivity to changes skyrocketed.
+It was also the time when I had to act as a manager, while, until then, with enough pair-programming, the team was stable.&lt;&#x2F;p&gt;
+&lt;p&gt;After some months, we realized that we didn&#x27;t get enough traction, we actually stopped this product (actually, we created a new toy project from it, shrinking down features), loose a part of the staff (including a co-founder, and the first frontend developer).
+We hired new developers and started a new collaborative tool.
+The difference was that, this time, I wasn&#x27;t alone to work on the backend, the other developer was really fast but had a different background from mine.
+The new architecture was drastically simpler (PostGreSQL instead of DynamoDB&#x2F;ElasticSearch, a monolith instead of a micro-services based architecture, no event).
+Everything went well, the pace was high, we had many feedbacks, too many feedbacks, our tool was too generic, we had to target a specific group of users, leading to a major pivot of the tool.
+It was actually painful, changing a lot of concepts, database tables, functions, and queries was costly.
+Eventually, after that we started to have more relevant feedbacks and our first users.&lt;&#x2F;p&gt;
+&lt;p&gt;This is when I decided to look for new opportunities.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to take few steps back, while it was a great experience, I wish I have done some things differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;While I tend to favor consensus, I have imposed few decisions in order to have a &amp;quot;manageable&amp;quot; product, but it led &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bus_factor&quot;&gt;a bus factor of 1&lt;&#x2F;a&gt;, so I had to rework some parts during my notice period&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I didn&#x27;t use Haskell for the new product, because it makes hiring difficult in early-stage startups&lt;&#x2F;li&gt;
+&lt;li&gt;I should have &amp;quot;silo-ed&amp;quot; more product team and business team, actually business people were kind of geeks, and on another hand product team members were not used to speak business language, leading business folks to push for technical solution (instead of business problems) and developers raising technical issues (instead of challenging the business)&lt;&#x2F;li&gt;
+&lt;li&gt;I should have insisted more on conceptualizing things instead of relying purely on UX to build the product&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I would have been more articulated when I was advocating for tests, code quality or fast and regular delivery and feedbacks&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;However I&#x27;m proud of many things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to build a great team is quite a big achievement to me&lt;&#x2F;li&gt;
+&lt;li&gt;While I wish some (architectural) decisions to be taken differently, it was great that once my coworkers get the issues they were solving, my colleagues adopted them naturally&lt;&#x2F;li&gt;
+&lt;li&gt;I had a role of &amp;quot;enabler&amp;quot;, taking-out the big rocks on the road, enabling everyone to have a smooth working environment&lt;&#x2F;li&gt;
+&lt;li&gt;I find a way to many various workloads (development, infrastructure, meetings, reports, administrative tasks, hirings, etc.) quite smoothly&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

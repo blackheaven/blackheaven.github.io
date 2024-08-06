@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - optimization</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/optimization/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2023-10-08T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/optimization/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Nix: optimizing Haskell build size</title>
+		<published>2023-10-08T00:00:00+00:00</published>
+		<updated>2023-10-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/nix-build-optimization/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/nix-build-optimization/</id>
+		<content type="html">&lt;p&gt;Nearly three months ago I wrote a log about &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-07&#x2F;nix-docker-optimization&#x2F;&quot;&gt;reducing Docker size&lt;&#x2F;a&gt;,
+mainly by relying on static builds.&lt;&#x2F;p&gt;
+&lt;p&gt;While perfectly relevant in this context, when I introduced Continuous Integration (CI)
+at my work (which was building with a vanilla &lt;code&gt;callCabal2nix&lt;&#x2F;code&gt;), the CI server disk
+filled-up in few hours.&lt;&#x2F;p&gt;
+&lt;p&gt;For each build:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 5 minutes&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 313 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 101 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 212 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;After a quick look at the size per files extension, we got:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hi&lt;&#x2F;code&gt; (interface file): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;p_hi&lt;&#x2F;code&gt; (interface file for profiling): 18 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;&#x2F;code&gt; (static library): 149 MiB (2 files)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Let&#x27;s go for the most obvious:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;We only run dynamically linked executables&lt;&#x2F;li&gt;
+&lt;li&gt;We do not run profiled executables&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We can wrap our final executable with:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;exeOnly&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;haskell&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;lib&lt;&#x2F;span&gt;;
+  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedExecutables&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedLibraries&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableStaticLibraries&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableExecutableProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableLibraryProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Let&#x27;s see the results:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 2 minutes&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 91 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 1.5 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 89 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: the build time drop comes mainly from the profiling support drop&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s have look at the size per files extension, we got:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hi&lt;&#x2F;code&gt; (interface file): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;&#x2F;code&gt; (static library): 44 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: the remaining &lt;code&gt;a&lt;&#x2F;code&gt; file seems to come from a previous derivation.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s a good first step, but actually, I only intend to run it, not to use it
+as the input of another build, let&#x27;s remove files manually:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;exeOnly&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-other z-nix&quot;&gt;with&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;haskell&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;lib&lt;&#x2F;span&gt;;
+  &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;overrideCabal&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedExecutables&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;enableSharedLibraries&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableStaticLibraries&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableExecutableProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;disableLibraryProfiling&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;b&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-function z-4 z-nix&quot;&gt;drv&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-function z-nix&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;postFixup&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;drv&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;postFixup&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;or&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;+&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-other z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-other z-start z-nix&quot;&gt;&amp;#39;&amp;#39;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;findutils&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;find $out -name &amp;#39;*.a&amp;#39; -exec rm \{\} \+
+      &lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;findutils&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;find $out -name &amp;#39;*.hi&amp;#39; -exec rm \{\} \+
+    &lt;span class=&quot;z-punctuation z-definition z-string z-other z-end z-nix&quot;&gt;&amp;#39;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And the final results are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration: 2 minutes 10 seconds&lt;&#x2F;li&gt;
+&lt;li&gt;Output size:
+&lt;ul&gt;
+&lt;li&gt;Total: 34 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;&#x2F;code&gt; (9 executables): 1.5 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;&#x2F;code&gt;: 32 MiB&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: I guess the 10 seconds increase is due to &lt;code&gt;find&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Finally we only have the necessary files:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dyn_hi&lt;&#x2F;code&gt; (interface file for dynamic linking): 15 MiB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;so&lt;&#x2F;code&gt; (dynamic library): 17 MiB (1 file)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sum-up:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Time: 5 minutes -&amp;gt; 2 minutes 10 seconds (57% drop)&lt;&#x2F;li&gt;
+&lt;li&gt;Size: 313 MiB -&amp;gt; 34 MiB (89% drop)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Nix: optimizing Haskell-based Docker-size</title>
+		<published>2023-07-16T00:00:00+00:00</published>
+		<updated>2023-07-16T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-07/nix-docker-optimization/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-07/nix-docker-optimization/</id>
+		<content type="html">&lt;p&gt;Few months ago, I joined the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-announcement-and-q2-2023-report&#x2F;6931&quot;&gt;Haskell Security Response Team&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve been involved in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&#x2F;tree&#x2F;main&#x2F;code&#x2F;hsec-tools&quot;&gt;hsec-tools&lt;&#x2F;a&gt;, which aims, in the medium terms, to support the whole security advisories infrastructure.&lt;&#x2F;p&gt;
+&lt;p&gt;One of our distributions is &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;NixOS&#x2F;nix&quot;&gt;nix&lt;&#x2F;a&gt;, so, when I had to create a docker image, I started with:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;dockerTools&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;buildImage&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;name&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;haskell&#x2F;hsec-tools&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;tag&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;latest&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+
+  &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;copyToRoot&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;buildEnv&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;name&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;image-root&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;paths&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;self&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;packages&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;system&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;hsec-tools&lt;&#x2F;span&gt; &lt;span class=&quot;z-comment z-line z-number-sign z-nix&quot;&gt;# is a haskellPackages.callCabal2nix&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;git&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;out&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;pathsToLink&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;bin&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;config&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;Cmd&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;hsec-tools&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;Env&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;[&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LOCALE_ARCHIVE=&lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;glibcLocales&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;lib&#x2F;locale&#x2F;locale-archive&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LC_TIME=en_US.UTF-8&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LANG=en_US.UTF-8&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LANGUAGE=en&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LC_ALL=en_US.UTF-8&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;GIT_DISCOVERY_ACROSS_FILESYSTEM=1&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-list z-nix&quot;&gt;]&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;Volumes&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset-or-function z-nix&quot;&gt;{&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;advisories&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;{&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-other z-attribute-name z-multipart z-nix&quot;&gt;WorkDir&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-bind z-nix&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-bind z-nix&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-punctuation z-definition z-attrset z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which gives a 671MB (compressed) &#x2F; 4.17GB (loaded) docker image.&lt;&#x2F;p&gt;
+&lt;p&gt;Terr... i... ble...&lt;&#x2F;p&gt;
+&lt;p&gt;Thanks to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wagoodman&#x2F;dive&quot;&gt;&lt;code&gt;dive&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, I had a look at the image, and it contains useless stuff such as GHC or the documentation of many packages.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;...
+ 28 MB  │       ├── 0cddajm56ssb2y2k9his4sqa7z0v0n8h-pandoc-types-1.22.2.1  
+ 28 MB  │       │   ├── lib                                                 
+ 28 MB  │       │   │   └── ghc-9.2.5                                       
+3.2 kB  │       │   │       ├── package.conf.d                              
+3.2 kB  │       │   │       │   └── pandoc-types-1.22.2.1-1PXzD7fZz22Kk4Zvr 
+ 28 MB  │       │   │       └── x86_64-linux-ghc-9.2.5                      
+2.9 MB  │       │   │           ├── libHSpandoc-types-1.22.2.1-1PXzD7fZz22K 
+ 25 MB  │       │   │           └── pandoc-types-1.22.2.1-1PXzD7fZz22Kk4Zvr 
+ 13 kB  │       │   │               ├── Paths_pandoc_types.dyn_hi           
+ 13 kB  │       │   │               ├── Paths_pandoc_types.hi               
+ 18 kB  │       │   │               ├── Paths_pandoc_types.p_hi             
+4.2 MB  │       │   │               ├── Text                                
+4.2 MB  │       │   │               │   └── Pandoc                          
+ 72 kB  │       │   │               │       ├── Arbitrary.dyn_hi            
+ 72 kB  │       │   │               │       ├── Arbitrary.hi                
+ 70 kB  │       │   │               │       ├── Arbitrary.p_hi              
+140 kB  │       │   │               │       ├── Builder.dyn_hi              
+140 kB  │       │   │               │       ├── Builder.hi                  
+ 92 kB  │       │   │               │       ├── Builder.p_hi                
+1.0 MB  │       │   │               │       ├── Definition.dyn_hi           
+1.0 MB  │       │   │               │       ├── Definition.hi               
+1.0 MB  │       │   │               │       ├── Definition.p_hi             
+ 12 kB  │       │   │               │       ├── Generic.dyn_hi              
+ 12 kB  │       │   │               │       ├── Generic.hi                  
+ 11 kB  │       │   │               │       ├── Generic.p_hi                
+ 23 kB  │       │   │               │       ├── JSON.dyn_hi                 
+ 23 kB  │       │   │               │       ├── JSON.hi                     
+ 23 kB  │       │   │               │       ├── JSON.p_hi                   
+148 kB  │       │   │               │       ├── Walk.dyn_hi                 
+148 kB  │       │   │               │       ├── Walk.hi                     
+150 kB  │       │   │               │       └── Walk.p_hi                   
+7.4 MB  │       │   │               ├── libHSpandoc-types-1.22.2.1-1PXzD7fZ 
+ 13 MB  │       │   │               └── libHSpandoc-types-1.22.2.1-1PXzD7fZ 
+ 176 B  │       │   └── nix-support                                         
+ 176 B  │       │       └── propagated-build-inputs
+...
+679 MB  │       ├─⊕ 0jdbwn0ixmyk2irpiiygphjyrnzxyxnk-ghc-9.2.5-doc
+...
+1.7 GB  │       ├─⊕ 3abmvcz8b064a4l1k9vgbbqwaw3qxp7y-ghc-9.2.5
+...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Hopefully, &lt;code&gt;haskell.lib&lt;&#x2F;code&gt; provides &lt;code&gt;justStaticExecutables&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;haskell&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;lib&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;justStaticExecutables&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;self&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;packages&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;system&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;hsec-tools&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-expression z-nix&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We got down to 174 MB &#x2F; 574 MB.&lt;&#x2F;p&gt;
+&lt;p&gt;We can do better, especially with:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;224 MB  │       ├─⊕ zbaycxgvv3iaa18p889dagcfhinasvcx-glibc-locales-2.37-8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We need it to be able to read UTF-8 content, let&#x27;s try another package:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;LOCALE_ARCHIVE=&lt;span class=&quot;z-markup z-italic&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-begin z-nix&quot;&gt;${&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;glibcLocalesUtf8&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-embedded z-end z-nix&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&#x2F;lib&#x2F;locale&#x2F;locale-archive&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;125 MB &#x2F; 368 MB, great!&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s keep going, which strikes me is &lt;code&gt;git&lt;&#x2F;code&gt; size: 285 MB (it pulls, among other things, &lt;code&gt;python3&lt;&#x2F;code&gt;), when &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hub.docker.com&#x2F;r&#x2F;alpine&#x2F;git&quot;&gt;alpine&lt;&#x2F;a&gt; version is 21 MB.&lt;&#x2F;p&gt;
+&lt;p&gt;It it used to inject creation&#x2F;edition date during advisory parsing.&lt;&#x2F;p&gt;
+&lt;p&gt;We can use an alternative package:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;pkgs&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;gitMinimal&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-nix&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;out&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now we&#x27;re at 63 MB &#x2F; 175MB.&lt;&#x2F;p&gt;
+&lt;p&gt;One last thing useless is the &lt;code&gt;&#x2F;share&lt;&#x2F;code&gt; directory:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; 13 MB  └── share
+   0 B      ├── bash-completion
+   0 B      │   └── completions
+   0 B      │       ├── git → ..&#x2F;..&#x2F;git&#x2F;contrib&#x2F;completion&#x2F;git-completion.b
+   0 B      │       └── git-prompt.sh → ..&#x2F;..&#x2F;git&#x2F;contrib&#x2F;completion&#x2F;git-pr
+567 kB      ├─⊕ git
+ 69 kB      ├─⊕ git-core
+1.3 MB      ├─⊕ git-gui
+429 kB      ├─⊕ gitk
+ 11 MB      └── locale
+896 kB          ├── bg
+896 kB          │   └── LC_MESSAGES
+896 kB          │       └── git.mo
+662 kB          ├── ca
+662 kB          │   └── LC_MESSAGES
+662 kB          │       └── git.mo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;which is not particularly useful when you don&#x27;t use it interactively:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;nix&quot; class=&quot;language-nix z-code&quot;&gt;&lt;code class=&quot;language-nix&quot; data-lang=&quot;nix&quot;&gt;&lt;span class=&quot;z-source z-nix&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-name z-nix&quot;&gt;runAsRoot&lt;&#x2F;span&gt; &lt;span class=&quot;z-invalid z-illegal&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-nix&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-double z-start z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;rm -Rf &#x2F;share&lt;span class=&quot;z-punctuation z-definition z-string z-double z-end z-nix&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-invalid z-illegal&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Final image 59 MB &#x2F; 159 MB.&lt;&#x2F;p&gt;
+&lt;p&gt;Compared to our initial 671MB &#x2F; 4.17GB image, it is reduced down to 8.8% &#x2F; 3.7%.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

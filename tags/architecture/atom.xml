@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - architecture</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/architecture/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-02-18T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/architecture/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Events metadata</title>
+		<published>2024-02-18T00:00:00+00:00</published>
+		<updated>2024-02-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/architecture-heuristic-ynia-events-metadata/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/architecture-heuristic-ynia-events-metadata/</id>
+		<content type="html">&lt;p&gt;A while ago, I have continued with &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;architecture-heuristic-ynia-participants&#x2F;&quot;&gt;&lt;em&gt;YNIA&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;,
+which is a set of patterns I set up before &lt;em&gt;really&lt;&#x2F;em&gt; need them.&lt;&#x2F;p&gt;
+&lt;p&gt;I work a lot (and enjoy working with) &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourced&lt;&#x2F;a&gt;
+systems.&lt;&#x2F;p&gt;
+&lt;p&gt;Events are composed of two parts:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The business part (which is usually found during &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.eventstorming.com&#x2F;&quot;&gt;Event Storming&lt;&#x2F;a&gt; sessions)&lt;&#x2F;li&gt;
+&lt;li&gt;Metadata (also called envelope), mostly a technical concern&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Usually metadata are quite thin:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;UUID&lt;&#x2F;li&gt;
+&lt;li&gt;Creation date&lt;&#x2F;li&gt;
+&lt;li&gt;(Stream ID)&lt;&#x2F;li&gt;
+&lt;li&gt;(Position (index) in the stream)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The great thing about &lt;em&gt;event sourcing&lt;&#x2F;em&gt; is that it captures exactly what happened,
+which is an issue if you didn&#x27;t captured enough, the problem is two-folds:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;You have forgotten an element in the business part: you can try to rebuild an enriched stream&lt;&#x2F;li&gt;
+&lt;li&gt;You have forgotten an element in the metadata part: good luck!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Metadata are a technical concern, until they became a business concern.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s why I add the following elements:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Occurring time: when the event happened in real-life (see &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;articles&#x2F;bitemporal-history.html&quot;&gt;bi-temporality&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Actor: who (the person) did the action, it is the person in charge of the delegation (leading to &amp;quot;on behalf of&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;Initiator&#x2F;on behalf of: who requested the action to be performed leading to the event&lt;&#x2F;li&gt;
+&lt;li&gt;Distributed trace identifiers: to be able to fetch the traces associated&lt;&#x2F;li&gt;
+&lt;li&gt;Origin system: usually en API or a batch&#x2F;asynchronous process&lt;&#x2F;li&gt;
+&lt;li&gt;Origin system version: usually a deployment version&#x2F;hash&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It is not much, but it covers all the business cases I have faced until now.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Participants</title>
+		<published>2023-11-29T00:00:00+00:00</published>
+		<updated>2023-11-29T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/architecture-heuristic-ynia-participants/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/architecture-heuristic-ynia-participants/</id>
+		<content type="html">&lt;p&gt;A while ago, I have introduced &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-10&#x2F;architecture-heuristic-ynia-queues&#x2F;&quot;&gt;&lt;em&gt;YNIA&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;,
+which is a set of patterns I set up before &lt;em&gt;really&lt;&#x2F;em&gt; need them.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s not uncommon, when producing software to have to design collaborative spaces.&lt;&#x2F;p&gt;
+&lt;p&gt;A good example is the chat.&lt;&#x2F;p&gt;
+&lt;p&gt;You can come up with the design of a message like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt;
+  { author &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UserId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; creation &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UTCTime&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; body &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Text&lt;&#x2F;span&gt;
+  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I think it&#x27;s pretty minimal.&lt;&#x2F;p&gt;
+&lt;p&gt;From my experience, stakeholders tend to be creative with collaborations.&lt;&#x2F;p&gt;
+&lt;p&gt;A common use-case is when the user left the tool.&lt;&#x2F;p&gt;
+&lt;p&gt;If you use RDBMS, you can get in trouble with your queries if you delete the
+user&#x27;s entry.&lt;&#x2F;p&gt;
+&lt;p&gt;You could use a &lt;code&gt;Maybe UserId&lt;&#x2F;code&gt;, but you&#x27;d have to update all user&#x27;s messages.
+Doing so would also make all messages from different past user look the same.&lt;&#x2F;p&gt;
+&lt;p&gt;You may also come up with these requirements:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to have a name per collaborative space (chat session)&lt;&#x2F;li&gt;
+&lt;li&gt;Being anonymized when you leave the group&lt;&#x2F;li&gt;
+&lt;li&gt;Being able to collaborate without being registered (and associate contributions a posteriori)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That&#x27;s why I introduce &lt;code&gt;Participant&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Message&lt;&#x2F;span&gt;
+  { author &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;ParticipantId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; creation &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UTCTime&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; body &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Text&lt;&#x2F;span&gt;
+  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which is linked to:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Participant&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Registered&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DisplayName&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UserId&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Anonymous&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;DisplayName&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Token&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Deleted&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;UUID&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which gives me the freedom to have a dedicated lifecycle for &lt;code&gt;Participant&lt;&#x2F;code&gt;s.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Architecture Heuristic YNIA: Queues</title>
+		<published>2023-10-18T00:00:00+00:00</published>
+		<updated>2023-10-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/architecture-heuristic-ynia-queues/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/architecture-heuristic-ynia-queues/</id>
+		<content type="html">&lt;p&gt;There is a famous acronym I use over and over again when it comes to design decision: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;You_aren%27t_gonna_need_it&quot;&gt;YAGNI&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s a constant reminder to keep things as simple as possible, however we tend
+to forget that we should over simplify.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s one of the reason I tend to introduce early on components which seems to
+be more complex than they need to be.&lt;&#x2F;p&gt;
+&lt;p&gt;I call it &lt;em&gt;YNIA&lt;&#x2F;em&gt; (You&#x27;ll Need It Anyway).&lt;&#x2F;p&gt;
+&lt;p&gt;Today: queues.&lt;&#x2F;p&gt;
+&lt;p&gt;They are many cases when you add accidental complexity by technically coupling
+things which are not coupled in terms of business:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;fetching distant (on unmanaged services) some information&lt;&#x2F;li&gt;
+&lt;li&gt;performing long-running operations&lt;&#x2F;li&gt;
+&lt;li&gt;acting on distant services&lt;&#x2F;li&gt;
+&lt;li&gt;running not business-related logic inside or around business logic&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are two basic ways to deal with it: synchronously or through some kind
+of local-asynchronous code (e.g. callbacks, threads).&lt;&#x2F;p&gt;
+&lt;p&gt;These are not solutions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;no traceability&lt;&#x2F;li&gt;
+&lt;li&gt;not fault-tolerant&lt;&#x2F;li&gt;
+&lt;li&gt;not restart tolerant&lt;&#x2F;li&gt;
+&lt;li&gt;hard to debug&lt;&#x2F;li&gt;
+&lt;li&gt;hard to evenly scale&lt;&#x2F;li&gt;
+&lt;li&gt;no observability&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To give you an idea, last time I have encountered such implementation, we were
+regularly loosing jobs each time our pods (on Kubernetes) were restarted (on
+failure or on update).
+Which was hard to debug as we had to correlate failure of not tracked side-processes
+with random restarts.&lt;&#x2F;p&gt;
+&lt;p&gt;Adding a queue gives a way to temporally decouple these computations, which
+allow to incrementally add:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a way to monitor each job (current status, history)&lt;&#x2F;li&gt;
+&lt;li&gt;add restart&#x2F;fault-tolerance (add error detection and mitigation, such as retry)&lt;&#x2F;li&gt;
+&lt;li&gt;handle back-pressure&lt;&#x2F;li&gt;
+&lt;li&gt;add observability (throughput, latency, traceability with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.enterpriseintegrationpatterns.com&#x2F;patterns&#x2F;messaging&#x2F;CorrelationIdentifier.html&quot;&gt;correlation identifiers&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>What a good design is</title>
+		<published>2023-08-09T00:00:00+00:00</published>
+		<updated>2023-08-09T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-08/good-design/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-08/good-design/</id>
+		<content type="html">&lt;p&gt;I was pair programming a while ago, when, at some point, when have realized that the initial task was way under-estimated.&lt;&#x2F;p&gt;
+&lt;p&gt;So we decided to tackle it right away, taking a new file to lay out the design, I was the driver, I start to frenetically type, until my worker asked &amp;quot;Are you sure?&amp;quot; (speaking of the overall design), to which I answered immediately: &amp;quot;of course not&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s been more than 20 years that I&#x27;ve been coding, and the most important thing I have learnt is:
+I have a good intuition in architectural decisions, but a terrible intuition in code design.
+Hopefully my next log will give a concrete example of this.&lt;&#x2F;p&gt;
+&lt;p&gt;After all these years I&#x27;m still not able to define what a good design is.
+I can enumerate many design principles (Loose&#x2F;Tight coupling, Responsibilities organisation, Interface design, dependencies management) and leverage them to take design decisions.
+I can tell that a design is bad because it does not meet a requirement, of make the change meet it difficult, but I can&#x27;t define what a good design it.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a technique called the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mikadomethod.info&#x2F;&quot;&gt;Mikado Method&lt;&#x2F;a&gt;, which helps to discover a legacy code base, by trying a refactoring, follow the dependencies of changes, and eventually revert if it takes too long.
+The aim being to learn something about the code base, then think of an action plan, and try again.&lt;&#x2F;p&gt;
+&lt;p&gt;The same way, I like trying a design, and if, after a short time, if it&#x27;s too tedious to work with, or make hard to meet requirements, I simply drop it and start over.
+While I&#x27;m not a big fan of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Second-system_effect&quot;&gt;Fred Brooks&#x27; Second-system effect&lt;&#x2F;a&gt;, at least for the complete rewrite part, I find it totally acceptable at micro-level.&lt;&#x2F;p&gt;
+&lt;p&gt;Some people argue that if you have to change your architecture it means that it was poorly designed.
+But actually, nothing prevent a piece of code to be changed, any actually, if you bet something won&#x27;t change, it will change.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s why I write short living code, which does not mean it is badly written code.
+It means code properly typed, tested, and just enough coupled to the rest of the code base to be rewritten.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Dependencies management</title>
+		<published>2023-08-02T00:00:00+00:00</published>
+		<updated>2023-08-02T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-08/dependencies-management/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-08/dependencies-management/</id>
+		<content type="html">&lt;p&gt;A while ago I was working with a product-owner which was really, really keen on integrating SaaS solutions in our product as a way to bring value to end-users.&lt;&#x2F;p&gt;
+&lt;p&gt;I was always reluctant to integrate new services as it impacts &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Service-level_objective&quot;&gt;SLOs&lt;&#x2F;a&gt;,
+which may be make our product not usable. Moreover, integrating a SaaS solution is impactful, you have to study APIs (if any), discover limitations as you go, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;First and foremost, for each proposition I had to get to the root of business need, then I was able to apply &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Wardley_map&quot;&gt;Wardley mapping&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Which gives me a hint of the value of the solution.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, another factor was the complexity of the feature (regarding current and future needs).&lt;&#x2F;p&gt;
+&lt;p&gt;Over time, I developed the following heuristic:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Simple feature, no data stored as source of truth: redo&lt;&#x2F;li&gt;
+&lt;li&gt;Average to high complexity, no data stored as source of truth: use a library&lt;&#x2F;li&gt;
+&lt;li&gt;Any complexity with data as source of truth: use a SaaS&#x2F;PaaS product&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Aside of the consideration of have acceptable SLOs, ensuring to prevent data-losses is a big concern to me.
+While non-usability is temporary, loosing data is forever damageable.
+Ensuring yourself to have appropriate counter-measures (tested backups, redundancy, monitoring, etc.)
+is time-consuming and require advanced skilled to be done right (moreover, I tend to sleep better whenever I know someone competent is taking care of that).&lt;&#x2F;p&gt;
+&lt;p&gt;In the end, I think my strategy worker well, as over three years, our product usability was only affected once, while our business need was met quickly.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Problems before solution</title>
+		<published>2022-11-15T00:00:00+00:00</published>
+		<updated>2022-11-15T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/problems-before-solution/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/problems-before-solution/</id>
+		<content type="html">&lt;p&gt;A while ago, I have the chance to kick-start a new project, our product
+owner just finished presenting his that one of my colleague started to decide
+which tools we had to use.&lt;&#x2F;p&gt;
+&lt;p&gt;It was a surprise to me since he proposed to pick PostGreSQL and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Hexagonal_architecture_(software)&quot;&gt;Hexagonal architecture&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The whole point of &lt;code&gt;Hexagonal architecture&lt;&#x2F;code&gt; is to be able to delay decisions
+(especially technical decisions), which does not really fit with my idea of
+picking a relational database management system.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, we have started to layout folders and files:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;API&lt;&#x2F;code&gt;: Servant endpoint&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Database&lt;&#x2F;code&gt;: queries and encoders&#x2F;decoders&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Domain&lt;&#x2F;code&gt;: only types, not business logic&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Repository&lt;&#x2F;code&gt;: mostly queries coordination&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Utils&lt;&#x2F;code&gt;: various technical code&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Most of the business logic was spread between &lt;code&gt;Database&lt;&#x2F;code&gt; and &lt;code&gt;Repository&lt;&#x2F;code&gt;, which
+leads to an impressive mix of data and temporal coupling.&lt;&#x2F;p&gt;
+&lt;p&gt;Not only that, but tests were only done at API-level.
+Tests were required a dedicated PostGreSQL instance, they were running in 30
+seconds (even with transactions disabled, which differed from production runtime).&lt;&#x2F;p&gt;
+&lt;p&gt;To make the situation worse, the &amp;quot;product&amp;quot; was in ideation mode, meaning we
+were in a quick feedback loop.&lt;&#x2F;p&gt;
+&lt;p&gt;At each concept introduction, a large part of queries and tests were moved.&lt;&#x2F;p&gt;
+&lt;p&gt;The fundamental issue was the technical focus from the beginning.
+Instead of focusing on business concerns, we jumped on a complete RDMS,
+which is a double issue.
+PostGreSQL is developer-friendly, meaning it can do a lot of things, you are
+able to (too) easily fulfill many business use-cases.
+Consequently, the incentive to extract and isolate business code is low,
+especially if you are not used to.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Nothing is more dangerous than an idea when it is the only one you have.”&lt;&#x2F;p&gt;
+&lt;p&gt;― Emile Chartier Alain&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+	</entry>
+</feed>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>In-depth programming language is not the point - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2024-06/pl-knowledge/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2024-06/pl-knowledge/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2024-06/pl-knowledge/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="In-depth programming language is not the point | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="In-depth programming language is not the point | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2024-06-25" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2024-06/pl-knowledge/">In-depth programming language is not the point</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> June 25, 2024<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/haskell/">Haskell</a>] #<a href="https://gautier.difolco.dev/tags/engineering/">engineering</a>  #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/algorithms/">algorithms</a> </span>
+
+    <p>When I was younger, I was focused on competitive programming, not a lot, but way
+more than in the last decade, at some point, I have attended to <a rel="noopener" target="_blank" href="https://prologin.org/">Prologin</a>
+which is limited people being at most 20 years old.</p>
+<p>I have managed to in the top 10 of the qualification phase, and top 5 of the
+regional events, while I was only using PHP (yes, I was beating C/C++ and Java code).</p>
+<p>I cannot deny that my knowledge on PHP at the time helped me to earn some points,
+but most of my &quot;success&quot; was due to the selection of the right algorithms.</p>
+<p>Since few months, I train lightly on <a rel="noopener" target="_blank" href="https://leetcode.com">leetcode</a>, to,
+amongst <a href="https://gautier.difolco.dev/2024-03/streak/">other things</a>, train to Rust, and I have
+crossed a classical <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
+(I have finally nailed after 20 years) problem: <a rel="noopener" target="_blank" href="https://leetcode.com/problems/coin-change/description/">Coin change</a>.</p>
+<p>The problem is simple: you have coin types (you can use as many of them as you
+want) and a target amount, you must give the minimal number of coins you need
+to reach that target.</p>
+<p>Note: in the benchmarks below, I have picked:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">coins <span class="z-keyword z-operator z-haskell">=</span> [<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">8</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">17</span>]
+target <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">75</span>
+</span></code></pre>
+<p>The first strategy is simple: pick the <code>target</code>, for all <code>coins</code>, try to find the
+minimal <code>number of coins</code> it takes to have <code>target - coin</code>, add <code>1</code>, do it
+recursively.</p>
+<p>Simple, recursive, &quot;functional&quot;:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> go (reverse <span class="z-keyword z-operator z-haskell">$</span> sort baseCoins) targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+<span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">go</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>    go _ <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+    go <span class="z-constant z-language z-empty-list z-haskell">[]</span> _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+    go (c <span class="z-keyword z-operator z-haskell">:</span> cs) n
+      <span class="z-keyword z-operator z-haskell">|</span> c <span class="z-keyword z-operator z-haskell">&gt;</span> n <span class="z-keyword z-operator z-haskell">=</span> go cs n
+      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+          <span class="z-keyword z-other z-haskell">case</span> ((<span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> go (c <span class="z-keyword z-operator z-haskell">:</span> cs) (n <span class="z-keyword z-operator z-haskell">-</span> c)<span class="z-punctuation z-separator z-comma z-haskell">,</span> go cs n) <span class="z-keyword z-other z-haskell">of</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span>
+</span>            (<span class="z-constant z-other z-haskell">Just</span> x<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> min x y
+            (x<span class="z-punctuation z-separator z-comma z-haskell">,</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> x <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> y
+</span></code></pre>
+<p>But incredibly slow:</p>
+<pre class="z-code"><code><span class="z-text z-plain">time                 755.7 ms   (737.8 ms .. 775.6 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 755.5 ms   (752.3 ms .. 758.3 ms)
+std dev              3.380 ms   (1.665 ms .. 4.604 ms)
+variance introduced by outliers: 19% (moderately inflated)
+</span></code></pre>
+<p>Not so good, my knowledge of Haskell gives me two smells: explicit recursion
+is bad and accumulating using returned result prevents <a rel="noopener" target="_blank" href="https://wiki.haskell.org/Tail_recursion">Tail call optimization</a>.</p>
+<p>Let's tackle the first one with <a href="&#x27;https://hackage.haskell.org/package/base/docs/Data-Function.html#v:fix&#x27;"><code>fix</code></a>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> fix go (reverse <span class="z-keyword z-operator z-haskell">$</span> sort baseCoins) targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+<span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">go</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> ([<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>    go _ _ <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+    go _ <span class="z-constant z-language z-empty-list z-haskell">[]</span> _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+    go r (c <span class="z-keyword z-operator z-haskell">:</span> cs) n
+      <span class="z-keyword z-operator z-haskell">|</span> c <span class="z-keyword z-operator z-haskell">&gt;</span> n <span class="z-keyword z-operator z-haskell">=</span> go r cs n
+      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+          <span class="z-keyword z-other z-haskell">case</span> ((<span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> r (c <span class="z-keyword z-operator z-haskell">:</span> cs) (n <span class="z-keyword z-operator z-haskell">-</span> c)<span class="z-punctuation z-separator z-comma z-haskell">,</span> r cs n) <span class="z-keyword z-other z-haskell">of</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span>
+</span>            (<span class="z-constant z-other z-haskell">Just</span> x<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> min x y
+            (x<span class="z-punctuation z-separator z-comma z-haskell">,</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> x <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> y
+</span></code></pre>
+<pre class="z-code"><code><span class="z-text z-plain">time                 754.7 ms   (740.9 ms .. 771.3 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 760.9 ms   (757.8 ms .. 765.3 ms)
+std dev              4.124 ms   (174.5 μs .. 5.113 ms)
+variance introduced by outliers: 19% (moderately inflated)
+</span></code></pre>
+<p>No change.</p>
+<p>Let's be optimistic, can we enable TCO:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> fix go <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> (reverse <span class="z-keyword z-operator z-haskell">$</span> sort baseCoins) targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+<span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">go</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>    go _ nb _ <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> nb
+    go _ _ <span class="z-constant z-language z-empty-list z-haskell">[]</span> _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+    go r nb (c <span class="z-keyword z-operator z-haskell">:</span> cs) n
+      <span class="z-keyword z-operator z-haskell">|</span> c <span class="z-keyword z-operator z-haskell">&gt;</span> n <span class="z-keyword z-operator z-haskell">=</span> go r nb cs n
+      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+          <span class="z-keyword z-other z-haskell">case</span> (r (nb <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) (c <span class="z-keyword z-operator z-haskell">:</span> cs) (n <span class="z-keyword z-operator z-haskell">-</span> c)<span class="z-punctuation z-separator z-comma z-haskell">,</span> r nb cs n) <span class="z-keyword z-other z-haskell">of</span>
+            (<span class="z-constant z-other z-haskell">Just</span> x<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> min x y
+            (x<span class="z-punctuation z-separator z-comma z-haskell">,</span> y) <span class="z-keyword z-operator z-haskell">-&gt;</span> x <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> y
+</span></code></pre>
+<pre class="z-code"><code><span class="z-text z-plain">time                 565.3 ms   (534.5 ms .. 607.7 ms)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 557.9 ms   (552.2 ms .. 562.8 ms)
+std dev              6.064 ms   (2.872 ms .. 8.158 ms)
+variance introduced by outliers: 19% (moderately inflated)
+</span></code></pre>
+<p>Roughly 25% improvement, not great.</p>
+<p>The main issue is that the same targets are checked over and over again, which is
+a waste.</p>
+<p>Note: most of the time, optimizing a piece of code is only a matter of coming up
+with a better <em>problem</em> design, focusing on the data encountered, reducing wasted
+CPU cycles.</p>
+<p>Instead, for each amount up-to the target we compute the minimal <code>number of coins</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.</span>unsafeIndex solutions targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+    solutions <span class="z-keyword z-operator z-haskell">=</span> foldl&#39; go start [<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">..</span> targetAmount]
+    start <span class="z-keyword z-operator z-haskell">=</span>
+      <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.</span>fromList (<span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">:</span> replicate targetAmount <span class="z-constant z-other z-haskell">Nothing</span>)
+        <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.//</span> zip (takeWhile (<span class="z-keyword z-operator z-haskell">&lt;=</span> targetAmount) baseCoins) (repeat <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+    go acc n <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.</span>unsafeUpd acc [(n<span class="z-punctuation z-separator z-comma z-haskell">,</span> solve acc n)]
+    solve ps n <span class="z-keyword z-operator z-haskell">=</span>
+      (ps <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.!</span> n)
+        <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> safeMinimum
+          ( mapMaybe (<span class="z-keyword z-operator z-haskell">\</span>x <span class="z-keyword z-operator z-haskell">-&gt;</span> on (liftA2 <span class="z-entity z-name z-function z-infix z-haskell">(+)</span>) (ps <span class="z-constant z-other z-haskell">V</span><span class="z-keyword z-operator z-haskell">.!</span>) x (n <span class="z-keyword z-operator z-haskell">-</span> x)) <span class="z-keyword z-operator z-haskell">$</span>
+              dropWhile (<span class="z-keyword z-operator z-haskell">&gt;=</span> n) reversedBaseCoins
+          )
+
+    safeMinimum xs <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">if</span> null xs <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> minimum xs
+    reversedBaseCoins <span class="z-keyword z-operator z-haskell">=</span> reverse baseCoins
+</span></code></pre>
+<pre class="z-code"><code><span class="z-text z-plain">time                 406.8 μs   (404.5 μs .. 409.2 μs)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 406.4 μs   (404.8 μs .. 408.8 μs)
+std dev              6.134 μs   (4.169 μs .. 10.07 μs)
+</span></code></pre>
+<p>138962% improvement, not bad.</p>
+<p>Can we do better?</p>
+<p>Fortunately, <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/vector"><code>vector</code></a> (used to
+have efficient random access, <code>O(1)</code>) has a <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/vector-0.13.1.0/docs/Data-Vector-Mutable.html">mutable API</a>.</p>
+<p>Let's rewrite it in that style:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span>
+  runST <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+    ss <span class="z-keyword z-operator z-haskell">&lt;-</span> <span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>replicate (targetAmount <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-other z-haskell">Nothing</span>
+    <span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>write ss <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+    forM_ (takeWhile (<span class="z-keyword z-operator z-haskell">&lt;=</span> targetAmount) baseCoins) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+      <span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>write ss n <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+    forM_ [<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">..</span> targetAmount] <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+      <span class="z-keyword z-other z-haskell">let</span> go previousM <span class="z-keyword z-operator z-haskell">=</span>
+            <span class="z-keyword z-other z-haskell">case</span> previousM <span class="z-keyword z-other z-haskell">of</span>
+              <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">-&gt;</span>
+                safeMinimum
+                  <span class="z-keyword z-operator z-haskell">.</span> catMaybes
+                  <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> mapM
+                    (<span class="z-keyword z-operator z-haskell">\</span>x <span class="z-keyword z-operator z-haskell">-&gt;</span> on (liftA2 (liftA2 <span class="z-entity z-name z-function z-infix z-haskell">(+)</span>)) (<span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>unsafeRead ss) x (n <span class="z-keyword z-operator z-haskell">-</span> x))
+                    (dropWhile (<span class="z-keyword z-operator z-haskell">&gt;=</span> n) reversedBaseCoins)
+              <span class="z-constant z-other z-haskell">Just</span> p <span class="z-keyword z-operator z-haskell">-&gt;</span> return <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Just</span> p
+      <span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>unsafeModifyM ss go n
+    fromMaybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> <span class="z-constant z-other z-haskell">VM</span><span class="z-keyword z-operator z-haskell">.</span>unsafeRead ss targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+    safeMinimum xs <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">if</span> null xs <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> minimum xs
+    reversedBaseCoins <span class="z-keyword z-operator z-haskell">=</span> reverse baseCoins
+</span></code></pre>
+<p>That was painful, did it payed-off?</p>
+<pre class="z-code"><code><span class="z-text z-plain">time                 439.4 μs   (436.9 μs .. 442.1 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 441.3 μs   (439.1 μs .. 443.9 μs)
+std dev              8.096 μs   (5.966 μs .. 11.40 μs)
+</span></code></pre>
+<p>8% slower.</p>
+<blockquote>
+<p>There are two kinds of pain.
+The sort of pain that makes you strong, or useless pain.
+The sort of pain that's only suffering.
+I have no patience for useless things.</p>
+<ul>
+<li>Francis Underwood</li>
+</ul>
+</blockquote>
+<p>My guess is, either I don't know how to properly use the mutable API, or GHC
+(Haskell main compiler) is great at optimizing regular code.</p>
+<p>Sure, you need a minimal knowledge of the programming language <a href="https://gautier.difolco.dev/2023-11/language-tourist/">(syntax,
+build tools, general rules of thumb, customs/usages)</a>,
+but, aside of that, the approach (which depends more on the general
+knowledge/culture) is more important (for performance and maintainability).
+Note to mention that performance is rarely a concern.</p>
+<p>Note: while writing this article, I have found an older one on <a rel="noopener" target="_blank" href="https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/coinChange">School of Haskell</a>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">coinAmount</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span>coinAmount baseCoins targetAmount <span class="z-keyword z-operator z-haskell">=</span> maybe (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) fst <span class="z-keyword z-operator z-haskell">$</span> get ltCoin targetAmount
+  <span class="z-keyword z-other z-haskell">where</span>
+    arr <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">A</span><span class="z-keyword z-operator z-haskell">.</span>array ((<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (ltCoin<span class="z-punctuation z-separator z-comma z-haskell">,</span> targetAmount)) [((i<span class="z-punctuation z-separator z-comma z-haskell">,</span> c)<span class="z-punctuation z-separator z-comma z-haskell">,</span> takeC i c) <span class="z-keyword z-operator z-haskell">|</span> i <span class="z-keyword z-operator z-haskell">&lt;-</span> [<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">..</span> ltCoin]<span class="z-punctuation z-separator z-comma z-haskell">,</span> c <span class="z-keyword z-operator z-haskell">&lt;-</span> [<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">..</span> targetAmount]]
+    get i c
+      <span class="z-keyword z-operator z-haskell">|</span> c <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">||</span> i <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+      <span class="z-keyword z-operator z-haskell">|</span> c <span class="z-keyword z-operator z-haskell">==</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-language z-empty-list z-haskell">[]</span>)
+      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> arr <span class="z-constant z-other z-haskell">A</span><span class="z-keyword z-operator z-haskell">.!</span> (i<span class="z-punctuation z-separator z-comma z-haskell">,</span> c)
+    ltCoin <span class="z-keyword z-operator z-haskell">=</span> length reversedCoins <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+    reversedCoins <span class="z-keyword z-operator z-haskell">=</span> reverse baseCoins
+    takeC cNr cts
+      <span class="z-keyword z-operator z-haskell">|</span> coin <span class="z-keyword z-operator z-haskell">&gt;</span> cts <span class="z-keyword z-operator z-haskell">=</span> get (cNr <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) cts
+      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-other z-haskell">case</span> (get cNr (cts <span class="z-keyword z-operator z-haskell">-</span> coin)<span class="z-punctuation z-separator z-comma z-haskell">,</span> get (cNr <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) cts) <span class="z-keyword z-other z-haskell">of</span>
+          (<span class="z-constant z-other z-haskell">Just</span> (n<span class="z-punctuation z-separator z-comma z-haskell">,</span> t)<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> (n&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> t&#39;)) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">if</span> n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">&lt;=</span> n&#39; <span class="z-keyword z-control z-haskell">then</span> (n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> coin <span class="z-keyword z-operator z-haskell">:</span> t) <span class="z-keyword z-control z-haskell">else</span> (n&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> t&#39;)
+          (<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> (n&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> t&#39;)) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (n&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> t&#39;)
+          (<span class="z-constant z-other z-haskell">Just</span> (n<span class="z-punctuation z-separator z-comma z-haskell">,</span> t)<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span>) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> coin <span class="z-keyword z-operator z-haskell">:</span> t)
+          (<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span>) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span>
+      <span class="z-keyword z-other z-haskell">where</span>
+        coin <span class="z-keyword z-operator z-haskell">=</span> reversedCoins <span class="z-keyword z-operator z-haskell">!!</span> cNr
+</span></code></pre>
+<pre class="z-code"><code><span class="z-text z-plain">time                 1.181 ms   (1.174 ms .. 1.188 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 1.180 ms   (1.176 ms .. 1.186 ms)
+std dev              16.28 μs   (11.76 μs .. 22.92 μs)
+</span></code></pre>
+<p>290% slower</p>
+
+<p><b><a href="#">Back to top</a></b></p>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+<span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

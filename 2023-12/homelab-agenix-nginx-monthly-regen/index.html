@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Homelab: Monthly certificate regeneration deployment issue - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-12/homelab-agenix-nginx-monthly-regen/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-12/homelab-agenix-nginx-monthly-regen/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-12/homelab-agenix-nginx-monthly-regen/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Homelab: Monthly certificate regeneration deployment issue | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Homelab: Monthly certificate regeneration deployment issue | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-12-03" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-12/homelab-agenix-nginx-monthly-regen/">Homelab: Monthly certificate regeneration deployment issue</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> December 03, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/ops/">ops</a>] #<a href="https://gautier.difolco.dev/tags/ops/">ops</a>  #<a href="https://gautier.difolco.dev/tags/nix/">nix</a>  #<a href="https://gautier.difolco.dev/tags/nixos/">nixos</a>  #<a href="https://gautier.difolco.dev/tags/pki/">pki</a> </span>
+
+    <p>I spend the most important part of the maintenance time of <em>Barracuda</em> (my HomeLab)
+regenerating mes certificates (<a href="https://gautier.difolco.dev/2023-08/homelab-server-certificates/">Server</a> and <a href="https://gautier.difolco.dev/2023-08/homelab-client-certificates/">Client</a>).</p>
+<p>While it often takes few commands:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">agebox</span></span><span class="z-meta z-function-call z-arguments z-shell"> decrypt<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>all</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>force</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> @/secrets</span>
+<span class="z-keyword z-control z-loop z-for z-shell">for</span><span class="z-meta z-group z-for z-shell"> s <span class="z-keyword z-control z-in z-shell">in</span> irc monitoring restic withings</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-keyword z-control z-loop z-do z-shell">do</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">scripts/generateClientCRL.sh</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">s</span></span> looping</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-keyword z-control z-loop z-end z-shell">done</span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">agebox</span></span><span class="z-meta z-function-call z-arguments z-shell"> encrypt<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>all</span></span>
+<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">deploy</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>.#barracuda<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span></code></pre>
+<p>(<a href="https://gautier.difolco.dev/2023-10/homelab-client-certificates-crl-regeneration/">Client certificates only need their CLR to be regenerated</a>)</p>
+<p>It does not work for nginx.</p>
+<p>I can import the client certificates in my browser, frenetically for refresh,
+I still get a <em>400</em> invalid certificate.</p>
+<p>The issue comes from nginx, which reads certificates at startup, and, since <a rel="noopener" target="_blank" href="https://github.com/ryantm/agenix">agenix</a>
+(which manages the secrets) does not change the paths when the file change,
+nginx configuration does not change, so nginx is not restarted, consequently
+my certificate is checked against the previous version (which expired).</p>
+<p>In order to fix it, I force the secret filename to depend on file's content:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">age</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+  <span class="z-entity z-other z-attribute-name z-multipart z-nix">secrets</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-keyword z-other z-nix">let</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">nginx</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-function z-4 z-nix">name</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-variable z-parameter z-function z-4 z-nix">localPath</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">name</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">name</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>-<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-constant z-language z-nix">builtins</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">hashFile</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>md5<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-variable z-parameter z-name z-nix">localPath</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">file</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">localPath</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">mode</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>400<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">owner</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>nginx<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+      <span class="z-entity z-other z-attribute-name z-multipart z-nix">group</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>nginx<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+  <span class="z-keyword z-other z-nix">in</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">ircClientCA</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>ircClientCA<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+      <span class="z-string z-unquoted z-path z-nix">../certificates/client/generated/irc/ca/ca.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">ircClientCRL</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>ircClientCRL<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+      <span class="z-string z-unquoted z-path z-nix">../certificates/client/generated/irc/ca/crl/crl.pem.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">ircServerCRT</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>ircServerCRT<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+      <span class="z-string z-unquoted z-path z-nix">../certificates/server/generated/services/irc/server.crt.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+    <span class="z-entity z-other z-attribute-name z-multipart z-nix">ircServerKEY</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nginx</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>ircServerKEY<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+      <span class="z-string z-unquoted z-path z-nix">../certificates/server/generated/services/irc/server.key.agebox</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+<span class="z-punctuation z-definition z-attrset z-nix">}</span>
+</span></code></pre>
+<p>Note: I have used <code>MD5</code> hashing to have to &quot;small&quot; filename suffix.</p>
+<p>It's not great, and I still have to regenerate them (which takes me few minutes,
+but I have to enter multiples passwords, confirm multiple times, etc.).</p>
+<p>My guess is that it would be a good use-case for <a rel="noopener" target="_blank" href="https://www.vaultproject.io/">HashiCorp's Vault</a>,
+but it'll be the topic of a next log.</p>
+
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>
