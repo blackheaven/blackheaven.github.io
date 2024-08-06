@@ -1,6 +1,6 @@
 +++
 title = "Haskell Legacy: Creating events"
-date = 2024-07-23
+date = 2024-07-30
 draft = false
 path = "2024-07/api-legacy-extract-events"
 
