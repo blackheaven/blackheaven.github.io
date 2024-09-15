@@ -2,7 +2,7 @@
 title = "Haskell Legacy: Adding features"
 date = 2024-09-10
 draft = false
-path = "2024-08/api-legacy-adding-features"
+path = "2024-09/api-legacy-adding-features"
 
 [taxonomies]
 categories = ["Haskell"]
