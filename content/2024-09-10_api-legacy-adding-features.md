@@ -9,7 +9,7 @@ categories = ["Haskell"]
 tags = ["haskell", "design", "legacy", "polysemy"]
 +++
 
-Afteer a short break, let's go back to our [Event-sourced API](@/2024-08-27_api-legacy-pure-projection.md).
+After a short break, let's go back to our [Event-sourced API](@/2024-08-27_api-legacy-pure-projection.md).
 
 Until now, we have only changed the internals of our API.
 
