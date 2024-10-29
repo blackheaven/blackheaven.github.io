@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - software engineering</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/software-engineering/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-10-22T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/software-engineering/atom.xml</id>
+	<entry xml:lang="en">
+		<title>No value Software Engineer</title>
+		<published>2024-10-22T00:00:00+00:00</published>
+		<updated>2024-10-22T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/no-value-swe/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/no-value-swe/</id>
+		<content type="html">&lt;p&gt;I was reflecting about my added value few weeks ago.&lt;&#x2F;p&gt;
+&lt;p&gt;A long time ago I&#x27;ve been involved in two projects:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A stock management system: saving 100k€ the first year on one site, which would mean
+&lt;ul&gt;
+&lt;li&gt;100k€ (1st year) * 9 (deployed) * 1.20 (inflation) * 2 (5% productivity gains) * 15 (years) = 32.4 Millions €&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;A new manufacturing (software-based) system to cut manufacturing by 3
+&lt;ul&gt;
+&lt;li&gt;5B (devices sold each year) * 0.3 (market share) * 0.2€ (production cost per device) * 0.1 (cuttting manufacturing time by 3 led to a 10% cost saving) * 7 yeas =&amp;gt; 210 Millions €&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It&#x27;s concrete, roughly computable value.&lt;&#x2F;p&gt;
+&lt;p&gt;But it misses some points:&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;systems-are-not-built-alone&quot;&gt;Systems are not built alone&lt;&#x2F;h2&gt;
+&lt;p&gt;I have never worked alone, at some point I had to talk to someone, ask questions,
+help or being helped.&lt;&#x2F;p&gt;
+&lt;p&gt;After that, I have made it available to end-users, they have cooperated with me,
+using my work.&lt;&#x2F;p&gt;
+&lt;p&gt;I have also relied on my peers&#x27; work, the framework they have set up, and they also
+relied on my work.&lt;&#x2F;p&gt;
+&lt;p&gt;What is the percentage of the gains my contributions worth?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;i-have-contributed-to-more-than-code&quot;&gt;I have contributed to more than code&lt;&#x2F;h2&gt;
+&lt;p&gt;What happened to the discussions I had?
+Countless times, having a discussion can save a lot of money or start a
+profitable project.&lt;&#x2F;p&gt;
+&lt;p&gt;I have also taught and mentored nearly 100 people.
+I was paid as a teacher, should my provided value measured with my salary,
+the school fees or the value they produce themselves?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;projects-that-were-abandoned&quot;&gt;Projects that were abandoned&lt;&#x2F;h2&gt;
+&lt;p&gt;In my 10 years career, I have been part of 17 projects, 4 of them have been
+abandoned (1 wasn&#x27;t even tried by a potential end user).&lt;&#x2F;p&gt;
+&lt;p&gt;Sometimes, know that something shouldn&#x27;t be done worth it, but when it takes
+months or &amp;quot;man-years&amp;quot;, does it still worth it?&lt;&#x2F;p&gt;
+&lt;p&gt;The only way I have found to increase the value I provide is:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deliver regularly (that the ultimate way to distinguish value from waste)&lt;&#x2F;li&gt;
+&lt;li&gt;Talk to people to understand (they usually tell you how you can help)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Note: few months ago, I&#x27;ve watched &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Jodorowsky%27s_Dune&quot;&gt;Jodorowsky&#x27;s Dune&lt;&#x2F;a&gt;,
+while I&#x27;m not a &lt;em&gt;Dune&lt;&#x2F;em&gt; or Sci-Fi fan, this documentary highlighted something
+important. The film was abandoned, but many of the people involved in it,
+later on, reused their experience on other films, influencing the next decades
+of films. Abandoned doesn&#x27;t mean wasted, there are always value to extract.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Event sourcing migrations retrospective</title>
+		<published>2024-10-08T00:00:00+00:00</published>
+		<updated>2024-10-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/event-sourcing-migration/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/event-sourcing-migration/</id>
+		<content type="html">&lt;p&gt;Few weeks ago, I was talking to one of my co-workers about &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, he was inquiring about retrospectives on migrating old systems
+to event sourcing, benefits obtained, pitfalls to avoid, and so on and so forth.&lt;&#x2F;p&gt;
+&lt;p&gt;I have looked around a bit, ask some friends, nothing relevant came up.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll try to summarize my 6+ years of experiences in this log.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;experiences&quot;&gt;Experiences&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;distributed-mail-server&quot;&gt;Distributed mail server&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A FOSS company, providing a G-suit alternative.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 6 seasoned SWE, already accustomed to software craftmanship,
+DDD, and event sourcing.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; it was a 10 years old Java project, mostly relying on
+Cassandra, when I have joined, they were in the middle of a complete
+modernization.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; Solve concurrency issues, especially in the mailboxes area, most
+of the bugs are in this area (race conditions occurs when a new e-mail were
+incoming, while the user was working on them).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; the mailboxes, very few events were involved.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; the event sourcing implementation was quite complex and quite limited,
+which means many of the operations were stateful, leading to a global state
+permanently incoherent (e.g. two instances connected to the same Cassandra
+cluster will has two distinct states). Add new events involved a lot of
+boilerplate.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Mailboxes concurrency issues were fixed, the implementation was
+comprehensive enough to have a lot of tools (debugging, rebuilding projections).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shared-dashboard&quot;&gt;Shared dashboard&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A pre-seed startup looking for its product-market-fit.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 4-people team, mostly juniors, discovering DDD.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; A brown-field Haskell project I had started few months
+ago, using AWS DynamoDB as primary data store.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; The project was stressed by numerous changes. We also had to
+figure out what the user was doing, especially when discovering new corner-cases
+(also called business opportunities).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; the whole organization, each &amp;quot;group&amp;quot; was in the
+aggregate, alongside with users management, dashboards, etc. everything.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; Team adoption was a huge pain point, most of them considered it
+as a &amp;quot;waste&amp;quot;, also, intents were missing (Commands should have been logged),
+migration was done in big-bang mode (7-day effort), which created some tensions.
+Keeping original projections in the discovery phase added burden without any
+benefits.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Each new workflow or concept took only a few hours to implement
+in the backend, events and commands where exposed in the API endpoints, new
+events where pushed asynchronously.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;distributed-business-process&quot;&gt;Distributed business process&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A mature B2B company customer-focused with a very
+comprehensive (yet adapting) business processes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 6-people team, mostly seniors, with some DDD&#x2F;Event sourcing
+knowledge.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; 3 years project, microservice based, each of them had a
+specific data&#x2F;events store (EventStore, plain files, SQLite) and design discipline.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; The business process was really complex (40 steps, 60 events),
+constantly changing.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; Only the regular, customer-facing process.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; Each microservice had their own events, trying to integrate
+each-other events, loosing information along the way, events were also rigid,
+no event could be added easily, or modified, or the stream rewrote. Most of the
+computation were done around a single stream, projections being computed at
+startup (45 minutes). While only few things were outside the system, but it
+was the missing piece to have a stable stream.
+Every microservice were involved in new features.
+A big events re-design was planed, but never implemented.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Each microservice had their own events, giving a lot of flexibility,
+limited changes (such as new projections) were easy.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lessons-learned&quot;&gt;Lessons learned&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Events shouldn&#x27;t be set in stone (they aim to evolved, be updated, deprecated, rewritten)&lt;&#x2F;li&gt;
+&lt;li&gt;Big bang rewrites are bad, but incomplete migrations are harmful&lt;&#x2F;li&gt;
+&lt;li&gt;Big aggregates are okay, in the literature, aggregates should have few events, in practice, big aggregates are better than a lot of smaller ones involving synchronization&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on developer experience, focus on tooling and easiness to add events&lt;&#x2F;li&gt;
+&lt;li&gt;Don&#x27;t focus on projections, they could be added later, if they are really popular and critical&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>10 years mark</title>
+		<published>2024-10-02T00:00:00+00:00</published>
+		<updated>2024-10-02T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/10-years/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/10-years/</id>
+		<content type="html">&lt;p&gt;We are the Thursday 2nd of October 2014, it&#x27;s my first day as a professional software engineer.&lt;&#x2F;p&gt;
+&lt;p&gt;I like symbols, because for good or bad reasons they force us to take a step.&lt;&#x2F;p&gt;
+&lt;p&gt;Today it&#x27;s been 10 years I have started to be paid to work on software.&lt;&#x2F;p&gt;
+&lt;p&gt;To emphasize a bit more, working on software involves more than producing (or
+shipping) code and attending to never-ending (which seems to be a competition
+to determine who is able to stay awake the longest).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-bright-side&quot;&gt;The bright side&lt;&#x2F;h2&gt;
+&lt;p&gt;Along these years, I have worked as software engineer within 5 companies working
+closely with people from 19 countries.&lt;&#x2F;p&gt;
+&lt;p&gt;Software engineering is a team sport, you can&#x27;t do it alone, so I&#x27;d like to thank
+(in the order I&#x27;ve met them) some of them for the influence they had on my practice
+(even though it took me more or less time to realize it):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fabrice: how to lead a team (finding the balance between autonomy and support), having technical influence over hundreds of people without authority&lt;&#x2F;li&gt;
+&lt;li&gt;Giles: how collect feedback from your subordinates, genuinely caring from them&lt;&#x2F;li&gt;
+&lt;li&gt;Cyril: the hardest part as a leader is to build the right team&lt;&#x2F;li&gt;
+&lt;li&gt;Frederic: how to provide feedback and be useful beyond the code&lt;&#x2F;li&gt;
+&lt;li&gt;Ousmane: discover stoicism, which helped me every day since&lt;&#x2F;li&gt;
+&lt;li&gt;Thierry: what QA is really about (spoiler, it&#x27;s not to tell developers they are wrong), and why they should participate into the design phase&lt;&#x2F;li&gt;
+&lt;li&gt;Raphael: leadership when you are in a highly bureaucratic environment, how to make things go forward when nothing move&lt;&#x2F;li&gt;
+&lt;li&gt;Matthieu: how to frame any technical discussion, focusing on the core problem, the issue which can make or break the system&lt;&#x2F;li&gt;
+&lt;li&gt;Benoit: how to run a FOSS community&lt;&#x2F;li&gt;
+&lt;li&gt;Florian: how to structure a project which drifts&lt;&#x2F;li&gt;
+&lt;li&gt;Iannis: how to reframe discussions, to sum-up the main arguments related to the subject&lt;&#x2F;li&gt;
+&lt;li&gt;Pierre: how to sell your decisions to non-technical people&lt;&#x2F;li&gt;
+&lt;li&gt;Ioannis: how to focus and elaborate, how to mentor someone&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This job also requires you to be involved outside your work-time, I&#x27;d also
+like to thank them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Damien &amp;amp; Jean-Paul: how to plan, organize and run a conference&lt;&#x2F;li&gt;
+&lt;li&gt;Haikel: how to run a community of practice, a code retreat, a workshop&lt;&#x2F;li&gt;
+&lt;li&gt;Émilien: how to be a freelancer&lt;&#x2F;li&gt;
+&lt;li&gt;Florent: how to run a local community&lt;&#x2F;li&gt;
+&lt;li&gt;Colin &amp;amp; Anthony &amp;amp; Nolwenn: how support your pair during pair&#x2F;ensemble programming sessions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: aside of that, I&#x27;ve met a lot of people which I&#x27;ve loved to talked to,
+helping me to grow as a person, to name few of them, Hugo, Clément, Jean-Paul,
+Marc, Florence, Frederic, Karine, Carla, Nina, Nicolas, Franck, Giles, Ousmane,
+Lubos, Xiao, Benoit, Raphael, Antoine, Rémi, Felix, Florian, Arthur, Nolwenn,
+Adrien, Iannis, Romain, Franck, Ioannis, Pierre, Émilie, Jeremy.&lt;&#x2F;p&gt;
+&lt;p&gt;On the environment side, I went through a very large set of them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;From 10k to 5 employees&lt;&#x2F;li&gt;
+&lt;li&gt;From French administration to startups, not to forget manufacturing company and consulting companies&lt;&#x2F;li&gt;
+&lt;li&gt;From 20 years-old legacy project to green field with no product vision&lt;&#x2F;li&gt;
+&lt;li&gt;From low level embedded system to highly distributed system&lt;&#x2F;li&gt;
+&lt;li&gt;From impacting few users to millions of people&lt;&#x2F;li&gt;
+&lt;li&gt;From generated nothing to millions each year&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I&#x27;m pretty proud of this diversity.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-dark-side&quot;&gt;The dark side&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;some-people&quot;&gt;Some people&lt;&#x2F;h3&gt;
+&lt;p&gt;A long time ago, I was really interested in psychology and self-help
+book (loosely related), and I recall more or less a sentence:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Getting older is inevitable, growing is a choice.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Along these years, I have been:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Insulted: I was responsible for running the CI, I have spotted a bug, in order to save some time, I have suspended a gigantic change-set which would fail (to add some context, a CI run took 4 hours, and the version control system was locking the files, preventing anyone else to submit changes on them), I have emailed him (which have been reviewed by one of my co-worker) with a patch. In reply, he insulted me in an email, with my N+2, N+3 and the HR.&lt;&#x2F;li&gt;
+&lt;li&gt;Insulted then harassed: I have joined a company while I was recovering for severe anxiety (a side effect of a medication), I wasn&#x27;t full of enthusiasm. Three weeks later a new team lead joined, after few weeks, he was still struggling, at some point, he asked a question, I didn&#x27;t have the answer, he shouted an insult, that I was preventing him to do his job. Then he started to harassed me, and convinced my manager to do so.&lt;&#x2F;li&gt;
+&lt;li&gt;Harassed: at some point I was leading a team for few months, my boss at the time wanted the team to grow, I have done all the hiring work (interviews, etc.), among all of them, I have interviewed one of my boss&#x27; friends (I didn&#x27;t know it at the time, I also didn&#x27;t know that he got access to our product codebase and the interview exercise before the interview), he failed the interview, so I have rejected his application, 15 minutes later, my boss called me to say he was hired. Anyway, he had only few years of experience than me, every morning he was spending 2 hours in the channels saying the code is bad (without any solid arguments), so I was wasting my morning to explain over the decisions made (while they were documented). On another hand afternoon were dedicated to privately tell me that I was too harsh in reviews (which took me five times longer to write).&lt;&#x2F;li&gt;
+&lt;li&gt;Threatened, harassed, then insulted: I have joined a project as leader, I was really involved in it (working 50-60 hours a week for months), at some point, I have had a good job offer, he started by threaten me to drop the project, then telling me that I was so bad at my job (he came with a long list of discussions we had, but only with the original rant, not the conclusion) it&#x27;s the best I can ask, and I stayed (it was stupid). During the following months he was systematically talking O2O with my subordinates, so all the direction I was giving were dismissed. Then he started to ask me if I was right after each meeting, he then cut my stock options (which were in my contract) arguing that I was planning to leave anyway. When I finally submitted my resignation, nothing... for two weeks, then he talked over me in meetings, insulted me a first time before the end of my notice period and another time 1 month after I left.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While I don&#x27;t think I have been in toxic cultures, none of these perpetrators had been in any trouble after that, as far as I know.&lt;&#x2F;p&gt;
+&lt;p&gt;Food for thoughts: I have read some day that culture is defined by the worst
+behaviors you tolerate.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tactics&quot;&gt;Tactics&lt;&#x2F;h3&gt;
+&lt;p&gt;Given all of that, here are few tactics I have found:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Never let an opening for a counteroffer: from experience, either they&#x27;ll do one, then you could ask why they didn&#x27;t do it by themselves, or it&#x27;ll be worse&lt;&#x2F;li&gt;
+&lt;li&gt;Be inflexible on your boundaries: it&#x27;s better to be clear right now, rather than letting the go farther and farther until you break, a small disagreement now is better than a fight later&lt;&#x2F;li&gt;
+&lt;li&gt;Inquire on the team you&#x27;ll be in, people matter equally to the project criticality&lt;&#x2F;li&gt;
+&lt;li&gt;There is no tradeoff between compensation and growth opportunity&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on the team, not on completely hypothetical, outside your control, change that may happen anytime soon, projects change, teammate don&#x27;t&lt;&#x2F;li&gt;
+&lt;li&gt;Never say &#x27;no&#x27;, never say &#x27;yes&#x27;: most of the time, you are at a point where you have already more work than you should, a &#x27;yes&#x27; would be irresponsible, a &#x27;no&#x27; would upset so much they could be nasty, simply expose the situation and ask to re-prioritize&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on power dynamics: I&#x27;ve never encountered a situation where power dynamics are very unbalanced and everything goes fine&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;regrets&quot;&gt;Regrets&lt;&#x2F;h3&gt;
+&lt;p&gt;For a long time now, I&#x27;m trying to have more remorse than regrets, for the moment, I stick to it.&lt;&#x2F;p&gt;
+&lt;p&gt;In addition, I have recently crossed &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=jwG_qR6XmDQ&quot;&gt;Jeff Bezos - Regret Minimization Framework&lt;&#x2F;a&gt;,
+which can be sum-up as follows:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When I&#x27;ll be 80, what are the thing I&#x27;ll regret&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I have few opportunities (job offers), I regret having turn down:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS Berlin: it would have been a great opportunity, especially because I would have had all stock options when the COVID-19 hit (and Amazon stock price was really high), turned down by fear of failure&lt;&#x2F;li&gt;
+&lt;li&gt;Soostone: a great opportunity to do some Haskell abroad, turned down because I feared my English wasn&#x27;t good enough&lt;&#x2F;li&gt;
+&lt;li&gt;IOG: I actually failed my first interview because I misunderstood &amp;quot;Simple Haskell&amp;quot; and I didn&#x27;t show my full knowledge of Haskell, they were kind enough to propose me another team, turn down by fear of being stuck&lt;&#x2F;li&gt;
+&lt;li&gt;Nova Discovery: actually, with COVID-19, I have found a great confort with remote work, going back to on-site was overwhelming to me&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To be more general, I have few decisions I wish I did differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Staying when I wanted to leave (see above section): not so long ago, I watched an interview of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=wf68VDObVX0&quot;&gt;Uncle Bob&lt;&#x2F;a&gt; where he stated that good traders are not the one who take good positions, but the one who left bad position earlier&lt;&#x2F;li&gt;
+&lt;li&gt;Focusing on Haskell, don&#x27;t misunderstand me, Haskell is the best language to build quickly reliable flexible systems, but if you want a remote, flexible, highly paid job, you&#x27;ll have to work really hard&lt;&#x2F;li&gt;
+&lt;li&gt;Working extra hard: at some point you can be good enough, aside of my 40-50 job, I invest 10-20 hours each week, writing, reading, experimenting, I can produce high-quality outputs in product, backend, infrastructure, database, but it does not mean my salary is multiplied&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;That&#x27;s it for the first 10 years, they were interesting, only 40 to go.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my time at Autogriff</title>
+		<published>2024-09-03T00:00:00+00:00</published>
+		<updated>2024-09-03T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-09/autogriff-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-09/autogriff-retrospective/</id>
+		<content type="html">&lt;p&gt;As you might have noticed, I&#x27;ve &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;livtours.com&#x2F;&quot;&gt;switch position&lt;&#x2F;a&gt; few weeks ago.&lt;&#x2F;p&gt;
+&lt;p&gt;After talking with my former CTO, it seems to be a great idea to do a
+retrospective on my experience at &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.autogriff.com&#x2F;&quot;&gt;Autogriff&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;context&quot;&gt;Context&lt;&#x2F;h3&gt;
+&lt;p&gt;Autogriff is a B2B company specialized in cars fleet management.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to describe the business workflow: a company signs a contract with
+Autogriff, and whenever something happen to one of their car (accident, driver
+change, etc.), Autogriff handles the estimation, finding and dealing with repair shops.&lt;&#x2F;p&gt;
+&lt;p&gt;It was founded in 2017, and currently has ~15 employees.&lt;&#x2F;p&gt;
+&lt;p&gt;The IT department was created 4 years ago, it ran for a long-time with juniors
+developers (internships or retrainings), senior developers onboarded 2 years ago.&lt;&#x2F;p&gt;
+&lt;p&gt;The business side is quite mature, but it is still flexible, so they adapt their
+workflows to their clients.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: at this point, it&#x27;s probably the most customer-oriented company I have worked for&lt;&#x2F;p&gt;
+&lt;p&gt;Which means that it was challenging for the IT.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;technology-overview&quot;&gt;Technology overview&lt;&#x2F;h3&gt;
+&lt;p&gt;On the technology side, Autogriff suffers from two things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Few years of &amp;quot;architecture&amp;quot; made in autonomy by juniors: C#, Java, Python, CRUD and Client-First architecture&lt;&#x2F;li&gt;
+&lt;li&gt;The arrival of the senior developers: Haskell, Elm, Rust, Nix, DDD, Event sourcing, CQRS, microservices, &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2024-01&#x2F;access-control-capabilities&#x2F;&quot;&gt;Capabilities-based&lt;&#x2F;a&gt;, HATEOAS API&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We had few big blocks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Java tool (legacy) holding invoices, clients, and some metadata loosely coupled with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Python (legacy, Event-sourced) &#x2F; Elm (legacy) tool for interaction with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Haskell (Event-sourced) &#x2F; Elm tool for the interventions dashboard and business intelligence (my work)&lt;&#x2F;li&gt;
+&lt;li&gt;An Elm PWA for interacting with drivers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;learnings-and-confirmations&quot;&gt;Learnings and confirmations&lt;&#x2F;h3&gt;
+&lt;p&gt;There are few things I have already encountered, which still hold:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;CRUD-based UI spreads: when you have that kind of UI, coming with a different architecture for the backend is impossible&lt;&#x2F;li&gt;
+&lt;li&gt;Architecture is not improvised: it&#x27;s tempting for non-technical decisions maker to see IT as a building, allocating resources on a bigger team of juniors, rather than a small one with juniors, but it doesn&#x27;t work if you don&#x27;t have enough software engineering background&lt;&#x2F;li&gt;
+&lt;li&gt;Technical debt explode when not repayed: at some point, technical debt prevents to deliver some features (even approximation), tu give an example, when you have and data you have to compute, from two sources, one being event-sourced, the other not, you end up with invalid results&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of fast feedbacks is a deadly killer: we had Nix-based deployments (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;serokell&#x2F;deploy-rs&quot;&gt;deploy-rs&lt;&#x2F;a&gt;), which relies on systemd, meaning, you can have only one instance running at the same time (forget zero downtime deployments), which is an issue when it takes 45 minutes to restart the backend (mostly the time to replay events to have fresh projections, I have added a cache to reduce to few seconds). Consequently, you have two deployment windows (after the working day, or at lunch for emergency fixes), it means that, even for one line fix, you have to wait for a full-day to be used by users (causing context switches and creating hard conversations with business)&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make deployments a big deal: I have introduced continuous integration when I arrived, but continuous deployments were not a thing, not only we had the previously mentioned restart issue, but I was done manually, mostly by 2 people (I was one of them), owning the deployment tool, who should be aware of the manual configuration to be performed, while, when I have set up an ArgoCD based CD, everything was done automatically, and there was no difference between a commit and a deployment.&lt;&#x2F;li&gt;
+&lt;li&gt;Mono-team microservices&#x2F;multi-repository don&#x27;t work: we had 4 repositories for 5 heavily coupled parts, which means, we had to commit everywhere often&lt;&#x2F;li&gt;
+&lt;li&gt;Opinionated debated&#x2F;conservative decisions is a blocker: a lot of discussion happen were running over days to take trivial &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;thoughtbot.com&#x2F;blog&#x2F;one-way-vs-two-way-door-decisions&quot;&gt;two-way doors decisions&lt;&#x2F;a&gt;, for example, I have silently put the startup cache in two hours (and I have fixed it 3 times), while we have discussed it for two months (not full-time), even when it was actually used for weeks&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make everything hard: when you do everything by hand, everything is unique, which makes things harder to automate, automating imply standardization, which implies giving up some details&lt;&#x2F;li&gt;
+&lt;li&gt;Code reviews culture is hard to bootstrap: when reviewing is not part of the culture, it&#x27;s hard to cope with it (even small PRs can take days to be reviewed, approvals are hard to get)&lt;&#x2F;li&gt;
+&lt;li&gt;Haskell catches a lot of bug: even with fewer tests than I would have on Java project, sufficiently typed code catches most of the bugs, I had fewer regressions thanks to it&lt;&#x2F;li&gt;
+&lt;li&gt;Nix provides a good foundation for infrastructure: everything works with Nix (from development environment, to deployment), it took me roughly 30 minutes to have an environment and a first binary, and I can&#x27;t remind a situation where someone said &amp;quot;but it works on my computer&amp;quot;&lt;&#x2F;li&gt;
+&lt;li&gt;DDD is the corner stone of working software: we have spent countless hours speakings with the business, adjusting the vocabulary, fixing issues before they happen (we even organized an EventStorming which help us to fix many problems, set our priorities, spot many bugs, and make the business aware of their inconsistencies)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Some learnings I wish I didn&#x27;t make:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;HATEOAS-only sucks: for reference HATEOAS is a way to have endpoints described in response payload, which is great in theory for discovery and decoupling clients, but in practise, the lack of tooling (OpenAPI does not support it, and we had to make a lot of work in our adapters in Elm to make it work) is painful and giving this kind of API to customers was an issue&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities-based alone is not enough: while decoupling access and user being a good idea, at some point you have to answer to two questions: who accessed to a resource and what are the accesses of a user&lt;&#x2F;li&gt;
+&lt;li&gt;Event-sourcing can be rigid: when you prevent yourself to rework your events, it becomes more painful than a plain old relationnal database&lt;&#x2F;li&gt;
+&lt;li&gt;Elm is too simplistic to go beyond one page: while we had a relatively simple set of apps (3 apps, with 5-10 pages), Elm was painful to use, the standard library is too small to be useful and the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;sporto.github.io&#x2F;elm-patterns&#x2F;architecture&#x2F;nested-tea.html&quot;&gt;nested TEA pattern&lt;&#x2F;a&gt;, which is the standard way to handle &amp;quot;complex&amp;quot; apps (mostly a consequence of a lack of &amp;quot;advanced&amp;quot; features), make sub-components not composable&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Finally, my observations and learnings I&#x27;m glad I&#x27;ve made:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even business-oriented team can be highly technical: I have rarely work in business-oriented team (on non-technical products), applying DDD that, so I didn&#x27;t expect them to also being highly technical&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities does the trick: while capabilities introduce some complexity, I have seen that it works well, at least for many use cases, for few efforts&lt;&#x2F;li&gt;
+&lt;li&gt;Developers from retrainings brings a lot of (human) value: it took me maybe 8-10 years (since my first encouter with programming at 9) to have a grasp on software engineering, so I have a lot of suspicions when I have to work with people coming from a 6-weeks bootcamp, but it occurs I have worked with a junior having great communication style, asking a lot of questions, dealing with other business units, bringing a lot of value&lt;&#x2F;li&gt;
+&lt;li&gt;Sometime bringing values consist in helping those who bring more value: I&#x27;ve spent a lot of time pairing with juniors developers, and it seems I&#x27;m not that bad at coaching, and it seems supporting them was a better use of my time because, while they have a good business vision (they were in the company long before me), they lack a technical vision I can bring&lt;&#x2F;li&gt;
+&lt;li&gt;Pace correctly a pair programming session: spending a lot of time in pair programming gave me the chance to experiment a lot, especially finding and adjusting just the right pace in pair programming, being supporting of my pair&lt;&#x2F;li&gt;
+&lt;li&gt;Being a better subordinate: one thing I have learned about me when I was a CTO, is what I expect from my team, getting back in an IC role, I gain a better understanding of my CTO needs and expectations, acting according to them; moreover, I was able to appreciate my CTO competencies, sure, he has a different style than mine, but he is really great at a lot of things, I have learned so much.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;why-moving-on&quot;&gt;Why moving on?&lt;&#x2F;h3&gt;
+&lt;p&gt;I have spent a bit more than a year at Autogriff, which is too short.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll go in depth in a future log, but the short answer is applying Jeff Bezos&#x27; Regret minimization Framework.&lt;&#x2F;p&gt;
+&lt;p&gt;Over the past years, I have declined 3 offers I deeply regret today, and this time I have a rare match between an offer and my objectives.&lt;&#x2F;p&gt;
+&lt;p&gt;I have thanks my colleagues for all these months of collaboration, learning and help, I have spent a wonderful time with all of them.&lt;&#x2F;p&gt;
+&lt;p&gt;PS: Yes, I miss my colleagues, I miss the context, but it&#x27;s a new adventures ahead!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Haskell: imports vs exports</title>
+		<published>2024-02-14T00:00:00+00:00</published>
+		<updated>2024-02-14T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/haskell-imports-exports/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/haskell-imports-exports/</id>
+		<content type="html">&lt;p&gt;Haskell &lt;code&gt;module&lt;&#x2F;code&gt;s are defined with:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Imports&lt;&#x2F;li&gt;
+&lt;li&gt;Exports&lt;&#x2F;li&gt;
+&lt;li&gt;Extensions&#x2F;flags&lt;&#x2F;li&gt;
+&lt;li&gt;Code&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;When I build a &lt;code&gt;module&lt;&#x2F;code&gt;, I think in terms of interface, that&#x27;s why I enumerate
+the exports:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-declaration z-module z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;module&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Naturals&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-meta z-declaration z-exports z-haskell&quot;&gt;( &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Nat&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;mkNat&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;toInteger&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt;
+  )&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It has several benefits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put purpose-first&lt;&#x2F;li&gt;
+&lt;li&gt;Detect dead code sooner (ease refactorings)&lt;&#x2F;li&gt;
+&lt;li&gt;Ensure stability (making contracts explicit)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This helps also to create &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Smart_constructors&quot;&gt;smart-constructors&lt;&#x2F;a&gt;,
+a common idiom which uncouple data-representation and data-construction.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, &lt;code&gt;Nat&lt;&#x2F;code&gt; does not expose the constructor in our example, but &lt;code&gt;mkNat&lt;&#x2F;code&gt;
+should be used as such:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Nat&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Nat&lt;&#x2F;span&gt; { toInteger &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Integer&lt;&#x2F;span&gt;}
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;deriving&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;newtype&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Eq&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Show&lt;&#x2F;span&gt;)
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;mkNat&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Integer&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Nat&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;mkNat x &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;if&lt;&#x2F;span&gt; x &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;0&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;then&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Just&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Nat&lt;&#x2F;span&gt; x
+    &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;else&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Nothing&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So &lt;code&gt;mkNat&lt;&#x2F;code&gt; enforces &lt;code&gt;Nat&lt;&#x2F;code&gt; invariant, letting us also the freedom to rework
+underlying constructors without changing consumers.&lt;&#x2F;p&gt;
+&lt;p&gt;On another hand, I tend to let &lt;code&gt;import&lt;&#x2F;code&gt;s implicit (unless there are conflicts,
+or for clarity, I qualify them for this scenario):&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-comment z-line z-double-dash z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-haskell&quot;&gt;--&lt;&#x2F;span&gt; Instead of
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.ByteString&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-declaration z-exports z-haskell&quot;&gt;(&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;pack&lt;&#x2F;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.Text&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-declaration z-exports z-haskell&quot;&gt;(&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;unpack&lt;&#x2F;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-comment z-line z-double-dash z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-haskell&quot;&gt;--&lt;&#x2F;span&gt; I use
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;qualified&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.ByteString&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;as&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;ByteString&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-import z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;qualified&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Data.Text&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;as&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-other z-module z-haskell&quot;&gt;Text&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which reduces maintenance and diffs.&lt;&#x2F;p&gt;
+&lt;p&gt;The rational being that implementations (should) change more frequently than
+interfaces.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Haskell refactorings</title>
+		<published>2024-02-11T00:00:00+00:00</published>
+		<updated>2024-02-11T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/haskell-refactorings/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/haskell-refactorings/</id>
+		<content type="html">&lt;p&gt;I was looking through &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;refactoring.com&#x2F;catalog&#x2F;&quot;&gt;Martin Fowler&#x27;s refactorings list&lt;&#x2F;a&gt;
+which is heavily OOP&#x2F;Imperative-oriented.&lt;&#x2F;p&gt;
+&lt;p&gt;There are currently 66 refactorings:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;27 are focused on local rearrangement (locally move piece of code, renaming)&lt;&#x2F;li&gt;
+&lt;li&gt;4 are focused on pure encapsulation&lt;&#x2F;li&gt;
+&lt;li&gt;35 are focused on responsibilities distribution amongst OOP concepts&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: responsibilities distribution is often involving encapsulation, but I have
+done my best to make a distinction between refactorings which are more agnostic
+and those working through OOP concepts.&lt;&#x2F;p&gt;
+&lt;p&gt;If I try to summarize which refactorings I use, there are far less.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rename (also called &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Alpha_conversion&quot;&gt;Alpha conversion&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;mkSmoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;mkSmoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Extract binding&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map prepareFruit
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt; prepareFruit &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Inline binding (also called &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Beta_reduction&quot;&gt;Beta reduction&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map prepareFruit
+  &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt; prepareFruit &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Eta_conversion&quot;&gt;Eta abstraction&lt;&#x2F;a&gt; &#x2F; uncurry &#x2F; make last parameter explicit&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie fruits &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel) fruits
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Eta_conversion&quot;&gt;Eta reduction&lt;&#x2F;a&gt; &#x2F; curry &#x2F; make last parameter implicit&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie fruits &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel) fruits
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Parameterizing&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Liquid&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie liquid &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour liquid &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Alternatively, we can keep the function as a default implementation:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; smoothieWith liquid
+
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothieWith&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Liquid&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothieWith liquid &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour liquid &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.haskell.org&#x2F;Polymorphism#Parametric_polymorphism&quot;&gt;Parameteric&lt;&#x2F;a&gt; &amp;quot;polymorphization&amp;quot;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Smoothie&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; pour milk &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; runBlender &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Becomes&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;smoothie&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; ([&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Slice&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Fruit&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;smoothie mix &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; mix &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; map (cut &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; peel)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That roughly 7 refactorings for local rearrangements, and these are probably
+90%-95% of the refactorings I use daily (and I use them a lot).&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, there are few others at type-level but despite that, there are far less
+than in the OOP ecosystem.&lt;&#x2F;p&gt;
+&lt;p&gt;Which does not seem intuitive to me as Haskell (at least GHC&#x27;s version) is a
+quite large programming language compared to other OOP programming languages.
+I guess FP simpler core plays a role in that.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Bypassing Prometheus SDK push model</title>
+		<published>2024-02-07T00:00:00+00:00</published>
+		<updated>2024-02-07T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/bypassing-prometheus/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/bypassing-prometheus/</id>
+		<content type="html">&lt;p&gt;I have talked &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-09&#x2F;homelab-monitoring-withings&#x2F;&quot;&gt;in an earlier log&lt;&#x2F;a&gt;
+that I have set up business monitoring which has led to interesting conversations
+with the stakeholders.&lt;&#x2F;p&gt;
+&lt;p&gt;I have used &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;prometheus-client&quot;&gt;prometheus-client&lt;&#x2F;a&gt;
+which is a great start providing &lt;code&gt;Counter&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;Gauge&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;Summaries&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;Histograms&lt;&#x2F;code&gt;
+but they are push-based, which means: you declare them, and you act on them
+(increasing&#x2F;decreasing&#x2F;etc.) so they are ready when they are requested.&lt;&#x2F;p&gt;
+&lt;p&gt;I have tried to set them on a stateful element (for reference, we receive
+requests, which have a step associated to them, there are ~20 different
+steps, a typical request going through 30-40 steps, the goal was to have
+counter) as a &lt;code&gt;Gauge&lt;&#x2F;code&gt; (increasing and decreasing floating point number).&lt;&#x2F;p&gt;
+&lt;p&gt;The status changes were event sourced, so I thought: each time a status change
+occurs, decrease the previous status&#x27; &lt;code&gt;Gauge&lt;&#x2F;code&gt; and increase the new status&#x27; &lt;code&gt;Gauge&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I have tried really hard, but I was ending up with negative &lt;code&gt;Gauge&lt;&#x2F;code&gt; and incorrect counts.
+More over, I had to maintain a double-accounting piece of code to have coherent counters
+(unsuccessfully).&lt;&#x2F;p&gt;
+&lt;p&gt;So, I ended up creating a custom &lt;code&gt;Metric&lt;&#x2F;code&gt; which does the count once:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;registerMetrics&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IORef&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;.&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Map&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;RequestId&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;RequestState&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;registerMetrics requestsRef &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+  void &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; register &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Metric&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; return (&lt;span class=&quot;z-constant z-language z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; mkSampleGroups)
+ &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;  &lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;mkSampleGroups&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;IO&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;SampleGroup&lt;&#x2F;span&gt;]
+&lt;&#x2F;span&gt;  mkSampleGroups &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-haskell&quot;&gt;do&lt;&#x2F;span&gt;
+    requests &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt; readIORef requestsRef
+    &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;let&lt;&#x2F;span&gt; samples &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt;
+          map (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;\&lt;&#x2F;span&gt;(labels&lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; counts) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Sample&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;requests&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; labels (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;BS&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;fromString &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; show &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; int2Float counts)) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+            &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;toList &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+              foldl (flip &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;alter (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Just&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt; maybe &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;1&lt;&#x2F;span&gt; (&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;+&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-haskell&quot;&gt;1&lt;&#x2F;span&gt;))) &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;empty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+                map mkLabels &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;$&lt;&#x2F;span&gt;
+                  &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Map&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;.&lt;&#x2F;span&gt;toList requests
+    return
+      [ &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;SampleGroup&lt;&#x2F;span&gt;
+          (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Info&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;requests&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;requests&lt;span class=&quot;z-punctuation z-definition z-string z-end z-haskell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;)
+          &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;GaugeType&lt;&#x2F;span&gt;
+          samples
+      ]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Which made my &lt;code&gt;Metric&lt;&#x2F;code&gt; only relying on my state, and not on a temporal state.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Naming has a social convention</title>
+		<published>2024-02-04T00:00:00+00:00</published>
+		<updated>2024-02-04T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-02/naming-social-convention/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-02/naming-social-convention/</id>
+		<content type="html">&lt;p&gt;Few months ago, I have joined &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;gdcr-summary&#x2F;&quot;&gt;GDCR&lt;&#x2F;a&gt;, ending the
+day with a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;softwareteaming.com&#x2F;&quot;&gt;software teaming&lt;&#x2F;a&gt; in F#, with &lt;em&gt;one
+letter identifiers&lt;&#x2F;em&gt; as a constraint.&lt;&#x2F;p&gt;
+&lt;p&gt;The goal was to work on the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.codurance.com&#x2F;katas&#x2F;mars-rover&quot;&gt;Mars Rover Kata&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The resulting code was cryptic and the main entry point was:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;fsharp&quot; class=&quot;language-fsharp z-code&quot;&gt;&lt;code class=&quot;language-fsharp&quot; data-lang=&quot;fsharp&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;let p i c o =
+  ...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;p&lt;&#x2F;code&gt; is the predicate making the position evolve&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;i&lt;&#x2F;code&gt; is the initial&#x2F;current position&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;c&lt;&#x2F;code&gt; is the command (move, rotate left, rotate right)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;o&lt;&#x2F;code&gt; is the list of obstacle&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It was not great but all the participants agreed on it, and we all knew what
+each identifier was representing.&lt;&#x2F;p&gt;
+&lt;p&gt;Even if the example is extreme, when we try to implement the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;UbiquitousLanguage.html&quot;&gt;Ubiquitous Language&lt;&#x2F;a&gt;
+we need some flexibility when choosing the names, so everyone has a common
+understanding.&lt;&#x2F;p&gt;
+&lt;p&gt;The main point is, naming decision are always taken inside a group, not on your own.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Prescriptivism and Descriptivism</title>
+		<published>2024-01-31T00:00:00+00:00</published>
+		<updated>2024-01-31T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/prescriptivism-descriptivism/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/prescriptivism-descriptivism/</id>
+		<content type="html">&lt;p&gt;A long time ago I was watching another version of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=rljUZcqzfq8&quot;&gt;Romeu Moura&#x27;s Prescriptivism vs Descriptivism&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The idea is illustrated by the point of view you can have on a &amp;quot;list&amp;quot;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prescriptive: as things should be (as in a specification)&lt;&#x2F;li&gt;
+&lt;li&gt;Descriptive: as things are (or at least, how things are observed)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Sometimes, in Haskell tutorials you have many references to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Category_theory&quot;&gt;Category Theory&lt;&#x2F;a&gt;,
+they are often compared to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Software_design_pattern&quot;&gt;Design Patterns&lt;&#x2F;a&gt;
+and beginners report that they are way harder to grasp.&lt;&#x2F;p&gt;
+&lt;p&gt;The thing is, whenever your define some types, you start by defining the datatype
+&lt;em&gt;then&lt;&#x2F;em&gt; you define the &lt;em&gt;type class&lt;&#x2F;em&gt; to characterize its property:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;AvlTree&lt;&#x2F;span&gt; a &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Node&lt;&#x2F;span&gt; (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;AvlTree&lt;&#x2F;span&gt; a) a (&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;AvlTree&lt;&#x2F;span&gt; a) &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;|&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Leaf&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-declaration z-instance z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;instance&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Ord&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-big-arrow z-haskell&quot;&gt;=&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Semigroup&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;AvlTree&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-entity z-name z-function z-infix z-haskell&quot;&gt;(&amp;lt;&amp;gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; mergeAndBalance
+
+&lt;span class=&quot;z-meta z-declaration z-instance z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;instance&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Monoid&lt;&#x2F;span&gt; (&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;AvlTree&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;a&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;where&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  mempty &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Leaf&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can say that &lt;em&gt;Category Theory&lt;&#x2F;em&gt; is &lt;em&gt;descriptive&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;On another hand, when it comes to object-oriented programming, Design Patterns are
+&lt;em&gt;the way to go&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The thing is, most of the time, they are implemented to solve a technical issue,
+they are implemented to be implemented.&lt;&#x2F;p&gt;
+&lt;p&gt;Usually, they are named in order to reflect that:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; class=&quot;language-java z-code&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;z-source z-java&quot;&gt;&lt;span class=&quot;z-meta z-class z-java&quot;&gt;&lt;span class=&quot;z-meta z-class z-identifier z-java&quot;&gt;&lt;span class=&quot;z-storage z-type z-java&quot;&gt;interface&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-class z-java&quot;&gt;IOrderFactory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-class z-body z-java&quot;&gt;&lt;span class=&quot;z-meta z-block z-java&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-java&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-support z-class z-java&quot;&gt;Order&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-method z-java&quot;&gt;&lt;span class=&quot;z-meta z-method z-identifier z-java&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-java&quot;&gt;startOrder&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-method z-parameters z-java&quot;&gt;&lt;span class=&quot;z-meta z-parens z-java&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-java&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-class z-java&quot;&gt;Item&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-java&quot;&gt;firstItem&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-java&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-java&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-punctuation z-section z-block z-end z-java&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;or tagged:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; class=&quot;language-java z-code&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;z-source z-java&quot;&gt;&lt;span class=&quot;z-meta z-annotation z-java&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-annotation z-java&quot;&gt;@&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-annotation z-java&quot;&gt;&lt;span class=&quot;z-meta z-annotation z-identifier z-java&quot;&gt;&lt;span class=&quot;z-variable z-annotation z-java&quot;&gt;Factory&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-java&quot;&gt;&lt;span class=&quot;z-meta z-class z-identifier z-java&quot;&gt;&lt;span class=&quot;z-storage z-type z-java&quot;&gt;interface&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-class z-java&quot;&gt;IOrderCreator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-class z-body z-java&quot;&gt;&lt;span class=&quot;z-meta z-block z-java&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-java&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-support z-class z-java&quot;&gt;Order&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-method z-java&quot;&gt;&lt;span class=&quot;z-meta z-method z-identifier z-java&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-java&quot;&gt;startOrder&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-method z-parameters z-java&quot;&gt;&lt;span class=&quot;z-meta z-parens z-java&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-java&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-class z-java&quot;&gt;Item&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-parameter z-java&quot;&gt;firstItem&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-java&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-java&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-punctuation z-section z-block z-end z-java&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Design Patterns in (OOP at least) are &lt;em&gt;prescriptive&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Design Patterns exist in OOP to solve a lack of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Higher-order_function&quot;&gt;Higher-order constructions&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Another form of &lt;em&gt;descriptive&lt;&#x2F;em&gt; constructions are duck typing (at runtime) and
+structural typing (at compile time).&lt;&#x2F;p&gt;
+&lt;p&gt;The duck typing in ruby:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;ruby&quot; class=&quot;language-ruby z-code&quot;&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;z-source z-ruby&quot;&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;&lt;span class=&quot;z-keyword z-control z-class z-ruby&quot;&gt;class&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;&lt;span class=&quot;z-entity z-name z-class z-ruby&quot;&gt;Glass&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;
+    &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt;&lt;span class=&quot;z-keyword z-control z-def z-ruby&quot;&gt;def&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt; &lt;span class=&quot;z-entity z-name z-function z-ruby&quot;&gt;refill&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-comment z-line z-number-sign z-ruby&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-ruby&quot;&gt;#&lt;&#x2F;span&gt; ...
+&lt;&#x2F;span&gt;    &lt;span class=&quot;z-keyword z-control z-ruby&quot;&gt;end&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-keyword z-control z-ruby&quot;&gt;end&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;&lt;span class=&quot;z-keyword z-control z-class z-ruby&quot;&gt;class&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;&lt;span class=&quot;z-entity z-name z-class z-ruby&quot;&gt;Car&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-class z-ruby&quot;&gt;
+    &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt;&lt;span class=&quot;z-keyword z-control z-def z-ruby&quot;&gt;def&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt; &lt;span class=&quot;z-entity z-name z-function z-ruby&quot;&gt;refill&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+      &lt;span class=&quot;z-comment z-line z-number-sign z-ruby&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-ruby&quot;&gt;#&lt;&#x2F;span&gt; ...
+&lt;&#x2F;span&gt;    &lt;span class=&quot;z-keyword z-control z-ruby&quot;&gt;end&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-keyword z-control z-ruby&quot;&gt;end&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt;&lt;span class=&quot;z-keyword z-control z-def z-ruby&quot;&gt;def&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-ruby&quot;&gt; &lt;span class=&quot;z-entity z-name z-function z-ruby&quot;&gt;gas_station&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-parameters z-ruby&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-begin z-ruby&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-parameters z-ruby&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-ruby&quot;&gt;x&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-parameters z-ruby&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-group z-end z-ruby&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+  x&lt;span class=&quot;z-punctuation z-accessor z-dot z-ruby&quot;&gt;.&lt;&#x2F;span&gt;refill
+&lt;span class=&quot;z-keyword z-control z-ruby&quot;&gt;end&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You can refill your &lt;code&gt;Glass&lt;&#x2F;code&gt; in a gas station, but petrol is only good for some
+cars.&lt;&#x2F;p&gt;
+&lt;p&gt;The structural typing in go:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;go&quot; class=&quot;language-go z-code&quot;&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-storage z-type z-keyword z-type z-go&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-type z-go&quot;&gt;Glass&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-keyword z-struct z-go&quot;&gt;struct&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-type z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-storage z-type z-keyword z-type z-go&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-type z-go&quot;&gt;Car&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-keyword z-struct z-go&quot;&gt;struct&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-type z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-storage z-type z-keyword z-type z-go&quot;&gt;type&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-type z-go&quot;&gt;Refillable&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-keyword z-interface z-go&quot;&gt;interface&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-type z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+    &lt;span class=&quot;z-entity z-name z-function z-go&quot;&gt;Refill&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-storage z-type z-keyword z-function z-go&quot;&gt;func&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function z-declaration z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-go&quot;&gt;g&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-go&quot;&gt;Glass&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-declaration z-go&quot;&gt; &lt;span class=&quot;z-entity z-name z-function z-go&quot;&gt;Refill&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-storage z-type z-keyword z-function z-go&quot;&gt;func&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function z-declaration z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-go&quot;&gt;c&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-go&quot;&gt;Car&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-declaration z-go&quot;&gt; &lt;span class=&quot;z-entity z-name z-function z-go&quot;&gt;Refill&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+
+&lt;span class=&quot;z-storage z-type z-keyword z-function z-go&quot;&gt;func&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-function z-go&quot;&gt;GasStation&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-go&quot;&gt;x&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-go&quot;&gt;Refillable&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-variable z-other z-go&quot;&gt;x&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;Refill&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Software inventory</title>
+		<published>2024-01-28T00:00:00+00:00</published>
+		<updated>2024-01-28T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/software-inventory/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/software-inventory/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;local-global-optimum&#x2F;&quot;&gt;A while ago&lt;&#x2F;a&gt;, I had a meetup with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;woodyzuill.com&#x2F;&quot;&gt;Woody Zuill&lt;&#x2F;a&gt;,
+after the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;softwareteaming.com&#x2F;&quot;&gt;Software Teaming&lt;&#x2F;a&gt; session, he has
+stated that &amp;quot;most companies are bad at &lt;em&gt;Software Inventory&lt;&#x2F;em&gt;&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;He explained that: &lt;em&gt;Software Inventory&lt;&#x2F;em&gt; is the list of all the code which is not
+&amp;quot;in touch&amp;quot; with users.&lt;&#x2F;p&gt;
+&lt;p&gt;I thought it was a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Lean_software_development&quot;&gt;Lean&lt;&#x2F;a&gt;
+practice, but the only related topic I have found is &lt;em&gt;inventory management&lt;&#x2F;em&gt;
+in the original which consist of shrinking down the stock to the minimum
+level without impacting clients.
+If I transpose it to the software engineering field: you should aim pushing
+code as soon as possible, reducing feedbacks loop time (as emphasized in
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.oreilly.com&#x2F;library&#x2F;view&#x2F;extreme-programming-explained&#x2F;0201616416&#x2F;&quot;&gt;Kent Beck&#x27;s Extreme Programming Explained&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Over the years I have set up several ways to have a snapshot of it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding a protected endpoint which responds the commit hashes of all services&lt;&#x2F;li&gt;
+&lt;li&gt;Include commit hash in the built artifacts&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Each time I also built a CLI, to perform a scan and compare the different
+environments to the repositories.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s only a beginning and there are many drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even following &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;trunkbaseddevelopment.com&#x2F;&quot;&gt;Trunk Based Development&lt;&#x2F;a&gt;, without &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;articles&#x2F;continuousIntegration.html&quot;&gt;CI&lt;&#x2F;a&gt;&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;ContinuousDelivery.html&quot;&gt;CD&lt;&#x2F;a&gt;, you will have some &lt;em&gt;stock&lt;&#x2F;em&gt;, which is an issue since you can deploy more (or less) than you intend to&lt;&#x2F;li&gt;
+&lt;li&gt;(Feature) flags hide a part of it (it&#x27;s tempting to push a lot of code, hiding it behind a flag, and never enabling it)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I had negative experiences with both of them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A piece of code which hadn&#x27;t been deployed to the users for weeks, got deployed after a typo fix, blocking the usage and was impossible to roll back&lt;&#x2F;li&gt;
+&lt;li&gt;A feature was started and protected by a compilation flag for months, in the end, it was not compiling anymore&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Screaming Architecture</title>
+		<published>2024-01-24T00:00:00+00:00</published>
+		<updated>2024-01-24T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/screaming-architecture/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/screaming-architecture/</id>
+		<content type="html">&lt;p&gt;During my participation to the last &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-11&#x2F;gdcr-summary&#x2F;&quot;&gt;Global Day of Code Retreat&lt;&#x2F;a&gt;
+one of the participant came into our room (where we were doing some software teaming,
+but we&#x27;ll talk about it in another log), looking at the hard-to-read code (due
+to the constraint) and he joked about the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.cleancoder.com&#x2F;uncle-bob&#x2F;2011&#x2F;09&#x2F;30&#x2F;Screaming-Architecture.html&quot;&gt;Screaming Architecture&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The idea is to organize the code so, when you open your project you know its propose.&lt;&#x2F;p&gt;
+&lt;p&gt;For example:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;src
+└── X
+    ├── Entities.hs
+    ├── InterfaceAdapters
+    │   └── API.hs
+    ├── UseCases.hs
+    └── Utils
+        ├── EventSourcing.hs
+        ├── Random.hs
+        └── Servant.hs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;does not fit (yes, it is taken from &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-07&#x2F;abaks-testing-strategy&#x2F;&quot;&gt;last log on Abaks&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, it does not put the technology upfront (unlike what&#x27;s described in the article),
+but it talks more about the architecture style I have picked.&lt;&#x2F;p&gt;
+&lt;p&gt;On another hand, &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;hackage-server&quot;&gt;hackage-server&lt;&#x2F;a&gt; does better at it:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;src
+└── Distribution
+    ├── Server
+    │   ├── Features
+    │   │   ├── AdminFrontend.hs
+    │   │   ├── AdminLog.hs
+    │   │   ├── AnalyticsPixels
+    │   │   │   └── State.hs
+    │   │   ├── AnalyticsPixels.hs
+    │   │   ├── Browse
+    │   │   │   ├── ApplyFilter.hs
+    │   │   │   ├── Options.hs
+    │   │   │   └── Parsers.hs
+    │   │   ├── Browse.hs
+    │   │   ├── BuildReports
+    │   │   │   ├── Backup.hs
+    │   │   │   ├── BuildReport.hs
+    │   │   │   ├── BuildReports.hs
+    │   │   │   ├── Render.hs
+    │   │   │   └── State.hs
+    │   │   ├── BuildReports.hs
+    │   │   ├── Core
+    │   │   │   ├── Backup.hs
+    │   │   │   └── State.hs
+    │   │   ├── Core.hs
+    │   │   ├── Crash.hs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Actually, this architecture style favors &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Vertical_slice&quot;&gt;vertical slicing&lt;&#x2F;a&gt;
+which enforces the grouping by business concern instead of technical layer.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s a powerful way to look at code organization, which fits well with Haskell
+it is a very concise and let you structure freely your code (unlike some other
+programming languages which enforce units per file, e.g. Java and classes).&lt;&#x2F;p&gt;
+&lt;p&gt;However, it can be an issue when you have always worked on framework-driven projects.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to take back the article, I remember a talk where the speaker showed
+the view-from-above plan of a Christian church to make his point.&lt;&#x2F;p&gt;
+&lt;p&gt;The thing is, not all churches are T-shaped (e.g. Helsinki has a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Temppeliaukio_Church&quot;&gt;round church&lt;&#x2F;a&gt;),
+and not everyone knows what a Christian church look like from above (or can
+figure it out conceptually).
+You have to align shared preconceptions&#x2F;assumptions (which are part of the culture)
+to have an effective Screaming Architecture.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Personal README</title>
+		<published>2024-01-21T00:00:00+00:00</published>
+		<updated>2024-01-21T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-01/readme/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-01/readme/</id>
+		<content type="html">&lt;p&gt;Few days ago I was reading again &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.oreilly.com&#x2F;library&#x2F;view&#x2F;extreme-programming-explained&#x2F;0201616416&#x2F;&quot;&gt;Kent Beck&#x27;s Extreme Programming Explained&lt;&#x2F;a&gt;,
+and I have recalled &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaidesanton.substack.com&#x2F;p&#x2F;how-to-make-your-team-read-your-mind&quot;&gt;How to make your team read your mind&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;While I have never been in a formal Manager position (I don&#x27;t consider being a CTO
+as a manager role, but more as &amp;quot;the ultimate&amp;quot; technical leader of a company),
+I think it&#x27;s a good idea to write it down (even though I do it face to face
+during interviews and in the first months), the goal being sure expectations
+on both sides are perfectly clear, avoiding as much as possible misunderstanding
+and frustrations.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: the CTO role is really complete, it includes helping your employees to grow
+their career, orienting the work to make sure your technical assets sustainably
+support the business, aligning technical vision with business goals in both
+direction (my current CTO is insanely good at it, I&#x27;m so glad I can learn from
+him).&lt;&#x2F;p&gt;
+&lt;p&gt;In not particular order:&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-you-can-expect-from-me&quot;&gt;What you can expect from me&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Be autonomous in most of the design&#x2F;implement&#x2F;test&#x2F;deploy&#x2F;operate activities (obviously, code reviews&#x2F;requirement gatherings&#x2F;software teaming&#x2F;etc. are purely social activities and cannot be done alone)&lt;&#x2F;li&gt;
+&lt;li&gt;Starting work between 9.10am and 9.30am (very conservative)&lt;&#x2F;li&gt;
+&lt;li&gt;Always speak when I have something to say, and stay quiet when I don&#x27;t have good contributions to make&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Disagree_and_commit&quot;&gt;Disagree and commit&lt;&#x2F;a&gt;, this one is probably the more important for my management but the less understood in my experience
+&lt;ul&gt;
+&lt;li&gt;In practice, when a discussion occurs &lt;em&gt;within my team&lt;&#x2F;em&gt; (which is the important point here), I can propose one or more alternatives, I can support it, and when the decision is taken, I support it, disregarding whether it was mine or not&lt;&#x2F;li&gt;
+&lt;li&gt;I do not challenge the agreed solution in my team, unless it can be dangerous or if it prevents achieving business goals&lt;&#x2F;li&gt;
+&lt;li&gt;I do not tell people outside my team it&#x27;s not the best solution (or something else)&lt;&#x2F;li&gt;
+&lt;li&gt;It&#x27;s funny because each time I had a (first) meeting with my leader and an external stakeholder, and we talk about a topic I have made a not selected suggestion, my leader looks at me embarrassed and comes to me afterward telling me (s)he was anxious I would speak-up&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Iterate as quickly as possible, and if it&#x27;s not possible, cut down the administrative burden&lt;&#x2F;li&gt;
+&lt;li&gt;Manage myself (my time, my emotions, my work energy)&lt;&#x2F;li&gt;
+&lt;li&gt;Be respectful in all situations&lt;&#x2F;li&gt;
+&lt;li&gt;Providing on-demand &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;longform.asmartbear.com&#x2F;forecast&#x2F;&quot;&gt;probabilistic (20%&#x2F;50%&#x2F;80%)&lt;&#x2F;a&gt; feature iteration estimations (over unrealistic long term commitment)&lt;&#x2F;li&gt;
+&lt;li&gt;Mentor and learn proactively&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on incremental (self-)improvement and getting feedback (business, user, personal)&lt;&#x2F;li&gt;
+&lt;li&gt;Challenge situation, not criticize or any form of attack people&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;what-i-expect-from-my-team&quot;&gt;What I expect from my team&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Being respectful (no yelling, no insult, no threats)&lt;&#x2F;li&gt;
+&lt;li&gt;Being open to discussions&#x2F;explanations (I tend to explore a lot before making deep propositions)&lt;&#x2F;li&gt;
+&lt;li&gt;Avoid morning meeting meetings as much as possible&lt;&#x2F;li&gt;
+&lt;li&gt;Limit daily meeting to 5 minutes (10 max)&lt;&#x2F;li&gt;
+&lt;li&gt;Looking for improvement and feedback&lt;&#x2F;li&gt;
+&lt;li&gt;Do not impose a complete work schedule&lt;&#x2F;li&gt;
+&lt;li&gt;Do not force 100% software teaming&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Team owned architecture</title>
+		<published>2023-10-01T00:00:00+00:00</published>
+		<updated>2023-10-01T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-10/team-owned-architecture/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-10/team-owned-architecture/</id>
+		<content type="html">&lt;p&gt;In early 2013, I was in my penultimate year of my software engineering degree.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time, we were split in groups of 6 people to work on various project
+(ranging from technical to more management-oriented projects).&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, we decided to take leaderships according to our pre-existing
+skills (which is a great tactic if we want to have a high quality delivery
+for the best efficiency, but a poor learning&#x2F;long-term strategy).&lt;&#x2F;p&gt;
+&lt;p&gt;We had a big home automation project (12 weeks), at the time, Google was
+just starting to communicate their plans about it, and the aim of the project
+was to build a home automation center.&lt;&#x2F;p&gt;
+&lt;p&gt;We decided to embed a Java server with a WebUI on a Raspberry Pi (which was launch a year before).
+I took the lead on it, laying out the architecture.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly interface-based:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;An interface for describing devices (and there probes, such as temperature, and actions, such as switching the light)&lt;&#x2F;li&gt;
+&lt;li&gt;An interface for describing data sources (such as local weather website)&lt;&#x2F;li&gt;
+&lt;li&gt;An interface for WebUI components building&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;On top of that, we had a rule system which was connecting everything.&lt;&#x2F;p&gt;
+&lt;p&gt;It was a giant failure in terms of management:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;We worked too hard on it (I worked until the presentation day, sleeping 2 hours)&lt;&#x2F;li&gt;
+&lt;li&gt;I barely explained myself about the design (I actually only support on how to work with it)&lt;&#x2F;li&gt;
+&lt;li&gt;I left little room for debate (my usual reply at the time was trust me: &amp;quot;it will work&amp;quot;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I was actually feeling bad about prior to the presentation.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, one of the teachers asked:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So, you have a monolithic Java application, does it mean that you are
+forced to recompile each time you want to add a new device type?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I went blank.&lt;&#x2F;p&gt;
+&lt;p&gt;One of my teammates jumped on it:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No we don&#x27;t, as Java allows you to dynamically load code&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Another one continued with:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We have interfaces for devices and WebUI, so we don&#x27;t even need to change existing
+code to be extensible.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I was impressed, even with a lack of communication, they were able to strive in the architecture,
+and to own them.&lt;&#x2F;p&gt;
+&lt;p&gt;Aside of that, the results were pretty good:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each of my group mates were able to work independently (each one of them being able to focus on their favorite part, writing devices driver, creating WebUI components, rules)&lt;&#x2F;li&gt;
+&lt;li&gt;The WebUI was clear and swift&lt;&#x2F;li&gt;
+&lt;li&gt;The automation was working like a charm&lt;&#x2F;li&gt;
+&lt;li&gt;We have got the best grade of the class&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It took me a while to learn from this experience, but since then, I have learnt to:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Protect my team from overload (as much as I could)&lt;&#x2F;li&gt;
+&lt;li&gt;Discuss and argue about architecture (instead of forcing it)&lt;&#x2F;li&gt;
+&lt;li&gt;Take small steps when setting up an architecture&lt;&#x2F;li&gt;
+&lt;li&gt;Build a sustainable product development environment&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Over the years, I think of it more and more, should I judged it:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;From a process point of view&lt;&#x2F;li&gt;
+&lt;li&gt;From an outcome point of view&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If I transpose it to my day-to-day work:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Should I create technical debt (of sacrifice my team&#x2F;personal well-being) to meet a business deadline? (being effectively important or not)&lt;&#x2F;li&gt;
+&lt;li&gt;Should I favor a middle&#x2F;long-term plan, and risking the loss of unplanned opportunities?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Design for collaboration</title>
+		<published>2023-04-26T00:00:00+00:00</published>
+		<updated>2023-04-26T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/design-for-collaboration/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/design-for-collaboration/</id>
+		<content type="html">&lt;p&gt;In a &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-04&#x2F;cto-retrospective&#x2F;&quot;&gt;previous log&lt;&#x2F;a&gt; I mentioned that I some point I totally &amp;quot;give up&amp;quot; some of my architecture choices.&lt;&#x2F;p&gt;
+&lt;p&gt;Let me start by stating that I&#x27;m comfortable writing in Haskell in Type-Driven Design and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Test-driven_development&quot;&gt;TDD&lt;&#x2F;a&gt;, following &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Domain-driven_design&quot;&gt;DDD&lt;&#x2F;a&gt; principles, in an &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt;&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt; context, in a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.reactivemanifesto.org&#x2F;&quot;&gt;reactive architecture&lt;&#x2F;a&gt;i, organized according to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.cleancoder.com&#x2F;uncle-bob&#x2F;2012&#x2F;08&#x2F;13&#x2F;the-clean-architecture.html&quot;&gt;the Clean Architecture&lt;&#x2F;a&gt;.
+I could add that I prefer NoSQL databases over RDBMS (even though I love PostGreSQL), I also heavily use Property-Based testing for my domain code, and few tests for my APIs.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s imagine for a minute that you start on a project like that, without any prior knowledge on half of the concepts mentioned previously.
+How likely would you be able to make great contributions quickly?
+I would say low.&lt;&#x2F;p&gt;
+&lt;p&gt;Whenever you architect a system, you should take in account the builders of this system.
+Otherwise, you are paving the way for failure.&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, your system may need it because the constraints requires it, but if you build it, either it won&#x27;t be maintained, or it won&#x27;t be used (correctly), but it will create unnecessary pain.
+The good thing is, from my experience, you&#x27;ll end up with this solution (or a solution close to it), eventually.
+It&#x27;s easier to lead a movement than starting it (i.e. it&#x27;s easier to refine your coworkers&#x27; vision, than imposing yours).&lt;&#x2F;p&gt;
+&lt;p&gt;The thing to look after is &lt;em&gt;reversible decision&lt;&#x2F;em&gt;, each time a decision is taken, you should imagine an &amp;quot;escape plan&amp;quot;.
+If it&#x27;s not too costly, this decision is fine, otherwise (often it involves data-loss), the decision should be debated.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>A reasonable hiring process</title>
+		<published>2023-04-19T00:00:00+00:00</published>
+		<updated>2023-04-19T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/reasonable-hiring-process/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/reasonable-hiring-process/</id>
+		<content type="html">&lt;p&gt;In my &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2023-04&#x2F;cto-retrospective&#x2F;&quot;&gt;previous log&lt;&#x2F;a&gt; I mentioned the hiring process I set up in my company.&lt;&#x2F;p&gt;
+&lt;p&gt;In order to hire someone I have to know few things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;What&#x27;s the applicant background: diploma, self-studied subjects, previous projects, past side-projects&lt;&#x2F;li&gt;
+&lt;li&gt;What&#x27;s the applicant interests: side-projects, self-studied subjects&lt;&#x2F;li&gt;
+&lt;li&gt;The candidate&#x27;s ability to communicate (in general, and to gather information) and be articulated&lt;&#x2F;li&gt;
+&lt;li&gt;The candidate&#x27;s ability to handle a programming assignment (asking questions, doing the work, explaining the solution, explaining the decisions taken, and providing alternative ones)&lt;&#x2F;li&gt;
+&lt;li&gt;The candidate&#x27;s ability to keep composure under pressure (and yes, interviews are stressful)&lt;&#x2F;li&gt;
+&lt;li&gt;The candidate&#x27;s ability to adapt to a new codebase&lt;&#x2F;li&gt;
+&lt;li&gt;The candidate&#x27;s ability to make suggestions to a codebase&lt;&#x2F;li&gt;
+&lt;li&gt;Check if my guts feelings are okay with the candidate&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I also want to set up a &amp;quot;fair&amp;quot; hiring process:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Be as invested as the applicant (i.e. don&#x27;t ask a 4 hours applicant before the first interview, or just to eventually get a short second interview)&lt;&#x2F;li&gt;
+&lt;li&gt;Give clear deadlines (don&#x27;t wait 3 weeks before coming back out of the blue)&lt;&#x2F;li&gt;
+&lt;li&gt;Be relatively fast, or at least transparent&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I end-up with the following process:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Review candidate&#x27;s resume&#x2F;Github profile&lt;&#x2F;li&gt;
+&lt;li&gt;A 1h30 interview with me and another coworker:
+&lt;ul&gt;
+&lt;li&gt;20-30 minutes general conversation&lt;&#x2F;li&gt;
+&lt;li&gt;5 minutes introducing the subject&lt;&#x2F;li&gt;
+&lt;li&gt;45-60 minutes of live-coding&lt;&#x2F;li&gt;
+&lt;li&gt;5-10 of feedbacks (on both sides)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;A 30 minutes call with the CEO&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Nothing spectacular, but enough for me to answer the questions I have, being fair and being fast (it allowed us to wrap hiring processes between 4 days (a bit too short for me), to 23 days).&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my first CTO experience</title>
+		<published>2023-04-12T00:00:00+00:00</published>
+		<updated>2023-04-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/cto-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/cto-retrospective/</id>
+		<content type="html">&lt;p&gt;As I&#x27;ll soon change company, I think it&#x27;s the right time to do a retrospective of these years as CTO, for the first time.
+(Note that, legally speaking I&#x27;ve been &amp;quot;promoted&amp;quot; CTO after more than one year, but, in practice, I acted as CTO from day 1).&lt;&#x2F;p&gt;
+&lt;p&gt;My company was, at the time, an early-stage startup of 4 people (including 3 co-founders, excluding me), which did a first product, and was looking for a new concept to leverage feedbacks.&lt;&#x2F;p&gt;
+&lt;p&gt;I started in early September in a company which aimed to provide a platform for product teams.
+This platform was interacting with various tools (Github, Gitlab, JIRA, Trello, etc.).
+We started with a team of two individuals (a frontend engineer I hired, and me).
+As I knew I won&#x27;t have much time, I preferred each one of us stay in their comfort zone (I will write a log on it), which meant Angular&#x2F;TypeScript for the frontend, Haskell for the backend, AWS&#x2F;Terraform for the infrastructure.
+I started very optimistically at the time, putting everything in place for a long development (e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;adr.github.io&#x2F;&quot;&gt;ADR&lt;&#x2F;a&gt;, a microservices&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Event-driven_architecture&quot;&gt;EDA&lt;&#x2F;a&gt; based architecture, a solid CI&#x2F;CD).
+It was a quite exiting time, we were pair-programming a lot, having a short feedbacks loop in the company.&lt;&#x2F;p&gt;
+&lt;p&gt;The main issue we had at the time, was a problem of speed: we were only 2 developers, and there were 4 individuals gathering feedbacks and pushing features.
+Along the way we tried to rely on freelancers (we hired 6 of them over 6 months), but it was time-consuming and the on-boarding was tedious.
+For instance, I&#x27;m based in France, and I some point I had to onboard someone in Vietnam and someone in Brazil.
+The ADRs, weren&#x27;t used&#x2F;useful as they involved a lot of knowledge in Software Engineering.
+Anyway, as mentioned in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fred_Brooks&quot;&gt;Fred Brooks&lt;&#x2F;a&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Mythical_Man-Month&quot;&gt;The Mythical Man-Month&lt;&#x2F;a&gt;, adding people does not save time in the beginning.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point we decided, with the co-founders, to grow the permanent team, we hired 3 more developers (I plan to write a log on hiring too).
+It was a big change, previously, hiring a freelancers was quite simple:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look for freelancers on upwork&lt;&#x2F;li&gt;
+&lt;li&gt;Check their profile&lt;&#x2F;li&gt;
+&lt;li&gt;Look at their Github account&lt;&#x2F;li&gt;
+&lt;li&gt;Chat with them&lt;&#x2F;li&gt;
+&lt;li&gt;Hire them for a week, and renew if it works&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To a more structured hiring, process.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily we got experienced newcomers (including one which was much more experienced that I was).
+It was interesting to discuss all the choices I made the previous months, sure, I was expecting that many of them would be &amp;quot;negatively&amp;quot; challenged (ie. &amp;quot;why have you done that?&amp;quot;), but some of them were &amp;quot;positively&amp;quot; challenged (ie. &amp;quot;you should have gone further&amp;quot;).
+That&#x27;s when we migrated to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt;, and it was painful, but our reactivity to changes skyrocketed.
+It was also the time when I had to act as a manager, while, until then, with enough pair-programming, the team was stable.&lt;&#x2F;p&gt;
+&lt;p&gt;After some months, we realized that we didn&#x27;t get enough traction, we actually stopped this product (actually, we created a new toy project from it, shrinking down features), loose a part of the staff (including a co-founder, and the first frontend developer).
+We hired new developers and started a new collaborative tool.
+The difference was that, this time, I wasn&#x27;t alone to work on the backend, the other developer was really fast but had a different background from mine.
+The new architecture was drastically simpler (PostGreSQL instead of DynamoDB&#x2F;ElasticSearch, a monolith instead of a micro-services based architecture, no event).
+Everything went well, the pace was high, we had many feedbacks, too many feedbacks, our tool was too generic, we had to target a specific group of users, leading to a major pivot of the tool.
+It was actually painful, changing a lot of concepts, database tables, functions, and queries was costly.
+Eventually, after that we started to have more relevant feedbacks and our first users.&lt;&#x2F;p&gt;
+&lt;p&gt;This is when I decided to look for new opportunities.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to take few steps back, while it was a great experience, I wish I have done some things differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;While I tend to favor consensus, I have imposed few decisions in order to have a &amp;quot;manageable&amp;quot; product, but it led &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bus_factor&quot;&gt;a bus factor of 1&lt;&#x2F;a&gt;, so I had to rework some parts during my notice period&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I didn&#x27;t use Haskell for the new product, because it makes hiring difficult in early-stage startups&lt;&#x2F;li&gt;
+&lt;li&gt;I should have &amp;quot;silo-ed&amp;quot; more product team and business team, actually business people were kind of geeks, and on another hand product team members were not used to speak business language, leading business folks to push for technical solution (instead of business problems) and developers raising technical issues (instead of challenging the business)&lt;&#x2F;li&gt;
+&lt;li&gt;I should have insisted more on conceptualizing things instead of relying purely on UX to build the product&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I would have been more articulated when I was advocating for tests, code quality or fast and regular delivery and feedbacks&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;However I&#x27;m proud of many things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to build a great team is quite a big achievement to me&lt;&#x2F;li&gt;
+&lt;li&gt;While I wish some (architectural) decisions to be taken differently, it was great that once my coworkers get the issues they were solving, my colleagues adopted them naturally&lt;&#x2F;li&gt;
+&lt;li&gt;I had a role of &amp;quot;enabler&amp;quot;, taking-out the big rocks on the road, enabling everyone to have a smooth working environment&lt;&#x2F;li&gt;
+&lt;li&gt;I find a way to many various workloads (development, infrastructure, meetings, reports, administrative tasks, hirings, etc.) quite smoothly&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Local vs Global optimum</title>
+		<published>2022-11-19T00:00:00+00:00</published>
+		<updated>2022-11-19T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/local-global-optimum/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/local-global-optimum/</id>
+		<content type="html">&lt;p&gt;Few weeks ago, I had a meetup with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;woodyzuill.com&#x2F;&quot;&gt;Woody Zuill&lt;&#x2F;a&gt;,
+the inventor of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;softwareteaming.com&#x2F;&quot;&gt;Software Teaming&lt;&#x2F;a&gt;,
+with the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.meetup.com&#x2F;fr-FR&#x2F;Software-Craftsmanship-Lyon&#x2F;&quot;&gt;Software Crafters Lyon&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I have encountered the same topic at two different times:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;During software teaming: we had different speeds depending on the couple driver&#x2F;navigator&lt;&#x2F;li&gt;
+&lt;li&gt;During the informal exchange after: he talked about silos in companies&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It took me a long time to connect the two concepts.&lt;&#x2F;p&gt;
+&lt;p&gt;During software teaming, an important part is to synchronize the pace.
+If someone goes too fast, no one can understand what&#x27;s going on.
+If someone goes too slow, it would be hard to follow.&lt;&#x2F;p&gt;
+&lt;p&gt;Regarding silos, the basic idea was already been studied in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;teamtopologies.com&#x2F;&quot;&gt;Team Topologies&lt;&#x2F;a&gt;,
+the general idea is the following, when you structure a team, in tends to optimize
+itself toward its goal.
+For example, if you have a front-end team, it will focus on producing better
+front-end.
+On the contrary, if you create a multidisciplinary autonomous team, it will
+produce a better software.&lt;&#x2F;p&gt;
+&lt;p&gt;It took me a while, but I have finally connected the two idea: it is about optimum.&lt;&#x2F;p&gt;
+&lt;p&gt;You can improve yourself&#x2F;your team to the point that you are able to build a
+complete module in the morning, but if you cannot deploy it, or don&#x27;t have
+access to users feedback, there are few chances you end up building something
+valuable in the long run.&lt;&#x2F;p&gt;
+&lt;p&gt;Local optimums create bureaucracy.
+In teams, we should make sure everyone is at the same pace.
+In companies, we have to make sure teams are autonomous, being able to gather
+requirements from users, design on their own, deploy at their pace, and collect
+feedbacks themselves.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>User Driven Design</title>
+		<published>2022-11-08T00:00:00+00:00</published>
+		<updated>2022-11-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-11/user-driven-design/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-11/user-driven-design/</id>
+		<content type="html">&lt;p&gt;Last week I was watching &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=KkzvQSuYd5I&quot;&gt;Mauro Servienti - All Our Aggregates Are Wrong&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point he stated that users tend to think in terms of data.&lt;&#x2F;p&gt;
+&lt;p&gt;I had a female friend, a long time ago, which was studying to be part of
+private clinics&#x2F;public hospitals management team.
+Let  me emphasize this, her future position would include: people management,
+hiring, fundraising, budget management.&lt;&#x2F;p&gt;
+&lt;p&gt;Despite that, she had some lessons on &amp;quot;computer science&amp;quot;, I had a look at some of her homework, none of them were making sense.
+Basically, on of them was a kind of database table modeling (mostly boxes with a name, attributes, and links between them).&lt;&#x2F;p&gt;
+&lt;p&gt;Once the initial shock passed:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I&#x27;ll be in trouble if I have to make a project with them&lt;&#x2F;li&gt;
+&lt;li&gt;We (our industry) have done really, really, bad if our stakeholder has to be trained to speak with us&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To illustrate that, let&#x27;s say you discuss with someone in charge of an
+e-commerce website, (s)he might describe a basket with:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Items&lt;&#x2F;li&gt;
+&lt;li&gt;Discounts&lt;&#x2F;li&gt;
+&lt;li&gt;Price&lt;&#x2F;li&gt;
+&lt;li&gt;Shipping address&lt;&#x2F;li&gt;
+&lt;li&gt;Carrier&lt;&#x2F;li&gt;
+&lt;li&gt;Status&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So, you&#x27;ll be tempted to model it as:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-keyword z-other z-haskell&quot;&gt;data&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Basket&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Basket&lt;&#x2F;span&gt;
+  { items &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Item&lt;&#x2F;span&gt;]
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; discounts &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Discount&lt;&#x2F;span&gt;]
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; totalPrice &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Price&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; shippingAddress &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Address&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; carrier &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Maybe&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Carrier&lt;&#x2F;span&gt;
+  &lt;span class=&quot;z-punctuation z-separator z-comma z-haskell&quot;&gt;,&lt;&#x2F;span&gt; status &lt;span class=&quot;z-keyword z-operator z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-other z-haskell&quot;&gt;Status&lt;&#x2F;span&gt;
+  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Great, you have just let the stakeholder strap you in his&#x2F;her design.&lt;&#x2F;p&gt;
+&lt;p&gt;Just to be sure we are on the same page: when you go to the surgeon, would you
+request him&#x2F;her what you want (i.e. fix your broken arm), or how you want it
+(i.e. the complete operating protocol).&lt;&#x2F;p&gt;
+&lt;p&gt;Note: IMO, focusing on the &lt;em&gt;how&lt;&#x2F;em&gt; denotes a lack of trust&lt;&#x2F;p&gt;
+&lt;p&gt;Whenever I tackle a subject, I start with the actions, let&#x27;s grab our
+stakeholder again, a customer will:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fill the basket&lt;&#x2F;li&gt;
+&lt;li&gt;Select the carrier&lt;&#x2F;li&gt;
+&lt;li&gt;Pay&lt;&#x2F;li&gt;
+&lt;li&gt;Being delivered&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To give a hint on what goes wrong, the carrier does not care about the discounts.
+Everything is coupled around &lt;code&gt;Basket&lt;&#x2F;code&gt; which is also an issue since we cannot
+express that a shipping address have been set before going in the shipping part.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s when I leverage &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;BoundedContext.html&quot;&gt;DDD&#x27;s Bounded Contexts&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I can then come up with:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;haskell&quot; class=&quot;language-haskell z-code&quot;&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;z-source z-haskell&quot;&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;computePackage&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Items&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Package&lt;&#x2F;span&gt; &lt;span class=&quot;z-comment z-line z-double-dash z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-haskell&quot;&gt;--&lt;&#x2F;span&gt; size, weight, insured price
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;carriersProposal&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Package&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Address&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;m&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;CarrierProposal&lt;&#x2F;span&gt;] &lt;span class=&quot;z-comment z-line z-double-dash z-haskell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-haskell&quot;&gt;--&lt;&#x2F;span&gt; Name, Price, Delay&#x2F;Proposed delivery options
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;bill&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Item&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; [&lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;ExtraDiscount&lt;&#x2F;span&gt;] &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;CarrierProposal&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Bill&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-type-declaration z-haskell&quot;&gt;&lt;span class=&quot;z-entity z-name z-function z-haskell&quot;&gt;pay&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-double-colon z-haskell&quot;&gt;::&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-haskell&quot;&gt;Bill&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-arrow z-haskell&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-generic-type z-haskell&quot;&gt;m&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-constant z-unit z-haskell&quot;&gt;()&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then, and only then, I can work on my types structure, without being restrained
+by my stakeholder design.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - feedbacks</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/feedbacks/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-09-03T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/feedbacks/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Retrospective of my time at Autogriff</title>
+		<published>2024-09-03T00:00:00+00:00</published>
+		<updated>2024-09-03T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-09/autogriff-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-09/autogriff-retrospective/</id>
+		<content type="html">&lt;p&gt;As you might have noticed, I&#x27;ve &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;livtours.com&#x2F;&quot;&gt;switch position&lt;&#x2F;a&gt; few weeks ago.&lt;&#x2F;p&gt;
+&lt;p&gt;After talking with my former CTO, it seems to be a great idea to do a
+retrospective on my experience at &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.autogriff.com&#x2F;&quot;&gt;Autogriff&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;context&quot;&gt;Context&lt;&#x2F;h3&gt;
+&lt;p&gt;Autogriff is a B2B company specialized in cars fleet management.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to describe the business workflow: a company signs a contract with
+Autogriff, and whenever something happen to one of their car (accident, driver
+change, etc.), Autogriff handles the estimation, finding and dealing with repair shops.&lt;&#x2F;p&gt;
+&lt;p&gt;It was founded in 2017, and currently has ~15 employees.&lt;&#x2F;p&gt;
+&lt;p&gt;The IT department was created 4 years ago, it ran for a long-time with juniors
+developers (internships or retrainings), senior developers onboarded 2 years ago.&lt;&#x2F;p&gt;
+&lt;p&gt;The business side is quite mature, but it is still flexible, so they adapt their
+workflows to their clients.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: at this point, it&#x27;s probably the most customer-oriented company I have worked for&lt;&#x2F;p&gt;
+&lt;p&gt;Which means that it was challenging for the IT.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;technology-overview&quot;&gt;Technology overview&lt;&#x2F;h3&gt;
+&lt;p&gt;On the technology side, Autogriff suffers from two things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Few years of &amp;quot;architecture&amp;quot; made in autonomy by juniors: C#, Java, Python, CRUD and Client-First architecture&lt;&#x2F;li&gt;
+&lt;li&gt;The arrival of the senior developers: Haskell, Elm, Rust, Nix, DDD, Event sourcing, CQRS, microservices, &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2024-01&#x2F;access-control-capabilities&#x2F;&quot;&gt;Capabilities-based&lt;&#x2F;a&gt;, HATEOAS API&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We had few big blocks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Java tool (legacy) holding invoices, clients, and some metadata loosely coupled with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Python (legacy, Event-sourced) &#x2F; Elm (legacy) tool for interaction with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Haskell (Event-sourced) &#x2F; Elm tool for the interventions dashboard and business intelligence (my work)&lt;&#x2F;li&gt;
+&lt;li&gt;An Elm PWA for interacting with drivers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;learnings-and-confirmations&quot;&gt;Learnings and confirmations&lt;&#x2F;h3&gt;
+&lt;p&gt;There are few things I have already encountered, which still hold:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;CRUD-based UI spreads: when you have that kind of UI, coming with a different architecture for the backend is impossible&lt;&#x2F;li&gt;
+&lt;li&gt;Architecture is not improvised: it&#x27;s tempting for non-technical decisions maker to see IT as a building, allocating resources on a bigger team of juniors, rather than a small one with juniors, but it doesn&#x27;t work if you don&#x27;t have enough software engineering background&lt;&#x2F;li&gt;
+&lt;li&gt;Technical debt explode when not repayed: at some point, technical debt prevents to deliver some features (even approximation), tu give an example, when you have and data you have to compute, from two sources, one being event-sourced, the other not, you end up with invalid results&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of fast feedbacks is a deadly killer: we had Nix-based deployments (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;serokell&#x2F;deploy-rs&quot;&gt;deploy-rs&lt;&#x2F;a&gt;), which relies on systemd, meaning, you can have only one instance running at the same time (forget zero downtime deployments), which is an issue when it takes 45 minutes to restart the backend (mostly the time to replay events to have fresh projections, I have added a cache to reduce to few seconds). Consequently, you have two deployment windows (after the working day, or at lunch for emergency fixes), it means that, even for one line fix, you have to wait for a full-day to be used by users (causing context switches and creating hard conversations with business)&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make deployments a big deal: I have introduced continuous integration when I arrived, but continuous deployments were not a thing, not only we had the previously mentioned restart issue, but I was done manually, mostly by 2 people (I was one of them), owning the deployment tool, who should be aware of the manual configuration to be performed, while, when I have set up an ArgoCD based CD, everything was done automatically, and there was no difference between a commit and a deployment.&lt;&#x2F;li&gt;
+&lt;li&gt;Mono-team microservices&#x2F;multi-repository don&#x27;t work: we had 4 repositories for 5 heavily coupled parts, which means, we had to commit everywhere often&lt;&#x2F;li&gt;
+&lt;li&gt;Opinionated debated&#x2F;conservative decisions is a blocker: a lot of discussion happen were running over days to take trivial &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;thoughtbot.com&#x2F;blog&#x2F;one-way-vs-two-way-door-decisions&quot;&gt;two-way doors decisions&lt;&#x2F;a&gt;, for example, I have silently put the startup cache in two hours (and I have fixed it 3 times), while we have discussed it for two months (not full-time), even when it was actually used for weeks&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make everything hard: when you do everything by hand, everything is unique, which makes things harder to automate, automating imply standardization, which implies giving up some details&lt;&#x2F;li&gt;
+&lt;li&gt;Code reviews culture is hard to bootstrap: when reviewing is not part of the culture, it&#x27;s hard to cope with it (even small PRs can take days to be reviewed, approvals are hard to get)&lt;&#x2F;li&gt;
+&lt;li&gt;Haskell catches a lot of bug: even with fewer tests than I would have on Java project, sufficiently typed code catches most of the bugs, I had fewer regressions thanks to it&lt;&#x2F;li&gt;
+&lt;li&gt;Nix provides a good foundation for infrastructure: everything works with Nix (from development environment, to deployment), it took me roughly 30 minutes to have an environment and a first binary, and I can&#x27;t remind a situation where someone said &amp;quot;but it works on my computer&amp;quot;&lt;&#x2F;li&gt;
+&lt;li&gt;DDD is the corner stone of working software: we have spent countless hours speakings with the business, adjusting the vocabulary, fixing issues before they happen (we even organized an EventStorming which help us to fix many problems, set our priorities, spot many bugs, and make the business aware of their inconsistencies)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Some learnings I wish I didn&#x27;t make:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;HATEOAS-only sucks: for reference HATEOAS is a way to have endpoints described in response payload, which is great in theory for discovery and decoupling clients, but in practise, the lack of tooling (OpenAPI does not support it, and we had to make a lot of work in our adapters in Elm to make it work) is painful and giving this kind of API to customers was an issue&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities-based alone is not enough: while decoupling access and user being a good idea, at some point you have to answer to two questions: who accessed to a resource and what are the accesses of a user&lt;&#x2F;li&gt;
+&lt;li&gt;Event-sourcing can be rigid: when you prevent yourself to rework your events, it becomes more painful than a plain old relationnal database&lt;&#x2F;li&gt;
+&lt;li&gt;Elm is too simplistic to go beyond one page: while we had a relatively simple set of apps (3 apps, with 5-10 pages), Elm was painful to use, the standard library is too small to be useful and the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;sporto.github.io&#x2F;elm-patterns&#x2F;architecture&#x2F;nested-tea.html&quot;&gt;nested TEA pattern&lt;&#x2F;a&gt;, which is the standard way to handle &amp;quot;complex&amp;quot; apps (mostly a consequence of a lack of &amp;quot;advanced&amp;quot; features), make sub-components not composable&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Finally, my observations and learnings I&#x27;m glad I&#x27;ve made:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even business-oriented team can be highly technical: I have rarely work in business-oriented team (on non-technical products), applying DDD that, so I didn&#x27;t expect them to also being highly technical&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities does the trick: while capabilities introduce some complexity, I have seen that it works well, at least for many use cases, for few efforts&lt;&#x2F;li&gt;
+&lt;li&gt;Developers from retrainings brings a lot of (human) value: it took me maybe 8-10 years (since my first encouter with programming at 9) to have a grasp on software engineering, so I have a lot of suspicions when I have to work with people coming from a 6-weeks bootcamp, but it occurs I have worked with a junior having great communication style, asking a lot of questions, dealing with other business units, bringing a lot of value&lt;&#x2F;li&gt;
+&lt;li&gt;Sometime bringing values consist in helping those who bring more value: I&#x27;ve spent a lot of time pairing with juniors developers, and it seems I&#x27;m not that bad at coaching, and it seems supporting them was a better use of my time because, while they have a good business vision (they were in the company long before me), they lack a technical vision I can bring&lt;&#x2F;li&gt;
+&lt;li&gt;Pace correctly a pair programming session: spending a lot of time in pair programming gave me the chance to experiment a lot, especially finding and adjusting just the right pace in pair programming, being supporting of my pair&lt;&#x2F;li&gt;
+&lt;li&gt;Being a better subordinate: one thing I have learned about me when I was a CTO, is what I expect from my team, getting back in an IC role, I gain a better understanding of my CTO needs and expectations, acting according to them; moreover, I was able to appreciate my CTO competencies, sure, he has a different style than mine, but he is really great at a lot of things, I have learned so much.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;why-moving-on&quot;&gt;Why moving on?&lt;&#x2F;h3&gt;
+&lt;p&gt;I have spent a bit more than a year at Autogriff, which is too short.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll go in depth in a future log, but the short answer is applying Jeff Bezos&#x27; Regret minimization Framework.&lt;&#x2F;p&gt;
+&lt;p&gt;Over the past years, I have declined 3 offers I deeply regret today, and this time I have a rare match between an offer and my objectives.&lt;&#x2F;p&gt;
+&lt;p&gt;I have thanks my colleagues for all these months of collaboration, learning and help, I have spent a wonderful time with all of them.&lt;&#x2F;p&gt;
+&lt;p&gt;PS: Yes, I miss my colleagues, I miss the context, but it&#x27;s a new adventures ahead!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my first CTO experience</title>
+		<published>2023-04-12T00:00:00+00:00</published>
+		<updated>2023-04-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/cto-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/cto-retrospective/</id>
+		<content type="html">&lt;p&gt;As I&#x27;ll soon change company, I think it&#x27;s the right time to do a retrospective of these years as CTO, for the first time.
+(Note that, legally speaking I&#x27;ve been &amp;quot;promoted&amp;quot; CTO after more than one year, but, in practice, I acted as CTO from day 1).&lt;&#x2F;p&gt;
+&lt;p&gt;My company was, at the time, an early-stage startup of 4 people (including 3 co-founders, excluding me), which did a first product, and was looking for a new concept to leverage feedbacks.&lt;&#x2F;p&gt;
+&lt;p&gt;I started in early September in a company which aimed to provide a platform for product teams.
+This platform was interacting with various tools (Github, Gitlab, JIRA, Trello, etc.).
+We started with a team of two individuals (a frontend engineer I hired, and me).
+As I knew I won&#x27;t have much time, I preferred each one of us stay in their comfort zone (I will write a log on it), which meant Angular&#x2F;TypeScript for the frontend, Haskell for the backend, AWS&#x2F;Terraform for the infrastructure.
+I started very optimistically at the time, putting everything in place for a long development (e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;adr.github.io&#x2F;&quot;&gt;ADR&lt;&#x2F;a&gt;, a microservices&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Event-driven_architecture&quot;&gt;EDA&lt;&#x2F;a&gt; based architecture, a solid CI&#x2F;CD).
+It was a quite exiting time, we were pair-programming a lot, having a short feedbacks loop in the company.&lt;&#x2F;p&gt;
+&lt;p&gt;The main issue we had at the time, was a problem of speed: we were only 2 developers, and there were 4 individuals gathering feedbacks and pushing features.
+Along the way we tried to rely on freelancers (we hired 6 of them over 6 months), but it was time-consuming and the on-boarding was tedious.
+For instance, I&#x27;m based in France, and I some point I had to onboard someone in Vietnam and someone in Brazil.
+The ADRs, weren&#x27;t used&#x2F;useful as they involved a lot of knowledge in Software Engineering.
+Anyway, as mentioned in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fred_Brooks&quot;&gt;Fred Brooks&lt;&#x2F;a&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Mythical_Man-Month&quot;&gt;The Mythical Man-Month&lt;&#x2F;a&gt;, adding people does not save time in the beginning.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point we decided, with the co-founders, to grow the permanent team, we hired 3 more developers (I plan to write a log on hiring too).
+It was a big change, previously, hiring a freelancers was quite simple:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look for freelancers on upwork&lt;&#x2F;li&gt;
+&lt;li&gt;Check their profile&lt;&#x2F;li&gt;
+&lt;li&gt;Look at their Github account&lt;&#x2F;li&gt;
+&lt;li&gt;Chat with them&lt;&#x2F;li&gt;
+&lt;li&gt;Hire them for a week, and renew if it works&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To a more structured hiring, process.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily we got experienced newcomers (including one which was much more experienced that I was).
+It was interesting to discuss all the choices I made the previous months, sure, I was expecting that many of them would be &amp;quot;negatively&amp;quot; challenged (ie. &amp;quot;why have you done that?&amp;quot;), but some of them were &amp;quot;positively&amp;quot; challenged (ie. &amp;quot;you should have gone further&amp;quot;).
+That&#x27;s when we migrated to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt;, and it was painful, but our reactivity to changes skyrocketed.
+It was also the time when I had to act as a manager, while, until then, with enough pair-programming, the team was stable.&lt;&#x2F;p&gt;
+&lt;p&gt;After some months, we realized that we didn&#x27;t get enough traction, we actually stopped this product (actually, we created a new toy project from it, shrinking down features), loose a part of the staff (including a co-founder, and the first frontend developer).
+We hired new developers and started a new collaborative tool.
+The difference was that, this time, I wasn&#x27;t alone to work on the backend, the other developer was really fast but had a different background from mine.
+The new architecture was drastically simpler (PostGreSQL instead of DynamoDB&#x2F;ElasticSearch, a monolith instead of a micro-services based architecture, no event).
+Everything went well, the pace was high, we had many feedbacks, too many feedbacks, our tool was too generic, we had to target a specific group of users, leading to a major pivot of the tool.
+It was actually painful, changing a lot of concepts, database tables, functions, and queries was costly.
+Eventually, after that we started to have more relevant feedbacks and our first users.&lt;&#x2F;p&gt;
+&lt;p&gt;This is when I decided to look for new opportunities.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to take few steps back, while it was a great experience, I wish I have done some things differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;While I tend to favor consensus, I have imposed few decisions in order to have a &amp;quot;manageable&amp;quot; product, but it led &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bus_factor&quot;&gt;a bus factor of 1&lt;&#x2F;a&gt;, so I had to rework some parts during my notice period&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I didn&#x27;t use Haskell for the new product, because it makes hiring difficult in early-stage startups&lt;&#x2F;li&gt;
+&lt;li&gt;I should have &amp;quot;silo-ed&amp;quot; more product team and business team, actually business people were kind of geeks, and on another hand product team members were not used to speak business language, leading business folks to push for technical solution (instead of business problems) and developers raising technical issues (instead of challenging the business)&lt;&#x2F;li&gt;
+&lt;li&gt;I should have insisted more on conceptualizing things instead of relying purely on UX to build the product&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I would have been more articulated when I was advocating for tests, code quality or fast and regular delivery and feedbacks&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;However I&#x27;m proud of many things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to build a great team is quite a big achievement to me&lt;&#x2F;li&gt;
+&lt;li&gt;While I wish some (architectural) decisions to be taken differently, it was great that once my coworkers get the issues they were solving, my colleagues adopted them naturally&lt;&#x2F;li&gt;
+&lt;li&gt;I had a role of &amp;quot;enabler&amp;quot;, taking-out the big rocks on the road, enabling everyone to have a smooth working environment&lt;&#x2F;li&gt;
+&lt;li&gt;I find a way to many various workloads (development, infrastructure, meetings, reports, administrative tasks, hirings, etc.) quite smoothly&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

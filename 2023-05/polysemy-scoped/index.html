@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Polysemy: Scoped - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-05/polysemy-scoped/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-05/polysemy-scoped/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-05/polysemy-scoped/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Polysemy: Scoped | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Polysemy: Scoped | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-05-28" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-05/polysemy-scoped/">Polysemy: Scoped</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> May 28, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/haskell/">Haskell</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/polysemy/">polysemy</a>  #<a href="https://gautier.difolco.dev/tags/design/">design</a>  #<a href="https://gautier.difolco.dev/tags/effects-systems/">effects systems</a> </span>
+
+    <p>With <a href="https://gautier.difolco.dev/2023-04/polysemy-v19/">Polysemy 1.9.0.0</a> came the <code>Scoped</code> effect.</p>
+<p>It's defined as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Scoped</span> (param <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span>) (effect <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Effect</span>) <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Effect</span> <span class="z-keyword z-other z-haskell">where</span>
+  <span class="z-constant z-other z-haskell">Run</span> <span class="z-keyword z-operator z-haskell">::</span> forall param effect m a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">Word</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> effect m a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Scoped</span> param effect m a
+  <span class="z-constant z-other z-haskell">InScope</span> <span class="z-keyword z-operator z-haskell">::</span> forall param effect m a<span class="z-keyword z-operator z-haskell">.</span> param <span class="z-keyword z-operator z-haskell">-&gt;</span> (<span class="z-constant z-other z-haskell">Word</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> m a) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Scoped</span> param effect m a
+</span></code></pre>
+<p>Complex, the interesting function is <code>scoped</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">scoped</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+    <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">param</span> <span class="z-variable z-other z-generic-type z-haskell">effect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+    <span class="z-storage z-type z-haskell">Member</span> (<span class="z-storage z-type z-haskell">Scoped</span> <span class="z-variable z-other z-generic-type z-haskell">param</span> <span class="z-variable z-other z-generic-type z-haskell">effect</span>) <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+    <span class="z-variable z-other z-generic-type z-haskell">param</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+    <span class="z-storage z-type z-haskell">InterpreterFor</span> <span class="z-variable z-other z-generic-type z-haskell">effect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span></span></code></pre>
+<p>Lets imagine a simple <code>Queue</code> effect:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Queue</span> q (m <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span>) a <span class="z-keyword z-other z-haskell">where</span>
+  <span class="z-constant z-other z-haskell">Dequeue</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Queue</span> q m (<span class="z-constant z-other z-haskell">Maybe</span> q)
+
+makeSem &#39;&#39;<span class="z-constant z-other z-haskell">Queue</span>
+</span></code></pre>
+<p>we can use it as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">works</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Scoped</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-support z-constant z-unit z-haskell">()</span>) (<span class="z-storage z-type z-haskell">Queue</span> <span class="z-support z-constant z-unit z-haskell">()</span>), <span class="z-storage z-type z-haskell">Error</span> <span class="z-support z-constant z-unit z-haskell">()</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span>works <span class="z-keyword z-operator z-haskell">=</span>
+  scoped @_ @(<span class="z-constant z-other z-haskell">Queue</span> <span class="z-constant z-language z-unit z-haskell">()</span>) (<span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-language z-unit z-haskell">()</span>) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+    void <span class="z-keyword z-operator z-haskell">$</span> dequeue @<span class="z-constant z-language z-unit z-haskell">()</span>
+    void <span class="z-keyword z-operator z-haskell">$</span> dequeue @<span class="z-constant z-language z-unit z-haskell">()</span>
+
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fails</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Scoped</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-support z-constant z-unit z-haskell">()</span>) (<span class="z-storage z-type z-haskell">Queue</span> <span class="z-support z-constant z-unit z-haskell">()</span>), <span class="z-storage z-type z-haskell">Error</span> <span class="z-support z-constant z-unit z-haskell">()</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span>fails <span class="z-keyword z-operator z-haskell">=</span>
+  scoped @_ @(<span class="z-constant z-other z-haskell">Queue</span> <span class="z-constant z-language z-unit z-haskell">()</span>) (<span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-language z-unit z-haskell">()</span>) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+    void <span class="z-keyword z-operator z-haskell">$</span> dequeue @<span class="z-constant z-language z-unit z-haskell">()</span>
+    <span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">&lt;-</span> throw <span class="z-constant z-language z-unit z-haskell">()</span>
+    void <span class="z-keyword z-operator z-haskell">$</span> dequeue @<span class="z-constant z-language z-unit z-haskell">()</span>
+</span></code></pre>
+<p>We define a 1-element <code>Queue</code>.</p>
+<p>We can then produce an interpreter allocating a <code>MVar</code></p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">withQueue</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  (<span class="z-storage z-type z-haskell">MVar</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span>withQueue initial use <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+  mvar <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> maybe newEmptyMVar newMVar initial
+  use mvar
+
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interpretQueue</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+  <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">InterpreterFor</span> (<span class="z-storage z-type z-haskell">Scoped</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">q</span>) (<span class="z-storage z-type z-haskell">Queue</span> <span class="z-variable z-other z-generic-type z-haskell">q</span>)) <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span>interpretQueue <span class="z-keyword z-operator z-haskell">=</span>
+  interpretScopedWith @&#39;<span class="z-constant z-language z-empty-list z-haskell">[]</span> withQueue <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>mvar <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+    <span class="z-constant z-other z-haskell">Dequeue</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+      embed <span class="z-keyword z-operator z-haskell">$</span> putStrLn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>deqeue<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+      embed <span class="z-keyword z-operator z-haskell">$</span> tryTakeMVar mvar
+</span></code></pre>
+<p>Usable as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">putStrLn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Work<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+runM (runError @<span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">$</span> interpretQueue @<span class="z-constant z-language z-unit z-haskell">()</span> works) <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> print
+putStrLn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Fail<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+runM (runError @<span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">$</span> interpretQueue @<span class="z-constant z-language z-unit z-haskell">()</span> fails) <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> print
+</span></code></pre>
+<p>Giving:</p>
+<pre class="z-code"><code><span class="z-text z-plain">Work
+deqeue
+deqeue
+Right ()
+Fail
+deqeue
+Left ()
+</span></code></pre>
+<p>You can notice <code>@[]</code> in:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">  interpretScopedWith @&#39;<span class="z-constant z-language z-empty-list z-haskell">[]</span> withQueue <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>mvar <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span></code></pre>
+<p>it's actually a way to inject effects during interpretation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">withQueue&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  (<span class="z-support z-constant z-unit z-haskell">()</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> (<span class="z-storage z-type z-haskell">Stack</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> : <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span>withQueue&#39; initial use <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+  mvar <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> maybe newEmptyMVar newMVar initial
+  runStackMVar mvar <span class="z-keyword z-operator z-haskell">$</span> use <span class="z-constant z-language z-unit z-haskell">()</span>
+
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">runStackMVar</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">MVar</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">InterpreterFor</span> (<span class="z-storage z-type z-haskell">Stack</span> <span class="z-variable z-other z-generic-type z-haskell">q</span>) <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span>runStackMVar mvar <span class="z-keyword z-operator z-haskell">=</span>
+  interpret <span class="z-keyword z-operator z-haskell">$</span>
+    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+      <span class="z-constant z-other z-haskell">Pop</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> embed <span class="z-keyword z-operator z-haskell">$</span> tryTakeMVar mvar
+
+<span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interpretQueue&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">q</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+  <span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">InterpreterFor</span> (<span class="z-storage z-type z-haskell">Scoped</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">q</span>) (<span class="z-storage z-type z-haskell">Queue</span> <span class="z-variable z-other z-generic-type z-haskell">q</span>)) <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span>interpretQueue&#39; <span class="z-keyword z-operator z-haskell">=</span>
+  interpretScopedWith @&#39;[<span class="z-constant z-other z-haskell">Stack</span> q] withQueue&#39; <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+    <span class="z-constant z-other z-haskell">Dequeue</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+      embed <span class="z-keyword z-operator z-haskell">$</span> putStrLn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>deqeue<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+      pop
+</span></code></pre>
+<p>See the full the code <a rel="noopener" target="_blank" href="https://github.com/blackheaven/blackheaven.github.io/blob/master/content/code/polysemy19/src/Scoped.hs">here</a>.</p>
+
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Haskell Legacy: Going event-first - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2024-08/api-legacy-event-first/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2024-08/api-legacy-event-first/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2024-08/api-legacy-event-first/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="Haskell Legacy: Going event-first | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="Haskell Legacy: Going event-first | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2024-08-13" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2024-08/api-legacy-event-first/">Haskell Legacy: Going event-first</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> August 13, 2024<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/haskell/">Haskell</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/design/">design</a>  #<a href="https://gautier.difolco.dev/tags/legacy/">legacy</a>  #<a href="https://gautier.difolco.dev/tags/polysemy/">polysemy</a> </span>
+
+    <p>Previously, we have <a href="https://gautier.difolco.dev/2024-08/api-legacy-reversing-writes/">reversed writes</a>,
+which means that we write events, then we write the legacy tables.</p>
+<p>As a reminder, we have some code looking like that:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptTrainEffectEvents</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-storage z-type z-haskell">TrainEvent</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>, <span class="z-storage z-type z-haskell">Error</span> <span class="z-storage z-type z-haskell">InternalApiError</span>, <span class="z-storage z-type z-haskell">TrainProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">InterpreterFor</span> <span class="z-storage z-type z-haskell">TrainEffect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span>interceptTrainEffectEvents <span class="z-keyword z-operator z-haskell">=</span>
+  interpret <span class="z-keyword z-operator z-haskell">$</span>
+    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+      <span class="z-constant z-other z-haskell">TrainCreate</span>
+        departureDate&#39;@(<span class="z-constant z-other z-haskell">DepartureDate</span> departureDate)
+        departureStation&#39;@(<span class="z-constant z-other z-haskell">DepartureStation</span> departureStation)
+        arrivalStation&#39;@(<span class="z-constant z-other z-haskell">ArrivalStation</span> arrivalStation) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+          newTrainId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+          eventStored <span class="z-keyword z-operator z-haskell">&lt;-</span>
+            storeEvent
+              (<span class="z-constant z-other z-haskell">StreamId</span> newTrainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;)
+              (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+              <span class="z-constant z-other z-haskell">TrainCreated</span>
+                { departureDate <span class="z-keyword z-operator z-haskell">=</span> departureDate<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  departureStation <span class="z-keyword z-operator z-haskell">=</span> departureStation<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  arrivalStation <span class="z-keyword z-operator z-haskell">=</span> arrivalStation
+                }
+          <span class="z-keyword z-other z-haskell">case</span> eventStored <span class="z-keyword z-other z-haskell">of</span>
+            <span class="z-constant z-other z-haskell">Left</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> throw <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">EventStoreIAE</span> e
+            <span class="z-constant z-other z-haskell">Right</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+              trainProjectionCreate newTrainId departureDate&#39; departureStation&#39; arrivalStation&#39;
+              return newTrainId
+      <span class="z-constant z-other z-haskell">TrainFetch</span> trainId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+        trainProjectionFetch trainId
+</span></code></pre>
+<p>This was a first step, however it's temporal coupling, one of the worst type of
+coupling.</p>
+<p>It means that we have established <em>correlation</em> (things happen together), not
+<em>causation</em> (things happen because they are linked by the relationships).</p>
+<p>I'll rehash just to make the point: if tests are green, it's merely coincidental.</p>
+<p>Your code will break (or force to change) if you:</p>
+<ul>
+<li>Add/change a view (model)/query/projection</li>
+<li>Reorder events persistence</li>
+<li>Add event persistence elsewhere</li>
+</ul>
+<p>Instead of calling legacy effects as backup, we can create an interceptor in
+charge of it:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">apiEventProjection</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">TrainProjectionEffect</span>, <span class="z-storage z-type z-haskell">BookingProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">StreamId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">TrainEvent</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span>apiEventProjection (<span class="z-constant z-other z-haskell">StreamId</span> streamId) <span class="z-keyword z-operator z-haskell">=</span>
+  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+    event@(<span class="z-constant z-other z-haskell">TrainCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+      trainProjectionCreate
+        trainId
+        (<span class="z-constant z-other z-haskell">DepartureDate</span> event<span class="z-keyword z-operator z-haskell">.</span>departureDate)
+        (<span class="z-constant z-other z-haskell">DepartureStation</span> event<span class="z-keyword z-operator z-haskell">.</span>departureStation)
+        (<span class="z-constant z-other z-haskell">ArrivalStation</span> event<span class="z-keyword z-operator z-haskell">.</span>arrivalStation)
+    event@(<span class="z-constant z-other z-haskell">BookingCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+      bookingProjectionCreate trainId (<span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> fromIntegral event<span class="z-keyword z-operator z-haskell">.</span>id) event<span class="z-keyword z-operator z-haskell">.</span>travelerName
+    event@(<span class="z-constant z-other z-haskell">BookingWithdrawn</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+      bookingProjectionDelete (<span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> fromIntegral event<span class="z-keyword z-operator z-haskell">.</span>id)
+  <span class="z-keyword z-other z-haskell">where</span>
+    trainId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; streamId
+</span></code></pre>
+<p>For each event, we will perform an action to &quot;synchronize&quot; a stateful value.</p>
+<p>It aims to be used with this interceptor:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptEventStoreWith</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+  (<span class="z-storage z-type z-haskell">StreamId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">Sem</span> (<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> &#39;: <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+  <span class="z-storage z-type z-haskell">Sem</span> (<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> &#39;: <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span>interceptEventStoreWith f <span class="z-keyword z-operator z-haskell">=</span>
+  intercept <span class="z-keyword z-operator z-haskell">$</span>
+    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+      <span class="z-constant z-other z-haskell">StoreEvent</span> streamId eventNumber event <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+        result <span class="z-keyword z-operator z-haskell">&lt;-</span> storeEvent streamId eventNumber event
+        forM_ result <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">-&gt;</span>
+          raise <span class="z-keyword z-operator z-haskell">$</span> f streamId event
+        return result
+      <span class="z-constant z-other z-haskell">FetchEvents</span> streamId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+        fetchEvents streamId
+</span></code></pre>
+<p>It works as follows:</p>
+<ul>
+<li>Fallbacks on the real <code>EventStore</code> effect to persist the event</li>
+<li>If the persistence succeeded, run the callback to perform the projection</li>
+<li>Return the result</li>
+</ul>
+<p>Note: it is a really simple implementation, in the previous real world
+implementations I have done, I have relied on diffs (i.e. pushing multiples
+events and making diffs on local state, so it can be persisted independently).</p>
+<p>We can drop the calls from our interpreter:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptTrainEffectEvents</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-storage z-type z-haskell">TrainEvent</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>, <span class="z-storage z-type z-haskell">Error</span> <span class="z-storage z-type z-haskell">InternalApiError</span>, <span class="z-storage z-type z-haskell">TrainProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+  <span class="z-storage z-type z-haskell">InterpreterFor</span> <span class="z-storage z-type z-haskell">TrainEffect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span>interceptTrainEffectEvents <span class="z-keyword z-operator z-haskell">=</span>
+  interpret <span class="z-keyword z-operator z-haskell">$</span>
+    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+      <span class="z-constant z-other z-haskell">TrainCreate</span>
+        (<span class="z-constant z-other z-haskell">DepartureDate</span> departureDate)
+        (<span class="z-constant z-other z-haskell">DepartureStation</span> departureStation)
+        (<span class="z-constant z-other z-haskell">ArrivalStation</span> arrivalStation) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+          newTrainId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+          eventStored <span class="z-keyword z-operator z-haskell">&lt;-</span>
+            storeEvent
+              (<span class="z-constant z-other z-haskell">StreamId</span> newTrainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;)
+              (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+              <span class="z-constant z-other z-haskell">TrainCreated</span>
+                { departureDate <span class="z-keyword z-operator z-haskell">=</span> departureDate<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  departureStation <span class="z-keyword z-operator z-haskell">=</span> departureStation<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  arrivalStation <span class="z-keyword z-operator z-haskell">=</span> arrivalStation
+                }
+          <span class="z-keyword z-other z-haskell">case</span> eventStored <span class="z-keyword z-other z-haskell">of</span>
+            <span class="z-constant z-other z-haskell">Left</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> throw <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">EventStoreIAE</span> e
+            <span class="z-constant z-other z-haskell">Right</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> return newTrainId
+      <span class="z-constant z-other z-haskell">TrainFetch</span> trainId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+        trainProjectionFetch trainId
+</span></code></pre>
+<p>and add it to our interpreters stacks:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">runPersistent</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">ConnectionPool</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">EffectsRunner</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span>runPersistent pool <span class="z-keyword z-operator z-haskell">=</span>
+  liftIO
+    <span class="z-keyword z-operator z-haskell">.</span> join
+    <span class="z-keyword z-operator z-haskell">.</span> fmap (either (throwIO <span class="z-keyword z-operator z-haskell">.</span> iaeToYesod) return)
+    <span class="z-keyword z-operator z-haskell">.</span> runM
+    <span class="z-keyword z-operator z-haskell">.</span> runError
+    <span class="z-keyword z-operator z-haskell">.</span> runEmbedded (flip runSqlPool pool)
+    <span class="z-keyword z-operator z-haskell">.</span> interpretBookingEffectPersistent
+    <span class="z-keyword z-operator z-haskell">.</span> interpretTrainProjectionEffectPersistent
+    <span class="z-keyword z-operator z-haskell">.</span> interpretEventStorePersistent
+    <span class="z-keyword z-operator z-haskell">.</span> interceptEventStoreWith apiEventProjection
+    <span class="z-keyword z-operator z-haskell">.</span> interpretBookingEffectEvents
+    <span class="z-keyword z-operator z-haskell">.</span> interceptTrainEffectEvents
+</span></code></pre>
+<p>Doing so allows us to add/change our views without impacting our main, event-sourced interpreters.</p>
+
+<p><b><a href="#">Back to top</a></b></p>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+<span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

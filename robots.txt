@@ -1,0 +1,4 @@
+Sitemap: https://gautier.difolco.dev/sitemap.xml
+User-Agent: *
+Allow: /
+Host: https://gautier.difolco.dev

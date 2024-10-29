@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Gautier DI FOLCO - retrospective</title>
+	<subtitle>A software engineer website</subtitle>
+	<link href="https://gautier.difolco.dev/tags/retrospective/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://gautier.difolco.dev"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2024-10-22T00:00:00+00:00</updated>
+	<id>https://gautier.difolco.dev/tags/retrospective/atom.xml</id>
+	<entry xml:lang="en">
+		<title>No value Software Engineer</title>
+		<published>2024-10-22T00:00:00+00:00</published>
+		<updated>2024-10-22T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/no-value-swe/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/no-value-swe/</id>
+		<content type="html">&lt;p&gt;I was reflecting about my added value few weeks ago.&lt;&#x2F;p&gt;
+&lt;p&gt;A long time ago I&#x27;ve been involved in two projects:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A stock management system: saving 100k€ the first year on one site, which would mean
+&lt;ul&gt;
+&lt;li&gt;100k€ (1st year) * 9 (deployed) * 1.20 (inflation) * 2 (5% productivity gains) * 15 (years) = 32.4 Millions €&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;A new manufacturing (software-based) system to cut manufacturing by 3
+&lt;ul&gt;
+&lt;li&gt;5B (devices sold each year) * 0.3 (market share) * 0.2€ (production cost per device) * 0.1 (cuttting manufacturing time by 3 led to a 10% cost saving) * 7 yeas =&amp;gt; 210 Millions €&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It&#x27;s concrete, roughly computable value.&lt;&#x2F;p&gt;
+&lt;p&gt;But it misses some points:&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;systems-are-not-built-alone&quot;&gt;Systems are not built alone&lt;&#x2F;h2&gt;
+&lt;p&gt;I have never worked alone, at some point I had to talk to someone, ask questions,
+help or being helped.&lt;&#x2F;p&gt;
+&lt;p&gt;After that, I have made it available to end-users, they have cooperated with me,
+using my work.&lt;&#x2F;p&gt;
+&lt;p&gt;I have also relied on my peers&#x27; work, the framework they have set up, and they also
+relied on my work.&lt;&#x2F;p&gt;
+&lt;p&gt;What is the percentage of the gains my contributions worth?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;i-have-contributed-to-more-than-code&quot;&gt;I have contributed to more than code&lt;&#x2F;h2&gt;
+&lt;p&gt;What happened to the discussions I had?
+Countless times, having a discussion can save a lot of money or start a
+profitable project.&lt;&#x2F;p&gt;
+&lt;p&gt;I have also taught and mentored nearly 100 people.
+I was paid as a teacher, should my provided value measured with my salary,
+the school fees or the value they produce themselves?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;projects-that-were-abandoned&quot;&gt;Projects that were abandoned&lt;&#x2F;h2&gt;
+&lt;p&gt;In my 10 years career, I have been part of 17 projects, 4 of them have been
+abandoned (1 wasn&#x27;t even tried by a potential end user).&lt;&#x2F;p&gt;
+&lt;p&gt;Sometimes, know that something shouldn&#x27;t be done worth it, but when it takes
+months or &amp;quot;man-years&amp;quot;, does it still worth it?&lt;&#x2F;p&gt;
+&lt;p&gt;The only way I have found to increase the value I provide is:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deliver regularly (that the ultimate way to distinguish value from waste)&lt;&#x2F;li&gt;
+&lt;li&gt;Talk to people to understand (they usually tell you how you can help)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Note: few months ago, I&#x27;ve watched &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Jodorowsky%27s_Dune&quot;&gt;Jodorowsky&#x27;s Dune&lt;&#x2F;a&gt;,
+while I&#x27;m not a &lt;em&gt;Dune&lt;&#x2F;em&gt; or Sci-Fi fan, this documentary highlighted something
+important. The film was abandoned, but many of the people involved in it,
+later on, reused their experience on other films, influencing the next decades
+of films. Abandoned doesn&#x27;t mean wasted, there are always value to extract.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Coding challenges retrospective</title>
+		<published>2024-10-15T00:00:00+00:00</published>
+		<updated>2024-10-15T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/coding-challenges/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/coding-challenges/</id>
+		<content type="html">&lt;p&gt;Over the last few months, I have practiced &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2024-03&#x2F;streak&#x2F;&quot;&gt;coding challenges&lt;&#x2F;a&gt; (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;blackheaven&#x2F;roadmap.rs&quot;&gt;here&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;I had two goals in mind:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improving my Rust mastery&lt;&#x2F;li&gt;
+&lt;li&gt;Go deep into the internals and concepts of my day-to-day tools&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I had many projects such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Building a REST API (with &lt;code&gt;axum&lt;&#x2F;code&gt; then &lt;code&gt;rocket.rs&lt;&#x2F;code&gt;) with a TODO List&#x2F;Kanban&lt;&#x2F;li&gt;
+&lt;li&gt;Using WASM to build a browser (client-side) Hangman&lt;&#x2F;li&gt;
+&lt;li&gt;Play with the FFI build a CLI-based SQLite app&lt;&#x2F;li&gt;
+&lt;li&gt;Playing with concurrent IO (&lt;code&gt;tokio&lt;&#x2F;code&gt;) implementing &lt;code&gt;redis&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;memcached&lt;&#x2F;code&gt; clones&lt;&#x2F;li&gt;
+&lt;li&gt;Reading&#x2F;writing regular format (&lt;code&gt;xxd&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;zip&lt;&#x2F;code&gt; clones)&lt;&#x2F;li&gt;
+&lt;li&gt;Playing with protocol (a DNS client)&lt;&#x2F;li&gt;
+&lt;li&gt;Dealing with kernel calls (&lt;code&gt;docker&lt;&#x2F;code&gt; clone)&lt;&#x2F;li&gt;
+&lt;li&gt;Implement some distributed systems tactics (rate limiter, reverse proxy)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I have learned few interesting things, such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS is actually a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rfc-editor.org&#x2F;rfc&#x2F;rfc9499.html&quot;&gt;very complex&lt;&#x2F;a&gt; protocol&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;tar&lt;&#x2F;code&gt; stores length in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Tar_(computing)#Header&quot;&gt;&lt;code&gt;octal&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;GNU &lt;code&gt;tar&lt;&#x2F;code&gt; implements &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Tar_(computing)#UStar_format&quot;&gt;UStar&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Knowing that you can implements a tool is really different from implementing it, it helped me to gain a lot of confidence in my skill&lt;&#x2F;li&gt;
+&lt;li&gt;Even quick and dirty code can be a first step and work enough to be a good proof-of-concept&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Event sourcing migrations retrospective</title>
+		<published>2024-10-08T00:00:00+00:00</published>
+		<updated>2024-10-08T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/event-sourcing-migration/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/event-sourcing-migration/</id>
+		<content type="html">&lt;p&gt;Few weeks ago, I was talking to one of my co-workers about &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point, he was inquiring about retrospectives on migrating old systems
+to event sourcing, benefits obtained, pitfalls to avoid, and so on and so forth.&lt;&#x2F;p&gt;
+&lt;p&gt;I have looked around a bit, ask some friends, nothing relevant came up.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll try to summarize my 6+ years of experiences in this log.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;experiences&quot;&gt;Experiences&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;distributed-mail-server&quot;&gt;Distributed mail server&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A FOSS company, providing a G-suit alternative.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 6 seasoned SWE, already accustomed to software craftmanship,
+DDD, and event sourcing.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; it was a 10 years old Java project, mostly relying on
+Cassandra, when I have joined, they were in the middle of a complete
+modernization.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; Solve concurrency issues, especially in the mailboxes area, most
+of the bugs are in this area (race conditions occurs when a new e-mail were
+incoming, while the user was working on them).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; the mailboxes, very few events were involved.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; the event sourcing implementation was quite complex and quite limited,
+which means many of the operations were stateful, leading to a global state
+permanently incoherent (e.g. two instances connected to the same Cassandra
+cluster will has two distinct states). Add new events involved a lot of
+boilerplate.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Mailboxes concurrency issues were fixed, the implementation was
+comprehensive enough to have a lot of tools (debugging, rebuilding projections).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shared-dashboard&quot;&gt;Shared dashboard&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A pre-seed startup looking for its product-market-fit.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 4-people team, mostly juniors, discovering DDD.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; A brown-field Haskell project I had started few months
+ago, using AWS DynamoDB as primary data store.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; The project was stressed by numerous changes. We also had to
+figure out what the user was doing, especially when discovering new corner-cases
+(also called business opportunities).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; the whole organization, each &amp;quot;group&amp;quot; was in the
+aggregate, alongside with users management, dashboards, etc. everything.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; Team adoption was a huge pain point, most of them considered it
+as a &amp;quot;waste&amp;quot;, also, intents were missing (Commands should have been logged),
+migration was done in big-bang mode (7-day effort), which created some tensions.
+Keeping original projections in the discovery phase added burden without any
+benefits.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Each new workflow or concept took only a few hours to implement
+in the backend, events and commands where exposed in the API endpoints, new
+events where pushed asynchronously.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;distributed-business-process&quot;&gt;Distributed business process&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;em&gt;Business context:&lt;&#x2F;em&gt; A mature B2B company customer-focused with a very
+comprehensive (yet adapting) business processes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Team context:&lt;&#x2F;em&gt; 6-people team, mostly seniors, with some DDD&#x2F;Event sourcing
+knowledge.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Technical context:&lt;&#x2F;em&gt; 3 years project, microservice based, each of them had a
+specific data&#x2F;events store (EventStore, plain files, SQLite) and design discipline.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Challenges:&lt;&#x2F;em&gt; The business process was really complex (40 steps, 60 events),
+constantly changing.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Event sourcing scope:&lt;&#x2F;em&gt; Only the regular, customer-facing process.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Pitfalls:&lt;&#x2F;em&gt; Each microservice had their own events, trying to integrate
+each-other events, loosing information along the way, events were also rigid,
+no event could be added easily, or modified, or the stream rewrote. Most of the
+computation were done around a single stream, projections being computed at
+startup (45 minutes). While only few things were outside the system, but it
+was the missing piece to have a stable stream.
+Every microservice were involved in new features.
+A big events re-design was planed, but never implemented.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Benefits:&lt;&#x2F;em&gt; Each microservice had their own events, giving a lot of flexibility,
+limited changes (such as new projections) were easy.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lessons-learned&quot;&gt;Lessons learned&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Events shouldn&#x27;t be set in stone (they aim to evolved, be updated, deprecated, rewritten)&lt;&#x2F;li&gt;
+&lt;li&gt;Big bang rewrites are bad, but incomplete migrations are harmful&lt;&#x2F;li&gt;
+&lt;li&gt;Big aggregates are okay, in the literature, aggregates should have few events, in practice, big aggregates are better than a lot of smaller ones involving synchronization&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on developer experience, focus on tooling and easiness to add events&lt;&#x2F;li&gt;
+&lt;li&gt;Don&#x27;t focus on projections, they could be added later, if they are really popular and critical&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>10 years mark</title>
+		<published>2024-10-02T00:00:00+00:00</published>
+		<updated>2024-10-02T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-10/10-years/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-10/10-years/</id>
+		<content type="html">&lt;p&gt;We are the Thursday 2nd of October 2014, it&#x27;s my first day as a professional software engineer.&lt;&#x2F;p&gt;
+&lt;p&gt;I like symbols, because for good or bad reasons they force us to take a step.&lt;&#x2F;p&gt;
+&lt;p&gt;Today it&#x27;s been 10 years I have started to be paid to work on software.&lt;&#x2F;p&gt;
+&lt;p&gt;To emphasize a bit more, working on software involves more than producing (or
+shipping) code and attending to never-ending (which seems to be a competition
+to determine who is able to stay awake the longest).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-bright-side&quot;&gt;The bright side&lt;&#x2F;h2&gt;
+&lt;p&gt;Along these years, I have worked as software engineer within 5 companies working
+closely with people from 19 countries.&lt;&#x2F;p&gt;
+&lt;p&gt;Software engineering is a team sport, you can&#x27;t do it alone, so I&#x27;d like to thank
+(in the order I&#x27;ve met them) some of them for the influence they had on my practice
+(even though it took me more or less time to realize it):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fabrice: how to lead a team (finding the balance between autonomy and support), having technical influence over hundreds of people without authority&lt;&#x2F;li&gt;
+&lt;li&gt;Giles: how collect feedback from your subordinates, genuinely caring from them&lt;&#x2F;li&gt;
+&lt;li&gt;Cyril: the hardest part as a leader is to build the right team&lt;&#x2F;li&gt;
+&lt;li&gt;Frederic: how to provide feedback and be useful beyond the code&lt;&#x2F;li&gt;
+&lt;li&gt;Ousmane: discover stoicism, which helped me every day since&lt;&#x2F;li&gt;
+&lt;li&gt;Thierry: what QA is really about (spoiler, it&#x27;s not to tell developers they are wrong), and why they should participate into the design phase&lt;&#x2F;li&gt;
+&lt;li&gt;Raphael: leadership when you are in a highly bureaucratic environment, how to make things go forward when nothing move&lt;&#x2F;li&gt;
+&lt;li&gt;Matthieu: how to frame any technical discussion, focusing on the core problem, the issue which can make or break the system&lt;&#x2F;li&gt;
+&lt;li&gt;Benoit: how to run a FOSS community&lt;&#x2F;li&gt;
+&lt;li&gt;Florian: how to structure a project which drifts&lt;&#x2F;li&gt;
+&lt;li&gt;Iannis: how to reframe discussions, to sum-up the main arguments related to the subject&lt;&#x2F;li&gt;
+&lt;li&gt;Pierre: how to sell your decisions to non-technical people&lt;&#x2F;li&gt;
+&lt;li&gt;Ioannis: how to focus and elaborate, how to mentor someone&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This job also requires you to be involved outside your work-time, I&#x27;d also
+like to thank them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Damien &amp;amp; Jean-Paul: how to plan, organize and run a conference&lt;&#x2F;li&gt;
+&lt;li&gt;Haikel: how to run a community of practice, a code retreat, a workshop&lt;&#x2F;li&gt;
+&lt;li&gt;Émilien: how to be a freelancer&lt;&#x2F;li&gt;
+&lt;li&gt;Florent: how to run a local community&lt;&#x2F;li&gt;
+&lt;li&gt;Colin &amp;amp; Anthony &amp;amp; Nolwenn: how support your pair during pair&#x2F;ensemble programming sessions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: aside of that, I&#x27;ve met a lot of people which I&#x27;ve loved to talked to,
+helping me to grow as a person, to name few of them, Hugo, Clément, Jean-Paul,
+Marc, Florence, Frederic, Karine, Carla, Nina, Nicolas, Franck, Giles, Ousmane,
+Lubos, Xiao, Benoit, Raphael, Antoine, Rémi, Felix, Florian, Arthur, Nolwenn,
+Adrien, Iannis, Romain, Franck, Ioannis, Pierre, Émilie, Jeremy.&lt;&#x2F;p&gt;
+&lt;p&gt;On the environment side, I went through a very large set of them:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;From 10k to 5 employees&lt;&#x2F;li&gt;
+&lt;li&gt;From French administration to startups, not to forget manufacturing company and consulting companies&lt;&#x2F;li&gt;
+&lt;li&gt;From 20 years-old legacy project to green field with no product vision&lt;&#x2F;li&gt;
+&lt;li&gt;From low level embedded system to highly distributed system&lt;&#x2F;li&gt;
+&lt;li&gt;From impacting few users to millions of people&lt;&#x2F;li&gt;
+&lt;li&gt;From generated nothing to millions each year&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I&#x27;m pretty proud of this diversity.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-dark-side&quot;&gt;The dark side&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;some-people&quot;&gt;Some people&lt;&#x2F;h3&gt;
+&lt;p&gt;A long time ago, I was really interested in psychology and self-help
+book (loosely related), and I recall more or less a sentence:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Getting older is inevitable, growing is a choice.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Along these years, I have been:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Insulted: I was responsible for running the CI, I have spotted a bug, in order to save some time, I have suspended a gigantic change-set which would fail (to add some context, a CI run took 4 hours, and the version control system was locking the files, preventing anyone else to submit changes on them), I have emailed him (which have been reviewed by one of my co-worker) with a patch. In reply, he insulted me in an email, with my N+2, N+3 and the HR.&lt;&#x2F;li&gt;
+&lt;li&gt;Insulted then harassed: I have joined a company while I was recovering for severe anxiety (a side effect of a medication), I wasn&#x27;t full of enthusiasm. Three weeks later a new team lead joined, after few weeks, he was still struggling, at some point, he asked a question, I didn&#x27;t have the answer, he shouted an insult, that I was preventing him to do his job. Then he started to harassed me, and convinced my manager to do so.&lt;&#x2F;li&gt;
+&lt;li&gt;Harassed: at some point I was leading a team for few months, my boss at the time wanted the team to grow, I have done all the hiring work (interviews, etc.), among all of them, I have interviewed one of my boss&#x27; friends (I didn&#x27;t know it at the time, I also didn&#x27;t know that he got access to our product codebase and the interview exercise before the interview), he failed the interview, so I have rejected his application, 15 minutes later, my boss called me to say he was hired. Anyway, he had only few years of experience than me, every morning he was spending 2 hours in the channels saying the code is bad (without any solid arguments), so I was wasting my morning to explain over the decisions made (while they were documented). On another hand afternoon were dedicated to privately tell me that I was too harsh in reviews (which took me five times longer to write).&lt;&#x2F;li&gt;
+&lt;li&gt;Threatened, harassed, then insulted: I have joined a project as leader, I was really involved in it (working 50-60 hours a week for months), at some point, I have had a good job offer, he started by threaten me to drop the project, then telling me that I was so bad at my job (he came with a long list of discussions we had, but only with the original rant, not the conclusion) it&#x27;s the best I can ask, and I stayed (it was stupid). During the following months he was systematically talking O2O with my subordinates, so all the direction I was giving were dismissed. Then he started to ask me if I was right after each meeting, he then cut my stock options (which were in my contract) arguing that I was planning to leave anyway. When I finally submitted my resignation, nothing... for two weeks, then he talked over me in meetings, insulted me a first time before the end of my notice period and another time 1 month after I left.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While I don&#x27;t think I have been in toxic cultures, none of these perpetrators had been in any trouble after that, as far as I know.&lt;&#x2F;p&gt;
+&lt;p&gt;Food for thoughts: I have read some day that culture is defined by the worst
+behaviors you tolerate.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tactics&quot;&gt;Tactics&lt;&#x2F;h3&gt;
+&lt;p&gt;Given all of that, here are few tactics I have found:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Never let an opening for a counteroffer: from experience, either they&#x27;ll do one, then you could ask why they didn&#x27;t do it by themselves, or it&#x27;ll be worse&lt;&#x2F;li&gt;
+&lt;li&gt;Be inflexible on your boundaries: it&#x27;s better to be clear right now, rather than letting the go farther and farther until you break, a small disagreement now is better than a fight later&lt;&#x2F;li&gt;
+&lt;li&gt;Inquire on the team you&#x27;ll be in, people matter equally to the project criticality&lt;&#x2F;li&gt;
+&lt;li&gt;There is no tradeoff between compensation and growth opportunity&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on the team, not on completely hypothetical, outside your control, change that may happen anytime soon, projects change, teammate don&#x27;t&lt;&#x2F;li&gt;
+&lt;li&gt;Never say &#x27;no&#x27;, never say &#x27;yes&#x27;: most of the time, you are at a point where you have already more work than you should, a &#x27;yes&#x27; would be irresponsible, a &#x27;no&#x27; would upset so much they could be nasty, simply expose the situation and ask to re-prioritize&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on power dynamics: I&#x27;ve never encountered a situation where power dynamics are very unbalanced and everything goes fine&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;regrets&quot;&gt;Regrets&lt;&#x2F;h3&gt;
+&lt;p&gt;For a long time now, I&#x27;m trying to have more remorse than regrets, for the moment, I stick to it.&lt;&#x2F;p&gt;
+&lt;p&gt;In addition, I have recently crossed &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=jwG_qR6XmDQ&quot;&gt;Jeff Bezos - Regret Minimization Framework&lt;&#x2F;a&gt;,
+which can be sum-up as follows:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When I&#x27;ll be 80, what are the thing I&#x27;ll regret&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I have few opportunities (job offers), I regret having turn down:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS Berlin: it would have been a great opportunity, especially because I would have had all stock options when the COVID-19 hit (and Amazon stock price was really high), turned down by fear of failure&lt;&#x2F;li&gt;
+&lt;li&gt;Soostone: a great opportunity to do some Haskell abroad, turned down because I feared my English wasn&#x27;t good enough&lt;&#x2F;li&gt;
+&lt;li&gt;IOG: I actually failed my first interview because I misunderstood &amp;quot;Simple Haskell&amp;quot; and I didn&#x27;t show my full knowledge of Haskell, they were kind enough to propose me another team, turn down by fear of being stuck&lt;&#x2F;li&gt;
+&lt;li&gt;Nova Discovery: actually, with COVID-19, I have found a great confort with remote work, going back to on-site was overwhelming to me&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To be more general, I have few decisions I wish I did differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Staying when I wanted to leave (see above section): not so long ago, I watched an interview of &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=wf68VDObVX0&quot;&gt;Uncle Bob&lt;&#x2F;a&gt; where he stated that good traders are not the one who take good positions, but the one who left bad position earlier&lt;&#x2F;li&gt;
+&lt;li&gt;Focusing on Haskell, don&#x27;t misunderstand me, Haskell is the best language to build quickly reliable flexible systems, but if you want a remote, flexible, highly paid job, you&#x27;ll have to work really hard&lt;&#x2F;li&gt;
+&lt;li&gt;Working extra hard: at some point you can be good enough, aside of my 40-50 job, I invest 10-20 hours each week, writing, reading, experimenting, I can produce high-quality outputs in product, backend, infrastructure, database, but it does not mean my salary is multiplied&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;That&#x27;s it for the first 10 years, they were interesting, only 40 to go.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my time at Autogriff</title>
+		<published>2024-09-03T00:00:00+00:00</published>
+		<updated>2024-09-03T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-09/autogriff-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-09/autogriff-retrospective/</id>
+		<content type="html">&lt;p&gt;As you might have noticed, I&#x27;ve &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;livtours.com&#x2F;&quot;&gt;switch position&lt;&#x2F;a&gt; few weeks ago.&lt;&#x2F;p&gt;
+&lt;p&gt;After talking with my former CTO, it seems to be a great idea to do a
+retrospective on my experience at &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.autogriff.com&#x2F;&quot;&gt;Autogriff&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;context&quot;&gt;Context&lt;&#x2F;h3&gt;
+&lt;p&gt;Autogriff is a B2B company specialized in cars fleet management.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to describe the business workflow: a company signs a contract with
+Autogriff, and whenever something happen to one of their car (accident, driver
+change, etc.), Autogriff handles the estimation, finding and dealing with repair shops.&lt;&#x2F;p&gt;
+&lt;p&gt;It was founded in 2017, and currently has ~15 employees.&lt;&#x2F;p&gt;
+&lt;p&gt;The IT department was created 4 years ago, it ran for a long-time with juniors
+developers (internships or retrainings), senior developers onboarded 2 years ago.&lt;&#x2F;p&gt;
+&lt;p&gt;The business side is quite mature, but it is still flexible, so they adapt their
+workflows to their clients.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: at this point, it&#x27;s probably the most customer-oriented company I have worked for&lt;&#x2F;p&gt;
+&lt;p&gt;Which means that it was challenging for the IT.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;technology-overview&quot;&gt;Technology overview&lt;&#x2F;h3&gt;
+&lt;p&gt;On the technology side, Autogriff suffers from two things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Few years of &amp;quot;architecture&amp;quot; made in autonomy by juniors: C#, Java, Python, CRUD and Client-First architecture&lt;&#x2F;li&gt;
+&lt;li&gt;The arrival of the senior developers: Haskell, Elm, Rust, Nix, DDD, Event sourcing, CQRS, microservices, &lt;a href=&quot;https:&#x2F;&#x2F;gautier.difolco.dev&#x2F;2024-01&#x2F;access-control-capabilities&#x2F;&quot;&gt;Capabilities-based&lt;&#x2F;a&gt;, HATEOAS API&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We had few big blocks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Java tool (legacy) holding invoices, clients, and some metadata loosely coupled with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Python (legacy, Event-sourced) &#x2F; Elm (legacy) tool for interaction with interventions&lt;&#x2F;li&gt;
+&lt;li&gt;A Haskell (Event-sourced) &#x2F; Elm tool for the interventions dashboard and business intelligence (my work)&lt;&#x2F;li&gt;
+&lt;li&gt;An Elm PWA for interacting with drivers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;learnings-and-confirmations&quot;&gt;Learnings and confirmations&lt;&#x2F;h3&gt;
+&lt;p&gt;There are few things I have already encountered, which still hold:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;CRUD-based UI spreads: when you have that kind of UI, coming with a different architecture for the backend is impossible&lt;&#x2F;li&gt;
+&lt;li&gt;Architecture is not improvised: it&#x27;s tempting for non-technical decisions maker to see IT as a building, allocating resources on a bigger team of juniors, rather than a small one with juniors, but it doesn&#x27;t work if you don&#x27;t have enough software engineering background&lt;&#x2F;li&gt;
+&lt;li&gt;Technical debt explode when not repayed: at some point, technical debt prevents to deliver some features (even approximation), tu give an example, when you have and data you have to compute, from two sources, one being event-sourced, the other not, you end up with invalid results&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of fast feedbacks is a deadly killer: we had Nix-based deployments (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;serokell&#x2F;deploy-rs&quot;&gt;deploy-rs&lt;&#x2F;a&gt;), which relies on systemd, meaning, you can have only one instance running at the same time (forget zero downtime deployments), which is an issue when it takes 45 minutes to restart the backend (mostly the time to replay events to have fresh projections, I have added a cache to reduce to few seconds). Consequently, you have two deployment windows (after the working day, or at lunch for emergency fixes), it means that, even for one line fix, you have to wait for a full-day to be used by users (causing context switches and creating hard conversations with business)&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make deployments a big deal: I have introduced continuous integration when I arrived, but continuous deployments were not a thing, not only we had the previously mentioned restart issue, but I was done manually, mostly by 2 people (I was one of them), owning the deployment tool, who should be aware of the manual configuration to be performed, while, when I have set up an ArgoCD based CD, everything was done automatically, and there was no difference between a commit and a deployment.&lt;&#x2F;li&gt;
+&lt;li&gt;Mono-team microservices&#x2F;multi-repository don&#x27;t work: we had 4 repositories for 5 heavily coupled parts, which means, we had to commit everywhere often&lt;&#x2F;li&gt;
+&lt;li&gt;Opinionated debated&#x2F;conservative decisions is a blocker: a lot of discussion happen were running over days to take trivial &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;thoughtbot.com&#x2F;blog&#x2F;one-way-vs-two-way-door-decisions&quot;&gt;two-way doors decisions&lt;&#x2F;a&gt;, for example, I have silently put the startup cache in two hours (and I have fixed it 3 times), while we have discussed it for two months (not full-time), even when it was actually used for weeks&lt;&#x2F;li&gt;
+&lt;li&gt;Lack of automations make everything hard: when you do everything by hand, everything is unique, which makes things harder to automate, automating imply standardization, which implies giving up some details&lt;&#x2F;li&gt;
+&lt;li&gt;Code reviews culture is hard to bootstrap: when reviewing is not part of the culture, it&#x27;s hard to cope with it (even small PRs can take days to be reviewed, approvals are hard to get)&lt;&#x2F;li&gt;
+&lt;li&gt;Haskell catches a lot of bug: even with fewer tests than I would have on Java project, sufficiently typed code catches most of the bugs, I had fewer regressions thanks to it&lt;&#x2F;li&gt;
+&lt;li&gt;Nix provides a good foundation for infrastructure: everything works with Nix (from development environment, to deployment), it took me roughly 30 minutes to have an environment and a first binary, and I can&#x27;t remind a situation where someone said &amp;quot;but it works on my computer&amp;quot;&lt;&#x2F;li&gt;
+&lt;li&gt;DDD is the corner stone of working software: we have spent countless hours speakings with the business, adjusting the vocabulary, fixing issues before they happen (we even organized an EventStorming which help us to fix many problems, set our priorities, spot many bugs, and make the business aware of their inconsistencies)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Some learnings I wish I didn&#x27;t make:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;HATEOAS-only sucks: for reference HATEOAS is a way to have endpoints described in response payload, which is great in theory for discovery and decoupling clients, but in practise, the lack of tooling (OpenAPI does not support it, and we had to make a lot of work in our adapters in Elm to make it work) is painful and giving this kind of API to customers was an issue&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities-based alone is not enough: while decoupling access and user being a good idea, at some point you have to answer to two questions: who accessed to a resource and what are the accesses of a user&lt;&#x2F;li&gt;
+&lt;li&gt;Event-sourcing can be rigid: when you prevent yourself to rework your events, it becomes more painful than a plain old relationnal database&lt;&#x2F;li&gt;
+&lt;li&gt;Elm is too simplistic to go beyond one page: while we had a relatively simple set of apps (3 apps, with 5-10 pages), Elm was painful to use, the standard library is too small to be useful and the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;sporto.github.io&#x2F;elm-patterns&#x2F;architecture&#x2F;nested-tea.html&quot;&gt;nested TEA pattern&lt;&#x2F;a&gt;, which is the standard way to handle &amp;quot;complex&amp;quot; apps (mostly a consequence of a lack of &amp;quot;advanced&amp;quot; features), make sub-components not composable&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Finally, my observations and learnings I&#x27;m glad I&#x27;ve made:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Even business-oriented team can be highly technical: I have rarely work in business-oriented team (on non-technical products), applying DDD that, so I didn&#x27;t expect them to also being highly technical&lt;&#x2F;li&gt;
+&lt;li&gt;Capabilities does the trick: while capabilities introduce some complexity, I have seen that it works well, at least for many use cases, for few efforts&lt;&#x2F;li&gt;
+&lt;li&gt;Developers from retrainings brings a lot of (human) value: it took me maybe 8-10 years (since my first encouter with programming at 9) to have a grasp on software engineering, so I have a lot of suspicions when I have to work with people coming from a 6-weeks bootcamp, but it occurs I have worked with a junior having great communication style, asking a lot of questions, dealing with other business units, bringing a lot of value&lt;&#x2F;li&gt;
+&lt;li&gt;Sometime bringing values consist in helping those who bring more value: I&#x27;ve spent a lot of time pairing with juniors developers, and it seems I&#x27;m not that bad at coaching, and it seems supporting them was a better use of my time because, while they have a good business vision (they were in the company long before me), they lack a technical vision I can bring&lt;&#x2F;li&gt;
+&lt;li&gt;Pace correctly a pair programming session: spending a lot of time in pair programming gave me the chance to experiment a lot, especially finding and adjusting just the right pace in pair programming, being supporting of my pair&lt;&#x2F;li&gt;
+&lt;li&gt;Being a better subordinate: one thing I have learned about me when I was a CTO, is what I expect from my team, getting back in an IC role, I gain a better understanding of my CTO needs and expectations, acting according to them; moreover, I was able to appreciate my CTO competencies, sure, he has a different style than mine, but he is really great at a lot of things, I have learned so much.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;why-moving-on&quot;&gt;Why moving on?&lt;&#x2F;h3&gt;
+&lt;p&gt;I have spent a bit more than a year at Autogriff, which is too short.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ll go in depth in a future log, but the short answer is applying Jeff Bezos&#x27; Regret minimization Framework.&lt;&#x2F;p&gt;
+&lt;p&gt;Over the past years, I have declined 3 offers I deeply regret today, and this time I have a rare match between an offer and my objectives.&lt;&#x2F;p&gt;
+&lt;p&gt;I have thanks my colleagues for all these months of collaboration, learning and help, I have spent a wonderful time with all of them.&lt;&#x2F;p&gt;
+&lt;p&gt;PS: Yes, I miss my colleagues, I miss the context, but it&#x27;s a new adventures ahead!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Haskell Ecosystem Workshop &amp; ZuriHac 2024</title>
+		<published>2024-06-18T00:00:00+00:00</published>
+		<updated>2024-06-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-06/zurihac/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-06/zurihac/</id>
+		<content type="html">&lt;p&gt;Ten days ago I have attended to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;haskell.foundation&#x2F;events&#x2F;2024-haskell-ecosystem-workshop.html&quot;&gt;Haskell Ecosystem Workshop&lt;&#x2F;a&gt;
+followed by &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zfoh.ch&#x2F;zurihac2024&#x2F;&quot;&gt;ZuriHac&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;It was my first participation to both events (last year, due to conflicting events,
+I was only able to attend to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;haskell.foundation&#x2F;events&#x2F;2023-ghc-development-workshop.html&quot;&gt;GHC Contributors&#x27; Workshop&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;haskell-ecosystem-workshop&quot;&gt;Haskell Ecosystem Workshop&lt;&#x2F;h3&gt;
+&lt;p&gt;I have attended as part as the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We have collected a lot of feedback (videos will be available at some point),
+but if I have to make two highlights:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Haskell ecosystem has already all the tools it takes to work with Haskell, however, tools are usually not polished enough (see the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Pareto_principle&quot;&gt;80&#x2F;20 rule&lt;&#x2F;a&gt;) and&#x2F;or usable easily together&lt;&#x2F;li&gt;
+&lt;li&gt;Specifically to the SRT: there is a huge need for a (better) integration of the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&quot;&gt;security-advisories&lt;&#x2F;a&gt; in the ecosystem (i.e. cabal, hackage-server, flora) and a way to generate &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Software_supply_chain&quot;&gt;SBOM&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This is one of the reasons we are discussing the split of the SRT team,
+which may or may not lead to the creation of another working group or sub-group
+dedicated to security tooling (I wish I&#x27;ll be part of it, as it fits my
+interests and skills more than the current team, which was dedicated to
+vulnerabilities analysis and mitigations efforts coordination).&lt;&#x2F;p&gt;
+&lt;p&gt;Speaking with other attendees made me realize that most of the core contributors
+are volunteers, especially those maintaining critical parts of the infrastructure.
+Moreover, many of them do not work with Haskell in their daily job.&lt;&#x2F;p&gt;
+&lt;p&gt;On one hand I have serious doubts on the sustainability of the effort, on
+another hand, I&#x27;m grateful to my employers for having be able to work with it
+or the last four years and that it is a great opportunity to take the best from
+other ecosystems while avoid many pitfalls.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;zurihac&quot;&gt;ZuriHac&lt;&#x2F;h3&gt;
+&lt;p&gt;I was my first attendance to ZuriHac.&lt;&#x2F;p&gt;
+&lt;p&gt;I was planning to work with various groups (cabal, cabal-audit, hackage-server, flora)
+to integrate &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&quot;&gt;security-advisories&lt;&#x2F;a&gt;
+(I think we have talked maybe one hour about it over 5 days),
+but we had to handle three vulnerabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;Hopefully, I was able to find some extra time to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;haskell&#x2F;security-advisories&#x2F;pull&#x2F;206&quot;&gt;redesign the index&lt;&#x2F;a&gt;,
+which will be useful as we now have a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.haskell.org&#x2F;security&#x2F;&quot;&gt;page on &lt;code&gt;haskell.org&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I also had in mind a GHC improvement and a HLS bug fix from last year.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;While I did not meet my initial goals, I&#x27;m pretty satisfied with my participation.&lt;&#x2F;p&gt;
+&lt;p&gt;Of course, I wish to have talked to more people, and make more code contributions,
+but in the end, I think I have a better understanding of the ecosystem state and direction.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>The end of a 666 days streak</title>
+		<published>2024-03-24T00:00:00+00:00</published>
+		<updated>2024-03-24T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2024-03/streak/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2024-03/streak/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;streak.svg&quot; alt=&quot;666 days streak&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A while ago I have decided to do a 666 days streak of contributions on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;It was mostly for fun, but also to have a call-to-action for contributions.&lt;&#x2F;p&gt;
+&lt;p&gt;At the time I was CTO and for various reasons (administrative tasks, meetings,
+big feature development) I was not pushing code every week-days.
+I needed a motivation to have faster feedbacks (and feedbacks starts with pushing
+code to users, everything else is just noise).&lt;&#x2F;p&gt;
+&lt;p&gt;Note: 666 is my touch of hard rock fan&lt;&#x2F;p&gt;
+&lt;p&gt;On another I have, as an engineer, to do some technology intelligence regularly,
+that&#x27;s why I have started this web logs site (as a way to force myself to articulate
+things I have learned&#x2F;experimented).&lt;&#x2F;p&gt;
+&lt;p&gt;Over this period I have experienced few events which impacted my challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;I had to face a loss in my life&lt;&#x2F;li&gt;
+&lt;li&gt;I switch job (stepping down from my CTO role), my new job requiring a dedicated GitHub account&lt;&#x2F;li&gt;
+&lt;li&gt;I have joined the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;discourse.haskell.org&#x2F;t&#x2F;haskell-security-response-team-2023-july-december-report&#x2F;8531&quot;&gt;Haskell Response Team&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To sustain the effort necessary to this challenge I had to set up a routine for my commits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Sundays, I was writing logs to be published on Sunday and Wednesday&lt;&#x2F;li&gt;
+&lt;li&gt;I had to plan and prepare (thanks to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.appflowy.io&#x2F;&quot;&gt;Kanban board&lt;&#x2F;a&gt;) my weeks commits&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here are the accomplishments I have made through this challenge:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;56 [FOSS contributions][@&#x2F;pages&#x2F;foss.md] (outside my HSRT and other groups)&lt;&#x2F;li&gt;
+&lt;li&gt;145 logs published (which allowed me to have serious thoughts on Haskell&#x2F;Nix(OS)&#x2F;Software Engineering)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I pretty glad of that as it full-filled it&#x27;s role of call-to-action.&lt;&#x2F;p&gt;
+&lt;p&gt;On the flip side it has some drawbacks:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many contributions have been delayed in order to fit my calendar&lt;&#x2F;li&gt;
+&lt;li&gt;My logs have a poor quality (I had many feedbacks which look like &amp;quot;I have opened on of your article, it was fun, but I didn&#x27;t understand a thing&amp;quot;)&lt;&#x2F;li&gt;
+&lt;li&gt;A constant stress to find my next contribution&lt;&#x2F;li&gt;
+&lt;li&gt;I had to delay tackling some issues in my life (it was not preventing me to address it, but it was a good excuse not to do it)&lt;&#x2F;li&gt;
+&lt;li&gt;A small bore-out (while I was expecting a burnout)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What&#x27;s next:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Publish all the buffered commits (few dozens)&lt;&#x2F;li&gt;
+&lt;li&gt;Do most of the remaining work on hsec-tools (part of my work in the HSRT)&lt;&#x2F;li&gt;
+&lt;li&gt;End my work on &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;bloodhound&quot;&gt;bloodhound&lt;&#x2F;a&gt; and publish a release&lt;&#x2F;li&gt;
+&lt;li&gt;Take a break&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;My long-term will include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restart my Yoga practice&lt;&#x2F;li&gt;
+&lt;li&gt;Learn a new natural language: I have started German for ZuriHac since few weeks, I&#x27;ll try to pick an eight one by the end of the year&lt;&#x2F;li&gt;
+&lt;li&gt;Learn new programming languages: this year I have learned Lua and Rust (with a strong emphasis as I plan to change focus), I plan to learn Verse and Unison&lt;&#x2F;li&gt;
+&lt;li&gt;Refocus my career: I think my career is currently good, but I aim to reach the next level (few years ago I had rejected an offer from a Big Tech, I have some remorse, being part of a Big Tech is still on my bucket list), that&#x27;s why I will:
+&lt;ul&gt;
+&lt;li&gt;Regularly do leetcode challenges (I have done 3 exercises every week since the beginning of the year), in Rust&lt;&#x2F;li&gt;
+&lt;li&gt;Regularly train on system design on article and mock interview per week&lt;&#x2F;li&gt;
+&lt;li&gt;Work on my leadership skills (I have filled my RSS subscription with this topic, I still have to find an efficient way to train)&lt;&#x2F;li&gt;
+&lt;li&gt;Attempt &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;codingchallenges.fyi&#x2F;challenges&#x2F;intro&quot;&gt;Coding challenges&lt;&#x2F;a&gt; in Rust&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;While the job market may not be the best at the moment, I will be ready when it&#x27;ll be better.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Luck is what happens when preparation meets opportunity&lt;&#x2F;p&gt;
+&lt;p&gt;-- Seneca&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Retrospective of my first CTO experience</title>
+		<published>2023-04-12T00:00:00+00:00</published>
+		<updated>2023-04-12T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://gautier.difolco.dev/2023-04/cto-retrospective/" type="text/html"/>
+		<id>https://gautier.difolco.dev/2023-04/cto-retrospective/</id>
+		<content type="html">&lt;p&gt;As I&#x27;ll soon change company, I think it&#x27;s the right time to do a retrospective of these years as CTO, for the first time.
+(Note that, legally speaking I&#x27;ve been &amp;quot;promoted&amp;quot; CTO after more than one year, but, in practice, I acted as CTO from day 1).&lt;&#x2F;p&gt;
+&lt;p&gt;My company was, at the time, an early-stage startup of 4 people (including 3 co-founders, excluding me), which did a first product, and was looking for a new concept to leverage feedbacks.&lt;&#x2F;p&gt;
+&lt;p&gt;I started in early September in a company which aimed to provide a platform for product teams.
+This platform was interacting with various tools (Github, Gitlab, JIRA, Trello, etc.).
+We started with a team of two individuals (a frontend engineer I hired, and me).
+As I knew I won&#x27;t have much time, I preferred each one of us stay in their comfort zone (I will write a log on it), which meant Angular&#x2F;TypeScript for the frontend, Haskell for the backend, AWS&#x2F;Terraform for the infrastructure.
+I started very optimistically at the time, putting everything in place for a long development (e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;adr.github.io&#x2F;&quot;&gt;ADR&lt;&#x2F;a&gt;, a microservices&#x2F;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Event-driven_architecture&quot;&gt;EDA&lt;&#x2F;a&gt; based architecture, a solid CI&#x2F;CD).
+It was a quite exiting time, we were pair-programming a lot, having a short feedbacks loop in the company.&lt;&#x2F;p&gt;
+&lt;p&gt;The main issue we had at the time, was a problem of speed: we were only 2 developers, and there were 4 individuals gathering feedbacks and pushing features.
+Along the way we tried to rely on freelancers (we hired 6 of them over 6 months), but it was time-consuming and the on-boarding was tedious.
+For instance, I&#x27;m based in France, and I some point I had to onboard someone in Vietnam and someone in Brazil.
+The ADRs, weren&#x27;t used&#x2F;useful as they involved a lot of knowledge in Software Engineering.
+Anyway, as mentioned in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Fred_Brooks&quot;&gt;Fred Brooks&lt;&#x2F;a&gt; &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Mythical_Man-Month&quot;&gt;The Mythical Man-Month&lt;&#x2F;a&gt;, adding people does not save time in the beginning.&lt;&#x2F;p&gt;
+&lt;p&gt;At some point we decided, with the co-founders, to grow the permanent team, we hired 3 more developers (I plan to write a log on hiring too).
+It was a big change, previously, hiring a freelancers was quite simple:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look for freelancers on upwork&lt;&#x2F;li&gt;
+&lt;li&gt;Check their profile&lt;&#x2F;li&gt;
+&lt;li&gt;Look at their Github account&lt;&#x2F;li&gt;
+&lt;li&gt;Chat with them&lt;&#x2F;li&gt;
+&lt;li&gt;Hire them for a week, and renew if it works&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To a more structured hiring, process.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily we got experienced newcomers (including one which was much more experienced that I was).
+It was interesting to discuss all the choices I made the previous months, sure, I was expecting that many of them would be &amp;quot;negatively&amp;quot; challenged (ie. &amp;quot;why have you done that?&amp;quot;), but some of them were &amp;quot;positively&amp;quot; challenged (ie. &amp;quot;you should have gone further&amp;quot;).
+That&#x27;s when we migrated to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;eaaDev&#x2F;EventSourcing.html&quot;&gt;Event Sourcing&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;martinfowler.com&#x2F;bliki&#x2F;CQRS.html&quot;&gt;CQRS&lt;&#x2F;a&gt;, and it was painful, but our reactivity to changes skyrocketed.
+It was also the time when I had to act as a manager, while, until then, with enough pair-programming, the team was stable.&lt;&#x2F;p&gt;
+&lt;p&gt;After some months, we realized that we didn&#x27;t get enough traction, we actually stopped this product (actually, we created a new toy project from it, shrinking down features), loose a part of the staff (including a co-founder, and the first frontend developer).
+We hired new developers and started a new collaborative tool.
+The difference was that, this time, I wasn&#x27;t alone to work on the backend, the other developer was really fast but had a different background from mine.
+The new architecture was drastically simpler (PostGreSQL instead of DynamoDB&#x2F;ElasticSearch, a monolith instead of a micro-services based architecture, no event).
+Everything went well, the pace was high, we had many feedbacks, too many feedbacks, our tool was too generic, we had to target a specific group of users, leading to a major pivot of the tool.
+It was actually painful, changing a lot of concepts, database tables, functions, and queries was costly.
+Eventually, after that we started to have more relevant feedbacks and our first users.&lt;&#x2F;p&gt;
+&lt;p&gt;This is when I decided to look for new opportunities.&lt;&#x2F;p&gt;
+&lt;p&gt;If I have to take few steps back, while it was a great experience, I wish I have done some things differently:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;While I tend to favor consensus, I have imposed few decisions in order to have a &amp;quot;manageable&amp;quot; product, but it led &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bus_factor&quot;&gt;a bus factor of 1&lt;&#x2F;a&gt;, so I had to rework some parts during my notice period&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I didn&#x27;t use Haskell for the new product, because it makes hiring difficult in early-stage startups&lt;&#x2F;li&gt;
+&lt;li&gt;I should have &amp;quot;silo-ed&amp;quot; more product team and business team, actually business people were kind of geeks, and on another hand product team members were not used to speak business language, leading business folks to push for technical solution (instead of business problems) and developers raising technical issues (instead of challenging the business)&lt;&#x2F;li&gt;
+&lt;li&gt;I should have insisted more on conceptualizing things instead of relying purely on UX to build the product&lt;&#x2F;li&gt;
+&lt;li&gt;I wish I would have been more articulated when I was advocating for tests, code quality or fast and regular delivery and feedbacks&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;However I&#x27;m proud of many things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to build a great team is quite a big achievement to me&lt;&#x2F;li&gt;
+&lt;li&gt;While I wish some (architectural) decisions to be taken differently, it was great that once my coworkers get the issues they were solving, my colleagues adopted them naturally&lt;&#x2F;li&gt;
+&lt;li&gt;I had a role of &amp;quot;enabler&amp;quot;, taking-out the big rocks on the road, enabling everyone to have a smooth working environment&lt;&#x2F;li&gt;
+&lt;li&gt;I find a way to many various workloads (development, infrastructure, meetings, reports, administrative tasks, hirings, etc.) quite smoothly&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

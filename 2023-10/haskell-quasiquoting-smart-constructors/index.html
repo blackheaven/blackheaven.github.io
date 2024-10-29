@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" href="https://gautier.difolco.dev/abridge-blueshade-dark.css?h=39b6b05a18ee8d70427f0d1cde804d311b70b1b32d94a3c8dda626d9f6ccf3b6" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script defer src="https://gautier.difolco.dev/abridge-bundle-tinysearch.min.js?h=513f4124c576ea2f23b9f91fa4ff8c623467b43582b5280955f3a1b2378c4fab" integrity="sha384-JR4HBXbEFauUWDtJc1v7r2oWc45TROsndidKK77SoqJp0zrziFGO3Jjv1bkWLSl0"></script>
+  <meta name="base" content="https://gautier.difolco.dev" />
+  <link rel="alternate" type="application/atom+xml" title="Atom/RSS Feed" href="https://gautier.difolco.dev/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>QuasiQuoting Smart Constructors - Gautier DI FOLCO</title>
+  <meta name="author" content="Gautier DI FOLCO" />
+  <meta name="copyright" content="Gautier DI FOLCO" />
+  <meta name="description" content="A software engineer website" />
+  <link rel="canonical" href="https://gautier.difolco.dev/2023-10/haskell-quasiquoting-smart-constructors/" />
+  <meta name="keywords" content="software development, software engineering, softare design, infrastructure, architecture, functionnal programming, coding dojo, softare crafting, software craftmanship, haskell, nix, nixos, kubernetes, vim" />
+  <meta property="og:url" content="https://gautier.difolco.dev/2023-10/haskell-quasiquoting-smart-constructors/" />
+  <meta name="twitter:url" content="https://gautier.difolco.dev/2023-10/haskell-quasiquoting-smart-constructors/" />
+  <meta property="og:description" content="A software engineer website" />
+  <meta name="twitter:description" content="A software engineer website" />
+  <meta property="og:title" content="QuasiQuoting Smart Constructors | Gautier DI FOLCO" />
+  <meta name="twitter:title" content="QuasiQuoting Smart Constructors | Gautier DI FOLCO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:image" content="https://gautier.difolco.dev/banner.png" />
+  <meta property="og:site_name" content="Gautier DI FOLCO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2023-10-11" />
+  <meta name="twitter:site" content="@gautier_difolco" />
+  <meta name="twitter:creator" content="@gautier_difolco" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://gautier.difolco.dev/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gautier.difolco.dev/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gautier.difolco.dev/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gautier.difolco.dev/favicon-16x16.png" />
+  <noscript><link rel="stylesheet" href="https://gautier.difolco.dev/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><h1><a href="https://gautier.difolco.dev/"><font color="#209CEE">G</font>autier <font color="#209CEE">D</font>i <font color="#209CEE">F</font>olco</a></h1></div>
+      <div>
+        <ul><li> <h2><a href="https://gautier.difolco.dev/foss/">FOSS Contributions</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/activities/">Activities</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/hiring/">Hire me</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/posts/">Posts</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/categories/">Categories</a></h2> </li><li> <h2><a href="https://gautier.difolco.dev/tags/">Tags</a></h2> </li></ul>
+      </div>
+      <div>
+        <form autocomplete=off class="js" name="goSearch" id="searchbox">
+          <div class="searchd">
+            <input id="searchinput" type="text" placeholder="Search" title="Search" />
+            <button type="submit" title="Search"><i class="svgs search"></i></button>
+          </div>
+          <div><div id="suggestions"></div></div>
+        </form>
+      </div>
+    </nav>
+    <div>A software engineer website</div>
+  </header>
+  <main>
+    <article>
+        <h1><a href="https://gautier.difolco.dev/2023-10/haskell-quasiquoting-smart-constructors/">QuasiQuoting Smart Constructors</a></h1>
+        <span class="s95"> Gautier DI FOLCO<span class="hpad"> </span> October 11, 2023<span class="hpad"> </span> [<a href="https://gautier.difolco.dev/categories/dev/">dev</a>] #<a href="https://gautier.difolco.dev/tags/haskell/">haskell</a>  #<a href="https://gautier.difolco.dev/tags/design/">design</a> </span>
+
+    <p>While I was working on <a rel="noopener" target="_blank" href="https://github.com/bitemyapp/bloodhound">Bloodhound</a>,
+I have encountered <code>IndexName</code>, defined as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">IndexName</span>
+  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">IndexName</span> <span class="z-constant z-other z-haskell">Text</span>
+  <span class="z-meta z-deriving z-haskell"><span class="z-keyword z-other z-haskell">deriving</span> (<span class="z-entity z-other z-inherited-class z-haskell">Eq</span>, <span class="z-entity z-other z-inherited-class z-haskell">Show</span>, <span class="z-entity z-other z-inherited-class z-haskell">Generic</span>, <span class="z-entity z-other z-inherited-class z-haskell">ToJSON</span>, <span class="z-entity z-other z-inherited-class z-haskell">FromJSON</span>)</span>
+</span></code></pre>
+<p>And exported (type and constructor), letting invalid index name to be built.</p>
+<p>So, I have hidden the constructor and add a smart constructor enforcing the rules:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkIndexName</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Text</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Either</span> <span class="z-storage z-type z-haskell">Text</span> <span class="z-storage z-type z-haskell">IndexName</span>
+</span>mkIndexName name <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+  <span class="z-keyword z-other z-haskell">let</span> check explanation p <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">if</span> p <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Right</span> <span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Left</span> explanation
+  check <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Is empty<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> not <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>null name
+  check <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Is longer than 255 bytes<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">BS</span><span class="z-keyword z-operator z-haskell">.</span>length (<span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>encodeUtf8 name) <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">256</span>
+  check <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Contains uppercase letter(s)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>all (<span class="z-keyword z-operator z-haskell">\</span>x <span class="z-keyword z-operator z-haskell">-&gt;</span> not (isLetter x) <span class="z-keyword z-operator z-haskell">||</span> isLower x) name
+  check <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Includes [<span class="z-constant z-character z-escape z-haskell">\\</span>/*?<span class="z-constant z-character z-escape z-haskell">\&quot;</span>&lt;&gt;| ,#:]<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>all (flip @_ @<span class="z-constant z-other z-haskell">String</span> notElem <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span><span class="z-constant z-character z-escape z-haskell">\\</span>/*?<span class="z-constant z-character z-escape z-haskell">\&quot;</span>&lt;&gt;| ,#:<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) name
+  check <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Starts with [-_+.]<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> maybe <span class="z-constant z-other z-haskell">False</span> (flip @_ @<span class="z-constant z-other z-haskell">String</span> notElem <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>-_+.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">.</span> fst) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>uncons name
+  return <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">IndexName</span> name
+</span></code></pre>
+<p>It's great, but actually, to ease the testing, we have to come-up with a helper:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">hardcodedIndexName</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Text</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IndexName</span>
+</span>hardcodedIndexName x <span class="z-keyword z-operator z-haskell">=</span>
+  either
+    (<span class="z-keyword z-operator z-haskell">\</span>e <span class="z-keyword z-operator z-haskell">-&gt;</span> error <span class="z-keyword z-operator z-haskell">$</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>hardcodedIndexName: cannot make IndexName from <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> (<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show e <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)
+    id
+    <span class="z-keyword z-operator z-haskell">$</span> mkIndexName x
+</span></code></pre>
+<p>Not great, but it can be an issue in production (either you have to reuse the
+previous function, with the risk of having unexpected/hard-to-debug errors,
+or deal with <code>Either</code>).</p>
+<p>To avoid that we can use <a rel="noopener" target="_blank" href="https://wiki.haskell.org/Quasiquotation"><code>QuasiQuotes</code></a>
+which will allow my to have compile-time errors:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">testIndex</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">IndexName</span>
+</span>testIndex <span class="z-keyword z-operator z-haskell">=</span> <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[qqIndexName|</span><span class="z-string z-quasiquoted z-haskell">-bloodhound-tests-twitter-1</span><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>
+</span></code></pre>
+<p>Which gives:</p>
+<pre class="z-code"><code><span class="z-text z-plain">tests/Test/Common.hs:19:13-54: error:
+    • Exception when trying to run compile-time code:
+        user error (&#39;-bloodhound-tests-twitter-1&#39; is not a valid IndexName (Starts with [-_+.]) at tests/Test/Common.hs:(19,26)-(19,26))
+      Code: template-haskell-2.18.0.0:Language.Haskell.TH.Quote.quoteExp
+              qqIndexName &quot;-bloodhound-tests-twitter-1&quot;
+    • In the quasi-quotation:
+        [qqIndexName|-bloodhound-tests-twitter-1|]
+   |
+19 | testIndex = [qqIndexName|-bloodhound-tests-twitter-1|]
+   |
+</span></code></pre>
+<p>Finally, the QuasiQuotes is defined as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">qqIndexName</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">QuasiQuoter</span>
+</span>qqIndexName <span class="z-keyword z-operator z-haskell">=</span>
+  <span class="z-constant z-other z-haskell">QuasiQuoter</span>
+    { quoteExp <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-operator z-haskell">\</span>str <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+        loc <span class="z-keyword z-operator z-haskell">&lt;-</span> location
+        <span class="z-constant z-other z-haskell">IndexName</span> n <span class="z-keyword z-operator z-haskell">&lt;-</span> runIO <span class="z-keyword z-operator z-haskell">$</span> parseIO mkIndexName loc str
+        pure <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">AppE</span> (<span class="z-constant z-other z-haskell">ConE</span> &#39;<span class="z-constant z-other z-haskell">IndexName</span>) (<span class="z-constant z-other z-haskell">LitE</span> (<span class="z-constant z-other z-haskell">StringL</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>unpack n))<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+      quotePat <span class="z-keyword z-operator z-haskell">=</span> undefined<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+      quoteType <span class="z-keyword z-operator z-haskell">=</span> undefined<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+      quoteDec <span class="z-keyword z-operator z-haskell">=</span> undefined
+    }
+  <span class="z-keyword z-other z-haskell">where</span>
+<span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">parseIO</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">Text</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Either</span> <span class="z-storage z-type z-haskell">Text</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Loc</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span>    parseIO p loc str <span class="z-keyword z-operator z-haskell">=</span>
+      <span class="z-keyword z-other z-haskell">case</span> p <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>pack str <span class="z-keyword z-other z-haskell">of</span>
+        <span class="z-constant z-other z-haskell">Left</span> err <span class="z-keyword z-operator z-haskell">-&gt;</span>
+          throwIO <span class="z-keyword z-operator z-haskell">$</span>
+            userError <span class="z-keyword z-operator z-haskell">$</span>
+              mconcat
+                [ <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  str<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> is not a valid IndexName <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>(<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>unpack err<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> at <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  loc_filename loc<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>:<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  show (loc_start loc)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>-<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+                  show (loc_start loc)
+                ]
+        <span class="z-constant z-other z-haskell">Right</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span>
+          return a
+</span></code></pre>
+<p>Note: I warmly encourage you to have a look at <a rel="noopener" target="_blank" href="https://well-typed.com/blog/2014/10/quasi-quoting-dsls/">Well-Typed's article</a>
+to go further.</p>
+
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav>
+        <ul><li><a href="https://gautier.difolco.dev/atom.xml" target="_blank" title="Atom/RSS Feed"><i type="Button" class="svg rss" title="Atom/RSS Feed"></i></a></li><li class="js"><a class="m-protected" href="#Z2F1dGllci5kaWZvbGNvK2dpdGh1YnNpdGVAZ21haWwuY29t" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a></li><li><a href="https://twitter.com/gautier_difolco/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a></li><li><a href="https://www.linkedin.com/in/gautier-di-folco/" target="_blank" title="LinkedIn"><i type="Button" class="svg linkedin" title="LinkedIn"></i></a></li><li><a href="https://github.com/blackheaven/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></li></ul>
+      </nav>
+      <p class="s70">Copyright &copy; 2024 Gautier DI FOLCO</p>
+      <nav>
+        <ul><li class="s70"> <a href="https://gautier.difolco.dev/about/"> About </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/privacy/"> Privacy </a> </li><li class="s70"> <a href="https://gautier.difolco.dev/sitemap.xml" target="_blank"> Sitemap </a> </li></ul>
+      </nav>
+      <p class="s70">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> and <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>
