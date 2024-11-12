@@ -1,6 +1,6 @@
 +++
 title = "GDCR 2023: My participation summary"
-date = 2022-11-05
+date = 2023-11-05
 draft = false
 path = "2023-11/gdcr-summary"
 
