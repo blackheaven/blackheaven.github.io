@@ -1,7 +1,7 @@
 +++
 title = "Hire me"
 path = "hiring"
-template = "pages.html"
+template = "page.html"
 draft = false
 +++
 
@@ -12,7 +12,7 @@ I am *Gautier DI FOLCO* working as *Staff Software Engineer / Senior Haskell dev
 While I am not currently actively looking for a new position, I am open to new
 opportunities (I'll probably look for a new one in the upcoming months).
 
-Here is what you can [expect from me](@/2024-01-21_readme.md).
+Here is what you can [expect from me](@/blog/2024-01-21_readme.md).
 
 Here is what I expect from new positions.
 

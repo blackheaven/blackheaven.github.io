@@ -19,10 +19,16 @@ library
     , polysemy
     , polysemy-plugin
     , containers
+    , aeson
+    , bytestring
+    , text
+    , constraints
   hs-source-dirs: src
   exposed-modules:
       Opaque
       Scoped
+      X
+      Several
   other-modules:
       Paths_playground
   autogen-modules:

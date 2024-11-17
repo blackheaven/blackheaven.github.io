@@ -1,7 +1,7 @@
 +++
 title = "Activities"
 path = "activities"
-template = "pages.html"
+template = "page.html"
 draft = false
 +++
 

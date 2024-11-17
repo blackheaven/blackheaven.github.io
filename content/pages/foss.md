@@ -1,7 +1,7 @@
 +++
 title = "FOSS Contributions"
 path = "foss"
-template = "pages.html"
+template = "page.html"
 draft = false
 +++
 

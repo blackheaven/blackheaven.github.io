@@ -1,0 +1,8 @@
+{
+    "access_request": {
+        "action": "read",
+        "path": "/home/bob/afile.txt",
+        "user": "charlie"
+    },
+    "allow": true
+}

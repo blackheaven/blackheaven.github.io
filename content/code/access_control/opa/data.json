@@ -1,0 +1,55 @@
+{
+    "files": [
+        {
+            "path": "/home/alice/afile.txt",
+            "owner": "alice",
+            "group": "users",
+            "permissions": {
+                "owner": [
+                    "read",
+                    "write",
+                    "execute"
+                ],
+                "group": [
+                    "read"
+                ],
+                "others": []
+            }
+        },
+        {
+            "path": "/home/bob/afile.txt",
+            "owner": "bob",
+            "group": "users",
+            "permissions": {
+                "owner": [
+                    "read",
+                    "write"
+                ],
+                "group": [],
+                "others": [
+                    
+                ]
+            }
+        }
+    ],
+    "users": [
+        {
+            "name": "alice",
+            "groups": [
+                "users"
+            ]
+        },
+        {
+            "name": "bob",
+            "groups": [
+                "users"
+            ]
+        },
+        {
+            "name": "charlie",
+            "groups": [
+                "root"
+            ]
+        }
+    ]
+}

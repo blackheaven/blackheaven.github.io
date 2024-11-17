@@ -1,16 +1,16 @@
 # The URL the site will be built for
 base_url = "https://gautier.difolco.dev"
 
-theme = "abridge"
+theme = "tabi"
 title = "Gautier DI FOLCO"
 description = "A software engineer website"
 default_language = "en"
 output_dir = "public"
 compile_sass = true
 minify_html = false
-generate_feed = true
-feed_filename = "atom.xml"
-#ignored_content = ["*.{graphml,xlsx}", "temp.*"]
+generate_feeds = true
+feed_filenames = [ "atom.xml" ]
+ignored_content = ["*/content/code", "*/.direnv/**"]
 #hard_link_static = false # set to true to hard link instead of copying, useful for very large files.
 taxonomies = [
     {name = "categories", feed = true},
@@ -39,6 +39,10 @@ external_links_no_referrer = false # rel="noreferrer"
 smart_punctuation = false          # `...` to `…`, `"quote"` to `“curly”` etc
 
 [extra]
+theme_switcher = false
+default_theme = "dark"
+skin = "blue"
+
 uglyurls = false # if set to true then links are generated with the full path. eg https://abridge.netlify.app/index.html
 language_code = "en-US"
 title_separator = "-"  # Separator between title and title_addition, set as |, -, _, etc
@@ -75,7 +79,7 @@ menu = [
     {url = "/foss/", name = "FOSS Contributions", slash = true, blank = false},
     {url = "/activities/", name = "Activities", slash = true, blank = false},
     {url = "/hiring/", name = "Hire me", slash = true, blank = false},
-    {url = "/posts/", name = "Posts", slash = true, blank = false},
+    {url = "/blog/", name = "Posts", slash = true, blank = false},
     {url = "/categories/", name = "Categories", slash = true, blank = false},
     {url = "/tags/", name = "Tags", slash = true, blank = false},
 ]
@@ -127,7 +131,7 @@ js_themeButton = "theme_button.js"# Bundleable
 # stylesheets = [ "abridge-light.css" ] # Orange Light Theme
 # stylesheets = [ "abridge-blue-dark.css" ] # Blue Dark Theme
 # stylesheets = [ "abridge-blue-light.css" ] # Blue Light Theme
-stylesheets = [ "abridge-blueshade-dark.css" ] # BlueShade Dark Theme
+# stylesheets = [ "abridge-blueshade-dark.css" ] # BlueShade Dark Theme
 # stylesheets = [ "abridge-blueshade-light.css" ] # BlueShade Light Theme
 # stylesheets = [ "abridge.css", "extra.css" ] # example loading extra css
 # stylesheets = [ "abridge.css", "syntax/syntax-abridge.css" ]
@@ -142,6 +146,7 @@ favicon_mask_color = "#ff9900"
 favicon180 = "apple-touch-icon.png" # apple-touch-icon.png
 favicon32 = "favicon-32x32.png" # favicon-32x32.png
 favicon16 = "favicon-16x16.png" # favicon-16x16.png
+favicon = "favicon-16x16.png" # favicon-16x16.png
 
 icon_search = "svgs search" # Search button in search box.
 icon_adjust = "svgs adjust" # Theme Switcher button in top menu. (add class svgh to change colors on hover)
@@ -197,27 +202,21 @@ twitter = "gautier_difolco" # used for twitter related
 #bing = "Your Bing Site verification code."
 seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twitter
 
-# Footer social links; full options listed in macros/social.html
-[extra.social]
-feed = true
-mail_encode = true # This obfuscates your email address, javascript is used to decode it at page load.
-mail = "gautier.difolco+githubsite@gmail.com"
-# mastodon = "@your-user-name"
-# element = "matrix.example.com"
-#matrix = "matrix.example.com"
-# buymeacoffee = "your-user-name"
-twitter = "gautier_difolco"
-# facebook = "your-user-name"
-linkedin = "gautier-di-folco"
-# gitlab = "your-user-name"
-github = "blackheaven"
-# github_sponsor = "your-user-name"
-# bitbucket = "your-user-name"
-# python = "your-user-name"
-# docker = "your-user-name"
-# stack = "your-user-name"
-# instagram = "your-user-name"
-# pinterest = "your-user-name"
-# twitch = "your-user-name"
-# youtube = "channel/your-channel-id"
-# researchgate = "your-profile-id"
+# Show the full post content in the Atom feed.
+# If it's set to false, only the description or summary will be shown.
+full_content_in_feed = false
+
+# Email address for footer's social section.
+# Protect against spambots:
+# 1. Use base64 for email (convert at https://www.base64encode.org/ or `printf 'your@email.com' | base64`).
+# 2. Or, set 'encode_plaintext_email' to true for auto-encoding (only protects on site, not in public repos).
+email = "Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="
+
+# Decoding requires ~400 bytes of JavaScript. If JS is disabled, the email won't be displayed.
+encode_plaintext_email = true  # Setting is ignored if email is already encoded.
+
+socials = [
+    { name = "linkedin", url = "https://www.linkedin.com/in/gautier-di-folco/", icon = "linkedin" },
+    { name = "github", url = "https://github.com/blackheaven/", icon = "github" },
+]
+

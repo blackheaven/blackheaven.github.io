@@ -1,0 +1,5 @@
+tested-with: GHC==9.4.3
+
+packages: *.cabal
+
+package accesscontrol
