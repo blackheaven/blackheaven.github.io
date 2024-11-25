@@ -79,6 +79,7 @@ menu = [
     {url = "/foss/", name = "FOSS Contributions", slash = true, blank = false},
     {url = "/activities/", name = "Activities", slash = true, blank = false},
     {url = "/hiring/", name = "Hire me", slash = true, blank = false},
+    {url = "/talks/", name = "Talks", slash = true, blank = false},
     {url = "/blog/", name = "Posts", slash = true, blank = false},
     {url = "/categories/", name = "Categories", slash = true, blank = false},
     {url = "/tags/", name = "Tags", slash = true, blank = false},
