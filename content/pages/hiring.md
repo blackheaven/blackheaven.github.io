@@ -9,7 +9,7 @@ show_reading_time = false
 +++
 
 I am *Gautier DI FOLCO* working as *Staff Software Engineer / Senior Haskell developer*
-@ [Autogriff](https://github.com/Autogriff) (see more in [about](@/pages/about.md) /
+@ [LivTours](https://github.com/livtours) (see more in [about](@/pages/about.md) /
 [my resume](/DIFOLCOGautierCurriculumVitaeEnTech.pdf)).
 
 While I am not currently actively looking for a new position, I am open to new
