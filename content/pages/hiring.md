@@ -3,6 +3,9 @@ title = "Hire me"
 path = "hiring"
 template = "page.html"
 draft = false
+
+[extra]
+show_reading_time = false
 +++
 
 I am *Gautier DI FOLCO* working as *Staff Software Engineer / Senior Haskell developer*

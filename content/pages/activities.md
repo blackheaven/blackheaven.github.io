@@ -3,6 +3,9 @@ title = "Activities"
 path = "activities"
 template = "page.html"
 draft = false
+
+[extra]
+show_reading_time = false
 +++
 
 I enjoy contributing to FOSS and sharing.

@@ -3,6 +3,9 @@ title = "FOSS Contributions"
 path = "foss"
 template = "page.html"
 draft = false
+
+[extra]
+show_reading_time = false
 +++
 
 

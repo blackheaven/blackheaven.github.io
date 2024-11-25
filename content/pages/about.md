@@ -3,6 +3,9 @@ title = "About"
 path = "about"
 template = "page.html"
 draft = false
+
+[extra]
+show_reading_time = false
 +++
 
 <p align="center">

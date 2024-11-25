@@ -4,6 +4,9 @@ description = "This page outlines the Privacy Policy for this site, and the date
 path = "privacy"
 template = "page.html"
 draft = false
+
+[extra]
+show_reading_time = false
 +++
 
 ## Privacy
