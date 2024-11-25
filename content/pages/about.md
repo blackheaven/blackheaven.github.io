@@ -12,7 +12,7 @@ show_reading_time = false
   <img src="/gautier.png" />
 </p>
 
-I am *Gautier DI FOLCO* working as *Staff Software Engineer / Senior Haskell developer* @ [LivTours](https://github.com/livtours).
+I am *Gautier DI FOLCO* working as *Staff Software Engineer / Senior Haskell developer* @ [LivTours](https://github.com/livtours), I'm also a freelancer, performing [trainings/courses](@/pages/talks.md), software engineering (development, architecture, team building), mentoring, etc.
 I am a professional *Software Engineer*, I have a solid track record of working with business owners to understand project requirements whist working to improve overall functionality of existing systems. With repeated success working from remote locations, I am a skilled collaborator and trusted leader. 
 
 ---
