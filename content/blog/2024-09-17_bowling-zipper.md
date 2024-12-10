@@ -24,7 +24,7 @@ it "A game with two pins down on each try should be 40" $
   bowlingScore (replicate 20 2) `shouldBe` 40
 ```
 
-Note: I have choosen to represent tries and not frames for simplicity, which
+Note: I have chosen to represent tries and not frames for simplicity, which
 is not a safe representation, but we aim to trust our inputs.
 
 A trivial implementation is to simply sum tries:
