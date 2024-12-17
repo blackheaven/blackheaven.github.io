@@ -11,7 +11,7 @@ tags = ["haskell", "code kata", "coding dojo", "functional programming"]
 
 Continuing my [branchless](@/blog/2024-11-05_extreme-branchess-2.md) journey,
 
-Let's [refactor](@/blob/2024-09-17_bowling-zipper.md) the [bowling kata](https://codingdojo.org/kata/Bowling/).
+Let's [refactor](@/blog/2024-09-17_bowling-zipper.md) the [bowling kata](https://codingdojo.org/kata/Bowling/).
 As a reminder, we had this implementation:
 
 ```haskell
