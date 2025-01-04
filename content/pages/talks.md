@@ -9,12 +9,23 @@ show_reading_time = false
 +++
 
 <h1 class="title-container section-title bottom-divider">
-    Upcoming talks (0)
+    Upcoming talks (1)
 </h1>
 
 <div class="archive">
   <ul class="list-with-title">
     <li>
+      <h2 class="listing-title">2025</h2>
+      <ul class="listing">
+        <li class="listing-item">
+          <div class="post-time"><span class="date">25 Jan</span></div>
+          45m,
+          En,
+          Remote,
+          <a href="https://confengine.com/conferences/functional-conf-2025" title="Functional Conf">Functional Conf</a>
+          Designing software with effects systems
+        </li>
+      </ul>
     </li>
   </ul>
 </div>
