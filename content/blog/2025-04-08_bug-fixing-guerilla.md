@@ -22,7 +22,7 @@ Why if so?
 
 Most of my fixes were related to the most used workflows.
 
-To give a practical example: we have a support team dedicated to help costumers
+To give a practical example: we have a support team dedicated to help customers
 regarding there order.
 They receive a ticket, with identifiers of 5 entities on 3 different tools.
 They open each tool, check the status of each entity, copy-pasting identifiers
