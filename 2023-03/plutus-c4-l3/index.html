@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Plutus: Pioneers Program 4th cohort - lecture 3: Tests, Times, and Dapps</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Plutus: Pioneers Program 4th cohort - lecture 3: Tests, Times, and Dapps" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-03&#x2F;plutus-c4-l3&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Plutus: Pioneers Program 4th cohort - lecture 3: Tests, Times, and Dapps
+        </h1>
+
+        <ul class="meta">
+                <li>12th Mar 2023</li>
+                <li title="346 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/cardano/">cardano</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/smart-contracts/">smart contracts</a></li>
+        </ul>
+
+        <section class="body"><p>Following the <a href="https://blackheaven.github.io/2023-03/plutus-c4-l1-l2/">Plutus Pioneers Program 1st &amp; 2nd lectures</a>, this one takes a step closer to real world use cases.</p>
+<p>We are able to tests validators, let's have a look at on of this week tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">good <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Deadline: 6000; TxValidRange (6999, 6999)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> testBeneficiary1 <span class="z-constant z-numeric z-integer z-decimal z-haskell">6000</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span></code></pre>
+<p><code>good</code> comes with <code>bad</code> and are design to detect errors:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">bad msg <span class="z-keyword z-operator z-haskell">=</span> good msg <span class="z-keyword z-operator z-haskell">.</span> mustFail
+</span><span class="z-source z-haskell">good <span class="z-keyword z-operator z-haskell">=</span> testNoErrors (adaValue 10_000_000) cfg
+</span></code></pre>
+<p>We can look deeper at the tests definition:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">testBeneficiary1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Slot</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>testBeneficiary1 deadline curMinT curMaxT wSlot <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  users <span class="z-keyword z-operator z-haskell">&lt;-</span> setupUsers
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> [u1<span class="z-punctuation z-separator z-comma z-haskell">,</span> u2<span class="z-punctuation z-separator z-comma z-haskell">,</span> u3] <span class="z-keyword z-operator z-haskell">=</span> users
+</span><span class="z-source z-haskell">      dat <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">H1</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">VestingDatum</span> u1 u2 deadline
+</span><span class="z-source z-haskell">  testHomework1 u1 u3 dat curMinT curMaxT wSlot
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">testHomework1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">H1</span>.<span class="z-storage z-type z-haskell">VestingDatum</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Slot</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>testHomework1 sigUser receiver dat curMinT curMaxT wSlot <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> val <span class="z-keyword z-operator z-haskell">=</span> adaValue <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>
+</span><span class="z-source z-haskell">  checkBalance (gives sigUser val script1) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    sp <span class="z-keyword z-operator z-haskell">&lt;-</span> spend sigUser val
+</span><span class="z-source z-haskell">    submitTx sigUser <span class="z-keyword z-operator z-haskell">$</span> vestingTx1 dat sp val
+</span><span class="z-source z-haskell">  waitNSlots wSlot
+</span><span class="z-source z-haskell">  utxos <span class="z-keyword z-operator z-haskell">&lt;-</span> utxoAt script1
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> [(vestRef<span class="z-punctuation z-separator z-comma z-haskell">,</span> vestOut)] <span class="z-keyword z-operator z-haskell">=</span> utxos
+</span><span class="z-source z-haskell">  checkBalance (gives script1 (txOutValue vestOut) receiver) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    range <span class="z-keyword z-operator z-haskell">&lt;-</span> currentTimeInterval curMinT curMaxT
+</span><span class="z-source z-haskell">    tx <span class="z-keyword z-operator z-haskell">&lt;-</span> validateIn range <span class="z-keyword z-operator z-haskell">$</span> claimingTx1 receiver dat vestRef (txOutValue vestOut)
+</span><span class="z-source z-haskell">    submitTx sigUser tx
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">vestingTx1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">H1</span>.<span class="z-storage z-type z-haskell">VestingDatum</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">UserSpend</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>vestingTx1 dat usp val <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  mconcat
+</span><span class="z-source z-haskell">    [ userSpend usp
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> payToScript script1 (<span class="z-constant z-other z-haskell">HashDatum</span> dat) val
+</span><span class="z-source z-haskell">    ]
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">claimingTx1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">H1</span>.<span class="z-storage z-type z-haskell">VestingDatum</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>claimingTx1 pkh dat vestRef vestVal <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  mconcat
+</span><span class="z-source z-haskell">    [ spendScript script1 vestRef <span class="z-constant z-language z-unit z-haskell">()</span> dat
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> payToKey pkh vestVal
+</span><span class="z-source z-haskell">    ]
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">Homework1Script</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TypedValidator</span> <span class="z-constant z-other z-haskell">H1</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">VestingDatum</span> <span class="z-constant z-language z-unit z-haskell">()</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">script1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Homework1Script</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>script1 <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TypedValidator</span> <span class="z-keyword z-operator z-haskell">$</span> toV2 <span class="z-constant z-other z-haskell">H1</span><span class="z-keyword z-operator z-haskell">.</span>validator
+</span></code></pre>
+<p>The most interesting part is <code>testHomework1</code> which:</p>
+<ul>
+<li>Spend <code>100 adas</code> and runs the <code>vesting</code> transaction</li>
+<li>Runs the <code>claiming</code> transaction:
+<ul>
+<li>Time boundaries are set</li>
+<li>Validate the script in the time range</li>
+<li>Put the validated transaction</li>
+</ul>
+</li>
+</ul>
+<p>Actually, in order for a transaction to be validated regarding time is to check the <code>ScriptContext</code> (the third validator argument):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">ScriptContext</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">ScriptContext</span>
+</span><span class="z-source z-haskell">    { scriptContextTxInfo <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TxInfo</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> scriptContextPurpose <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">ScriptPurpose</span>
+</span><span class="z-source z-haskell">    }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TxInfo</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TxInfo</span>
+</span><span class="z-source z-haskell">    { txInfoInputs          <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxInInfo</span>] <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Transaction inputs
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoReferenceInputs <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxInInfo</span>] <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Transaction reference inputs
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoOutputs         <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxOut</span>] <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Transaction outputs
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoFee             <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Value</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ The fee paid by this transaction.
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoMint            <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Value</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ The &#39;Value&#39; minted by this transaction.
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoDCert           <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">DCert</span>] <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Digests of certificates included in this transaction
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoWdrl            <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">StakingCredential</span> <span class="z-constant z-other z-haskell">Integer</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Withdrawals
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoValidRange      <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">POSIXTimeRange</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ The valid range for the transaction.
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoSignatories     <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">PubKeyHash</span>] <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Signatures provided with the transaction, attested that they all signed the tx
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoRedeemers       <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">ScriptPurpose</span> <span class="z-constant z-other z-haskell">Redeemer</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoData            <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">DatumHash</span> <span class="z-constant z-other z-haskell">Datum</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoId              <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TxId</span>
+</span><span class="z-source z-haskell">    <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ^ Hash of the pending transaction (excluding witnesses)
+</span></span><span class="z-source z-haskell">    }
+</span></code></pre>
+<p><code>txInfoValidRange</code> is a field specifying the transaction time validity.</p>
+<p>Meaning that, whenever a transaction is sent to a node, the node check it with the availability of <code>txInfoInputs</code>.</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">POSIXTimeRange</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Interval</span> <span class="z-constant z-other z-haskell">POSIXTime</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | POSIX time is measured as the number of milliseconds since 1970-01-01T00:00:00Z
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">POSIXTime</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">POSIXTime</span> { getPOSIXTime <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Integer</span> }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span>   The interval can also be unbounded on either side.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Interval</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Interval</span> { ivFrom <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">LowerBound</span> a<span class="z-punctuation z-separator z-comma z-haskell">,</span> ivTo <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">UpperBound</span> a }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A set extended with a positive and negative infinity.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Extended</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">NegInf</span> <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Finite</span> a <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">PosInf</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | Whether a bound is inclusive or not.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">Closure</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Bool</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | The upper bound of an interval.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">UpperBound</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">UpperBound</span> (<span class="z-constant z-other z-haskell">Extended</span> a) <span class="z-constant z-other z-haskell">Closure</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | The lower bound of an interval.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">LowerBound</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">LowerBound</span> (<span class="z-constant z-other z-haskell">Extended</span> a) <span class="z-constant z-other z-haskell">Closure</span>
+</span></code></pre>
+<p>By default, it's set to <code>-Inf / +Inf</code>.</p>
+<p>In order for transactions to be validated by the node we should be able to craft the transaction and so, putting a time range.</p>
+<p>The thing is, Ourobos (the consensus protocol) use slot as time measure (which is currently fixed and set at 1 second, going back and forth is easy).</p>
+<p>However it can be changed by a hard fork in the future, meaning that setting a far upper bound may break the contract validation).</p>
+<p>Beyond 36 hours, the slot length cannot be guaranteed (hard forks are announced at least 36 hours).</p>
+<p>So, you can create a validator script with a far upper bound, but you'll have to create a transactions only few hours before the upper bound's end.</p>
+<p>The last part of this lecture is an introduction to <em>DApps</em>, which are applications interacting with the Cardano blockchain as they would do for regular APIs.</p>
+<p>On another hand, transactions are forged as we would via the <code>cardano-cli</code>:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-storage z-modifier z-async z-ts">async</span> <span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">onVest</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">beneficiaryText</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-variable z-dom z-ts">document</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">getElementById</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>vestBeneficiaryText<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">beneficiary</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-object z-ts">beneficiaryText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">amountText</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-variable z-dom z-ts">document</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">getElementById</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>vestAmountText<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">amount</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-class z-builtin z-ts">BigInt</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">parseInt</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">vestAmountText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">deadlineText</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-variable z-dom z-ts">document</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">getElementById</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>vestDeadlineText<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">deadline</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-class z-builtin z-ts">BigInt</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-builtin z-ts">Date</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-ts">parse</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">deadlineText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">d</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts">        <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">beneficiary</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-variable z-other z-readwrite z-ts">beneficiary</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts">        <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">deadline</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-variable z-other z-readwrite z-ts">deadline</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts">    <span class="z-punctuation z-definition z-block z-ts">}</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">datum</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-constant z-object z-ts">L</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">Data</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">to</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">d</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-variable z-other z-readwrite z-ts">VestingDatum</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">tx</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-variable z-other z-readwrite z-ts">lucid</span></span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">newTx</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">payToContract</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">vestingAddress</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">inline</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-variable z-other z-readwrite z-ts">datum</span> </span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">lovelace</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-variable z-other z-readwrite z-ts">amount</span> </span><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">complete</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">signAndSubmitCardanoTx</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">tx</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-other z-object z-ts">beneficiaryText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span><span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-other z-object z-ts">amountText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span><span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-other z-object z-ts">deadlineText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span><span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-storage z-modifier z-async z-ts">async</span> <span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">onClaim</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">pkh</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">getCardanoPKH</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">referenceText</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-variable z-dom z-ts">document</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-dom z-ts">getElementById</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>claimReferenceText<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">reference</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-object z-ts">referenceText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">utxo</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">findUTxO</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">reference</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-keyword z-control z-conditional z-ts">if</span> <span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">utxo</span><span class="z-meta z-brace z-round z-ts">)</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">tx</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-variable z-other z-readwrite z-ts">lucid</span></span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">newTx</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">collectFrom</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-brace z-square z-ts">[</span><span class="z-variable z-other z-object z-ts">utxo</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">utxo</span><span class="z-meta z-brace z-square z-ts">]</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-constant z-object z-ts">L</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">Data</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">to</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-module z-ts">L</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-type z-ts">Constr</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">0</span><span class="z-punctuation z-separator z-comma z-ts">,</span><span class="z-meta z-array z-literal z-ts"> <span class="z-meta z-brace z-square z-ts">[</span><span class="z-meta z-brace z-square z-ts">]</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">attachSpendingValidator</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">vestingScript</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">addSignerKey</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">pkh</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">validFrom</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-builtin z-ts">Number</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">utxo</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">datum</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">deadline</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">            <span class="z-meta z-function-call z-ts"><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">complete</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">signAndSubmitCardanoTx</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">tx</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">    <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-conditional z-ts">else</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>UTxO not found<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">    <span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-other z-object z-ts">referenceText</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">value</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span><span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></code></pre>
+<p>Finally, <code>lucid</code>, the library used to interact with the nodes, is initialized upon the <code>nami</code> wallet and the <em>blockfrost</em> API service.</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-storage z-modifier z-async z-ts">async</span> <span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">loadCardano</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">nami</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-support z-variable z-dom z-ts">window</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">cardano</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">nami</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">    <span class="z-keyword z-control z-conditional z-ts">if</span> <span class="z-meta z-brace z-round z-ts">(</span><span class="z-keyword z-operator z-logical z-ts">!</span><span class="z-variable z-other z-readwrite z-ts">nami</span><span class="z-meta z-brace z-round z-ts">)</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">setTimeout</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">loadCardano</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">    <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-conditional z-ts">else</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">api</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-object z-ts">nami</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">enable</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>nami enabled<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">lucid</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-keyword z-control z-flow z-ts">await</span> <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-constant z-object z-ts">L</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-object z-property z-ts">Lucid</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">new</span></span><span class="z-meta z-brace z-round z-ts">(</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts">            <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-module z-ts">L</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-type z-ts">Blockfrost</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>https://cardano-preview.blockfrost.io/api/v0<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>preview1JXEDVldkIyBkxEUrEx3n9ll4afFK1Xj<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts">            <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Preview<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-var z-expr z-ts">        <span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>lucid active<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-meta z-function-call z-ts"><span class="z-variable z-other z-object z-ts">lucid</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-entity z-name z-function z-ts">selectWallet</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-readwrite z-ts">api</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">        <span class="z-keyword z-control z-flow z-ts">return</span> <span class="z-variable z-other z-readwrite z-ts">lucid</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-meta z-block z-ts">    <span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></code></pre>
+<p>Even though it's a quick way to get a PoC,  I wouldn't expose my API Key directly.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

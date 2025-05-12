@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Extreme branchless: Gilded Rose Part 1</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Extreme branchless: Gilded Rose Part 1" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2025-01&#x2F;extreme-branchless-gildedrose-1&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Extreme branchless: Gilded Rose Part 1
+        </h1>
+
+        <ul class="meta">
+                <li>21st Jan 2025</li>
+                <li title="407 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/functional-programming/">functional programming</a></li>
+        </ul>
+
+        <section class="body"><p>Continuing my <a href="https://blackheaven.github.io/2024-11/extreme-branchless-2/">branchless</a> journey,
+today, I'd like to have a look at <a rel="noopener" target="_blank" href="https://codingdojo.org/kata/gilded-rose/">Gilded Rose</a>.</p>
+<p>This is a classical legacy/refactoring kata, I didn't like it, but this time, I enjoyed it.</p>
+<p>Unlike the <a rel="noopener" target="_blank" href="https://github.com/emilybache/GildedRose-Refactoring-Kata">original code</a>,
+we'll focus on the evolution of one item:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-constant z-other z-haskell">String</span> <span class="z-constant z-other z-haskell">Int</span> <span class="z-constant z-other z-haskell">Int</span>
+</span><span class="z-source z-haskell">  <span class="z-meta z-deriving z-haskell"><span class="z-keyword z-other z-haskell">deriving</span> (<span class="z-entity z-other z-inherited-class z-haskell">Eq</span>)</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Show</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  show (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    name <span class="z-keyword z-operator z-haskell">++</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>, <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">++</span> show sellIn <span class="z-keyword z-operator z-haskell">++</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>, <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">++</span> show quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">    quality&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">         &amp;&amp; name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span>
+</span><span class="z-source z-haskell">            (<span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">             <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                   <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>
+</span><span class="z-source z-haskell">                        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">                        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">             <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> sellIn
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">then</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> quality&#39;))
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span></code></pre>
+<p>No so good.</p>
+<p>Let's add some tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spec</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Spec</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>spec <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Kata<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> comparedItems <span class="z-keyword z-operator z-haskell">::</span> [(<span class="z-constant z-other z-haskell">Item</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> [(<span class="z-constant z-other z-haskell">Int</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span>)])]
+</span><span class="z-source z-haskell">        comparedItems <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          flip map initialInventory <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>item <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">            (item<span class="z-punctuation z-separator z-comma z-haskell">,</span> zip3 [<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-keyword z-operator z-haskell">..</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>] (iterate updateQuality item) (iterate updateQualityLegacy item))
+</span><span class="z-source z-haskell">    forM_ comparedItems <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(initialItem<span class="z-punctuation z-separator z-comma z-haskell">,</span> dailyitems) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      describe (show initialItem) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        forM_ dailyitems <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(day<span class="z-punctuation z-separator z-comma z-haskell">,</span> actualItem<span class="z-punctuation z-separator z-comma z-haskell">,</span> expectedItem) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">          it (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Day <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show day) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">            actualItem <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> expectedItem
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">initialInventory</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Item</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>initialInventory <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  [ <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>+5 Dexterity Vest<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                          <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                                   <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Elixir of the Mongoose<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                      <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                  <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">15</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> this conjured item does not work properly yet
+</span></span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Conjured Mana Cake<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                          <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>
+</span><span class="z-source z-haskell">  ]
+</span></code></pre>
+<p>Let's review the tests strategy:</p>
+<ul>
+<li>We have one <code>decribe</code>per <code>initialItem</code></li>
+<li>We have one <code>it</code> per <code>day</code> (101, from 0 to 100)</li>
+<li>For each day, we compare, side by side, in an assertion (<code>shouldBe</code>), current, refactored version and the legacy version (duplicated) for the item update <code>day</code> times</li>
+<li>It gives us 909 tests, good enough</li>
+</ul>
+<p>Let's start slowly:</p>
+<ul>
+<li>Swap <code>let</code>/<code>in</code> to <code>where</code></li>
+<li>Drop extra parenthesis</li>
+</ul>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">then</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> quality&#39;))
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">else</span> (<span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    quality&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">         &amp;&amp; name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span>
+</span><span class="z-source z-haskell">            (<span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">             <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                   <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>
+</span><span class="z-source z-haskell">                        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">                          <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">                        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">               <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">             <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> quality
+</span></code></pre>
+<p>Nothing exceptional.</p>
+<p>Then, I have followed all <code>hlint</code> lints:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> (quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) &amp;&amp; (name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> quality&#39;)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    quality&#39;
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">         &amp;&amp; name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> (quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) &amp;&amp; (name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span>
+</span><span class="z-source z-haskell">            (<span class="z-keyword z-control z-haskell">if</span> ((name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) &amp;&amp; (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span>)) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>)
+</span><span class="z-source z-haskell">             <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> sellIn
+</span><span class="z-source z-haskell">
+</span></code></pre>
+<p>It starts to be less nested, let's keep going that way, focusing on <code>name</code> check
+and guards:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    quality&#39;
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span></code></pre>
+<p>Then, we want to focus only on <code>name</code>, to do so, we ha to nest <code>sellIn'</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">       <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">       <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">     <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    quality&#39;
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">      <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span></code></pre>
+<p>In order to isolate more and more use-cases, we can inline <code>sellIn'</code>/<code>quality'</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">/=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> sellIn
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span></code></pre>
+<p>This is even bigger than the legacy version.</p>
+<p>Simplifying <code>quality'</code>/<code>sellin'</code> gets us to:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-operator z-haskell">=</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> &amp;&amp; quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> (<span class="z-keyword z-control z-haskell">if</span> (sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) &amp;&amp; (quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">48</span>) <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        sellIn
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span>
+</span><span class="z-source z-haskell">         <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;<span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">         <span class="z-keyword z-control z-haskell">else</span> quality
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">      sellIn&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span></code></pre>
+<p>Simplifying allows us to breath a bit, but we can still inline <code>let</code>s, add a
+<code>baseCase</code>/default behavior, and use <code>min</code>/<code>max</code> to avoid explicit bounds checks:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">updateQuality</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Item</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>updateQuality (<span class="z-constant z-other z-haskell">Item</span> name sellIn quality)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>)
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> baseCase (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">      quality&#39;
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span> <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> baseCase (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) quality&#39;
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> name <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn quality
+</span><span class="z-source z-haskell">       <span class="z-keyword z-control z-haskell">else</span> baseCase sellIn quality
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    baseCase (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> max <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> (quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> baseCase sellIn&#39; quality&#39; <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">if</span> quality&#39; <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn&#39; <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; (quality&#39; <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">Item</span> name sellIn&#39; quality&#39;
+</span></code></pre>
+<p>It's a good time to break down our big <code>updateQuality</code> function, to make a step
+forward to branchless.</p>
+<p>To do so, we can directly put it in a new datatype, <code>Item'</code>, so it'll carry the
+"update" behavior alongside the data:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Item</span>&#39; <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Item</span>&#39; { _name <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> _sellIn <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Int</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> _quality <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Int</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> updateQuality <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Item</span>&#39; }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Show</span> <span class="z-storage z-type z-haskell">Item</span>&#39; <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  show (<span class="z-constant z-other z-haskell">Item</span>&#39; name sellIn quality _) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    name <span class="z-keyword z-operator z-haskell">++</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>, <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">++</span> show sellIn <span class="z-keyword z-operator z-haskell">++</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>, <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">++</span> show quality
+</span></code></pre>
+<p>Then, we can start to slice our function, the first issue we encounter is <code>baseCase</code>.</p>
+<p>Currently, we have two distinct usages: as a builder (<code>where</code>),
+and as a default (<code>otherwise</code>).</p>
+<p>Let's start with the builder:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkBaseCase</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>mkBaseCase f sellIn quality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  f sellIn <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">if</span> quality <span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> &amp;&amp; sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">then</span> quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-control z-haskell">else</span> quality
+</span></code></pre>
+<p>It might seem odd but, <code>mkBaseCase</code> is a higher-order function, taking the
+<code>Item'</code>-builder, as such, we don't lose track of the <code>Item'</code>'s behavior.</p>
+<p>Let's see how is goes with <code>baseCase</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">baseCase</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">String</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>baseCase name sellIn quality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Item</span>&#39;
+</span><span class="z-source z-haskell">    { _name <span class="z-keyword z-operator z-haskell">=</span> name<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _sellIn <span class="z-keyword z-operator z-haskell">=</span> sellIn<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _quality <span class="z-keyword z-operator z-haskell">=</span> quality<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      updateQuality <span class="z-keyword z-operator z-haskell">=</span> mkBaseCase (baseCase name) (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) (max <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> (quality <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))
+</span><span class="z-source z-haskell">    }
+</span></code></pre>
+<p>It's straightforward:</p>
+<ul>
+<li>Current <code>Item'</code> take the <code>name</code>/<code>sellIn</code>/<code>quality</code></li>
+<li>Next <code>Item'</code> (<code>updateQuality</code>) is the <code>mkBaseCase</code>:
+<ul>
+<li>the builder being itself</li>
+<li><code>sellIn</code> is decreased</li>
+<li><code>quality</code> is decreased until <code>0</code></li>
+</ul>
+</li>
+</ul>
+<p>We can derive the others mechanically:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">agedBrie</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>agedBrie sellIn quality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Item</span>&#39;
+</span><span class="z-source z-haskell">    { _name <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _sellIn <span class="z-keyword z-operator z-haskell">=</span> sellIn<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _quality <span class="z-keyword z-operator z-haskell">=</span> quality<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      updateQuality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> agedBrie (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> mkBaseCase agedBrie (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">    }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">backstagePasses</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>backstagePasses sellIn quality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Item</span>&#39;
+</span><span class="z-source z-haskell">    { _name <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _sellIn <span class="z-keyword z-operator z-haskell">=</span> sellIn<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _quality <span class="z-keyword z-operator z-haskell">=</span> quality<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      updateQuality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-other z-haskell">let</span>
+</span><span class="z-source z-haskell">          quality&#39;
+</span><span class="z-source z-haskell">            <span class="z-keyword z-operator z-haskell">|</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span> <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>)
+</span><span class="z-source z-haskell">            <span class="z-keyword z-operator z-haskell">|</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">11</span> <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>)
+</span><span class="z-source z-haskell">            <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> min <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span> (quality <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-other z-haskell">in</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">then</span> backstagePasses (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">           <span class="z-keyword z-control z-haskell">else</span> mkBaseCase backstagePasses (sellIn <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) quality&#39;
+</span><span class="z-source z-haskell">    }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">sulfuras</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Item</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>sulfuras sellIn quality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Item</span>&#39;
+</span><span class="z-source z-haskell">    { _name <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _sellIn <span class="z-keyword z-operator z-haskell">=</span> sellIn<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      _quality <span class="z-keyword z-operator z-haskell">=</span> quality<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      updateQuality <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">if</span> sellIn <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">then</span> sulfuras sellIn quality
+</span><span class="z-source z-haskell">        <span class="z-keyword z-control z-haskell">else</span> mkBaseCase sulfuras sellIn quality
+</span><span class="z-source z-haskell">    }
+</span></code></pre>
+<p>Since we have a a new <code>Item'</code> data-type, we have to adapt our tests, duplicating inputs:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spec</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Spec</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>spec <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Kata<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> comparedItems <span class="z-keyword z-operator z-haskell">::</span> [(<span class="z-constant z-other z-haskell">Item</span>&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> [(<span class="z-constant z-other z-haskell">Int</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span>&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Item</span>)])]
+</span><span class="z-source z-haskell">        comparedItems <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          flip map initialInventory <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(legacyItem<span class="z-punctuation z-separator z-comma z-haskell">,</span> item) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">            (item<span class="z-punctuation z-separator z-comma z-haskell">,</span> zip3 [<span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-keyword z-operator z-haskell">..</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>] (iterate updateQuality item) (iterate updateQualityLegacy legacyItem))
+</span><span class="z-source z-haskell">    forM_ comparedItems <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(initialItem<span class="z-punctuation z-separator z-comma z-haskell">,</span> dailyitems) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      describe (show initialItem) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        forM_ dailyitems <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(day<span class="z-punctuation z-separator z-comma z-haskell">,</span> actualItem<span class="z-punctuation z-separator z-comma z-haskell">,</span> expectedItem) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">          it (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Day <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show day) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">            show actualItem <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> show expectedItem
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">initialInventory</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [(<span class="z-storage z-type z-haskell">Item</span>, <span class="z-storage z-type z-haskell">Item</span>&#39;)]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>initialInventory <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  [ (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>+5 Dexterity Vest<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                          <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> baseCase <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>+5 Dexterity Vest<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>       <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Aged Brie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                                   <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> agedBrie                            <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Elixir of the Mongoose<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                      <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> baseCase <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Elixir of the Mongoose<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                  <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> sulfuras                            <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sulfuras, Hand of Ragnaros<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> sulfuras                          (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">80</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">15</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> backstagePasses                    <span class="z-constant z-numeric z-integer z-decimal z-haskell">15</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">20</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> backstagePasses                    <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Backstage passes to a TAFKAL80ETC concert<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> backstagePasses                     <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>  <span class="z-constant z-numeric z-integer z-decimal z-haskell">49</span>)
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> this conjured item does not work properly yet
+</span></span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-other z-haskell">Item</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Conjured Mana Cake<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>                          <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> baseCase <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Conjured Mana Cake<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>       <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>   <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>)
+</span><span class="z-source z-haskell">  ]
+</span></code></pre>
+<p>And, that's it for today, there's still a lot to do, but this log is long-enough.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

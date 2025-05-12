@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Extreme branchless: Bowling</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Extreme branchless: Bowling" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-12&#x2F;extreme-branchless-bowling&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Extreme branchless: Bowling
+        </h1>
+
+        <ul class="meta">
+                <li>17th Dec 2024</li>
+                <li title="286 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/functional-programming/">functional programming</a></li>
+        </ul>
+
+        <section class="body"><p>Continuing my <a href="https://blackheaven.github.io/2024-11/extreme-branchless-2/">branchless</a> journey,</p>
+<p>Let's <a href="https://blackheaven.github.io/2024-09/bowling-zipper/">refactor</a> the <a rel="noopener" target="_blank" href="https://codingdojo.org/kata/Bowling/">bowling kata</a>.
+As a reminder, we had this implementation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">bowlingScore</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Int</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Int</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>bowlingScore <span class="z-keyword z-operator z-haskell">=</span> sum <span class="z-keyword z-operator z-haskell">.</span> take <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">.</span> unfoldr go <span class="z-keyword z-operator z-haskell">.</span> toBowlingZipper
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    go <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">Z</span> x y (z <span class="z-keyword z-operator z-haskell">:</span> nexts)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">|</span> x <span class="z-keyword z-operator z-haskell">==</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">+</span> y <span class="z-keyword z-operator z-haskell">+</span> z<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Z</span> y z nexts)
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">|</span> x <span class="z-keyword z-operator z-haskell">+</span> y <span class="z-keyword z-operator z-haskell">==</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">+</span> z<span class="z-punctuation z-separator z-comma z-haskell">,</span> toBowlingZipper (z <span class="z-keyword z-operator z-haskell">:</span> nexts))
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (x <span class="z-keyword z-operator z-haskell">+</span> y<span class="z-punctuation z-separator z-comma z-haskell">,</span> toBowlingZipper (z <span class="z-keyword z-operator z-haskell">:</span> nexts))
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">Z</span> x y nexts <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (x <span class="z-keyword z-operator z-haskell">+</span> y<span class="z-punctuation z-separator z-comma z-haskell">,</span> toBowlingZipper nexts)
+</span><span class="z-source z-haskell">    toBowlingZipper (x <span class="z-keyword z-operator z-haskell">:</span> y <span class="z-keyword z-operator z-haskell">:</span> nexts) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Z</span> x y nexts
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">BowlingZipper</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Z</span> a a [a]
+</span></code></pre>
+<p>We have several branching spots:</p>
+<ul>
+<li><code>go</code> is the worst as it contains many checks on integers</li>
+<li><code>unfoldr</code> which creates a list, consumed directly</li>
+</ul>
+<p>Unlike our previous attempts, we can't simply count the number of pins down,
+describe a strategy, apply the behavior, as we have to either count one or two pins.</p>
+<p>Instead, we'll have to reuse a technique introduced for <a href="https://blackheaven.github.io/2024-03/fizzbuzz/">FizzBuzz</a>:
+compute every possible solution, prioritizing the most relevant.</p>
+<p>Which means, we'll list our strategies, giving the value for both a first frame and the sum of two frames:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">PinsDown</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">PinsDown</span>
+</span><span class="z-source z-haskell">  { firstFrame <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">BowlingZipper</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Maybe</span> (<span class="z-constant z-other z-haskell">Natural</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">BowlingZipper</span> <span class="z-constant z-other z-haskell">Natural</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> bothFrames <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">BowlingZipper</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Maybe</span> (<span class="z-constant z-other z-haskell">Natural</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">BowlingZipper</span> <span class="z-constant z-other z-haskell">Natural</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">PinsDown</span>
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>Then, we can list our strategies:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">pins0<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins1<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins2<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins3<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins4<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins5<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins6<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins7<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins8<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins9<span class="z-punctuation z-separator z-comma z-haskell">,</span> pins10 <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">PinsDown</span>
+</span><span class="z-source z-haskell">pins0 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins1
+</span><span class="z-source z-haskell">pins1 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins2
+</span><span class="z-source z-haskell">pins2 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins3
+</span><span class="z-source z-haskell">pins3 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins4
+</span><span class="z-source z-haskell">pins4 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins5
+</span><span class="z-source z-haskell">pins5 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins6
+</span><span class="z-source z-haskell">pins6 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins7
+</span><span class="z-source z-haskell">pins7 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins8
+</span><span class="z-source z-haskell">pins8 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins9
+</span><span class="z-source z-haskell">pins9 <span class="z-keyword z-operator z-haskell">=</span> pinOthers pins10
+</span><span class="z-source z-haskell">pins10 <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">PinsDown</span>
+</span><span class="z-source z-haskell">    { firstFrame <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-operator z-haskell">\</span>(<span class="z-constant z-other z-haskell">Z</span> x y (z <span class="z-keyword z-operator z-haskell">:</span> nexts)) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">+</span> y <span class="z-keyword z-operator z-haskell">+</span> z<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Z</span> y z nexts)
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> bothFrames <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-operator z-haskell">\</span>(<span class="z-constant z-other z-haskell">Z</span> x y (z <span class="z-keyword z-operator z-haskell">:</span> nexts)) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">+</span> z<span class="z-punctuation z-separator z-comma z-haskell">,</span> toBowlingZipper (z <span class="z-keyword z-operator z-haskell">:</span> nexts))
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> pins10
+</span><span class="z-source z-haskell">    }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">pinOthers</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PinsDown</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">PinsDown</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>pinOthers nextPinsDown <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">PinsDown</span>
+</span><span class="z-source z-haskell">    { firstFrame <span class="z-keyword z-operator z-haskell">=</span> const <span class="z-constant z-other z-haskell">Nothing</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> bothFrames <span class="z-keyword z-operator z-haskell">=</span> const <span class="z-constant z-other z-haskell">Nothing</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> nextPinsDown
+</span><span class="z-source z-haskell">    }
+</span></code></pre>
+<p>Note:</p>
+<ul>
+<li>Only we only have a special behavior when all pins are down, in all other scenarios, we only sum pins</li>
+<li><code>toBowlingZipper</code> has been extracted as follows, even though it's a partial function, only working with our inputs' structure, it's fine in our use-case, in real-world systems, I would protect (not export) the function and strong-type the input.</li>
+</ul>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">toBowlingZipper</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-variable z-other z-generic-type z-haskell">a</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">BowlingZipper</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>toBowlingZipper (x <span class="z-keyword z-operator z-haskell">:</span> y <span class="z-keyword z-operator z-haskell">:</span> nexts) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Z</span> x y nexts
+</span></code></pre>
+<p>Finally, we can rewrite our main function:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">bowlingScore</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Natural</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Natural</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>bowlingScore <span class="z-keyword z-operator z-haskell">=</span> sum <span class="z-keyword z-operator z-haskell">.</span> take <span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> <span class="z-keyword z-operator z-haskell">.</span> unfoldr (<span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">.</span> go) <span class="z-keyword z-operator z-haskell">.</span> toBowlingZipper
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    go zipper@(<span class="z-constant z-other z-haskell">Z</span> x y nexts) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      fromMaybe (x <span class="z-keyword z-operator z-haskell">+</span> y<span class="z-punctuation z-separator z-comma z-haskell">,</span> toBowlingZipper nexts) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        (strategyFor x)<span class="z-keyword z-operator z-haskell">.</span>firstFrame zipper <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> (strategyFor (x <span class="z-keyword z-operator z-haskell">+</span> y))<span class="z-keyword z-operator z-haskell">.</span>bothFrames zipper
+</span><span class="z-source z-haskell">    strategyFor (<span class="z-constant z-other z-haskell">Natural</span> f) <span class="z-keyword z-operator z-haskell">=</span> f (<span class="z-keyword z-operator z-haskell">.</span>next) pins0
+</span></code></pre>
+<p>Note:</p>
+<ul>
+<li><code>strategyFor</code> pick the relevant strategy, as we've seen it few time in previous logs</li>
+<li>Then we pick the result as follows:
+<ul>
+<li>Pick the strategy for the first frame, look at the strategy result for the first frame</li>
+<li>Otherwise, pick the strategy for both frames summed, look at the strategy result for both frames</li>
+<li>Otherwise, it simply sums the two first frames</li>
+</ul>
+</li>
+</ul>
+<p>It's a good first strep, we could go further, rebuilding "low-level" abstraction
+to <code>unfoldr</code>/<code>take</code>/<code>sum</code>, but let's assume we use branchless implementations.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

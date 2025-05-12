@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Local vs Global optimum</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Local vs Global optimum" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-11&#x2F;local-global-optimum&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Local vs Global optimum
+        </h1>
+
+        <ul class="meta">
+                <li>19th Nov 2022</li>
+                <li title="286 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/software-engineering/">software engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/product/">product</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/team/">team</a></li>
+        </ul>
+
+        <section class="body"><p>Few weeks ago, I had a meetup with <a rel="noopener" target="_blank" href="https://woodyzuill.com/">Woody Zuill</a>,
+the inventor of <a rel="noopener" target="_blank" href="https://softwareteaming.com/">Software Teaming</a>,
+with the <a rel="noopener" target="_blank" href="https://www.meetup.com/fr-FR/Software-Craftsmanship-Lyon/">Software Crafters Lyon</a>.</p>
+<p>I have encountered the same topic at two different times:</p>
+<ul>
+<li>During software teaming: we had different speeds depending on the couple driver/navigator</li>
+<li>During the informal exchange after: he talked about silos in companies</li>
+</ul>
+<p>It took me a long time to connect the two concepts.</p>
+<p>During software teaming, an important part is to synchronize the pace.
+If someone goes too fast, no one can understand what's going on.
+If someone goes too slow, it would be hard to follow.</p>
+<p>Regarding silos, the basic idea was already been studied in <a rel="noopener" target="_blank" href="https://teamtopologies.com/">Team Topologies</a>,
+the general idea is the following, when you structure a team, in tends to optimize
+itself toward its goal.
+For example, if you have a front-end team, it will focus on producing better
+front-end.
+On the contrary, if you create a multidisciplinary autonomous team, it will
+produce a better software.</p>
+<p>It took me a while, but I have finally connected the two idea: it is about optimum.</p>
+<p>You can improve yourself/your team to the point that you are able to build a
+complete module in the morning, but if you cannot deploy it, or don't have
+access to users feedback, there are few chances you end up building something
+valuable in the long run.</p>
+<p>Local optimums create bureaucracy.
+In teams, we should make sure everyone is at the same pace.
+In companies, we have to make sure teams are autonomous, being able to gather
+requirements from users, design on their own, deploy at their pace, and collect
+feedbacks themselves.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

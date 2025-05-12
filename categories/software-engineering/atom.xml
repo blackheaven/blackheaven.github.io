@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>Software engineering</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - Software engineering</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/categories/software-engineering/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/categories/software-engineering/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-04-08T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/categories/software-engineering/atom.xml</id><entry xml:lang="en">
+        <title>Bug fixing guerilla</title>
+        <published>2025-04-08T00:00:00+00:00</published>
+        <updated>2025-04-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-04/bug-fixing-guerilla/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-04/bug-fixing-guerilla/</id>
+        </entry><entry xml:lang="en">
+        <title>FP &amp; Network effect</title>
+        <published>2025-04-01T00:00:00+00:00</published>
+        <updated>2025-04-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-04/fp-network-effect/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-04/fp-network-effect/</id>
+        </entry><entry xml:lang="en">
+        <title>Effects systems benchmark</title>
+        <published>2025-01-28T00:00:00+00:00</published>
+        <updated>2025-01-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/effects-systems-benchmark/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/effects-systems-benchmark/</id>
+        </entry><entry xml:lang="en">
+        <title>No value Software Engineer</title>
+        <published>2024-10-22T00:00:00+00:00</published>
+        <updated>2024-10-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/no-value-swe/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/no-value-swe/</id>
+        </entry><entry xml:lang="en">
+        <title>Event sourcing migrations retrospective</title>
+        <published>2024-10-08T00:00:00+00:00</published>
+        <updated>2024-10-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/event-sourcing-migration/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/event-sourcing-migration/</id>
+        </entry><entry xml:lang="en">
+        <title>10 years mark</title>
+        <published>2024-10-02T00:00:00+00:00</published>
+        <updated>2024-10-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/10-years/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/10-years/</id>
+        </entry><entry xml:lang="en">
+        <title>Retrospective of my time at Autogriff</title>
+        <published>2024-09-03T00:00:00+00:00</published>
+        <updated>2024-09-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-09/autogriff-retrospective/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-09/autogriff-retrospective/</id>
+        </entry><entry xml:lang="en">
+        <title>OOP has not invented encapsulation</title>
+        <published>2024-03-10T00:00:00+00:00</published>
+        <updated>2024-03-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/c-encapsulation/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/c-encapsulation/</id>
+        </entry><entry xml:lang="en">
+        <title>Types for building and types for running</title>
+        <published>2024-03-06T00:00:00+00:00</published>
+        <updated>2024-03-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/types-building-running/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/types-building-running/</id>
+        </entry><entry xml:lang="en">
+        <title>Types strengthening</title>
+        <published>2024-03-03T00:00:00+00:00</published>
+        <updated>2024-03-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/types-strengthening/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/types-strengthening/</id>
+        </entry><entry xml:lang="en">
+        <title>eDSLs for tests</title>
+        <published>2024-02-28T00:00:00+00:00</published>
+        <updated>2024-02-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/edsls-tests/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/edsls-tests/</id>
+        </entry><entry xml:lang="en">
+        <title>Type-driven development applied: librarian</title>
+        <published>2024-02-25T00:00:00+00:00</published>
+        <updated>2024-02-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/tydd-applied-librarian/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/tydd-applied-librarian/</id>
+        </entry><entry xml:lang="en">
+        <title>Types and Tests</title>
+        <published>2024-02-21T00:00:00+00:00</published>
+        <updated>2024-02-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/types-tests/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/types-tests/</id>
+        </entry><entry xml:lang="en">
+        <title>Architecture Heuristic YNIA: Events metadata</title>
+        <published>2024-02-18T00:00:00+00:00</published>
+        <updated>2024-02-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/architecture-heuristic-ynia-events-metadata/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/architecture-heuristic-ynia-events-metadata/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell: imports vs exports</title>
+        <published>2024-02-14T00:00:00+00:00</published>
+        <updated>2024-02-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/haskell-imports-exports/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/haskell-imports-exports/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell refactorings</title>
+        <published>2024-02-11T00:00:00+00:00</published>
+        <updated>2024-02-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/haskell-refactorings/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/haskell-refactorings/</id>
+        </entry><entry xml:lang="en">
+        <title>Bypassing Prometheus SDK push model</title>
+        <published>2024-02-07T00:00:00+00:00</published>
+        <updated>2024-02-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/bypassing-prometheus/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/bypassing-prometheus/</id>
+        </entry><entry xml:lang="en">
+        <title>Naming has a social convention</title>
+        <published>2024-02-04T00:00:00+00:00</published>
+        <updated>2024-02-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/naming-social-convention/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/naming-social-convention/</id>
+        </entry><entry xml:lang="en">
+        <title>Prescriptivism and Descriptivism</title>
+        <published>2024-01-31T00:00:00+00:00</published>
+        <updated>2024-01-31T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/prescriptivism-descriptivism/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/prescriptivism-descriptivism/</id>
+        </entry><entry xml:lang="en">
+        <title>Software inventory</title>
+        <published>2024-01-28T00:00:00+00:00</published>
+        <updated>2024-01-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/software-inventory/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/software-inventory/</id>
+        </entry><entry xml:lang="en">
+        <title>Screaming Architecture</title>
+        <published>2024-01-24T00:00:00+00:00</published>
+        <updated>2024-01-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/screaming-architecture/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/screaming-architecture/</id>
+        </entry><entry xml:lang="en">
+        <title>Personal README</title>
+        <published>2024-01-21T00:00:00+00:00</published>
+        <updated>2024-01-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/readme/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/readme/</id>
+        </entry><entry xml:lang="en">
+        <title>Architecture Heuristic YNIA: Participants</title>
+        <published>2023-11-29T00:00:00+00:00</published>
+        <updated>2023-11-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/architecture-heuristic-ynia-participants/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/architecture-heuristic-ynia-participants/</id>
+        </entry><entry xml:lang="en">
+        <title>Architecture Heuristic YNIA: Queues</title>
+        <published>2023-10-18T00:00:00+00:00</published>
+        <updated>2023-10-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/architecture-heuristic-ynia-queues/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/architecture-heuristic-ynia-queues/</id>
+        </entry><entry xml:lang="en">
+        <title>Team owned architecture</title>
+        <published>2023-10-01T00:00:00+00:00</published>
+        <updated>2023-10-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/team-owned-architecture/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/team-owned-architecture/</id>
+        </entry><entry xml:lang="en">
+        <title>Design for collaboration</title>
+        <published>2023-04-26T00:00:00+00:00</published>
+        <updated>2023-04-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/design-for-collaboration/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/design-for-collaboration/</id>
+        </entry><entry xml:lang="en">
+        <title>A reasonable hiring process</title>
+        <published>2023-04-19T00:00:00+00:00</published>
+        <updated>2023-04-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/reasonable-hiring-process/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/reasonable-hiring-process/</id>
+        </entry><entry xml:lang="en">
+        <title>Retrospective of my first CTO experience</title>
+        <published>2023-04-12T00:00:00+00:00</published>
+        <updated>2023-04-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/cto-retrospective/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/cto-retrospective/</id>
+        </entry><entry xml:lang="en">
+        <title>Local vs Global optimum</title>
+        <published>2022-11-19T00:00:00+00:00</published>
+        <updated>2022-11-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/local-global-optimum/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/local-global-optimum/</id>
+        </entry><entry xml:lang="en">
+        <title>Problems before solution</title>
+        <published>2022-11-15T00:00:00+00:00</published>
+        <updated>2022-11-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/problems-before-solution/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/problems-before-solution/</id>
+        </entry><entry xml:lang="en">
+        <title>User Driven Design</title>
+        <published>2022-11-08T00:00:00+00:00</published>
+        <updated>2022-11-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/user-driven-design/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/user-driven-design/</id>
+        </entry>
+</feed>

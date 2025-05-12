@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Haskell Legacy: Introduction</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Haskell Legacy: Introduction" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-07&#x2F;api-legacy-introduction&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Haskell Legacy: Introduction
+        </h1>
+
+        <ul class="meta">
+                <li>9th Jul 2024</li>
+                <li title="155 words"><span class='separator' aria-hidden='true'>•</span>1 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/legacy/">legacy</a></li>
+        </ul>
+
+        <section class="body"><p>A long time ago, I was asked to write on polysemy and Yesod integration, on
+another hand, I was also asked on the best way to migrate from regular,
+state-persisting based, legacy API, to event source system.</p>
+<p>Note: I have never used Yesod before, so it won't be difficult for me to come
+up with legacy code.</p>
+<p>In order to do that, let's see what we have: it's a train reservation API.</p>
+<p>We can create trains, (un-)book in them.</p>
+<p>It's described as such:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">mkYesod
+</span><span class="z-source z-haskell">  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>TrainMasterAPI<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">  <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[parseRoutes|</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/train CreateTrainR POST</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/train/#TrainId DisplayTrainR GET</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/booking/#TrainId CreateBookingR POST</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/booking-admin/#BookingId ManageBookingR DELETE</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>
+</span></code></pre>
+<p>It's usable as simply as:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ curl http://localhost:3000/train --json &#39;{&quot;departureDate&quot;: &quot;2024-02-15&quot;, &quot;departureStation&quot;: &quot;Lyon&quot;, &quot;arrivalStation&quot;: &quot;Zurich&quot;}&#39;
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">    &quot;id&quot;: 2
+</span><span class="z-text z-plain">}
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">$ curl http://localhost:3000/booking/2 --json &#39;{&quot;travelerName&quot;: &quot;Alice&quot;}&#39;
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">    &quot;id&quot;: 4
+</span><span class="z-text z-plain">}
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">$ curl http://localhost:3000/booking/2 --json &#39;{&quot;travelerName&quot;: &quot;Bob&quot;}&#39;
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">    &quot;id&quot;: 5
+</span><span class="z-text z-plain">}
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">$ curl http://localhost:3000/train/2
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">    &quot;arrivalStation&quot;: &quot;Zurich&quot;,
+</span><span class="z-text z-plain">    &quot;departureDate&quot;: &quot;2024-02-15&quot;,
+</span><span class="z-text z-plain">    &quot;departureStation&quot;: &quot;Lyon&quot;,
+</span><span class="z-text z-plain">    &quot;travelers&quot;: [
+</span><span class="z-text z-plain">        {
+</span><span class="z-text z-plain">            &quot;bookingId&quot;: 4,
+</span><span class="z-text z-plain">            &quot;travelerName&quot;: &quot;Alice&quot;
+</span><span class="z-text z-plain">        },
+</span><span class="z-text z-plain">        {
+</span><span class="z-text z-plain">            &quot;bookingId&quot;: 5,
+</span><span class="z-text z-plain">            &quot;travelerName&quot;: &quot;Bob&quot;
+</span><span class="z-text z-plain">        }
+</span><span class="z-text z-plain">    ]
+</span><span class="z-text z-plain">}
+</span></code></pre>
+<p>The code is designed around a simple database scheme (based on <code>parsistant</code>):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">share
+</span><span class="z-source z-haskell">  [mkPersist sqlSettings<span class="z-punctuation z-separator z-comma z-haskell">,</span> mkMigrate <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>migrateAll<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">  <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[persistLowerCase|</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">Train</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    departureDate T.Text</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    departureStation T.Text</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    arrivalStation T.Text</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    deriving Show</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">Booking</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    travelerName T.Text</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    trainId TrainId</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">    deriving Show</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>
+</span></code></pre>
+<p>I won't paste all the code here, but <code>Handler</code>s are really tightly coupled to
+the database:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">CreateTrainRequest</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CreateTrainRequest</span>
+</span><span class="z-source z-haskell">  { departureDate <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">departureStation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">T</span>.<span class="z-storage z-type z-haskell">Text</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">arrivalStation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">T</span>.<span class="z-storage z-type z-haskell">Text</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> anyclass (<span class="z-constant z-other z-haskell">FromJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">ToJSON</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">CreatedResponse</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CreatedResponse</span>
+</span><span class="z-source z-haskell">  { id <span class="z-keyword z-operator z-haskell">::</span> a
+</span><span class="z-source z-haskell">  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> anyclass (<span class="z-constant z-other z-haskell">FromJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">ToJSON</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">postCreateTrainR</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">HandlerFor</span> <span class="z-storage z-type z-haskell">TrainMasterAPI</span> <span class="z-storage z-type z-haskell">Value</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>postCreateTrainR <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  train <span class="z-keyword z-operator z-haskell">&lt;-</span> requireCheckJsonBody @_ @<span class="z-constant z-other z-haskell">CreateTrainRequest</span>
+</span><span class="z-source z-haskell">  trainId <span class="z-keyword z-operator z-haskell">&lt;-</span>
+</span><span class="z-source z-haskell">    runDB <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      insert
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">Train</span>
+</span><span class="z-source z-haskell">          { trainDepartureDate <span class="z-keyword z-operator z-haskell">=</span> train<span class="z-keyword z-operator z-haskell">.</span>departureDate<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">            trainDepartureStation <span class="z-keyword z-operator z-haskell">=</span> train<span class="z-keyword z-operator z-haskell">.</span>departureStation<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">            trainArrivalStation <span class="z-keyword z-operator z-haskell">=</span> train<span class="z-keyword z-operator z-haskell">.</span>arrivalStation
+</span><span class="z-source z-haskell">          }
+</span><span class="z-source z-haskell">  returnJson <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">CreatedResponse</span> trainId
+</span></code></pre>
+<p>It cannot be simpler than that (while remaining interesting), we'll follow the
+following plan to tackle it:</p>
+<ul>
+<li>Add few tests</li>
+<li>Extract logic from <code>Handler</code>s</li>
+<li>Introduce event sourcing</li>
+<li>Substitute event sourcing to current implementation</li>
+<li>Introduce effects</li>
+</ul>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

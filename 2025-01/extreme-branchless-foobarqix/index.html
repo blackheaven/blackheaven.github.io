@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Extreme branchless: FooBarQix</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Extreme branchless: FooBarQix" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2025-01&#x2F;extreme-branchless-foobarqix&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Extreme branchless: FooBarQix
+        </h1>
+
+        <ul class="meta">
+                <li>14th Jan 2025</li>
+                <li title="343 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/functional-programming/">functional programming</a></li>
+        </ul>
+
+        <section class="body"><p>This whole series about <a href="https://blackheaven.github.io/2024-03/fizzbuzz/">branchless started with FizzBuzz</a>.</p>
+<p>Today, I'd like to have a look at <a rel="noopener" target="_blank" href="https://codingdojo.org/kata/FooBarQix/">FooBarQix</a>
+which is a variation with the following rules:</p>
+<ul>
+<li>If the number is divisible by 3, write “Foo” instead of the number</li>
+<li>If the number is divisible by 5, add “Bar”</li>
+<li>If the number is divisible by 7, add “Qix”</li>
+<li>For each digit 3, 5, 7, add “Foo”, “Bar”, “Qix” in the digits order</li>
+</ul>
+<p>We can come up with some tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">forM_ [(<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>2<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>FooFoo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)] <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(param<span class="z-punctuation z-separator z-comma z-haskell">,</span> result) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">  it (show param <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> should be <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> result) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    foobarqix param <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> result
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All multiple of three have &#39;Foo&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isInfixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Foo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> * n)
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All multiple of five have &#39;Bar&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isInfixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Bar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span> * n)
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All multiple of seven have &#39;Qix&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isInfixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Qix<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span> * n)
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All number ending with three should end with &#39;Foo&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isSuffixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Foo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> * n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>)
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All number ending with five should end with &#39;Bar&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isSuffixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Bar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> * n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>)
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All number ending with seven should end with &#39;Qix&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  property <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>n <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    isSuffixOf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Qix<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> foobarqix (<span class="z-constant z-numeric z-integer z-decimal z-haskell">10</span> * n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span>)
+</span></code></pre>
+<p>Then we can borrow FizzBuzz design, which does the first part of the rules:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqix</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqix (<span class="z-constant z-other z-haskell">Natural</span> f) <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> f tail <span class="z-keyword z-operator z-haskell">$</span> error <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>0 is not defined<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqixStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">String</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqixStream <span class="z-keyword z-operator z-haskell">=</span> zipWith fromMaybe numbers <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> foos <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> bars qixs
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    numbers <span class="z-keyword z-operator z-haskell">=</span> show <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> [<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">..</span>]
+</span><span class="z-source z-haskell">    foos <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Foo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    bars <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Bar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    qixs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Qix<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>Next step is a little more tricky, we have to split the <code>Natural</code> number into digits.</p>
+<p>Let's begin with a simple <code>divMod</code> (base 10), which, for any <code>Natural</code> gives
+the <code>div n 10</code> and <code>mod n 10</code> result:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Chained</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> { value <span class="z-keyword z-operator z-haskell">::</span> a<span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Chained</span> a }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">chainedOf</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>chainedOf (<span class="z-constant z-other z-haskell">Natural</span> n) <span class="z-keyword z-operator z-haskell">=</span> (<span class="z-keyword z-operator z-haskell">.</span>value) <span class="z-keyword z-operator z-haskell">.</span> n (<span class="z-keyword z-operator z-haskell">.</span>next)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">divMod10_0<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_1<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_2<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_3<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_4<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_5<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_6<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_7<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_8<span class="z-punctuation z-separator z-comma z-haskell">,</span> divMod10_9 <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Chained</span> (<span class="z-constant z-other z-haskell">Natural</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Natural</span>)
+</span><span class="z-source z-haskell">divMod10_0 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_1 u
+</span><span class="z-source z-haskell">divMod10_1 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_2 u
+</span><span class="z-source z-haskell">divMod10_2 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_3 u
+</span><span class="z-source z-haskell">divMod10_3 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_4 u
+</span><span class="z-source z-haskell">divMod10_4 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">4</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_5 u
+</span><span class="z-source z-haskell">divMod10_5 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_6 u
+</span><span class="z-source z-haskell">divMod10_6 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_7 u
+</span><span class="z-source z-haskell">divMod10_7 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_8 u
+</span><span class="z-source z-haskell">divMod10_8 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">8</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_9 u
+</span><span class="z-source z-haskell">divMod10_9 u <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9</span>) <span class="z-keyword z-operator z-haskell">$</span> divMod10_0 (u <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span></code></pre>
+<p>Then we should somehow iterate on it until we have a list:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">splitBase10</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Natural</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>splitBase10 n <span class="z-keyword z-operator z-haskell">=</span> splitBase10 u <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> [mod]
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> mod) <span class="z-keyword z-operator z-haskell">=</span> chainedOf n <span class="z-keyword z-operator z-haskell">$</span> divMod10_0 <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span></code></pre>
+<p>It somehow does not as there are no base condition.</p>
+<p>In order to achieve this, we have to distinguish <code>0</code>, returning an empty list:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">splitBase10</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Natural</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>splitBase10 n <span class="z-keyword z-operator z-haskell">=</span> runNatural n (const nonNull) <span class="z-constant z-language z-empty-list z-haskell">[]</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> (u<span class="z-punctuation z-separator z-comma z-haskell">,</span> mod) <span class="z-keyword z-operator z-haskell">=</span> chainedOf n <span class="z-keyword z-operator z-haskell">$</span> divMod10_0 <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        nonNull <span class="z-keyword z-operator z-haskell">=</span> splitBase10 u <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> [mod]
+</span></code></pre>
+<p>Then we need to refactor our main function, so we can distinguish
+<code>number</code>-string and <code>FooBarQuix</code>-string:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqix</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqix n <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (show n) <span class="z-keyword z-operator z-haskell">$</span> fetchStr n
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    fetchStr n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqixStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">String</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqixStream <span class="z-keyword z-operator z-haskell">=</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> foos <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> bars qixs
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    foos <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Foo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    bars <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Bar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    qixs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Qix<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>Finally, we can bind <code>splitBase10</code>, giving a <code>[Natural]</code> and fetch the
+corresponding <code>Foo</code>/<code>Bar</code>/<code>Qix</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqix</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqix n <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (show n) <span class="z-keyword z-operator z-haskell">$</span> fetchStr n <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> foldMap fetchStr (splitBase10 n)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    fetchStr n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqixStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">String</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqixStream <span class="z-keyword z-operator z-haskell">=</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> foos <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> bars qixs
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    foos <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Foo<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    bars <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Bar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">    qixs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Qix<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>The <em>step 2</em> adds the requirement of tracking <code>0</code>.</p>
+<p>We could be tempted to simply duplicate <code>fetchStr</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqix</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqix n <span class="z-keyword z-operator z-haskell">=</span> fromMaybe (show n) <span class="z-keyword z-operator z-haskell">$</span> fetchStr n <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> foldMap fetchStrDigit (splitBase10 n)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    fetchStr n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span><span class="z-source z-haskell">    fetchStrDigit n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> (<span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>*<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">:</span> repeat <span class="z-constant z-other z-haskell">Nothing</span>) (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span></code></pre>
+<p>It works well... expect when you have only digits (e.g. <code>101</code> gives <code>*</code> instead of <code>1*1</code>),
+because <code>fromMaybe</code> expect any <code>Just</code>.</p>
+<p>We should change our tactic:</p>
+<ul>
+<li>have a <code>*</code> in our <code>fromMaybe</code> default case</li>
+<li>only add a <code>*</code> in <code>Foo</code>/<code>Bar</code>/<code>Qix</code> when it's already a <code>Just</code></li>
+</ul>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">foobarqix</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>foobarqix n <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  fromMaybe (foldMap showDigit digits) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    (fetchStr n <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> foldMap fetchStr digits) *<span class="z-keyword z-operator z-haskell">&gt;</span> (fetchStr n <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> foldMap fetchStrDigit digits)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    digits <span class="z-keyword z-operator z-haskell">=</span> splitBase10 n
+</span><span class="z-source z-haskell">    fetchStr n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span><span class="z-source z-haskell">    fetchStrDigit n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail <span class="z-keyword z-operator z-haskell">$</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">(&lt;&gt;)</span> (<span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>*<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">:</span> repeat <span class="z-constant z-other z-haskell">Nothing</span>) (<span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">:</span> foobarqixStream)
+</span><span class="z-source z-haskell">    showDigit n&#39; <span class="z-keyword z-operator z-haskell">=</span> head <span class="z-keyword z-operator z-haskell">$</span> runNatural n&#39; tail (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>*<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">:</span> map return [<span class="z-string z-quoted z-single z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&#39;</span>1<span class="z-punctuation z-definition z-string z-end z-haskell">&#39;</span></span> <span class="z-keyword z-operator z-haskell">..</span> <span class="z-string z-quoted z-single z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&#39;</span>9<span class="z-punctuation z-definition z-string z-end z-haskell">&#39;</span></span>])
+</span></code></pre>
+<p>Note: this code contains two tricks:</p>
+<ul>
+<li>It computes <code>Foo</code>/<code>Bar</code>/<code>Qix</code> twice:
+<ul>
+<li>A first time without <code>*</code>, then it is applied to <code>*&gt;</code> which return the right-most value when the left is a <code>Just</code></li>
+<li>A second time with <code>*</code>, which is eventually returned</li>
+</ul>
+</li>
+<li>The <code>fromMaybe</code> default case is not really a <code>show</code> anymore, but a mapping/indexed vector to <code>*123456789</code></li>
+</ul>
+<p>So far so good, I enjoyed this code kata as, with few variations, it drastically
+changes the exercise.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

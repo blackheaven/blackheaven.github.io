@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Access Control: Graph-based Access control</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Access Control: Graph-based Access control" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-12&#x2F;access-control-gbac&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Access Control: Graph-based Access control
+        </h1>
+
+        <ul class="meta">
+                <li>20th Dec 2023</li>
+                <li title="347 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/access-control/">access control</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/security/">security</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/draft-concepts/">draft concepts</a></li>
+        </ul>
+
+        <section class="body"><p>Last time, we has explored <a href="https://blackheaven.github.io/2023-12/access-control-abac/">ABAC</a> which is
+quite elegant in my opinion.</p>
+<p>Well, you can forget it, welcome in one of the corporate version of access control.</p>
+<p>I have discovered <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Graph-based_access_control">Graph-based Access control (GBAC)</a>
+which splits permissions declaration between types and instances, essentially for
+reuse.</p>
+<p>In summary for each side:</p>
+<ul>
+<li>An organizational unit (i.e. a department)</li>
+<li>Functional units (manager, layer, etc.)</li>
+<li>Delegation relations</li>
+</ul>
+<p>Then, when you have a concrete organizational unit, you instantiate your types
+definitions, and you define some agents (employees) belonging to a functional
+unit and add extra delegation relations.</p>
+<p>If it sounds complicated, it's it because it is.</p>
+<p>Let's start with types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">GbacDepartmentRules</span> functionalUnit resource action <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> functionalUnit (<span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> resource (<span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> action))
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">Staff</span> functionalUnit actor <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> actor functionalUnit
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">Delegations</span> functionalUnit actor <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> (<span class="z-constant z-other z-haskell">Either</span> functionalUnit actor) (<span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> (<span class="z-constant z-other z-haskell">Either</span> functionalUnit actor))
+</span></code></pre>
+<ul>
+<li><code>GbacDepartmentRules</code> is our quite classic rule table</li>
+<li><code>Staff</code> is our instantiation</li>
+<li><code>Delegations</code> is our graph delegating for a functional unit or an agent to a functional unit to an agent</li>
+</ul>
+<p>Then, let's try to type our function:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">canGbac</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-variable z-other z-generic-type z-haskell">action</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">action</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">GbacDepartmentRules</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-variable z-other z-generic-type z-haskell">action</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Staff</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Delegations</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">action</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Bool</span>
+</span></span></code></pre>
+<p>Breath-in, breath-out, breath-in, breath-out, it's important to stay oxygenized
+at this point (the implementation is worse).</p>
+<p>Let's break this down:</p>
+<ul>
+<li>You can ignore the two first lines (<code>forall</code> and constraints), they are mostly implementation details due to our use of <code>Map</code>.</li>
+<li>Then we have the rules <code>GbacDepartmentRules</code></li>
+<li>The actor - functional unit mapping</li>
+<li>Finally the <code>Delegations</code> (I have not split types and instances delegations as you can simply merge them)</li>
+</ul>
+<p>I'd like to apologize for the following implementation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">canGbac</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-variable z-other z-generic-type z-haskell">action</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">action</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">GbacDepartmentRules</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-variable z-other z-generic-type z-haskell">action</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Staff</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Delegations</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">resource</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">action</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>canGbac rules staff delegations resource actor action <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  any (hasPerms <span class="z-keyword z-operator z-haskell">.</span> finalPerms) <span class="z-keyword z-operator z-haskell">$</span> findReverseDelegations (<span class="z-constant z-other z-haskell">Right</span> actor)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    hasPerms <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>member action <span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty resource
+</span><span class="z-source z-haskell">    finalPerms x <span class="z-keyword z-operator z-haskell">=</span> maybe mempty (<span class="z-keyword z-operator z-haskell">\</span>f <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty x rules) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>lookup x rules
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">findReverseDelegations</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>    findReverseDelegations start <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>unions <span class="z-keyword z-operator z-haskell">$</span> unfoldr go (<span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>singleton start<span class="z-punctuation z-separator z-comma z-haskell">,</span> mempty)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">        <span class="z-entity z-name z-function z-haskell">go</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">          (<span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> (<span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>), <span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> (<span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>)) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">          <span class="z-storage z-type z-haskell">Maybe</span> (<span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span>, (<span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> (<span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>), <span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> (<span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>)))
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>        go (toVisit<span class="z-punctuation z-separator z-comma z-haskell">,</span> visited) <span class="z-keyword z-operator z-haskell">=</span> go&#39; visited <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>maxView toVisit
+</span><span class="z-source z-haskell">        go&#39; visited (current<span class="z-punctuation z-separator z-comma z-haskell">,</span> nextToVisit) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">let</span> newFunctionalUnits <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">                <span class="z-keyword z-other z-haskell">case</span> current <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Left</span> y <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>singleton y
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Right</span> y <span class="z-keyword z-operator z-haskell">-&gt;</span> maybe mempty <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>singleton <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>lookup y staff
+</span><span class="z-source z-haskell">              newVisited <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>insert current visited
+</span><span class="z-source z-haskell">              newNextToViisit <span class="z-keyword z-operator z-haskell">=</span> maybe mempty (flip <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>difference newVisited) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>lookup current reverseDelegations
+</span><span class="z-source z-haskell">           <span class="z-keyword z-other z-haskell">in</span> (newFunctionalUnits<span class="z-punctuation z-separator z-comma z-haskell">,</span> (nextToVisit <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> newNextToViisit<span class="z-punctuation z-separator z-comma z-haskell">,</span> newVisited))
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">reverseDelegations</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Delegations</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>    reverseDelegations <span class="z-keyword z-operator z-haskell">=</span> foldl go mempty <span class="z-keyword z-operator z-haskell">$</span> concatMap (<span class="z-keyword z-operator z-haskell">\</span>(s<span class="z-punctuation z-separator z-comma z-haskell">,</span> ps) <span class="z-keyword z-operator z-haskell">-&gt;</span> (<span class="z-punctuation z-separator z-comma z-haskell">,</span>s) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>toList ps) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>toList delegations
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">        <span class="z-entity z-name z-function z-haskell">go</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">          <span class="z-storage z-type z-haskell">Delegations</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">          (<span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>, <span class="z-storage z-type z-haskell">Either</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">          <span class="z-storage z-type z-haskell">Delegations</span> <span class="z-variable z-other z-generic-type z-haskell">functionalUnit</span> <span class="z-variable z-other z-generic-type z-haskell">actor</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>        go ds (p<span class="z-punctuation z-separator z-comma z-haskell">,</span> s) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>alter (<span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>insert s <span class="z-keyword z-operator z-haskell">.</span> fromMaybe mempty) p ds
+</span></code></pre>
+<p>Remember to stay oxygenated.</p>
+<p>The main idea here is to explore the delegation graph walking backward on the edges.</p>
+<p>Each time a delegation comes in, I take the associated permissions, add them to
+a list of set of permissions, then I check them until one match, or I there are
+no more delegations.</p>
+<p>To walk through the edges, I have to first reverse them (<code>reverseDelegations</code>)
+and, to go through them, take a starting point, keep a list of edges (functional
+units or actors), fetch the permissions when I visit one of them, add it to
+a set of visited edges (to avoid looping indefinitely) and add next edges
+(following reverse vertices).</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

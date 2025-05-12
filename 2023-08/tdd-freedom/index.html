@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Test-Driven Development Freedom</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Test-Driven Development Freedom" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-08&#x2F;tdd-freedom&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Test-Driven Development Freedom
+        </h1>
+
+        <ul class="meta">
+                <li>13th Aug 2023</li>
+                <li title="355 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/engineering/">engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/test-driven-development/">test-driven development</a></li>
+        </ul>
+
+        <section class="body"><p>In <a href="https://blackheaven.github.io/2023-08/good-design/">My previous log</a> I mentioned my bad intuition regarding code design.</p>
+<p>Let's task a real-world example.</p>
+<p>I have written <a href="https://blackheaven.github.io/2023-07/caddy/">my log on Caddy</a> after working with <a rel="noopener" target="_blank" href="https://mercure.rocks/">Mercure</a>, which was used to push updates to users.</p>
+<p>In a nutshell, <em>Mercure</em> is a hub which exposes an API to push messages on <em>topics</em>, each <em>topic</em> being able to be subscribed to by client (users' browser).</p>
+<p>At some point, we wanted to approximate the online users (and their current interests).</p>
+<p>Each topic having the following shape: <code>/foo/bar/baz</code>, we want to match partial topic (i.e. <code>/topic/{topicId}/edit</code>).
+Note that matcher and topic have to have the same length (i.e. <code>/topic/{topicId}</code> matches <code>/topic/42</code>, but not <code>/topic/42/edit</code>).</p>
+<p>Intuitively, we can set up the following types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Subscription</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Subscription</span>
+</span><span class="z-source z-haskell">  { id <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">SubscriptionId</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">topics</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Topic</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">SubscriptionId</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">SubscriptionId</span> { getSubscriptionId <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Text</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">TopicPart</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TopicPart</span> { getTopicPart <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Text</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Topic</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Topic</span> { getTopic <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TopicPart</span>] }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TopicMatcherPart</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TMExact</span> <span class="z-constant z-other z-haskell">Text</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">TMWildcard</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">TopicMatcher</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TopicMatcher</span> { getTopicMatcher <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TopicMatcherPart</span>] }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> undefined
+</span></code></pre>
+<p>Then, here is what I had in mind:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> any (flip subscriptionMatches s) ms
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionMatches m s <span class="z-keyword z-operator z-haskell">=</span> any (topicMatches m) s<span class="z-keyword z-operator z-haskell">.</span>topics
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">topicMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Topic</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>topicMatches m t <span class="z-keyword z-operator z-haskell">=</span> length m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher <span class="z-keyword z-operator z-haskell">==</span> length t<span class="z-keyword z-operator z-haskell">.</span>getTopic &amp;&amp; and (zipWith match m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher t<span class="z-keyword z-operator z-haskell">.</span>getTopic)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> match mp tp <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">case</span> mp <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">TMExact</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> e <span class="z-keyword z-operator z-haskell">==</span> tp<span class="z-keyword z-operator z-haskell">.</span>getTopicPart
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">True</span>
+</span></code></pre>
+<p>It's a bit big, let's restart in <a rel="noopener" target="_blank" href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">Test driven development</a>.</p>
+<p>Let's set up our first test:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spec</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Spec</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>spec <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Matcher<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    forM_
+</span><span class="z-source z-haskell">      [ ([<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>/<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]<span class="z-punctuation z-separator z-comma z-haskell">,</span> [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>/<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)
+</span><span class="z-source z-haskell">      ]
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>(matchers<span class="z-punctuation z-separator z-comma z-haskell">,</span> topics<span class="z-punctuation z-separator z-comma z-haskell">,</span> matches) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">        it (show matchers <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> ~= <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show topics <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span> =&gt; <span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> show matches) <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">let</span> rawParts <span class="z-keyword z-operator z-haskell">=</span> tail <span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>splitOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>/<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">              mkMatcherPart x <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">if</span> x <span class="z-keyword z-operator z-haskell">==</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>*<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-control z-haskell">then</span> <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-control z-haskell">else</span> <span class="z-constant z-other z-haskell">TMExact</span> x
+</span><span class="z-source z-haskell">              matchers&#39; <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TopicMatcher</span> <span class="z-keyword z-operator z-haskell">.</span> map mkMatcherPart <span class="z-keyword z-operator z-haskell">.</span> rawParts <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> matchers
+</span><span class="z-source z-haskell">              subscription&#39; <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Subscription</span> (<span class="z-constant z-other z-haskell">SubscriptionId</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>...<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) (<span class="z-constant z-other z-haskell">Topic</span> <span class="z-keyword z-operator z-haskell">.</span> map <span class="z-constant z-other z-haskell">TopicPart</span> <span class="z-keyword z-operator z-haskell">.</span> rawParts <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> topics)
+</span><span class="z-source z-haskell">          subscriptionsMatches matchers&#39; subscription&#39; <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> matches
+</span></code></pre>
+<p>it's red, we can pursue with a naive implementation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">True</span>
+</span></code></pre>
+<p>Then with unmatching urls:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ([&quot;/a&quot;], [&quot;/b&quot;], False)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> any (flip subscriptionMatches s) ms
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionMatches m s <span class="z-keyword z-operator z-haskell">=</span> any (topicMatches m) s<span class="z-keyword z-operator z-haskell">.</span>topics
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">topicMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Topic</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>topicMatches m t <span class="z-keyword z-operator z-haskell">=</span> map matcherString m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher <span class="z-keyword z-operator z-haskell">==</span> map (<span class="z-keyword z-operator z-haskell">.</span>getTopicPart) t<span class="z-keyword z-operator z-haskell">.</span>getTopic
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    matcherString <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMExact</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> e
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>*<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span></code></pre>
+<p>A lot of heavy-lifting, as we are constrained by the types:</p>
+<p>We can then add wildcards:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ([&quot;/a/*&quot;], [&quot;/a/c&quot;], True)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">topicMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Topic</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>topicMatches m t <span class="z-keyword z-operator z-haskell">=</span> and (zipWith match m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher t<span class="z-keyword z-operator z-haskell">.</span>getTopic)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    match mp tp <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">case</span> mp <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMExact</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> e <span class="z-keyword z-operator z-haskell">==</span> tp<span class="z-keyword z-operator z-haskell">.</span>getTopicPart
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">True</span>
+</span></code></pre>
+<p>Well, we nearly reached initial implementation, except, there's a regression now:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ([&quot;/a/*&quot;], [&quot;/a/c/e&quot;], False)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">topicMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Topic</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>topicMatches m t <span class="z-keyword z-operator z-haskell">=</span> length m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher <span class="z-keyword z-operator z-haskell">==</span> length t<span class="z-keyword z-operator z-haskell">.</span>getTopic &amp;&amp; and (zipWith match m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher t<span class="z-keyword z-operator z-haskell">.</span>getTopic)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    match mp tp <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">case</span> mp <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMExact</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> e <span class="z-keyword z-operator z-haskell">==</span> tp<span class="z-keyword z-operator z-haskell">.</span>getTopicPart
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">True</span>
+</span></code></pre>
+<p>We get back to our initial implementation, except, now we are able to make experiment.</p>
+<p>Especially, we would like to find a function which only work when to "containers" have the same size:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">_</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> ~ [] <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span></code></pre>
+<p>After a quick look at Hoogle:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">liftEq</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Eq1</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span></code></pre>
+<p>Let's try that:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">topicMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Topic</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>topicMatches m t <span class="z-keyword z-operator z-haskell">=</span> liftEq match m<span class="z-keyword z-operator z-haskell">.</span>getTopicMatcher t<span class="z-keyword z-operator z-haskell">.</span>getTopic
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    match mp tp <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">case</span> mp <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMExact</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> e <span class="z-keyword z-operator z-haskell">==</span> tp<span class="z-keyword z-operator z-haskell">.</span>getTopicPart
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">TMWildcard</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">True</span>
+</span></code></pre>
+<p>Here we are, we got a neater implementation, focused on the matching, not the data-structures.</p>
+<p>That's one of the reason I go on <em>Type-Driven Design</em> (TyDD), then <em>Test-Driven Development</em> (TeDD),
+doing so constrains my code so much, I can only write a correct implementation,
+then it comes to the actual implementation (at value-level), that's when TeDD comes into play.</p>
+<p>Especially because our code can be wrong, let's replace <code>any</code> by <code>all</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> all (flip subscriptionMatches s) ms
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionMatches m s <span class="z-keyword z-operator z-haskell">=</span> all (topicMatches m) s<span class="z-keyword z-operator z-haskell">.</span>topics
+</span></code></pre>
+<p>And our tests are still passing, let's fix this:</p>
+<p>We can fix the matchers first:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ([&quot;/a/*&quot;, &quot;/a/*/e&quot;], [&quot;/a/c/e&quot;], True)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionsMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">TopicMatcher</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionsMatches ms s <span class="z-keyword z-operator z-haskell">=</span> any (flip subscriptionMatches s) ms
+</span></code></pre>
+<p>And finally the subscriptions:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ([&quot;/a/*&quot;], [&quot;/b&quot;, &quot;/a/c&quot;], True)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">subscriptionMatches</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TopicMatcher</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Subscription</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>subscriptionMatches m s <span class="z-keyword z-operator z-haskell">=</span> any (topicMatches m) s<span class="z-keyword z-operator z-haskell">.</span>topics
+</span></code></pre>
+<p>Note: it's the kind of bug mutation testing aims to detect</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

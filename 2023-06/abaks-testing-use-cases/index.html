@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Abaks: Testing Use Cases</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Abaks: Testing Use Cases" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-06&#x2F;abaks-testing-use-cases&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Abaks: Testing Use Cases
+        </h1>
+
+        <ul class="meta">
+                <li>21st Jun 2023</li>
+                <li title="199 words"><span class='separator' aria-hidden='true'>•</span>1 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/project/">project</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/abaks/">abaks</a></li>
+        </ul>
+
+        <section class="body"><p>The <a href="https://blackheaven.github.io/2023-06/abaks-use-cases/">Use Cases</a> is a simple application-dependant wiring layer,
+however, I tend to have one or two tests to ensure that <code>Interpreters</code> are well coordinating (usually in the nominal case).</p>
+<p>But unlike <a href="https://blackheaven.github.io/2023-06/abaks-testing-core/">Core domain/Entities</a>, it'll require a bit more work.</p>
+<p>Let's review the test case:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>UseCases<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  around withFixture <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>All chained commands should work<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>fixture <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      runUsecase
+</span><span class="z-source z-haskell">        fixture
+</span><span class="z-source z-haskell">        ( runError @<span class="z-constant z-other z-haskell">Text</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">            periodId <span class="z-keyword z-operator z-haskell">&lt;-</span> createPeriod periodName periodStart periodEnd (<span class="z-constant z-other z-haskell">Amount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            addEntry periodId anEntry <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            changeAmountEntry periodId anEntry<span class="z-keyword z-operator z-haskell">.</span>entryId (<span class="z-constant z-other z-haskell">Amount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1500</span>) <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            validateEntry periodId anEntry<span class="z-keyword z-operator z-haskell">.</span>entryId <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            commentEntry periodId anEntry<span class="z-keyword z-operator z-haskell">.</span>entryId <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>The Hateful 8: too cool<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            markInClonflictEntry periodId anEntry<span class="z-keyword z-operator z-haskell">.</span>entryId <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>way too expensive<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">            deleteEntry periodId anEntry<span class="z-keyword z-operator z-haskell">.</span>entryId <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>wrong period<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> fromEither
+</span><span class="z-source z-haskell">        )
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Right</span> <span class="z-constant z-language z-unit z-haskell">()</span>
+</span></code></pre>
+<p>It's roughly a copy-paste of one of a nominal test case of the core domain.
+We relied on <code>fromEither</code> to shortcut de process (it will generate an <code>Error Text</code> if a <code>Left Text</code> occurs).</p>
+<p>Note that it is also a way to describe how use cases are supposed to be chained.</p>
+<p>One thing to notice is the <code>runUsecase fixture</code> used to run Use Cases defined as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Fixture</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Fixture</span>
+</span><span class="z-source z-haskell">  { runUsecase <span class="z-keyword z-operator z-haskell">::</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">Sem</span> &#39;[<span class="z-constant z-other z-haskell">EventSourceEffect</span> <span class="z-constant z-other z-haskell">AbaksEvent</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Final</span> <span class="z-constant z-other z-haskell">IO</span>] a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">IO</span> a
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p><code>hspec</code> not being able to run <code>Sem r a</code> directly.</p>
+<p>We also need to inject (the <code>Args</code> of the <code>it</code>, <code>\fixtures -&gt;</code>), this is done through <code>around withFixture</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">withFixture</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">ActionWith</span> <span class="z-storage z-type z-haskell">Fixture</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>withFixture action <span class="z-keyword z-operator z-haskell">=</span> action <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Fixture</span> <span class="z-keyword z-operator z-haskell">$</span> runFinal <span class="z-keyword z-operator z-haskell">.</span> runMemoryUnsafe
+</span></code></pre>
+<p>Alternatively, we could also have directly a final function to do it, which would have been simpler.</p>
+<p>It would have been, even though, in real world you may have additional context (a database, etc.) you want to inject, you may also want to change interpretation.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

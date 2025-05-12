@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • TDD: optimizing for inputs vs for outputs</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="TDD: optimizing for inputs vs for outputs" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-11&#x2F;tdd-optimizing-for-inputs-outputs&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            TDD: optimizing for inputs vs for outputs
+        </h1>
+
+        <ul class="meta">
+                <li>22nd Nov 2022</li>
+                <li title="378 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a></li>
+        </ul>
+
+        <section class="body"><p>There is a famous code kata used during <a rel="noopener" target="_blank" href="https://www.coderetreat.org/">Global Days of Code Retreat</a>
+called <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game Of Life</a>.</p>
+<p>It has four rules:</p>
+<ol>
+<li>Any live cell with fewer than two live neighbours dies, as if by underpopulation</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation</li>
+<li>Any live cell with more than three live neighbours dies, as if by overpopulation</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction</li>
+</ol>
+<p>I have a love - hate relationship with this code kata.</p>
+<p>On the positive side:</p>
+<ul>
+<li>It was one of the first code kata I have seriously worked on (especially during my first GDCR in 2012)</li>
+<li>It is a simple and yet challenging kata</li>
+<li>It shaped my TDD style (inside-out)</li>
+</ul>
+<p>On the negative side:</p>
+<ul>
+<li>I have overdone it (more than 120 times)</li>
+<li>When I do it, I tend to be impatient and prescriptive</li>
+</ul>
+<p>I'll use it to illustrate my point, which is: there are two ways to optimize
+a piece of code in TDD, for outputs or for inputs.</p>
+<p>Let's start with outputs optimizations:</p>
+<p>I always start by implementing the rule 4, focusing on the cell (not the grid):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spec</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Spec</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>spec <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Game of life<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">      it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        nextGen <span class="z-constant z-other z-haskell">Dead</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Cell</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Neighbours</span> 
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbours</span> { getNeighbours <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Int</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> <span class="z-keyword z-other z-haskell">newtype</span> (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Num</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">nextGen</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Cell</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Neighbours</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Cell</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>nextGen _ _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span></code></pre>
+<p>Then I implement rule 3:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with more than three live neighbours dies, as if by overpopulation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Alive</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">4</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">nextGen</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Cell</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Neighbours</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Cell</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>nextGen _ <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">    _ <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Dead</span>
+</span></code></pre>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with two live neighbours lives on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Alive</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with three live neighbours lives on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Alive</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">nextGen</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Cell</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Neighbours</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Cell</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>nextGen _ <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">    _ <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Dead</span>
+</span></code></pre>
+<p>At this point, my implementation is incorrect as a dead cell with two neighbours
+or less should stay dead.</p>
+<p>Moreover, in a pure TDD-style, I won't be able to add tests not passing to cover
+rule 1, so I add few "business" tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any Dead cell with fewer than three (2) live neighbours stays dead on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Dead</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with fewer than two (1) live neighbours dies, as if by underpopulation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Alive</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell">it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with fewer than two (0) live neighbours dies, as if by underpopulation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  nextGen <span class="z-constant z-other z-haskell">Alive</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">nextGen</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Cell</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Neighbours</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Cell</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>nextGen x <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> x
+</span><span class="z-source z-haskell">    <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">    _ <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Dead</span>
+</span></code></pre>
+<p>That's what I call optimizing for outputs: implementation does not matter, as
+long as you have the correct values, the production code can omit the business
+side (which are in the tests).</p>
+<p>On another hand, there are what I call optimizing for inputs:</p>
+<p>Let's start with rule 4:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Reproduction (three live neighbours)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any dead cell with exactly three live neighbours becomes a live cell<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    reproduction<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Dead</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with three live neighbours lives on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    reproduction<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Alive</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Neighbourhood</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbourhood</span> { next <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Cell</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Cell</span> }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">reproduction</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Neighbourhood</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>reproduction <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbourhood</span> <span class="z-keyword z-operator z-haskell">$</span> const <span class="z-constant z-other z-haskell">Alive</span>
+</span></code></pre>
+<p>Then rule 3:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Overpopulation (more than three live neighbours)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with more than three live neighbours dies<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    overpopulation<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Alive</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">overpopulation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Neighbourhood</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>overpopulation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbourhood</span> <span class="z-keyword z-operator z-haskell">$</span> const <span class="z-constant z-other z-haskell">Dead</span>
+</span></code></pre>
+<p>Then rule 2:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Survive (two live neighbours)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any Dead cell with fewer than three live neighbours stays dead on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    survive<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Dead</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any dead cell with exactly three live neighbours becomes a live cell<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    survive<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Alive</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Alive</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">survive</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Neighbourhood</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>survive <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbourhood</span> id
+</span></code></pre>
+<p>And finally rule 1:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Underpopulation (zero or one live neighbours)<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any Dead cell with fewer than three live neighbours stays dead on to the next generation<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    underpopulation<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Dead</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Any live cell with fewer than two live neighbours dies<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    underpopulation<span class="z-keyword z-operator z-haskell">.</span>next <span class="z-constant z-other z-haskell">Alive</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Dead</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">underpopulation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Neighbourhood</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>underpopulation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Neighbourhood</span> <span class="z-keyword z-operator z-haskell">$</span> const <span class="z-constant z-other z-haskell">Dead</span>
+</span></code></pre>
+<p>Of course, it takes an effort to talk with the business experts to structure
+the problem's understanding, but at least each rule is clearly defined in the
+production code, and not only in tests.</p>
+<p>Moreover, each rule is independent.</p>
+<p>Bonus, that's the only approach I know to have an implementation without
+condition/patter-matching, but that's the subject of another log.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

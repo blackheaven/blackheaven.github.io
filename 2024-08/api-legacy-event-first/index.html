@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Haskell Legacy: Going event-first</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Haskell Legacy: Going event-first" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-08&#x2F;api-legacy-event-first&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Haskell Legacy: Going event-first
+        </h1>
+
+        <ul class="meta">
+                <li>13th Aug 2024</li>
+                <li title="242 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/legacy/">legacy</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/polysemy/">polysemy</a></li>
+        </ul>
+
+        <section class="body"><p>Previously, we have <a href="https://blackheaven.github.io/2024-08/api-legacy-reversing-writes/">reversed writes</a>,
+which means that we write events, then we write the legacy tables.</p>
+<p>As a reminder, we have some code looking like that:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptTrainEffectEvents</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-storage z-type z-haskell">TrainEvent</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>, <span class="z-storage z-type z-haskell">Error</span> <span class="z-storage z-type z-haskell">InternalApiError</span>, <span class="z-storage z-type z-haskell">TrainProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">InterpreterFor</span> <span class="z-storage z-type z-haskell">TrainEffect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>interceptTrainEffectEvents <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  interpret <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">TrainCreate</span>
+</span><span class="z-source z-haskell">        departureDate&#39;@(<span class="z-constant z-other z-haskell">DepartureDate</span> departureDate)
+</span><span class="z-source z-haskell">        departureStation&#39;@(<span class="z-constant z-other z-haskell">DepartureStation</span> departureStation)
+</span><span class="z-source z-haskell">        arrivalStation&#39;@(<span class="z-constant z-other z-haskell">ArrivalStation</span> arrivalStation) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">          newTrainId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+</span><span class="z-source z-haskell">          eventStored <span class="z-keyword z-operator z-haskell">&lt;-</span>
+</span><span class="z-source z-haskell">            storeEvent
+</span><span class="z-source z-haskell">              (<span class="z-constant z-other z-haskell">StreamId</span> newTrainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;)
+</span><span class="z-source z-haskell">              (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">TrainCreated</span>
+</span><span class="z-source z-haskell">                { departureDate <span class="z-keyword z-operator z-haskell">=</span> departureDate<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  departureStation <span class="z-keyword z-operator z-haskell">=</span> departureStation<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  arrivalStation <span class="z-keyword z-operator z-haskell">=</span> arrivalStation
+</span><span class="z-source z-haskell">                }
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">case</span> eventStored <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">Left</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> throw <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">EventStoreIAE</span> e
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">Right</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">              trainProjectionCreate newTrainId departureDate&#39; departureStation&#39; arrivalStation&#39;
+</span><span class="z-source z-haskell">              return newTrainId
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">TrainFetch</span> trainId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">        trainProjectionFetch trainId
+</span></code></pre>
+<p>This was a first step, however it's temporal coupling, one of the worst type of
+coupling.</p>
+<p>It means that we have established <em>correlation</em> (things happen together), not
+<em>causation</em> (things happen because they are linked by the relationships).</p>
+<p>I'll rehash just to make the point: if tests are green, it's merely coincidental.</p>
+<p>Your code will break (or force to change) if you:</p>
+<ul>
+<li>Add/change a view (model)/query/projection</li>
+<li>Reorder events persistence</li>
+<li>Add event persistence elsewhere</li>
+</ul>
+<p>Instead of calling legacy effects as backup, we can create an interceptor in
+charge of it:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">apiEventProjection</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">TrainProjectionEffect</span>, <span class="z-storage z-type z-haskell">BookingProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">StreamId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">TrainEvent</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>apiEventProjection (<span class="z-constant z-other z-haskell">StreamId</span> streamId) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    event@(<span class="z-constant z-other z-haskell">TrainCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      trainProjectionCreate
+</span><span class="z-source z-haskell">        trainId
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">DepartureDate</span> event<span class="z-keyword z-operator z-haskell">.</span>departureDate)
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">DepartureStation</span> event<span class="z-keyword z-operator z-haskell">.</span>departureStation)
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">ArrivalStation</span> event<span class="z-keyword z-operator z-haskell">.</span>arrivalStation)
+</span><span class="z-source z-haskell">    event@(<span class="z-constant z-other z-haskell">BookingCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      bookingProjectionCreate trainId (<span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> fromIntegral event<span class="z-keyword z-operator z-haskell">.</span>id) event<span class="z-keyword z-operator z-haskell">.</span>travelerName
+</span><span class="z-source z-haskell">    event@(<span class="z-constant z-other z-haskell">BookingWithdrawn</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      bookingProjectionDelete (<span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> fromIntegral event<span class="z-keyword z-operator z-haskell">.</span>id)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    trainId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; streamId
+</span></code></pre>
+<p>For each event, we will perform an action to "synchronize" a stateful value.</p>
+<p>It aims to be used with this interceptor:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptEventStoreWith</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">StreamId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Sem</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-support z-constant z-unit z-haskell">()</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Sem</span> (<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> &#39;: <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Sem</span> (<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> &#39;: <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>interceptEventStoreWith f <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  intercept <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">StoreEvent</span> streamId eventNumber event <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">        result <span class="z-keyword z-operator z-haskell">&lt;-</span> storeEvent streamId eventNumber event
+</span><span class="z-source z-haskell">        forM_ result <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-constant z-language z-unit z-haskell">()</span> <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">          raise <span class="z-keyword z-operator z-haskell">$</span> f streamId event
+</span><span class="z-source z-haskell">        return result
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">FetchEvents</span> streamId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">        fetchEvents streamId
+</span></code></pre>
+<p>It works as follows:</p>
+<ul>
+<li>Fallbacks on the real <code>EventStore</code> effect to persist the event</li>
+<li>If the persistence succeeded, run the callback to perform the projection</li>
+<li>Return the result</li>
+</ul>
+<p>Note: it is a really simple implementation, in the previous real world
+implementations I have done, I have relied on diffs (i.e. pushing multiples
+events and making diffs on local state, so it can be persisted independently).</p>
+<p>We can drop the calls from our interpreter:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">interceptTrainEffectEvents</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Members</span> &#39;[<span class="z-storage z-type z-haskell">EventStore</span> <span class="z-storage z-type z-haskell">TrainEvent</span>, <span class="z-storage z-type z-haskell">Embed</span> <span class="z-storage z-type z-haskell">IO</span>, <span class="z-storage z-type z-haskell">Error</span> <span class="z-storage z-type z-haskell">InternalApiError</span>, <span class="z-storage z-type z-haskell">TrainProjectionEffect</span>] <span class="z-variable z-other z-generic-type z-haskell">r</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">InterpreterFor</span> <span class="z-storage z-type z-haskell">TrainEffect</span> <span class="z-variable z-other z-generic-type z-haskell">r</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>interceptTrainEffectEvents <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  interpret <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">TrainCreate</span>
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">DepartureDate</span> departureDate)
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">DepartureStation</span> departureStation)
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">ArrivalStation</span> arrivalStation) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">          newTrainId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+</span><span class="z-source z-haskell">          eventStored <span class="z-keyword z-operator z-haskell">&lt;-</span>
+</span><span class="z-source z-haskell">            storeEvent
+</span><span class="z-source z-haskell">              (<span class="z-constant z-other z-haskell">StreamId</span> newTrainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;)
+</span><span class="z-source z-haskell">              (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">TrainCreated</span>
+</span><span class="z-source z-haskell">                { departureDate <span class="z-keyword z-operator z-haskell">=</span> departureDate<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  departureStation <span class="z-keyword z-operator z-haskell">=</span> departureStation<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  arrivalStation <span class="z-keyword z-operator z-haskell">=</span> arrivalStation
+</span><span class="z-source z-haskell">                }
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">case</span> eventStored <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">Left</span> e <span class="z-keyword z-operator z-haskell">-&gt;</span> throw <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">EventStoreIAE</span> e
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">Right</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> return newTrainId
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">TrainFetch</span> trainId <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">        trainProjectionFetch trainId
+</span></code></pre>
+<p>and add it to our interpreters stacks:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">runPersistent</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">ConnectionPool</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">EffectsRunner</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>runPersistent pool <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  liftIO
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> join
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> fmap (either (throwIO <span class="z-keyword z-operator z-haskell">.</span> iaeToYesod) return)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> runM
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> runError
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> runEmbedded (flip runSqlPool pool)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interpretBookingEffectPersistent
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interpretTrainProjectionEffectPersistent
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interpretEventStorePersistent
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interceptEventStoreWith apiEventProjection
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interpretBookingEffectEvents
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">.</span> interceptTrainEffectEvents
+</span></code></pre>
+<p>Doing so allows us to add/change our views without impacting our main, event-sourced interpreters.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

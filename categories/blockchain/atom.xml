@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>Blockchain</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - Blockchain</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/categories/blockchain/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/categories/blockchain/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-05-07T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/categories/blockchain/atom.xml</id><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 10 - Built with plutus</title>
+        <published>2023-05-07T00:00:00+00:00</published>
+        <updated>2023-05-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/plutus-c4-l10/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/plutus-c4-l10/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin</title>
+        <published>2023-04-30T00:00:00+00:00</published>
+        <updated>2023-04-30T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l9/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l9/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 8 - Staking</title>
+        <published>2023-04-23T00:00:00+00:00</published>
+        <updated>2023-04-23T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l8/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l8/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 7 - Marlowe and hosted smart contracts</title>
+        <published>2023-04-16T00:00:00+00:00</published>
+        <updated>2023-04-16T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l7/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l7/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 6 - Testing</title>
+        <published>2023-04-09T00:00:00+00:00</published>
+        <updated>2023-04-09T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l6/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l6/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 5 - Minting</title>
+        <published>2023-04-02T00:00:00+00:00</published>
+        <updated>2023-04-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l5/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l5/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 4 - On-chain&#x2F;Off-chain smart contract code and indexers</title>
+        <published>2023-03-26T00:00:00+00:00</published>
+        <updated>2023-03-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l4/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l4/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Ouroboros</title>
+        <published>2023-03-19T00:00:00+00:00</published>
+        <updated>2023-03-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-ouroboros/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-ouroboros/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - lecture 3: Tests, Times, and Dapps</title>
+        <published>2023-03-12T00:00:00+00:00</published>
+        <updated>2023-03-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l3/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l3/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort kick start</title>
+        <published>2023-03-05T00:00:00+00:00</published>
+        <updated>2023-03-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l1-l2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l1-l2/</id>
+        </entry>
+</feed>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Nix flake structure</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Nix flake structure" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2025-03&#x2F;nix-flake-structure&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Nix flake structure
+        </h1>
+
+        <ul class="meta">
+                <li>25th Mar 2025</li>
+                <li title="187 words"><span class='separator' aria-hidden='true'>•</span>1 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/ops/">ops</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/nix/">nix</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/nixos/">nixos</a></li>
+        </ul>
+
+        <section class="body"><p>On my previous log, I have discussed my <a href="https://blackheaven.github.io/2025-03/nas-migration/">NAS/homelab migration</a>.</p>
+<p>Among all the services I host, many (as an example, I'll use <a rel="noopener" target="_blank" href="https://github.com/blackheaven/withings-weights">withings-weights</a>)
+are run using Docker (Podman for NixOS, to be precise).</p>
+<p>I took a look at the closure size with <a rel="noopener" target="_blank" href="https://github.com/utdemir/nix-tree">nix-tree</a>,
+and I have realized that, enabling Docker/Podman was adding many derivations,
+which ends up representing 60% of the closure total weight.</p>
+<p>Moreover, it's a pain to maintain: set up a GitHub Containers Registry,
+maintain a proper CI, either tag the image, or connect to my homelab to run
+<code>docker pull</code> and restart the service.</p>
+<p>So, I have decided to write a proper NixOS service.</p>
+<p>Currently, I rely on my nix flake OCI/Docker image definition:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span> <span class="z-invalid z-illegal">=</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-name z-nix">haskellPackages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">callCabal2nix</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-string z-unquoted z-path z-nix">./.</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-definition z-expression z-nix">)</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">overrideAttrs</span> <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-function z-4 z-nix">old</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">postInstall</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-name z-nix">old</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">postInstall</span> <span class="z-keyword z-operator z-nix">or</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-definition z-expression z-nix">)</span> <span class="z-keyword z-operator z-nix">+</span> <span class="z-string z-quoted z-other z-nix"><span class="z-punctuation z-definition z-string z-other z-start z-nix">&#39;&#39;</span>
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">        mkdir -p $out/share/assets
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">        cp -dr &quot;<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">assets</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>/assets&quot; $out/share/
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">      <span class="z-punctuation z-definition z-string z-other z-end z-nix">&#39;&#39;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-definition z-expression z-nix">)</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights-image</span> <span class="z-invalid z-illegal">=</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">dockerTools</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">buildImage</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">name</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>blackheaven/withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">tag</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>latest<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">copyToRoot</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">buildEnv</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">name</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>image-root<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">paths</span> <span class="z-keyword z-operator z-bind z-nix">=</span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">cacert</span> <span class="z-variable z-parameter z-name z-nix">self</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">system</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">pathsToLink</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/bin<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/etc<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/assets<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">runAsRoot</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-other z-nix"><span class="z-punctuation z-definition z-string z-other z-start z-nix">&#39;&#39;</span>
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">    #!<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">runtimeShell</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">    mkdir -p /store
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">    # Default assets
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">    cp -dr &quot;<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">self</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">system</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>/share/assets&quot; /
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">  <span class="z-punctuation z-definition z-string z-other z-end z-nix">&#39;&#39;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">config</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">Entrypoint</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/bin/withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">Env</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span>
+</span><span class="z-source z-nix">      <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>OAUTH_STORE_PATH=/store/users.json<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">      <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>SERVER_PORT=80<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">      <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>SERVER_ASSETS_PATH=/assets<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">Volumes</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">      <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/store<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/assets<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">default</span> <span class="z-invalid z-illegal">=</span> <span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>Hopefully, nix flake comes with a <a rel="noopener" target="_blank" href="https://nixos.wiki/wiki/Flakes#Output_schema">comprehensive output scheme</a>:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-punctuation z-definition z-entity z-function z-2 z-nix">{</span> <span class="z-variable z-parameter z-function z-1 z-nix">self</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-keyword z-operator z-nix">... </span><span class="z-punctuation z-definition z-entity z-function z-nix">}</span>@<span class="z-variable z-parameter z-function z-3 z-nix">inputs</span><span class="z-punctuation z-definition z-function z-nix">:</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># ...</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># Overlay, consumed by other flakes</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">overlays</span>.<span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>&lt;name&gt;<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-function z-4 z-nix">final</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-variable z-parameter z-function z-4 z-nix">prev</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># Default overlay</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">overlays</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-function z-4 z-nix">final</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-variable z-parameter z-function z-4 z-nix">prev</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># Nixos module, consumed by other flakes</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">nixosModules</span>.<span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>&lt;name&gt;<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-entity z-function z-2 z-nix">{</span> <span class="z-variable z-parameter z-function z-1 z-nix">config</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-keyword z-operator z-nix">... </span><span class="z-punctuation z-definition z-entity z-function z-nix">}</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">options</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">config</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># Default module</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">nixosModules</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-entity z-function z-2 z-nix">{</span> <span class="z-variable z-parameter z-function z-1 z-nix">config</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-keyword z-operator z-nix">... </span><span class="z-punctuation z-definition z-entity z-function z-nix">}</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">options</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-entity z-other z-attribute-name z-multipart z-nix">config</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span> <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset z-nix">}</span>
+</span></code></pre>
+<p>So, I was first able to define the overlay:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-keyword z-other z-nix">let</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># ...</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">nixpkgsOverlay</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-function z-4 z-nix">_final</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-variable z-parameter z-function z-4 z-nix">_prev</span><span class="z-punctuation z-definition z-function z-nix">:</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">withings-weights</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">self</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">packages</span><span class="z-keyword z-operator z-nix">.</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">system</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-keyword z-other z-nix">in</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># ...</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">overlays</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">nixpkgsOverlay</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset z-nix">}</span>
+</span></code></pre>
+<p>And then, the service itself:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">nixosModules</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">default</span> <span class="z-invalid z-illegal">=</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-entity z-function z-2 z-nix">{</span> <span class="z-variable z-parameter z-function z-1 z-nix">pkgs</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-variable z-parameter z-function z-1 z-nix">lib</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-variable z-parameter z-function z-1 z-nix">config</span><span class="z-keyword z-operator z-nix">,</span> <span class="z-keyword z-operator z-nix">... </span><span class="z-punctuation z-definition z-entity z-function z-nix">}</span><span class="z-punctuation z-definition z-function z-nix">:</span>
+</span><span class="z-source z-nix">  <span class="z-keyword z-other z-nix">let</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">cfg</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">config</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">services</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">defaultStoreRootPath</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>/var/lib/withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">defaultStorePath</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">defaultStoreRootPath</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>/users.json<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">defaultUser</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">defaultGroup</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-keyword z-other z-nix">in</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">options</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-keyword z-other z-nix">with</span> <span class="z-variable z-parameter z-name z-nix">lib</span>; <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">services</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">withings-weights</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">enable</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">mkEnableOption</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>Simple withings weight stats WebUI<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">package</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkPackageOption</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>withings-weights<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">assets</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">package</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>/share/assets<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">store</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">defaultStorePath</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">oauthCallbackUrl</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">str</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">oauthClientIdFile</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">oauthClientSecretFile</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">user</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">str</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">defaultUser</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">group</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">str</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">defaultGroup</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">openFirewall</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">bool</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-language z-nix">false</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">port</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkOption</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">type</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">types</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">port</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">            <span class="z-entity z-other z-attribute-name z-multipart z-nix">default</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-numeric z-nix">5555</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">config</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkIf</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">enable</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">nixpkgs</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">overlays</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-variable z-parameter z-name z-nix">nixpkgsOverlay</span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">networking</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">firewall</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">allowedTCPPorts</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">optional</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">openFirewall</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">port</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">users</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">users</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkIf</span> <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">user</span> <span class="z-keyword z-operator z-nix">==</span> <span class="z-variable z-parameter z-name z-nix">defaultUser</span><span class="z-punctuation z-definition z-expression z-nix">)</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">withings-weights</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">isSystemUser</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-language z-nix">true</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">group</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">group</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">users</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">groups</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkIf</span> <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">group</span> <span class="z-keyword z-operator z-nix">==</span> <span class="z-variable z-parameter z-name z-nix">defaultGroup</span><span class="z-punctuation z-definition z-expression z-nix">)</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">withings-weights</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset z-nix">{</span><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">systemd</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">tmpfiles</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">rules</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">mkIf</span> <span class="z-punctuation z-definition z-expression z-nix">(</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">store</span> <span class="z-keyword z-operator z-nix">==</span> <span class="z-variable z-parameter z-name z-nix">defaultStorePath</span><span class="z-punctuation z-definition z-expression z-nix">)</span> <span class="z-punctuation z-definition z-list z-nix">[</span>
+</span><span class="z-source z-nix">        <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>d <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">defaultStoreRootPath</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span> 0755 <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">user</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span> <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">group</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span> -<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">systemd</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">services</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">withings-weights</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">description</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>Withings Weights WebUI<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">after</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>network.target<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">wantedBy</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>multi-user.target<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">script</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-string z-quoted z-other z-nix"><span class="z-punctuation z-definition z-string z-other z-start z-nix">&#39;&#39;</span>
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">          export OAUTH_CLIENT_ID=$(cat <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">oauthClientIdFile</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>)
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">          export OAUTH_CLIENT_SECRET=$(cat <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">oauthClientSecretFile</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>)
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">          exec <span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">getExe</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">package</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span>
+</span></span><span class="z-source z-nix"><span class="z-string z-quoted z-other z-nix">        <span class="z-punctuation z-definition z-string z-other z-end z-nix">&#39;&#39;</span></span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-entity z-other z-attribute-name z-multipart z-nix">serviceConfig</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">User</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">user</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">Group</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">group</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">          <span class="z-entity z-other z-attribute-name z-multipart z-nix">Environment</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span>
+</span><span class="z-source z-nix">            <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>SERVER_PORT=<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-support z-function z-nix">toString</span> <span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">port</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">            <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>SERVER_ASSETS_PATH=<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">assets</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">            <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>OAUTH_CALLBACK_URL=<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">oauthCallbackUrl</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">            <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>OAUTH_STORE_PATH=<span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">cfg</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">store</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span>
+</span><span class="z-source z-nix">          <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">        <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>Then, I have to reference it in my NixOS configuration:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">nixosConfigurations</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">hannibal</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">inputs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">nixpkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">lib</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">nixosSystem</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-keyword z-other z-inherit z-nix">inherit</span> <span class="z-entity z-other z-attribute-name z-single z-nix">system</span><span class="z-punctuation z-terminator z-inherit z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">modules</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span>
+</span><span class="z-source z-nix">      <span class="z-string z-unquoted z-path z-nix">./homelab_hannibal/configuration.nix</span>
+</span><span class="z-source z-nix">      <span class="z-variable z-parameter z-name z-nix">inputs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">nixosModules</span><span class="z-keyword z-operator z-nix">.</span><span class="z-markup z-italic"><span class="z-punctuation z-section z-embedded z-begin z-nix">${</span><span class="z-variable z-parameter z-name z-nix">system</span><span class="z-punctuation z-section z-embedded z-end z-nix">}</span></span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">default</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>So I can get rid of Docker, and use a regular service:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">services</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withings-weights</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">enable</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-language z-nix">true</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">oauthClientIdFile</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">config</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">age</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">secrets</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withingsOauthClientId</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-entity z-other z-attribute-name z-multipart z-nix">oauthClientSecretFile</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-variable z-parameter z-name z-nix">config</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">age</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">secrets</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">withingsOauthClientSecret</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">path</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

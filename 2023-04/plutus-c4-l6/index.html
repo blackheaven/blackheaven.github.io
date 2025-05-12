@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Plutus: Pioneers Program 4th cohort - Lecture 6 - Testing</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Plutus: Pioneers Program 4th cohort - Lecture 6 - Testing" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-04&#x2F;plutus-c4-l6&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Plutus: Pioneers Program 4th cohort - Lecture 6 - Testing
+        </h1>
+
+        <ul class="meta">
+                <li>9th Apr 2023</li>
+                <li title="179 words"><span class='separator' aria-hidden='true'>•</span>1 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/cardano/">cardano</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/smart-contracts/">smart contracts</a></li>
+        </ul>
+
+        <section class="body"><p>I was expecting this lecture for so long: testing.</p>
+<p>At the time of writing, testing utils are provided in <code>Plutus.Model</code>, as part of <a rel="noopener" target="_blank" href="https://github.com/geniusyield/plutus-simple-model/tree/d710c4c5400ff7072fe89c337c1cdd0128dc5d99"><code>plutus-simple-model</code></a>, but are not part of the documentation.</p>
+<p>Tests are organized as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">main</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>main <span class="z-keyword z-operator z-haskell">=</span> defaultMain <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    testGroup
+</span><span class="z-source z-haskell">      <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Test simple user transactions<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">      [ good <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Simple spend<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> simpleSpend
+</span><span class="z-source z-haskell">      ]
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">        bad msg <span class="z-keyword z-operator z-haskell">=</span> good msg <span class="z-keyword z-operator z-haskell">.</span> mustFail
+</span><span class="z-source z-haskell">        good <span class="z-keyword z-operator z-haskell">=</span> testNoErrors (adaValue 10_000_000) defaultBabbage
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">setupUsers</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Run</span> [<span class="z-storage z-type z-haskell">PubKeyHash</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>setupUsers <span class="z-keyword z-operator z-haskell">=</span> replicateM <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-haskell">$</span> newUser <span class="z-keyword z-operator z-haskell">$</span> ada (<span class="z-constant z-other z-haskell">Lovelace</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1000</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span>-------------------------------------------------------------------------------------------------
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span>----------------------------------- TESTING TRANSACTIONS ----------------------------------------
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Function to test that a simple transaction works
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">simpleSpend</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>simpleSpend <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    users <span class="z-keyword z-operator z-haskell">&lt;-</span> setupUsers                <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Create 3 users and assign each 1000 lovelaces
+</span></span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> [u1<span class="z-punctuation z-separator z-comma z-haskell">,</span> u2<span class="z-punctuation z-separator z-comma z-haskell">,</span> u3] <span class="z-keyword z-operator z-haskell">=</span> users           <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Give names to individual users
+</span></span><span class="z-source z-haskell">    sendValue u1 (adaValue <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>) u2     <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Send 100 lovelaces from user 1 to user 2
+</span></span><span class="z-source z-haskell">    sendValue u2 (adaValue <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>) u3     <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Send 100 lovelaces from user 2 to user 3
+</span></span><span class="z-source z-haskell">    isOk <span class="z-keyword z-operator z-haskell">&lt;-</span> noErrors                   <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Check that all TXs were accepted without errors
+</span></span><span class="z-source z-haskell">    vals <span class="z-keyword z-operator z-haskell">&lt;-</span> mapM valueAt users         <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Read user values
+</span></span><span class="z-source z-haskell">    return <span class="z-keyword z-operator z-haskell">$</span> isOk &amp;&amp;                     <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Check isOk and that all users have correct values
+</span></span><span class="z-source z-haskell">           (vals <span class="z-keyword z-operator z-haskell">==</span> fmap adaValue [<span class="z-constant z-numeric z-integer z-decimal z-haskell">900</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1100</span>])
+</span></code></pre>
+<p>We have a Function used to build a <code>TestTree</code>, which is on of the base type of <code>Tasty</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">testNoErrors</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">MockConfig</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TestTree</span>
+</span></span></code></pre>
+<p>It takes a <code>Run a</code>, which wraps a <code>State Mock</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Run</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Run</span> (<span class="z-constant z-other z-haskell">State</span> <span class="z-constant z-other z-haskell">Mock</span> a)
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">deriving</span> <span class="z-keyword z-other z-haskell">newtype</span> (<span class="z-constant z-other z-haskell">Functor</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Applicative</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Monad</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">MonadState</span> <span class="z-constant z-other z-haskell">Mock</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Mock</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Mock</span>
+</span><span class="z-source z-haskell">  { mockUsers       <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">PubKeyHash</span> <span class="z-constant z-other z-haskell">User</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockAddresses   <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">Address</span> (<span class="z-constant z-other z-haskell">Set</span> <span class="z-constant z-other z-haskell">TxOutRef</span>))
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockUtxos       <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">TxOutRef</span> <span class="z-constant z-other z-haskell">TxOut</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockRefScripts  <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">TxOutRef</span> <span class="z-constant z-other z-haskell">TxOut</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockDatums      <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">DatumHash</span> <span class="z-constant z-other z-haskell">Datum</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockStake       <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">Stake</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockTxs         <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Log</span> <span class="z-constant z-other z-haskell">TxStat</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockConfig      <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">MockConfig</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockCurrentSlot <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">Slot</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockUserStep    <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">Integer</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockFails       <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Log</span> <span class="z-constant z-other z-haskell">FailReason</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mockInfo        <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Log</span> <span class="z-constant z-other z-haskell">String</span>)
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> mustFailLog     <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span>(<span class="z-constant z-other z-haskell">Log</span> <span class="z-constant z-other z-haskell">MustFailLog</span>)
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>Nothing spectacular until you notice <code>newUser</code> and <code>sendValue</code>, which actually are one of the many actions you can run as <code>Run</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">newUser</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">PubKeyHash</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">sendValue</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">withSpend</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-storage z-type z-haskell">UserSpend</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">submitTx</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">currentSlot</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Slot</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">currentTime</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">POSIXTime</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">wait</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">waitUntil</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">POSIXTime</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">noErrors</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">valueAt</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Value</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">refValueAt</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Value</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">valueAtState</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Mock</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">valueAtStateBy</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> (<span class="z-storage z-type z-haskell">Mock</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Map</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-storage z-type z-haskell">TxOut</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">user</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Mock</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">getHeadRef</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">UserSpend</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spend</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">UserSpend</span>
+</span></span></code></pre>
+<p>This is the basis of the <code>Run</code> EDSL, allowing sequential use-case writing:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> SETUP USERS
+</span></span><span class="z-source z-haskell">(u1<span class="z-punctuation z-separator z-comma z-haskell">,</span> u2) <span class="z-keyword z-operator z-haskell">&lt;-</span> setupUsers
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> USER 1 LOCKS 100 ADA (&quot;val&quot;) IN VALIDATOR
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">let</span> val <span class="z-keyword z-operator z-haskell">=</span> adaValue <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>                    <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Define value to be transfered
+</span></span><span class="z-source z-haskell">  dsDatum <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">OnChain</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">DatumSwap</span> u2 <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>
+</span><span class="z-source z-haskell">sp <span class="z-keyword z-operator z-haskell">&lt;-</span> spend u1 val                        <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Get user&#39;s UTXO that we should spend
+</span></span><span class="z-source z-haskell">submitTx u1 <span class="z-keyword z-operator z-haskell">$</span> lockingTx dsDatum sp val          <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> User 1 submits &quot;lockingTx&quot; transaction
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> WAIT FOR A BIT
+</span></span><span class="z-source z-haskell">waitUntil waitBeforeConsumingTx
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> USER 2 TAKES &quot;val&quot; FROM VALIDATOR
+</span></span><span class="z-source z-haskell">utxos <span class="z-keyword z-operator z-haskell">&lt;-</span> utxoAt swapScript                <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Query blockchain to get all UTxOs at script
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">let</span> [(ref<span class="z-punctuation z-separator z-comma z-haskell">,</span> out)] <span class="z-keyword z-operator z-haskell">=</span> utxos                  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> We know there is only one UTXO (the one we created before)
+</span></span><span class="z-source z-haskell">ct <span class="z-keyword z-operator z-haskell">&lt;-</span> currentTimeRad <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>                  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Create time interval with equal radius around current time
+</span></span><span class="z-source z-haskell">tx <span class="z-keyword z-operator z-haskell">&lt;-</span> validateIn ct <span class="z-keyword z-operator z-haskell">$</span> consumingTx dsDatum u2 ref (txOutValue out)  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Build Tx
+</span></span><span class="z-source z-haskell">submitTx u2 tx                            <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> User 2 submits &quot;consumingTx&quot; transaction
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> CHECK THAT FINAL BALANCES MATCH EXPECTED BALANCES
+</span></span><span class="z-source z-haskell">[v1<span class="z-punctuation z-separator z-comma z-haskell">,</span> v2] <span class="z-keyword z-operator z-haskell">&lt;-</span> mapM valueAt [u1<span class="z-punctuation z-separator z-comma z-haskell">,</span> u2]                     <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Get final balances of both users
+</span></span><span class="z-source z-haskell">unless (v1 <span class="z-keyword z-operator z-haskell">==</span> adaValue <span class="z-constant z-numeric z-integer z-decimal z-haskell">900</span> &amp;&amp; v2 <span class="z-keyword z-operator z-haskell">==</span> adaValue 1_100) <span class="z-keyword z-operator z-haskell">$</span>  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Check if final balances match expected balances
+</span></span><span class="z-source z-haskell">  logError <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Final balances are incorrect<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span></code></pre>
+<p>A last part coming from <code>Plutus.Model</code> are the transactions which can be sent through <code>submitTx</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">submitTx</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PubKeyHash</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>submitTx pkh tx <span class="z-keyword z-operator z-haskell">=</span> void <span class="z-keyword z-operator z-haskell">$</span> sendTx <span class="z-keyword z-operator z-haskell">=&lt;&lt;</span> signTx pkh tx
+</span></code></pre>
+<p>Note: I find "funny" that <code>plutus-simple-model</code> follows that closely Cardano's model.</p>
+<p>There's a lot of helpers to build Transactions:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">payToScript</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">HasDatum</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>, <span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumMode</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">loadRefScript</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">loadRefScriptDatum</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumMode</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">loadRefScriptBy</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> (<span class="z-storage z-type z-haskell">DatumMode</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>)) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">payToRef</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">HasAddress</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>, <span class="z-storage z-type z-haskell">HasDatum</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumMode</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">payFee</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Ada</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spendPubKey</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spendScript</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spendScriptRef</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">refInputInline</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">refInputHash</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">ToData</span> <span class="z-variable z-other z-generic-type z-haskell">datum</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">datum</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">collateralInput</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">refBoxInline</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TxBox</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">refBoxHash</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">TxBox</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spendBox</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxBox</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">readOnlyBox</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxBox</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">modifyBox</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">TxBox</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">DatumMode</span> (<span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>)) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">userSpend</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">UserSpend</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mintTx</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Mint</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mintValue</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">ToData</span> <span class="z-variable z-other z-generic-type z-haskell">redeemer</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">TypedPolicy</span> <span class="z-variable z-other z-generic-type z-haskell">redeemer</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">redeemer</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Value</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">validateIn</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">POSIXTimeRange</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Tx</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Run</span> <span class="z-storage z-type z-haskell">Tx</span>
+</span></span></code></pre>
+<p>You can notice two types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Tx</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Tx</span>
+</span><span class="z-source z-haskell">    { txInputs      <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> <span class="z-constant z-other z-haskell">TxIn</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txCollateral  <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> <span class="z-constant z-other z-haskell">TxIn</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txReferenceInputs <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> <span class="z-constant z-other z-haskell">TxIn</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txOutputs     <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxOut</span>]
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txCollateralReturn <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Maybe</span> <span class="z-constant z-other z-haskell">TxOut</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txTotalCollateral <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Maybe</span> <span class="z-constant z-other z-haskell">Ada</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txMint        <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">Value</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txFee         <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">Ada</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txValidRange  <span class="z-keyword z-operator z-haskell">::</span> <span class="z-keyword z-operator z-haskell">!</span><span class="z-constant z-other z-haskell">SlotRange</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txMintScripts <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> (<span class="z-constant z-other z-haskell">Versioned</span> <span class="z-constant z-other z-haskell">MintingPolicy</span>)
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txSignatures  <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">PubKeyHash</span> (<span class="z-constant z-other z-haskell">C</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">KeyPair</span> &#39;<span class="z-constant z-other z-haskell">C</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Witness</span> <span class="z-constant z-other z-haskell">C</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">StandardCrypto</span>)
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txRedeemers   <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Redeemers</span>
+</span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txData        <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">DatumHash</span> <span class="z-constant z-other z-haskell">Datum</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Miniting scripts redeemers
+</span></span><span class="z-source z-haskell">    <span class="z-punctuation z-separator z-comma z-haskell">,</span> txScripts     <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">ScriptHash</span> (<span class="z-constant z-other z-haskell">Versioned</span> <span class="z-constant z-other z-haskell">Script</span>)
+</span><span class="z-source z-haskell">    }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TxBox</span> script <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TxBox</span>
+</span><span class="z-source z-haskell">  { txBoxRef   <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TxOutRef</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txBoxOut   <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TxOut</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txBoxDatum <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">DatumType</span> script
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>As you might guess, <code>Tx</code> represents a transaction, while <code>TxBox</code> represents script/validator data.</p>
+<p>Note that it's quite different of Plutus' <code>TxInfo</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TxInfo</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TxInfo</span>
+</span><span class="z-source z-haskell">  { txInfoInputs <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxInInfo</span>]
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoReferenceInputs <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxInInfo</span>]
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoOutputs <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">TxOut</span>]
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoFee <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Value</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoMint <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Value</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoDCert <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">DCert</span>]
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoWdrl <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">StakingCredential</span> <span class="z-constant z-other z-haskell">Integer</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoValidRange <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">POSIXTimeRange</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoSignatories <span class="z-keyword z-operator z-haskell">::</span> [<span class="z-constant z-other z-haskell">PubKeyHash</span>]
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoRedeemers <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">ScriptPurpose</span> <span class="z-constant z-other z-haskell">Redeemer</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoData <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">DatumHash</span> <span class="z-constant z-other z-haskell">Datum</span>
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> txInfoId <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TxId</span>
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>The translation is done in some transactions builder:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">spendScript</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">IsValidator</span> <span class="z-variable z-other z-generic-type z-haskell">script</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">TxOutRef</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">RedeemerType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">DatumType</span> <span class="z-variable z-other z-generic-type z-haskell">script</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Tx</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>spendScript tv ref red dat <span class="z-keyword z-operator z-haskell">=</span> toExtra <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">  mempty
+</span><span class="z-source z-haskell">    { <span class="z-constant z-other z-haskell">P</span><span class="z-keyword z-operator z-haskell">.</span>txInputs <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">S</span><span class="z-keyword z-operator z-haskell">.</span>singleton <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Fork</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">TxIn</span> ref (<span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Fork</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">ConsumeScriptAddress</span> (<span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Versioned</span> (getLanguage tv) (toValidator tv)) (toRedeemer red) (toDatum dat))
+</span><span class="z-source z-haskell">    }
+</span></code></pre>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

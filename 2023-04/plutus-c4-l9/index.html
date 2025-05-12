@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-04&#x2F;plutus-c4-l9&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin
+        </h1>
+
+        <ul class="meta">
+                <li>30th Apr 2023</li>
+                <li title="542 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/cardano/">cardano</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/smart-contracts/">smart contracts</a></li>
+        </ul>
+
+        <section class="body"><p>Today's lecture aims to be a wrap-up of previous lectures by implementing a stablecoin.</p>
+<p>It's supposed to be the indexed (i.e. synchronized) representation of a real-world currency.</p>
+<p>Cardano already hosts multiple stablecoins indexed on the USD: <a rel="noopener" target="_blank" href="https://djed.xyz/">DJED</a> and <a rel="noopener" target="_blank" href="https://www.anzens.com/">USDA</a>.</p>
+<p>This lecture will present an over-collateralized algorithmic stablecoin which uses a liquidation mechanism to incentivise stability.
+Which can be broke down as follows:</p>
+<ul>
+<li>Over-collateralized: it takes an extra (150%) amount of collateral to mint the stable coin</li>
+<li>Algorithimic: it relies on a smartcontracts enforcing stablecoin's price</li>
+<li>Liquididation mechanism to incentivise stability: the extra amount of collateral (in opposition to the minted coin's value) which is used to reward someone when he/she liquidates someone else position
+<ul>
+<li>Liquidating consists in burning the same amount of token in order get their collateral</li>
+<li>Liquidating can only be done when the value of the coin and the value locked in the collateral are below a certain threshold</li>
+</ul>
+</li>
+<li>Stability: it's ensured by miniting more stablecoins when ADA goes up, and add more collaterals or burn stablecoins when ADA goes down</li>
+</ul>
+<p>Conceptually, it takes:</p>
+<ul>
+<li>A validator script for the oracle which keeps the value up-to-date</li>
+<li>A minting policy for the collateral, to lock and release collaterals</li>
+<li>A minting policy for the minting of the stablecoin</li>
+</ul>
+<p>To deploy the Oracle, we should:</p>
+<ul>
+<li>Mint a NFT</li>
+<li>Actually deploy the oracle validator which is an utxo containing the current ADA/USD rate and the NFT (to identify the oracle)</li>
+</ul>
+<p>Then we should deploy the collateral validator and minting policy  as reference scripts in the same transaction.</p>
+<p>Moreover, we need a smart contract which allows updating the conversion rate, meaning:</p>
+<ul>
+<li>Inputs previous utxo (NFT + old rate)</li>
+<li>Outputs a new utxo (NFT + new rate)</li>
+</ul>
+<p>Then comes the user stable coin minting, which is a transaction containing:</p>
+<ul>
+<li>Inputs: user's collaterals (which will be locked), minting policy as reference script, and the oracle validator as reference input</li>
+<li>Outputs: Collateral validator (an utxo with the collateral, and collateral owner and minted amount as datum), and stables in user's wallet</li>
+</ul>
+<p>Burning stablecoin takes a transaction which unlock collaterals and mint stablecoins based:</p>
+<ul>
+<li>User's stablecoins</li>
+<li>The first collateral validator as reference script</li>
+<li>Minting policy as reference script</li>
+<li>The second collateral validator (the utxo with the collateral, and collateral owner and minted amount as datum), which  ensures it's your stablecoins you're burning</li>
+</ul>
+<p>However, liquidating a other user's stablecoin is slightly different as it takes:</p>
+<ul>
+<li>Liquidator's stablecoins</li>
+<li>The first collateral validator as reference script</li>
+<li>Minting policy as reference script</li>
+<li>The second collateral validator (the utxo with the collateral, and collateral owner and minted amount as datum)</li>
+<li>Oracle validator as reference input (with the NFT and the conversion rate)</li>
+</ul>
+<p>Doing so gives you access to the other user's collateral.</p>
+<p>If we follows a complete example:</p>
+<ul>
+<li><em>User 1</em> mints 100 stablecoins, which locks a collateral of 150 ADA (a threshold of 150%, as 1 USD = 1 ADA)</li>
+<li>If the conversion rate drops (let's say 1 ADA = 0.90 USD), then there's an incentive to liquidate <em>User 1</em> position</li>
+<li><em>User 2</em> will then mint 100 stablecoins, at a lower price (135 ADA in the collateral, 100 stablecoins * 150% * 0.90 USD/ADA), and liquidates <em>User 1</em> position, keeping the rewards (15 ADA), without affecting stablecoin's stability</li>
+</ul>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

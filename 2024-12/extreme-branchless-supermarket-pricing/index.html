@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Extreme branchless: Supermarket Pricing</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Extreme branchless: Supermarket Pricing" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-12&#x2F;extreme-branchless-supermarket-pricing&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Extreme branchless: Supermarket Pricing
+        </h1>
+
+        <ul class="meta">
+                <li>10th Dec 2024</li>
+                <li title="282 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/functional-programming/">functional programming</a></li>
+        </ul>
+
+        <section class="body"><p>Continuing my <a href="https://blackheaven.github.io/2024-11/extreme-branchless-2/">branchless</a> journey.</p>
+<p>This time: <a rel="noopener" target="_blank" href="http://codekata.com/kata/kata01-supermarket-pricing/">Supermarket pricing</a> kata.</p>
+<p>While this kata aims to be thought experiment around Money and units, it's an
+interesting opportunity to apply some principles describe in the previous logs.</p>
+<p>Let's start with the first rule:</p>
+<blockquote>
+<p>three for a dollar (so what’s the price if I buy 4, or 5?)</p>
+</blockquote>
+<p>The simplest case would be to only represent three items of <code>$1</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Three for a dollar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>base case<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    threeForADollar <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">USDAmount</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> { unUSDAmount <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Int</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Show</span> <span class="z-storage z-type z-haskell">USDAmount</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  show (<span class="z-constant z-other z-haskell">USDAmount</span> x) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>$<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> printf <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>%.2f<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> (fromIntegral @_ @<span class="z-constant z-other z-haskell">Float</span> x <span class="z-keyword z-operator z-haskell">/</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>
+</span></code></pre>
+<p>Okay, let's get serious, we can add arbitrary numbers:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Three for a dollar<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>3 is $1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    threeForADollar&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">3</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>5 is $2<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    threeForADollar&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">5</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">200</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>6 is $2<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    threeForADollar&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">6</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">200</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>7 is $2.50<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    threeForADollar&#39; <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">250</span>
+</span></code></pre>
+<p>We'll introduce two concepts we have seen in previous logs:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Natural</span> (forall x<span class="z-keyword z-operator z-haskell">.</span> (x <span class="z-keyword z-operator z-haskell">-&gt;</span> x) <span class="z-keyword z-operator z-haskell">-&gt;</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> x)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Num</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Natural</span> m <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-other z-haskell">Natural</span> n <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>f x <span class="z-keyword z-operator z-haskell">-&gt;</span> m f (n f x)
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Natural</span> m * <span class="z-constant z-other z-haskell">Natural</span> n <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>f x <span class="z-keyword z-operator z-haskell">-&gt;</span> m (n f) x
+</span><span class="z-source z-haskell">  abs <span class="z-keyword z-operator z-haskell">=</span> id
+</span><span class="z-source z-haskell">  signum (<span class="z-constant z-other z-haskell">Natural</span> n) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>f x <span class="z-keyword z-operator z-haskell">-&gt;</span> n (const <span class="z-keyword z-operator z-haskell">$</span> f x) x
+</span><span class="z-source z-haskell">  fromInteger <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ x <span class="z-keyword z-operator z-haskell">-&gt;</span> x
+</span><span class="z-source z-haskell">      n <span class="z-keyword z-operator z-haskell">|</span> n <span class="z-keyword z-operator z-haskell">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> error <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Church Natural can&#39;t be negative<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-other z-haskell">let</span> <span class="z-constant z-other z-haskell">Natural</span> m <span class="z-keyword z-operator z-haskell">=</span> fromInteger (n <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-other z-haskell">in</span> <span class="z-constant z-other z-haskell">Natural</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>f x <span class="z-keyword z-operator z-haskell">-&gt;</span> f (m f x)
+</span><span class="z-source z-haskell">  <span class="z-entity z-name z-function z-infix z-haskell">(-)</span> <span class="z-keyword z-operator z-haskell">=</span> error <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Church Natural can&#39;t be subtracted<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Show</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  show (<span class="z-constant z-other z-haskell">Natural</span> f) <span class="z-keyword z-operator z-haskell">=</span> show <span class="z-keyword z-operator z-haskell">$</span> f (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span>) <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Chained</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Chained</span>
+</span><span class="z-source z-haskell">  { current <span class="z-keyword z-operator z-haskell">::</span> a
+</span><span class="z-source z-haskell">  <span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Chained</span> a
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>Note: <code>Chained</code> will help us to structure our "behavior"/"strategy" selection as such:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar0</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar0 <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current<span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next<span class="z-keyword z-operator z-haskell">=</span>threeForADollar1}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar1 <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current<span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next<span class="z-keyword z-operator z-haskell">=</span>threeForADollar2}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar2</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar2 <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current<span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next<span class="z-keyword z-operator z-haskell">=</span>threeForADollar3}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar3</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar3 <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current<span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next<span class="z-keyword z-operator z-haskell">=</span>threeForADollar1}
+</span></code></pre>
+<p>Finally, we can come up with a function which moves along the behaviors with the number of items:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar&#39; (<span class="z-constant z-other z-haskell">Natural</span> n) <span class="z-keyword z-operator z-haskell">=</span> (n (<span class="z-keyword z-operator z-haskell">.</span>next) threeForADollar0)<span class="z-keyword z-operator z-haskell">.</span>current
+</span></code></pre>
+<p>And it... does not work:</p>
+<ul>
+<li><code>3</code> gives <code>$1.00</code></li>
+<li><code>5</code> gives <code>$0.50</code></li>
+<li><code>6</code> gives <code>$1.00</code></li>
+<li><code>7</code> gives <code>$0.50</code></li>
+</ul>
+<p>Instead, we have to accumulate previous amount:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar&#39; (<span class="z-constant z-other z-haskell">Natural</span> n) <span class="z-keyword z-operator z-haskell">=</span> (n (<span class="z-keyword z-operator z-haskell">.</span>next) (threeForADollar0 <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>))<span class="z-keyword z-operator z-haskell">.</span>current
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar0</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">USDAmount</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar0 prev <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current <span class="z-keyword z-operator z-haskell">=</span> prev<span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> threeForADollar1 prev}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar1</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">USDAmount</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar1 prev <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current <span class="z-keyword z-operator z-haskell">=</span> prev <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> threeForADollar2 prev}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar2</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">USDAmount</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar2 prev <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current <span class="z-keyword z-operator z-haskell">=</span> prev <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> threeForADollar3 prev}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForADollar3</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">USDAmount</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Chained</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForADollar3 prev <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Chained</span> {current <span class="z-keyword z-operator z-haskell">=</span> prev <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> next <span class="z-keyword z-operator z-haskell">=</span> threeForADollar1 (prev <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span>)}
+</span></code></pre>
+<p>Note: <code>threeForADollar1</code> and <code>threeForADollar2</code> does not accumulate on next value, we could have, it's a design choice.</p>
+<p>Let's tackle the next rule:</p>
+<blockquote>
+<p>$1.99/pound (so what does 4 ounces cost?)</p>
+</blockquote>
+<p>We can come up with some tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Price per pound<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>1lbs is $1.99<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    pricePerPound (lbs <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">199</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>4oz is $0.50<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    pricePerPound (oz <span class="z-constant z-numeric z-integer z-decimal z-haskell">4</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">50</span>
+</span></code></pre>
+<p>On a purely practical level, we could either have pounds designed as <code>Float</code>/<code>Double</code>/<code>Ratio</code>,
+or as ounces with smart constructors (which will enable us to reuse Church encoding):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Lbs</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Lbs</span> { getOz <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Natural</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Show</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">oz</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Lbs</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>oz <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Lbs</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">lbs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Natural</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Lbs</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>lbs <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Lbs</span> <span class="z-keyword z-operator z-haskell">.</span> (*<span class="z-constant z-numeric z-integer z-decimal z-haskell">16</span>)
+</span></code></pre>
+<p>Given that <code>1 lbs === 16 oz</code>, we can simply multiply the number of ounces by <code>1/16</code> of <code>$1.99</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">pricePerPound</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Lbs</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>pricePerPound (<span class="z-constant z-other z-haskell">Lbs</span> (<span class="z-constant z-other z-haskell">Natural</span> n)) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-keyword z-operator z-haskell">$</span> ceiling @<span class="z-constant z-other z-haskell">Double</span> <span class="z-keyword z-operator z-haskell">$</span> fromInteger (numerator ratio) * <span class="z-constant z-numeric z-integer z-decimal z-haskell">199</span> <span class="z-keyword z-operator z-haskell">/</span> fromInteger (denominator ratio)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> ratio <span class="z-keyword z-operator z-haskell">=</span> n (<span class="z-keyword z-operator z-haskell">+</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">%</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">16</span>)) <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span></code></pre>
+<p>Finally, the last rule of the kata:</p>
+<blockquote>
+<p>buy two, get one free (so does the third item have a price?)</p>
+</blockquote>
+<p>As a design decision, we'll represent each prices, dropping every <code>3rd</code> element:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">    describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Buy two, get one free<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">      it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Two items only should sum<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        threeForTwo [<span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">150</span>] <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">250</span>
+</span><span class="z-source z-haskell">      it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Five items only should sum without the third<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        threeForTwo [<span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">100</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">150</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">200</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">250</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">300</span>] <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">800</span>
+</span></code></pre>
+<p>We can reuse our zipping mechanism from <a href="https://blackheaven.github.io/2024-03/fizzbuzz/">FizzBuzz</a>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">threeForTwo</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">USDAmount</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">USDAmount</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>threeForTwo <span class="z-keyword z-operator z-haskell">=</span> sum <span class="z-keyword z-operator z-haskell">.</span> zipWith <span class="z-entity z-name z-function z-infix z-haskell">($)</span> (cycle [id<span class="z-punctuation z-separator z-comma z-haskell">,</span> id<span class="z-punctuation z-separator z-comma z-haskell">,</span> const (<span class="z-constant z-other z-haskell">USDAmount</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>)])
+</span></code></pre>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

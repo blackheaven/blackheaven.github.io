@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Type-driven development applied: librarian</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Type-driven development applied: librarian" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-02&#x2F;tydd-applied-librarian&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Type-driven development applied: librarian
+        </h1>
+
+        <ul class="meta">
+                <li>25th Feb 2024</li>
+                <li title="500 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/engineering/">engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/type-driven-design/">type-driven design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/test-driven-development/">test-driven development</a></li>
+        </ul>
+
+        <section class="body"><p>In my <a href="https://blackheaven.github.io/2024-02/types-tests/">previous log</a> I have introduced <em>Type-Driven Development</em>,
+it was an overview of how I practice.
+I feel the need to show concretely how it works.</p>
+<p>A long time ago, I worked in a company which had customers who were pushing
+data through a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/FTP_server">FTP server</a>.
+The problem was that each customer had their own naming convention, to simplify
+the ingestion in our <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Extract,_transform,_load">ETL</a>,
+I have created <a rel="noopener" target="_blank" href="https://github.com/blackheaven/librarian">librarian</a> few
+times ago to mimic a regex-based ruleset to rename/normalize filenames.</p>
+<p>It works as follows:</p>
+<p>Create a <a rel="noopener" target="_blank" href="https://dhall-lang.org/">dhall file</a> expressing your renaming patterns:</p>
+<pre data-lang="dhall" class="language-dhall z-code"><code class="language-dhall" data-lang="dhall"><span class="z-text z-plain">[
+</span><span class="z-text z-plain">  { name = &quot;All footages&quot;
+</span><span class="z-text z-plain">  , match = &quot;CCTV/**/*.*m*&quot;
+</span><span class="z-text z-plain">  , movers = [
+</span><span class="z-text z-plain">        { inputPattern = &quot;CCTV/(.*)/(\\d+)\\.mp4&quot;
+</span><span class="z-text z-plain">        , newName = &quot;sorted/\\2/\\1.mp4&quot;
+</span><span class="z-text z-plain">        }
+</span><span class="z-text z-plain">    ]
+</span><span class="z-text z-plain">  }
+</span><span class="z-text z-plain">]
+</span></code></pre>
+<p>Run <em>librarian</em> and review moves:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ librarian -r examples/cctv.dhall
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garage/220520.mp4&#39; -&gt; &#39;./sorted/220520/garage.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garage/220521.mp4&#39; -&gt; &#39;./sorted/220521/garage.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garage/220522.mp4&#39; -&gt; &#39;./sorted/220522/garage.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garage/220523.mp4&#39; -&gt; &#39;./sorted/220523/garage.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garden/220520.mp4&#39; -&gt; &#39;./sorted/220520/garden.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garden/220521.mp4&#39; -&gt; &#39;./sorted/220521/garden.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garden/220522.mp4&#39; -&gt; &#39;./sorted/220522/garden.mp4&#39;
+</span><span class="z-text z-plain">[All footages] &#39;./CCTV/garden/220523.mp4&#39; -&gt; &#39;./sorted/220523/garden.mp4&#39;
+</span><span class="z-text z-plain">Move? (y/n)
+</span></code></pre>
+<p>Currently, it is architected around three functions:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fetchRulesOn</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">FilePath</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Rule</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-storage z-type z-haskell">CollectedFiles</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">planMoves</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">CollectedFiles</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> [<span class="z-storage z-type z-haskell">Move</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">runPlan</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Move</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-storage z-type z-haskell">RunResult</span>
+</span></span></code></pre>
+<p>It aims to be used as follows:</p>
+<ul>
+<li><code>fetchRulesOn</code>: apply rules on each file and associate files to a rule to apply</li>
+<li><code>planMoves</code>: convert file/rule to actions (limited to move/rename)</li>
+<li><code>runPlan</code>: apply moves on the file system</li>
+</ul>
+<p>In my current position we have another concern: backups garbage collection.</p>
+<p>Briefly: we are operating many microservices with their own data-stores, multiple
+times a day we run snapshots to have backups, they are done on each machine
+and copied on an AWS S3 bucket (replicated on multiple cold storages), the
+thing is, we want to keep some depth in local backups, but in a smart way:</p>
+<ul>
+<li>All snapshots of the last month</li>
+<li>One snapshot a day on the last 1-3 months</li>
+<li>One snapshot a week on the last 3-6 months</li>
+<li>One snapshot per month after 6 months</li>
+</ul>
+<p>We have to change our existing, so we would be able to:</p>
+<ul>
+<li>Have other actions than move (copy, remove)</li>
+<li>Have multiple rules applied to a single file (for example: copy, copy, and move)</li>
+<li>Group and select files</li>
+</ul>
+<p>You might have noticed the order is reverse of our "business" value.</p>
+<p>I have intentionally ordered them, so I have small steps.</p>
+<p>Let start with <code>Move</code> which will <code>ResolvedAction</code>, and <code>Mover</code> to <code>Action</code>,
+then we can add some tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>fetchRulesOn<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>move<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Text files only should match only all rule<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> moveRules)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> moveRule1Any)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> moveRule1Any)]
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>copy<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Text files only should match only all rule<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> copyRules)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> copyRule1Any)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> copyRule1Any)]
+</span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>planActions<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>move<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Images should be moved, texts should have their extension changed<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      planActions (<span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> moveRule0Jpg)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> moveRule1Any)])
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [ <span class="z-constant z-other z-haskell">ResolvedMove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.TXT<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> moveRule1Any<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                     <span class="z-constant z-other z-haskell">ResolvedMove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/pics/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> moveRule0Jpg
+</span><span class="z-source z-haskell">                   ]
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>copy<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Images should be copyd, texts should have their extension changed<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      planActions (<span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> copyRule0Jpg)<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> copyRule1Any)])
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [ <span class="z-constant z-other z-haskell">ResolvedCopy</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.TXT<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> copyRule1Any<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                     <span class="z-constant z-other z-haskell">ResolvedCopy</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/pics/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> copyRule0Jpg
+</span><span class="z-source z-haskell">                   ]
+</span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>runPlan<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>move<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> moveAll <span class="z-keyword z-operator z-haskell">=</span> fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> [moveAllTxtRule] <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> runPlan <span class="z-keyword z-operator z-haskell">.</span> planActions
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Overriding paths should block the second move<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] moveAll
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [ (<span class="z-constant z-other z-haskell">FsMove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Done</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                         (<span class="z-constant z-other z-haskell">FsMove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Existing</span>)
+</span><span class="z-source z-haskell">                       ]
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Overriding paths should keep the second file<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (moveAll <span class="z-keyword z-operator z-haskell">&gt;&gt;</span> listFiles)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>copy<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> copyAll <span class="z-keyword z-operator z-haskell">=</span> fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> [copyAllTxtRule] <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> runPlan <span class="z-keyword z-operator z-haskell">.</span> planActions
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Overriding paths should block the second copy<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] copyAll
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [ (<span class="z-constant z-other z-haskell">FsCopy</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Done</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                         (<span class="z-constant z-other z-haskell">FsCopy</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Existing</span>)
+</span><span class="z-source z-haskell">                       ]
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Overriding paths should keep the second file<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (copyAll <span class="z-keyword z-operator z-haskell">&gt;&gt;</span> listFiles)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>Tests are mostly copy-pasted (their behaviors are really close), but it forces
+us to add <code>*Copy</code> constructors:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Action</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Move</span> {inputPattern <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> newName <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Copy</span> {inputPattern <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> newName <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">ResolvedAction</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">ResolvedMove</span> {original <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> new <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> rule <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Rule</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">ResolvedCopy</span> {original <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> new <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> rule <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Rule</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">FsAction</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">FsMove</span> {from <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> to <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">FsCopy</span> {from <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> to <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span></code></pre>
+<p>Doing so we move from a product type to a sum type, which forces us to add <code>case</code>s
+everywhere (that's what we want):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">displayPlan</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">ResolvedAction</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>displayPlan <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  mapM_ <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">ResolvedMove</span> {<span class="z-keyword z-operator z-haskell">..</span>} <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      putStrLn <span class="z-keyword z-operator z-haskell">$</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Move [<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> getRuleName (name rule) <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>] &#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> original <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39; -&gt; &#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> new <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">ResolvedCopy</span> {<span class="z-keyword z-operator z-haskell">..</span>} <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      putStrLn <span class="z-keyword z-operator z-haskell">$</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Copy [<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> getRuleName (name rule) <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>] &#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> original <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39; -&gt; &#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> new <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>&#39;<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span></code></pre>
+<p>Secondly, we want to support multiple <code>Action</code>s per files, this time we start
+with types, especially <code>CollectedFiles</code> which associate files to rule:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Before
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">CollectedFiles</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">FilePath</span> <span class="z-constant z-other z-haskell">Rule</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> After
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">CollectedFiles</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">FilePath</span> (<span class="z-constant z-other z-haskell">Seq</span> <span class="z-constant z-other z-haskell">Rule</span>)
+</span></code></pre>
+<p>Note: <code>Seq</code> is a <code>List</code>-like container</p>
+<p>Changes are minimal (a flattening here and there), internal tests are impacted
+a bit:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>fetchRulesOn<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>move<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Text files only should match only all rule<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> moveRules)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> [moveRule1Any])<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> [moveRule1Any])]
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Text/images files should match twice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> moveRules)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList [(<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> [moveRule0Jpg<span class="z-punctuation z-separator z-comma z-haskell">,</span> moveRule1Any])<span class="z-punctuation z-separator z-comma z-haskell">,</span> (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> [moveRule1Any])]
+</span></code></pre>
+<p>Notice how the last test case gives two matching rules.</p>
+<p>Then we can add a comprehensive test:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>runPlan<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>mixed<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> mixed <span class="z-keyword z-operator z-haskell">=</span> fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> [copyAllTxtRule<span class="z-punctuation z-separator z-comma z-haskell">,</span> removeAllTxtRule] <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> runPlan <span class="z-keyword z-operator z-haskell">.</span> planActions
+</span><span class="z-source z-haskell">    it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Should copy and delete<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] (mixed <span class="z-keyword z-operator z-haskell">&gt;&gt;</span> listFiles)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./out/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>Finally, we have the most challenging part: group and select files.</p>
+<p>First, let's sketch an expression to model our use case:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-constant z-other z-haskell">Rule</span>
+</span><span class="z-source z-haskell">  { name <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Purge old text files<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">    match <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>**/*.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">    grouping <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">Group</span>
+</span><span class="z-source z-haskell">        { groupCriteria <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">ByDate</span> (<span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-constant z-other z-haskell">CreationTime</span>) <span class="z-constant z-other z-haskell">Daily</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">          groupSelection <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">After</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-constant z-other z-haskell">SortingAsc</span> (<span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-constant z-other z-haskell">CreationTime</span>)
+</span><span class="z-source z-haskell">        }<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">    filtering <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">GtF</span> (<span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-constant z-other z-haskell">CreationTime</span>) (<span class="z-constant z-other z-haskell">SourceTime</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">31</span>)
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>AndF<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">LtF</span> (<span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-constant z-other z-haskell">CreationTime</span>) (<span class="z-constant z-other z-haskell">SourceTime</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">92</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">    actions <span class="z-keyword z-operator z-haskell">=</span> [<span class="z-constant z-other z-haskell">Remove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>^.*/([<span class="z-constant z-character z-escape z-control z-haskell">^\</span>\/]+)$<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span><span class="z-source z-haskell">  }
+</span></code></pre>
+<p>We can start modifying our <code>Rule</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Rule</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Rule</span>
+</span><span class="z-source z-haskell">  { name <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">RuleName</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">match</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Matcher</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">grouping</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Grouping</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">filtering</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Filtering</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">actions</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Action</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  }
+</span></code></pre>
+<p>Then, there is a bunch of setup to do:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Grouping</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">FileGroup</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Group</span> {groupCriteria <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">GroupingCriteria</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> groupSelection <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">GroupSelection</span>}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Source</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">SourceDate</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Source</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">SourceTime</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TimeSpec</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Source</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">SourceDate</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CreationTime</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">AccessTime</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TimeSpec</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">HoursAgo</span> <span class="z-constant z-other z-haskell">Int</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-other z-haskell">Int</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">AbsoluteTime</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">SortingOrder</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">SortingAsc</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">SortingDesc</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">GroupSelection</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">AllGS</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">After</span> <span class="z-constant z-other z-haskell">Int</span> <span class="z-constant z-other z-haskell">SortingOrder</span> (<span class="z-constant z-other z-haskell">Source</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">Before</span> <span class="z-constant z-other z-haskell">Int</span> <span class="z-constant z-other z-haskell">SortingOrder</span> (<span class="z-constant z-other z-haskell">Source</span> a)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">GroupingCriteria</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">ByDate</span> (<span class="z-constant z-other z-haskell">Source</span> a) (<span class="z-constant z-other z-haskell">GroupingBucket</span> a)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">GroupingBucket</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Daily</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">GroupingBucket</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Weekly</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">GroupingBucket</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Monthly</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">GroupingBucket</span> <span class="z-constant z-other z-haskell">Date</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Filtering</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">AllF</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">AndF</span> <span class="z-constant z-other z-haskell">Filtering</span> <span class="z-constant z-other z-haskell">Filtering</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">OrF</span> <span class="z-constant z-other z-haskell">Filtering</span> <span class="z-constant z-other z-haskell">Filtering</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">GtF</span> (<span class="z-constant z-other z-haskell">Source</span> a) (<span class="z-constant z-other z-haskell">Source</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> forall a<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">LtF</span> (<span class="z-constant z-other z-haskell">Source</span> a) (<span class="z-constant z-other z-haskell">Source</span> a)
+</span></code></pre>
+<p>Finally, we can change our implementation, but this is mostly implementation
+details (and this log is long enough).</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

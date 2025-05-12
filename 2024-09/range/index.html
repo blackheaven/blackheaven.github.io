@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Designing strongly typed range</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Designing strongly typed range" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-09&#x2F;range&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Designing strongly typed range
+        </h1>
+
+        <ul class="meta">
+                <li>24th Sep 2024</li>
+                <li title="386 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a></li>
+        </ul>
+
+        <section class="body"><p>Recently in our codebase I have introduced ranges to disambiguate the values
+we passed around, such as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">listGuideTours</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Members</span> <span class="z-storage z-type z-haskell">AppEffects</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GuideId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Day</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Day</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">m</span> [<span class="z-storage z-type z-haskell">Tour</span>]
+</span></span></code></pre>
+<p>It's not clear wether each bound is exclusive or not (even though we assumed
+first argument should be inferior to the second).</p>
+<p>Hackage has few range libraries: <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/range">range</a>,
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/data-interval">data-interval</a>,
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/interval">interval</a>,
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/intervals">intervals</a>, etc.</p>
+<p>Which let me write something like:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">listGuideTours</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Members</span> <span class="z-storage z-type z-haskell">AppEffects</span> <span class="z-variable z-other z-generic-type z-haskell">r</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GuideId</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Range</span> <span class="z-storage z-type z-haskell">Day</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">m</span> [<span class="z-storage z-type z-haskell">Tour</span>]
+</span></span></code></pre>
+<p>The thing is, nothing forces <code>Range</code> to have any bounds, that's why I wanted to
+make this log: show the design process behind the incremental strong typing.</p>
+<p>Let's start with a regular types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | Represents a bound, with exclusiveness.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Bound</span> a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | The value should be included in the bound.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">InclusiveBound</span> a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | The value should be excluded in the bound.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">ExclusiveBound</span> a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Functor</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | All kinds of ranges.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Range</span> a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A single element. It is equivalent to @SpanRange (InclusiveBound a) (InclusiveBound a)@.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">SingletonRange</span> a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A span of elements. Make sure lower bound &lt;= upper bound.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">SpanRange</span> (<span class="z-constant z-other z-haskell">Bound</span> a) (<span class="z-constant z-other z-haskell">Bound</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A range with a finite lower bound and an infinite upper bound.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">LowerBoundRange</span> (<span class="z-constant z-other z-haskell">Bound</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A range with an infinite lower bound and a finite upper bound.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">UpperBoundRange</span> (<span class="z-constant z-other z-haskell">Bound</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | An infinite range.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">InfiniteRange</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | An empty range.
+</span></span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">EmptyRange</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Functor</span>)
+</span></code></pre>
+<p>The thing is, we need to somehow add type-level information on each constructor
+to specify the presence/absence of the bounds, however, by default, all
+constructors have the same types.</p>
+<p>To do so, we need to rely on <a rel="noopener" target="_blank" href="https://wiki.haskell.org/GADTs_for_dummies">GADTs</a>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | All kinds of ranges.
+</span></span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Range</span> (hasLowerBound <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Bool</span>) (hasUpperBound <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Bool</span>) (a <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span>) <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A single element. It is equivalent to @SpanRange (InclusiveBound a) (InclusiveBound a)@.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">SingletonRange</span> <span class="z-keyword z-operator z-haskell">::</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">True</span> &#39;<span class="z-constant z-other z-haskell">True</span> a
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A span of elements. Make sure lower bound &lt;= upper bound.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">SpanRange</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Bound</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Bound</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">True</span> &#39;<span class="z-constant z-other z-haskell">True</span> a
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A range with a finite lower bound and an infinite upper bound.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">LowerBoundRange</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Bound</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">True</span> &#39;<span class="z-constant z-other z-haskell">False</span> a
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | A range with an infinite lower bound and a finite upper bound.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">UpperBoundRange</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Bound</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">False</span> &#39;<span class="z-constant z-other z-haskell">True</span> a
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | An infinite range.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">InfiniteRange</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">False</span> &#39;<span class="z-constant z-other z-haskell">False</span> a
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | An empty range.
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">EmptyRange</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Range</span> &#39;<span class="z-constant z-other z-haskell">False</span> &#39;<span class="z-constant z-other z-haskell">False</span> a
+</span></code></pre>
+<p>We have introduced two <a rel="noopener" target="_blank" href="https://wiki.haskell.org/Phantom_type">phantom types</a>
+(types not present at value-level), representing bounds presence as type-level
+<code>Bool</code> (via <a rel="noopener" target="_blank" href="https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/data_kinds.html">dataype promotion</a>).</p>
+<p>Great, so far we are able to constraint bounds, but we no longer can mix ranges
+in lists, such as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">[lbe @<span class="z-constant z-other z-haskell">Int</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> ubi <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+=</span>* <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>]
+</span></code></pre>
+<p>Hopefully, Haskell comes with <a rel="noopener" target="_blank" href="https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/explicit_forall.html">Explicit forall</a>,
+which allows us to define dataypes "hiding" type variables:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">AnyRange</span> a <span class="z-keyword z-operator z-haskell">=</span> forall hasLowerBound hasUpperBound<span class="z-keyword z-operator z-haskell">.</span> <span class="z-constant z-other z-haskell">AnyRange</span> (<span class="z-constant z-other z-haskell">Range</span> hasLowerBound hasUpperBound a)
+</span></code></pre>
+<p>So any type/constructor wrapped would have the same type, and could be used in
+lists again:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">[<span class="z-constant z-other z-haskell">AnyRange</span> <span class="z-keyword z-operator z-haskell">$</span> lbe @<span class="z-constant z-other z-haskell">Int</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRange</span> <span class="z-keyword z-operator z-haskell">$</span> ubi <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRange</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+=</span>* <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>]
+</span></code></pre>
+<p>Consequently, if all <code>Range</code> became identical (at type-level), we can't enforce
+bounds, back to square one.</p>
+<p>We're not done yet, Haskell gives us <a rel="noopener" target="_blank" href="https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/constraint_kind.html"><code>Constraint</code> kind</a>,
+kinds are types of types (by default all <code>data</code> type have the kind <code>Type</code>,
+they can be promoted as seen above, so each constructor have the kind of its
+type, e.g. <code>'True</code> kind is <code>Bool</code>).</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> (c <span class="z-keyword z-operator z-haskell">::</span> (<span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span>) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Constraint</span>) a
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> forall hasLowerBound hasUpperBound<span class="z-keyword z-operator z-haskell">.</span>
+</span><span class="z-source z-haskell">    c (<span class="z-constant z-other z-haskell">Range</span> hasLowerBound hasUpperBound) <span class="z-keyword z-operator z-haskell">=&gt;</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">AnyRangeFor</span> (<span class="z-constant z-other z-haskell">Range</span> hasLowerBound hasUpperBound a)
+</span></code></pre>
+<p>It means, we have to specify some constraints for every <code>Range</code> wrapped, such as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">let</span> _ <span class="z-keyword z-operator z-haskell">=</span> [<span class="z-constant z-other z-haskell">AnyRangeFor</span> @<span class="z-constant z-other z-haskell">WithUpperBound</span> <span class="z-keyword z-operator z-haskell">$</span> ubi <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> <span class="z-keyword z-operator z-haskell">$</span> lbe <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+=</span>* <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>]
+</span></code></pre>
+<p>won't work, because <code>lbe</code> has no upper bound and <code>WithUpperBound</code> is defined as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">WithUpperBound</span> <span class="z-variable z-other z-generic-type z-haskell">range</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell">
+</span></span><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-variable z-other z-generic-type z-haskell">instance</span> <span class="z-entity z-other z-inherited-class z-haskell">WithUpperBound</span> (<span class="z-entity z-other z-inherited-class z-haskell">Range</span> <span class="z-variable z-other z-generic-type z-haskell">l</span> &#39;<span class="z-entity z-other z-inherited-class z-haskell">True</span>)
+</span></span></code></pre>
+<p>That being said <code>AnyRange</code> was broken in the process (<code>()</code> has the kind <code>Constraint</code>,
+while <code>AnyRangeFor</code>'s first type parameter should be of type <code>(Type -&gt; Type) -&gt; Constraint</code>):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">AnyRange</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> <span class="z-constant z-other z-haskell">AnyRangeConstraint</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">AnyRangeConstraint</span> (<span class="z-variable z-other z-generic-type z-haskell">range</span> :: <span class="z-entity z-other z-inherited-class z-haskell">Type</span> -&gt; <span class="z-entity z-other z-inherited-class z-haskell">Type</span>)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell">
+</span></span><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-variable z-other z-generic-type z-haskell">instance</span> <span class="z-entity z-other z-inherited-class z-haskell">AnyRangeConstraint</span> (<span class="z-entity z-other z-inherited-class z-haskell">Range</span> <span class="z-variable z-other z-generic-type z-haskell">l</span> <span class="z-variable z-other z-generic-type z-haskell">h</span>)
+</span></span></code></pre>
+<p>So that it can be used with any <code>Range</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">let</span> _ <span class="z-keyword z-operator z-haskell">=</span> [<span class="z-constant z-other z-haskell">AnyRangeFor</span> @<span class="z-constant z-other z-haskell">AnyRangeConstraint</span> <span class="z-keyword z-operator z-haskell">$</span> ubi <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> <span class="z-keyword z-operator z-haskell">$</span> lbe <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">AnyRangeFor</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+=</span>* <span class="z-constant z-numeric z-integer z-decimal z-haskell">2</span>]
+</span></code></pre>
+<p>Note: Everything described in the log is packed in <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/typed-range"><code>typed-range</code></a></p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

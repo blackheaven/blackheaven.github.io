@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Bypassing Prometheus SDK push model</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Bypassing Prometheus SDK push model" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-02&#x2F;bypassing-prometheus&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Bypassing Prometheus SDK push model
+        </h1>
+
+        <ul class="meta">
+                <li>7th Feb 2024</li>
+                <li title="212 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/software-engineering/">software engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/monitoring/">monitoring</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/lgtm-stack/">lgtm-stack</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a></li>
+        </ul>
+
+        <section class="body"><p>I have talked <a href="https://blackheaven.github.io/2023-09/homelab-monitoring-withings/">in an earlier log</a>
+that I have set up business monitoring which has led to interesting conversations
+with the stakeholders.</p>
+<p>I have used <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/prometheus-client">prometheus-client</a>
+which is a great start providing <code>Counter</code>/<code>Gauge</code>/<code>Summaries</code>/<code>Histograms</code>
+but they are push-based, which means: you declare them, and you act on them
+(increasing/decreasing/etc.) so they are ready when they are requested.</p>
+<p>I have tried to set them on a stateful element (for reference, we receive
+requests, which have a step associated to them, there are ~20 different
+steps, a typical request going through 30-40 steps, the goal was to have
+counter) as a <code>Gauge</code> (increasing and decreasing floating point number).</p>
+<p>The status changes were event sourced, so I thought: each time a status change
+occurs, decrease the previous status' <code>Gauge</code> and increase the new status' <code>Gauge</code>.</p>
+<p>I have tried really hard, but I was ending up with negative <code>Gauge</code> and incorrect counts.
+More over, I had to maintain a double-accounting piece of code to have coherent counters
+(unsuccessfully).</p>
+<p>So, I ended up creating a custom <code>Metric</code> which does the count once:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">registerMetrics</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">IORef</span> (<span class="z-storage z-type z-haskell">Map</span>.<span class="z-storage z-type z-haskell">Map</span> <span class="z-storage z-type z-haskell">RequestId</span> <span class="z-storage z-type z-haskell">RequestState</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>registerMetrics requestsRef <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  void <span class="z-keyword z-operator z-haskell">$</span> register <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Metric</span> <span class="z-keyword z-operator z-haskell">$</span> return (<span class="z-constant z-language z-unit z-haskell">()</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> mkSampleGroups)
+</span><span class="z-source z-haskell"> <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">mkSampleGroups</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">IO</span> [<span class="z-storage z-type z-haskell">SampleGroup</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  mkSampleGroups <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    requests <span class="z-keyword z-operator z-haskell">&lt;-</span> readIORef requestsRef
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> samples <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          map (<span class="z-keyword z-operator z-haskell">\</span>(labels<span class="z-punctuation z-separator z-comma z-haskell">,</span> counts) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Sample</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>requests<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> labels (<span class="z-constant z-other z-haskell">BS</span><span class="z-keyword z-operator z-haskell">.</span>fromString <span class="z-keyword z-operator z-haskell">$</span> show <span class="z-keyword z-operator z-haskell">$</span> int2Float counts)) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>toList <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">              foldl (flip <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>alter (<span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">.</span> maybe <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> (<span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>))) <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>empty <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">                map mkLabels <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>toList requests
+</span><span class="z-source z-haskell">    return
+</span><span class="z-source z-haskell">      [ <span class="z-constant z-other z-haskell">SampleGroup</span>
+</span><span class="z-source z-haskell">          (<span class="z-constant z-other z-haskell">Info</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>requests<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>requests<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>)
+</span><span class="z-source z-haskell">          <span class="z-constant z-other z-haskell">GaugeType</span>
+</span><span class="z-source z-haskell">          samples
+</span><span class="z-source z-haskell">      ]
+</span></code></pre>
+<p>Which made my <code>Metric</code> only relying on my state, and not on a temporal state.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

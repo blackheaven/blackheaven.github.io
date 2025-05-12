@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Extreme branchless: containers</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Extreme branchless: containers" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-10&#x2F;extreme-branchless-1&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Extreme branchless: containers
+        </h1>
+
+        <ul class="meta">
+                <li>29th Oct 2024</li>
+                <li title="410 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/code-kata/">code kata</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/coding-dojo/">coding dojo</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/functional-programming/">functional programming</a></li>
+        </ul>
+
+        <section class="body"><p>Sometime ago, I have written about a <a href="https://blackheaven.github.io/2024-03/fizzbuzz/">branchless</a>
+(i.e without explicit control-flow) solution to <em>fizzbuzz</em>.</p>
+<p>While control-flow is less damaging in functional programming (it's type-checked
+and completness-checked), I was challenged to go further.</p>
+<p>As a reminder, there is still control-flow under the hood:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Semigroup</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Semigroup</span> (<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Just</span> y <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> y
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> x
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> x
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>
+</span></code></pre>
+<p>Not to mention functions on list.</p>
+<p>I had an idea at the time, but I have failed to implement, it'll be the topic
+of this log and the next.</p>
+<p>In pure lambda calculus, there are no, data structures, only functions, that's
+why we have to come-up with constructions like <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Church_encoding">Church Encoding</a>.</p>
+<p>Let's start with <code>Maybe</code> which is a simple data type representing a value
+possibly missing:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Maybe</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Just</span> a
+</span></code></pre>
+<p>It comes with a function <code>maybe</code> with which you can do anything:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">maybe</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>maybe def f <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> def
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">Just</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> f x
+</span></code></pre>
+<p>It works as follows:</p>
+<ul>
+<li>The value is missing (<code>Nothing</code>), default value is picked</li>
+<li>The value is present (<code>Just</code>), then we apply the function on it</li>
+</ul>
+<p>In order to use pure lambda calculus, we are limited to pure functions, let's
+express <code>maybe</code> in those terms:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Maybe</span>&#39; a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Maybe</span>&#39; (forall b<span class="z-keyword z-operator z-haskell">.</span> b <span class="z-keyword z-operator z-haskell">-&gt;</span> (a <span class="z-keyword z-operator z-haskell">-&gt;</span> b) <span class="z-keyword z-operator z-haskell">-&gt;</span> b)
+</span></code></pre>
+<p>Note: I have wrapped it to make <code>instance</code>s definition easier</p>
+<p><code>Maybe'</code> is a wrapper around <code>maybe</code> type (more or less), let's see <code>Just</code>/<code>Nothing</code>
+are expressed:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">nothing</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>nothing <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Maybe</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>def _ <span class="z-keyword z-operator z-haskell">-&gt;</span> def
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">just</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>just x <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Maybe</span>&#39; <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ f <span class="z-keyword z-operator z-haskell">-&gt;</span> f x
+</span></code></pre>
+<p>Again: <code>nothing</code> take the default value, <code>value</code> is given on the transformation function.</p>
+<p>Then we can rewrite <code>maybe</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">maybe&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>maybe&#39; def f (<span class="z-constant z-other z-haskell">Maybe</span>&#39; maybeValue) <span class="z-keyword z-operator z-haskell">=</span> maybeValue def f
+</span></code></pre>
+<p>And it's branchless, branching being delegated to <code>Maybe'</code> creation.</p>
+<p>Then we can rewrite the two functions we need in our code:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fromMaybe&#39;</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>fromMaybe&#39; def maybeValue <span class="z-keyword z-operator z-haskell">=</span> maybe&#39; def id maybeValue
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Semigroup</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Semigroup</span> (<span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  x <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> y <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    maybe&#39; y (<span class="z-keyword z-operator z-haskell">\</span>xValue <span class="z-keyword z-operator z-haskell">-&gt;</span> maybe&#39; (just xValue) (<span class="z-keyword z-operator z-haskell">\</span>yValue <span class="z-keyword z-operator z-haskell">-&gt;</span> just (xValue <span class="z-keyword z-operator z-haskell">&lt;&gt;</span> yValue)) y) x
+</span></code></pre>
+<p>The other place where have underneath pattern-matching is around lists.</p>
+<p>In Haskell they are more or less implemented as such:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">List</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Cons</span> a (<span class="z-constant z-other z-haskell">List</span> a) <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Nill</span>
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> data [] a = a : [] a | []
+</span></span></code></pre>
+<p>Moreover, we use it as streams (never-ending, thanks to laziness):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">String</span>]
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>fizzs <span class="z-keyword z-operator z-haskell">=</span> cycle [<span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Fizz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>We could define it in pure functions as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Stream</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Stream</span> (forall b<span class="z-keyword z-operator z-haskell">.</span> (a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Stream</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> b) <span class="z-keyword z-operator z-haskell">-&gt;</span> b)
+</span></code></pre>
+<p>We have a function which takes an element and a <code>Stream</code>, giving a transformed value.</p>
+<p>Let's add some sugar:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">infixr</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">4</span> <span class="z-keyword z-operator z-haskell">.:</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-entity z-name z-function z-infix z-haskell">(.:)</span> <span class="z-keyword z-operator z-haskell">::</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Stream</span> a <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Stream</span> a
+</span><span class="z-source z-haskell">x <span class="z-keyword z-operator z-haskell">.:</span> xs <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Stream</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>g <span class="z-keyword z-operator z-haskell">-&gt;</span> g x xs
+</span></code></pre>
+<p>Note: with algebraic data types we could write:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Stream</span> a <span class="z-keyword z-operator z-haskell">=</span> a <span class="z-keyword z-operator z-haskell">.:</span> <span class="z-constant z-other z-haskell">Stream</span> a
+</span></code></pre>
+<p>Then we could rewrite our stream functions:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">numbers</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-storage z-type z-haskell">String</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>numbers <span class="z-keyword z-operator z-haskell">=</span> show <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> it <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span> it n <span class="z-keyword z-operator z-haskell">=</span> n <span class="z-keyword z-operator z-haskell">.:</span> it (n <span class="z-keyword z-operator z-haskell">+</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Stream</span> (<span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-storage z-type z-haskell">String</span>)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>fizzs <span class="z-keyword z-operator z-haskell">=</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> just <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Fizz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">.:</span> fizzs
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">buzzs</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Stream</span> (<span class="z-storage z-type z-haskell">Maybe</span>&#39; <span class="z-storage z-type z-haskell">String</span>)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>buzzs <span class="z-keyword z-operator z-haskell">=</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> nothing <span class="z-keyword z-operator z-haskell">.:</span> just <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Buzz<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">.:</span> buzzs
+</span></code></pre>
+<p>Note how each binding ("function"/"variable") references itself.</p>
+<p>It works (don't freeze) because laziness delays evaluation until force (e.g.
+usually in <code>IO</code>).</p>
+<p>We could then define few functions:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Functor</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  fmap f (<span class="z-constant z-other z-haskell">Stream</span> s) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Stream</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>g <span class="z-keyword z-operator z-haskell">-&gt;</span> g (s <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>x _ <span class="z-keyword z-operator z-haskell">-&gt;</span> f x) (s <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ xs <span class="z-keyword z-operator z-haskell">-&gt;</span> fmap f xs)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">headStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>  <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>headStream (<span class="z-constant z-other z-haskell">Stream</span> f) <span class="z-keyword z-operator z-haskell">=</span> f <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>x _ <span class="z-keyword z-operator z-haskell">-&gt;</span> x
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">tailStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>  <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>tailStream (<span class="z-constant z-other z-haskell">Stream</span> f) <span class="z-keyword z-operator z-haskell">=</span> f <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ xs <span class="z-keyword z-operator z-haskell">-&gt;</span> xs
+</span></code></pre>
+<p>Quite straightforward:</p>
+<ul>
+<li><code>headStream</code> takes the element parameter</li>
+<li><code>tailStream</code> takes the <code>Stream</code> parameter</li>
+</ul>
+<p>Then we can define <code>zipWith</code> which takes two <code>Stream</code>s element by element:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">zipWithStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">c</span>) <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">b</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">c</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>zipWithStream f (<span class="z-constant z-other z-haskell">Stream</span> s) (<span class="z-constant z-other z-haskell">Stream</span> t) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">Stream</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>g <span class="z-keyword z-operator z-haskell">-&gt;</span> g (f (s <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>x _ <span class="z-keyword z-operator z-haskell">-&gt;</span> x) (t <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>x _ <span class="z-keyword z-operator z-haskell">-&gt;</span> x)) (zipWithStream f (s <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ xs <span class="z-keyword z-operator z-haskell">-&gt;</span> xs) (t <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>_ xs <span class="z-keyword z-operator z-haskell">-&gt;</span> xs))
+</span></code></pre>
+<p>Taking the function, we apply the functions on <code>head</code>s then recursively on <code>tail</code>s.</p>
+<p>Finally, the <code>(!!)</code>, which is a <code>at</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">atStream</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Stream</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>  <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>atStream n s
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> n <span class="z-keyword z-operator z-haskell">&lt;=</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span> <span class="z-keyword z-operator z-haskell">=</span> headStream s
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> otherwise <span class="z-keyword z-operator z-haskell">=</span> n <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>atStream<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> tailStream s
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Alternatively it could be written as:
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> atStream n s = headStream $ iterate tailStream s !! n
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> or:
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> atStream n s = (headStream &lt;$&gt; iterate tailStream s) !! n
+</span></span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> That&#39;s why developments cannot be consitents as they results of thousands of choices
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">infixr</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">4</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>atStream&#39;<span class="z-punctuation z-definition z-entity z-haskell">`</span></span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">fizzbuzz</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Int</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">String</span>&#39;
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>fizzbuzz n <span class="z-keyword z-operator z-haskell">=</span> n <span class="z-keyword z-operator z-haskell">-</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>atStream<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> fizzbuzzStream
+</span></code></pre>
+<p>So far so good, everything works, branchless (well, nearly, let's see what's
+missing in the next log).</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

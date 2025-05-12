@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Retrospective of my first CTO experience</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Retrospective of my first CTO experience" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-04&#x2F;cto-retrospective&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Retrospective of my first CTO experience
+        </h1>
+
+        <ul class="meta">
+                <li>12th Apr 2023</li>
+                <li title="965 words"><span class='separator' aria-hidden='true'>•</span>5 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/software-engineering/">software engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/product/">product</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/retrospective/">retrospective</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/feedbacks/">feedbacks</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/team/">team</a></li>
+        </ul>
+
+        <section class="body"><p>As I'll soon change company, I think it's the right time to do a retrospective of these years as CTO, for the first time.
+(Note that, legally speaking I've been "promoted" CTO after more than one year, but, in practice, I acted as CTO from day 1).</p>
+<p>My company was, at the time, an early-stage startup of 4 people (including 3 co-founders, excluding me), which did a first product, and was looking for a new concept to leverage feedbacks.</p>
+<p>I started in early September in a company which aimed to provide a platform for product teams.
+This platform was interacting with various tools (Github, Gitlab, JIRA, Trello, etc.).
+We started with a team of two individuals (a frontend engineer I hired, and me).
+As I knew I won't have much time, I preferred each one of us stay in their comfort zone (I will write a log on it), which meant Angular/TypeScript for the frontend, Haskell for the backend, AWS/Terraform for the infrastructure.
+I started very optimistically at the time, putting everything in place for a long development (e.g. <a rel="noopener" target="_blank" href="https://adr.github.io/">ADR</a>, a microservices/<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Event-driven_architecture">EDA</a> based architecture, a solid CI/CD).
+It was a quite exiting time, we were pair-programming a lot, having a short feedbacks loop in the company.</p>
+<p>The main issue we had at the time, was a problem of speed: we were only 2 developers, and there were 4 individuals gathering feedbacks and pushing features.
+Along the way we tried to rely on freelancers (we hired 6 of them over 6 months), but it was time-consuming and the on-boarding was tedious.
+For instance, I'm based in France, and I some point I had to onboard someone in Vietnam and someone in Brazil.
+The ADRs, weren't used/useful as they involved a lot of knowledge in Software Engineering.
+Anyway, as mentioned in <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Fred_Brooks">Fred Brooks</a> <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month">The Mythical Man-Month</a>, adding people does not save time in the beginning.</p>
+<p>At some point we decided, with the co-founders, to grow the permanent team, we hired 3 more developers (I plan to write a log on hiring too).
+It was a big change, previously, hiring a freelancers was quite simple:</p>
+<ul>
+<li>Look for freelancers on upwork</li>
+<li>Check their profile</li>
+<li>Look at their Github account</li>
+<li>Chat with them</li>
+<li>Hire them for a week, and renew if it works</li>
+</ul>
+<p>To a more structured hiring, process.</p>
+<p>Luckily we got experienced newcomers (including one which was much more experienced that I was).
+It was interesting to discuss all the choices I made the previous months, sure, I was expecting that many of them would be "negatively" challenged (ie. "why have you done that?"), but some of them were "positively" challenged (ie. "you should have gone further").
+That's when we migrated to <a rel="noopener" target="_blank" href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a> and <a rel="noopener" target="_blank" href="https://martinfowler.com/bliki/CQRS.html">CQRS</a>, and it was painful, but our reactivity to changes skyrocketed.
+It was also the time when I had to act as a manager, while, until then, with enough pair-programming, the team was stable.</p>
+<p>After some months, we realized that we didn't get enough traction, we actually stopped this product (actually, we created a new toy project from it, shrinking down features), loose a part of the staff (including a co-founder, and the first frontend developer).
+We hired new developers and started a new collaborative tool.
+The difference was that, this time, I wasn't alone to work on the backend, the other developer was really fast but had a different background from mine.
+The new architecture was drastically simpler (PostGreSQL instead of DynamoDB/ElasticSearch, a monolith instead of a micro-services based architecture, no event).
+Everything went well, the pace was high, we had many feedbacks, too many feedbacks, our tool was too generic, we had to target a specific group of users, leading to a major pivot of the tool.
+It was actually painful, changing a lot of concepts, database tables, functions, and queries was costly.
+Eventually, after that we started to have more relevant feedbacks and our first users.</p>
+<p>This is when I decided to look for new opportunities.</p>
+<p>If I have to take few steps back, while it was a great experience, I wish I have done some things differently:</p>
+<ul>
+<li>While I tend to favor consensus, I have imposed few decisions in order to have a "manageable" product, but it led <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Bus_factor">a bus factor of 1</a>, so I had to rework some parts during my notice period</li>
+<li>I wish I didn't use Haskell for the new product, because it makes hiring difficult in early-stage startups</li>
+<li>I should have "silo-ed" more product team and business team, actually business people were kind of geeks, and on another hand product team members were not used to speak business language, leading business folks to push for technical solution (instead of business problems) and developers raising technical issues (instead of challenging the business)</li>
+<li>I should have insisted more on conceptualizing things instead of relying purely on UX to build the product</li>
+<li>I wish I would have been more articulated when I was advocating for tests, code quality or fast and regular delivery and feedbacks</li>
+</ul>
+<p>However I'm proud of many things:</p>
+<ul>
+<li>Being able to build a great team is quite a big achievement to me</li>
+<li>While I wish some (architectural) decisions to be taken differently, it was great that once my coworkers get the issues they were solving, my colleagues adopted them naturally</li>
+<li>I had a role of "enabler", taking-out the big rocks on the road, enabling everyone to have a smooth working environment</li>
+<li>I find a way to many various workloads (development, infrastructure, meetings, reports, administrative tasks, hirings, etc.) quite smoothly</li>
+</ul>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

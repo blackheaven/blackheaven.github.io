@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>abaks</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - abaks</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/tags/abaks/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/tags/abaks/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-09T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/tags/abaks/atom.xml</id><entry xml:lang="en">
+        <title>Abaks: OpenAPI</title>
+        <published>2023-07-09T00:00:00+00:00</published>
+        <updated>2023-07-09T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-openapi/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-openapi/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Views</title>
+        <published>2023-07-07T00:00:00+00:00</published>
+        <updated>2023-07-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-views/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-views/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: A word on testing</title>
+        <published>2023-07-02T00:00:00+00:00</published>
+        <updated>2023-07-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-testing-strategy/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-testing-strategy/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Drivers</title>
+        <published>2023-06-28T00:00:00+00:00</published>
+        <updated>2023-06-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-drivers/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-drivers/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Interface Adapters - API</title>
+        <published>2023-06-25T00:00:00+00:00</published>
+        <updated>2023-06-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-interface-adapters-api/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-interface-adapters-api/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Testing Use Cases</title>
+        <published>2023-06-21T00:00:00+00:00</published>
+        <updated>2023-06-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-testing-use-cases/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-testing-use-cases/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Use Cases</title>
+        <published>2023-06-18T00:00:00+00:00</published>
+        <updated>2023-06-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-use-cases/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-use-cases/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: testing core domain</title>
+        <published>2023-06-14T00:00:00+00:00</published>
+        <updated>2023-06-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-testing-core/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-testing-core/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: commands</title>
+        <published>2023-06-11T00:00:00+00:00</published>
+        <updated>2023-06-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-commands/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-commands/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: events</title>
+        <published>2023-06-07T00:00:00+00:00</published>
+        <updated>2023-06-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-events/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-events/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: initial requirements</title>
+        <published>2023-06-04T00:00:00+00:00</published>
+        <updated>2023-06-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-initial-requirements/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-initial-requirements/</id>
+        </entry>
+</feed>

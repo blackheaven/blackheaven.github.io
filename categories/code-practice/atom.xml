@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>Code practice</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - Code practice</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/categories/code-practice/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/categories/code-practice/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-03-11T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/categories/code-practice/atom.xml</id><entry xml:lang="en">
+        <title>Extreme branchless: Retrospective</title>
+        <published>2025-03-11T00:00:00+00:00</published>
+        <updated>2025-03-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-03/extreme-branchless-retrospective/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-03/extreme-branchless-retrospective/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Pagination seven</title>
+        <published>2025-03-04T00:00:00+00:00</published>
+        <updated>2025-03-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-03/extreme-branchless-pagination-seven/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-03/extreme-branchless-pagination-seven/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Minesweeper</title>
+        <published>2025-02-25T00:00:00+00:00</published>
+        <updated>2025-02-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-minesweeper/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-minesweeper/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Mastermind</title>
+        <published>2025-02-18T00:00:00+00:00</published>
+        <updated>2025-02-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-mastermind/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-mastermind/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Langton Ant</title>
+        <published>2025-02-11T00:00:00+00:00</published>
+        <updated>2025-02-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-langton-ant/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-langton-ant/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Gilded Rose Part 2</title>
+        <published>2025-02-04T00:00:00+00:00</published>
+        <updated>2025-02-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-gildedrose-2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-gildedrose-2/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Gilded Rose Part 1</title>
+        <published>2025-01-21T00:00:00+00:00</published>
+        <updated>2025-01-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/extreme-branchless-gildedrose-1/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/extreme-branchless-gildedrose-1/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: FooBarQix</title>
+        <published>2025-01-14T00:00:00+00:00</published>
+        <updated>2025-01-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/extreme-branchless-foobarqix/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/extreme-branchless-foobarqix/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Cupcake functional style</title>
+        <published>2024-12-31T00:00:00+00:00</published>
+        <updated>2024-12-31T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-cupcake-semigroup/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-cupcake-semigroup/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Cupcake</title>
+        <published>2024-12-24T00:00:00+00:00</published>
+        <updated>2024-12-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-cupcake/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-cupcake/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Bowling</title>
+        <published>2024-12-17T00:00:00+00:00</published>
+        <updated>2024-12-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-bowling/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-bowling/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Supermarket Pricing</title>
+        <published>2024-12-10T00:00:00+00:00</published>
+        <updated>2024-12-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-supermarket-pricing/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-supermarket-pricing/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Mars Rover</title>
+        <published>2024-12-03T00:00:00+00:00</published>
+        <updated>2024-12-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-rover/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-rover/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Game of Life</title>
+        <published>2024-11-26T00:00:00+00:00</published>
+        <updated>2024-11-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-11/extreme-branchless-gol/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-11/extreme-branchless-gol/</id>
+        </entry><entry xml:lang="en">
+        <title>GDCR 2024: My participation summary</title>
+        <published>2024-11-12T00:00:00+00:00</published>
+        <updated>2024-11-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-11/gdcr-summary/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-11/gdcr-summary/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: primitives</title>
+        <published>2024-11-05T00:00:00+00:00</published>
+        <updated>2024-11-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-11/extreme-branchless-2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-11/extreme-branchless-2/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: containers</title>
+        <published>2024-10-29T00:00:00+00:00</published>
+        <updated>2024-10-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/extreme-branchless-1/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/extreme-branchless-1/</id>
+        </entry><entry xml:lang="en">
+        <title>Coding challenges retrospective</title>
+        <published>2024-10-15T00:00:00+00:00</published>
+        <updated>2024-10-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/coding-challenges/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/coding-challenges/</id>
+        </entry><entry xml:lang="en">
+        <title>Bowling kata as a zipper</title>
+        <published>2024-09-17T00:00:00+00:00</published>
+        <updated>2024-09-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-09/bowling-zipper/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-09/bowling-zipper/</id>
+        </entry><entry xml:lang="en">
+        <title>Pace in pair programming</title>
+        <published>2024-07-02T00:00:00+00:00</published>
+        <updated>2024-07-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-07/pair-programming-pace/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-07/pair-programming-pace/</id>
+        </entry><entry xml:lang="en">
+        <title>Fizzbuzz kata: branchless version</title>
+        <published>2024-03-13T00:00:00+00:00</published>
+        <updated>2024-03-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/fizzbuzz/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/fizzbuzz/</id>
+        </entry><entry xml:lang="en">
+        <title>Game of Life kata: branchless Grid</title>
+        <published>2023-11-26T00:00:00+00:00</published>
+        <updated>2023-11-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/gol-branchless-grid/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/gol-branchless-grid/</id>
+        </entry><entry xml:lang="en">
+        <title>GDCR 2023: My participation summary</title>
+        <published>2023-11-05T00:00:00+00:00</published>
+        <updated>2023-11-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/gdcr-summary/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/gdcr-summary/</id>
+        </entry><entry xml:lang="en">
+        <title>TDD: optimizing for inputs vs for outputs</title>
+        <published>2022-11-22T00:00:00+00:00</published>
+        <updated>2022-11-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/tdd-optimizing-for-inputs-outputs/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/tdd-optimizing-for-inputs-outputs/</id>
+        </entry><entry xml:lang="en">
+        <title>GDCR 2022: My feedback</title>
+        <published>2022-11-06T00:00:00+00:00</published>
+        <updated>2022-11-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-11/gdcr-summary/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-11/gdcr-summary/</id>
+        </entry>
+</feed>

@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>haskell</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - haskell</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/tags/haskell/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/tags/haskell/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-04-29T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/tags/haskell/atom.xml</id><entry xml:lang="en">
+        <title>Polysemy: RW effects</title>
+        <published>2025-04-29T00:00:00+00:00</published>
+        <updated>2025-04-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-04/polysemy-rw-effect/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-04/polysemy-rw-effect/</id>
+        </entry><entry xml:lang="en">
+        <title>FP &amp; Network effect</title>
+        <published>2025-04-01T00:00:00+00:00</published>
+        <updated>2025-04-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-04/fp-network-effect/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-04/fp-network-effect/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Retrospective</title>
+        <published>2025-03-11T00:00:00+00:00</published>
+        <updated>2025-03-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-03/extreme-branchless-retrospective/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-03/extreme-branchless-retrospective/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Pagination seven</title>
+        <published>2025-03-04T00:00:00+00:00</published>
+        <updated>2025-03-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-03/extreme-branchless-pagination-seven/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-03/extreme-branchless-pagination-seven/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Minesweeper</title>
+        <published>2025-02-25T00:00:00+00:00</published>
+        <updated>2025-02-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-minesweeper/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-minesweeper/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Mastermind</title>
+        <published>2025-02-18T00:00:00+00:00</published>
+        <updated>2025-02-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-mastermind/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-mastermind/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Langton Ant</title>
+        <published>2025-02-11T00:00:00+00:00</published>
+        <updated>2025-02-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-langton-ant/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-langton-ant/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Gilded Rose Part 2</title>
+        <published>2025-02-04T00:00:00+00:00</published>
+        <updated>2025-02-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-02/extreme-branchless-gildedrose-2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-02/extreme-branchless-gildedrose-2/</id>
+        </entry><entry xml:lang="en">
+        <title>Effects systems benchmark</title>
+        <published>2025-01-28T00:00:00+00:00</published>
+        <updated>2025-01-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/effects-systems-benchmark/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/effects-systems-benchmark/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Gilded Rose Part 1</title>
+        <published>2025-01-21T00:00:00+00:00</published>
+        <updated>2025-01-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/extreme-branchless-gildedrose-1/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/extreme-branchless-gildedrose-1/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: FooBarQix</title>
+        <published>2025-01-14T00:00:00+00:00</published>
+        <updated>2025-01-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2025-01/extreme-branchless-foobarqix/" type="text/html"/>
+        <id>https://blackheaven.github.io/2025-01/extreme-branchless-foobarqix/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Cupcake functional style</title>
+        <published>2024-12-31T00:00:00+00:00</published>
+        <updated>2024-12-31T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-cupcake-semigroup/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-cupcake-semigroup/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Cupcake</title>
+        <published>2024-12-24T00:00:00+00:00</published>
+        <updated>2024-12-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-cupcake/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-cupcake/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Bowling</title>
+        <published>2024-12-17T00:00:00+00:00</published>
+        <updated>2024-12-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-bowling/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-bowling/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Supermarket Pricing</title>
+        <published>2024-12-10T00:00:00+00:00</published>
+        <updated>2024-12-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-supermarket-pricing/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-supermarket-pricing/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Mars Rover</title>
+        <published>2024-12-03T00:00:00+00:00</published>
+        <updated>2024-12-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-12/extreme-branchless-rover/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-12/extreme-branchless-rover/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: Game of Life</title>
+        <published>2024-11-26T00:00:00+00:00</published>
+        <updated>2024-11-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-11/extreme-branchless-gol/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-11/extreme-branchless-gol/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: primitives</title>
+        <published>2024-11-05T00:00:00+00:00</published>
+        <updated>2024-11-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-11/extreme-branchless-2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-11/extreme-branchless-2/</id>
+        </entry><entry xml:lang="en">
+        <title>Extreme branchless: containers</title>
+        <published>2024-10-29T00:00:00+00:00</published>
+        <updated>2024-10-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-10/extreme-branchless-1/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-10/extreme-branchless-1/</id>
+        </entry><entry xml:lang="en">
+        <title>Designing strongly typed range</title>
+        <published>2024-09-24T00:00:00+00:00</published>
+        <updated>2024-09-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-09/range/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-09/range/</id>
+        </entry><entry xml:lang="en">
+        <title>Bowling kata as a zipper</title>
+        <published>2024-09-17T00:00:00+00:00</published>
+        <updated>2024-09-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-09/bowling-zipper/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-09/bowling-zipper/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Adding features</title>
+        <published>2024-09-10T00:00:00+00:00</published>
+        <updated>2024-09-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-09/api-legacy-adding-features/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-09/api-legacy-adding-features/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Pure projection</title>
+        <published>2024-08-27T00:00:00+00:00</published>
+        <updated>2024-08-27T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-08/api-legacy-pure-projection/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-08/api-legacy-pure-projection/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: CQRS</title>
+        <published>2024-08-20T00:00:00+00:00</published>
+        <updated>2024-08-20T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-08/api-legacy-cqrs/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-08/api-legacy-cqrs/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Going event-first</title>
+        <published>2024-08-13T00:00:00+00:00</published>
+        <updated>2024-08-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-08/api-legacy-event-first/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-08/api-legacy-event-first/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Reversing writes</title>
+        <published>2024-08-06T00:00:00+00:00</published>
+        <updated>2024-08-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-08/api-legacy-reversing-writes/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-08/api-legacy-reversing-writes/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Creating events</title>
+        <published>2024-07-30T00:00:00+00:00</published>
+        <updated>2024-07-30T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-07/api-legacy-extract-events/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-07/api-legacy-extract-events/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Extracting business logic and introducing effects</title>
+        <published>2024-07-23T00:00:00+00:00</published>
+        <updated>2024-07-23T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-07/api-legacy-extract-effects/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-07/api-legacy-extract-effects/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Testing</title>
+        <published>2024-07-16T00:00:00+00:00</published>
+        <updated>2024-07-16T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-07/api-legacy-testing/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-07/api-legacy-testing/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Legacy: Introduction</title>
+        <published>2024-07-09T00:00:00+00:00</published>
+        <updated>2024-07-09T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-07/api-legacy-introduction/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-07/api-legacy-introduction/</id>
+        </entry><entry xml:lang="en">
+        <title>In-depth programming language is not the point</title>
+        <published>2024-06-25T00:00:00+00:00</published>
+        <updated>2024-06-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-06/pl-knowledge/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-06/pl-knowledge/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Ecosystem Workshop &amp; ZuriHac 2024</title>
+        <published>2024-06-18T00:00:00+00:00</published>
+        <updated>2024-06-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-06/zurihac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-06/zurihac/</id>
+        </entry><entry xml:lang="en">
+        <title>Introduction to GHC&#x27;s Generics</title>
+        <published>2024-03-20T00:00:00+00:00</published>
+        <updated>2024-03-20T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/generics-introduction/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/generics-introduction/</id>
+        </entry><entry xml:lang="en">
+        <title>Fix aeson ToJSONKey&#x2F;FromJSONKey derivation</title>
+        <published>2024-03-17T00:00:00+00:00</published>
+        <updated>2024-03-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/aeson-key/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/aeson-key/</id>
+        </entry><entry xml:lang="en">
+        <title>Fizzbuzz kata: branchless version</title>
+        <published>2024-03-13T00:00:00+00:00</published>
+        <updated>2024-03-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/fizzbuzz/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/fizzbuzz/</id>
+        </entry><entry xml:lang="en">
+        <title>Types for building and types for running</title>
+        <published>2024-03-06T00:00:00+00:00</published>
+        <updated>2024-03-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/types-building-running/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/types-building-running/</id>
+        </entry><entry xml:lang="en">
+        <title>Types strengthening</title>
+        <published>2024-03-03T00:00:00+00:00</published>
+        <updated>2024-03-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-03/types-strengthening/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-03/types-strengthening/</id>
+        </entry><entry xml:lang="en">
+        <title>eDSLs for tests</title>
+        <published>2024-02-28T00:00:00+00:00</published>
+        <updated>2024-02-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/edsls-tests/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/edsls-tests/</id>
+        </entry><entry xml:lang="en">
+        <title>Type-driven development applied: librarian</title>
+        <published>2024-02-25T00:00:00+00:00</published>
+        <updated>2024-02-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/tydd-applied-librarian/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/tydd-applied-librarian/</id>
+        </entry><entry xml:lang="en">
+        <title>Types and Tests</title>
+        <published>2024-02-21T00:00:00+00:00</published>
+        <updated>2024-02-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/types-tests/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/types-tests/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell: imports vs exports</title>
+        <published>2024-02-14T00:00:00+00:00</published>
+        <updated>2024-02-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/haskell-imports-exports/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/haskell-imports-exports/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell refactorings</title>
+        <published>2024-02-11T00:00:00+00:00</published>
+        <updated>2024-02-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/haskell-refactorings/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/haskell-refactorings/</id>
+        </entry><entry xml:lang="en">
+        <title>Bypassing Prometheus SDK push model</title>
+        <published>2024-02-07T00:00:00+00:00</published>
+        <updated>2024-02-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-02/bypassing-prometheus/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-02/bypassing-prometheus/</id>
+        </entry><entry xml:lang="en">
+        <title>Prescriptivism and Descriptivism</title>
+        <published>2024-01-31T00:00:00+00:00</published>
+        <updated>2024-01-31T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/prescriptivism-descriptivism/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/prescriptivism-descriptivism/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Capabilities</title>
+        <published>2024-01-03T00:00:00+00:00</published>
+        <updated>2024-01-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/access-control-capabilities/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/access-control-capabilities/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Relationship-based Access control</title>
+        <published>2023-12-27T00:00:00+00:00</published>
+        <updated>2023-12-27T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-rebac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-rebac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Organisation-based Access control</title>
+        <published>2023-12-24T00:00:00+00:00</published>
+        <updated>2023-12-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-orbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-orbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Graph-based Access control</title>
+        <published>2023-12-20T00:00:00+00:00</published>
+        <updated>2023-12-20T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-gbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-gbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Attribute-based Access control</title>
+        <published>2023-12-17T00:00:00+00:00</published>
+        <updated>2023-12-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-abac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-abac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Role-based Access control</title>
+        <published>2023-12-13T00:00:00+00:00</published>
+        <updated>2023-12-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-rbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-rbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Context-based Access control</title>
+        <published>2023-12-10T00:00:00+00:00</published>
+        <updated>2023-12-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-cbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-cbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: ACL</title>
+        <published>2023-12-06T00:00:00+00:00</published>
+        <updated>2023-12-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-acl/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-acl/</id>
+        </entry><entry xml:lang="en">
+        <title>Game of Life kata: branchless Grid</title>
+        <published>2023-11-26T00:00:00+00:00</published>
+        <updated>2023-11-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/gol-branchless-grid/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/gol-branchless-grid/</id>
+        </entry><entry xml:lang="en">
+        <title>From custom Monad to Polysemy</title>
+        <published>2023-10-29T00:00:00+00:00</published>
+        <updated>2023-10-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/polysemy-migration/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/polysemy-migration/</id>
+        </entry><entry xml:lang="en">
+        <title>Implementation-oriented Monad</title>
+        <published>2023-10-25T00:00:00+00:00</published>
+        <updated>2023-10-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/implementation-oriented-monad/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/implementation-oriented-monad/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell Type Reflection Anti-pattern</title>
+        <published>2023-10-15T00:00:00+00:00</published>
+        <updated>2023-10-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/haskell-type-reflection-anti-pattern/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/haskell-type-reflection-anti-pattern/</id>
+        </entry><entry xml:lang="en">
+        <title>QuasiQuoting Smart Constructors</title>
+        <published>2023-10-11T00:00:00+00:00</published>
+        <updated>2023-10-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/haskell-quasiquoting-smart-constructors/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/haskell-quasiquoting-smart-constructors/</id>
+        </entry><entry xml:lang="en">
+        <title>Nix: optimizing Haskell build size</title>
+        <published>2023-10-08T00:00:00+00:00</published>
+        <updated>2023-10-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/nix-build-optimization/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/nix-build-optimization/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell contributions kick-start</title>
+        <published>2023-10-04T00:00:00+00:00</published>
+        <updated>2023-10-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-10/haskell-contributions-kickstart/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-10/haskell-contributions-kickstart/</id>
+        </entry><entry xml:lang="en">
+        <title>Witness functions</title>
+        <published>2023-09-27T00:00:00+00:00</published>
+        <updated>2023-09-27T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-09/witness-functions/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-09/witness-functions/</id>
+        </entry><entry xml:lang="en">
+        <title>Test-Driven Development Freedom</title>
+        <published>2023-08-13T00:00:00+00:00</published>
+        <updated>2023-08-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-08/tdd-freedom/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-08/tdd-freedom/</id>
+        </entry><entry xml:lang="en">
+        <title>A case against Haskell immersion</title>
+        <published>2023-07-30T00:00:00+00:00</published>
+        <updated>2023-07-30T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/haskell-immersion/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/haskell-immersion/</id>
+        </entry><entry xml:lang="en">
+        <title>Bloodhound redesign progress</title>
+        <published>2023-07-23T00:00:00+00:00</published>
+        <updated>2023-07-23T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/bloodhound-redesign/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/bloodhound-redesign/</id>
+        </entry><entry xml:lang="en">
+        <title>Haskell macros</title>
+        <published>2023-07-19T00:00:00+00:00</published>
+        <updated>2023-07-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/haskell-macros/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/haskell-macros/</id>
+        </entry><entry xml:lang="en">
+        <title>Nix: optimizing Haskell-based Docker-size</title>
+        <published>2023-07-16T00:00:00+00:00</published>
+        <updated>2023-07-16T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/nix-docker-optimization/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/nix-docker-optimization/</id>
+        </entry><entry xml:lang="en">
+        <title>New library: kill-bool</title>
+        <published>2023-07-12T00:00:00+00:00</published>
+        <updated>2023-07-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/lib-kill-bool/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/lib-kill-bool/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: OpenAPI</title>
+        <published>2023-07-09T00:00:00+00:00</published>
+        <updated>2023-07-09T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-openapi/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-openapi/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Views</title>
+        <published>2023-07-07T00:00:00+00:00</published>
+        <updated>2023-07-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-views/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-views/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: A word on testing</title>
+        <published>2023-07-02T00:00:00+00:00</published>
+        <updated>2023-07-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-07/abaks-testing-strategy/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-07/abaks-testing-strategy/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Drivers</title>
+        <published>2023-06-28T00:00:00+00:00</published>
+        <updated>2023-06-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-drivers/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-drivers/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Interface Adapters - API</title>
+        <published>2023-06-25T00:00:00+00:00</published>
+        <updated>2023-06-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-interface-adapters-api/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-interface-adapters-api/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Testing Use Cases</title>
+        <published>2023-06-21T00:00:00+00:00</published>
+        <updated>2023-06-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-testing-use-cases/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-testing-use-cases/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: Use Cases</title>
+        <published>2023-06-18T00:00:00+00:00</published>
+        <updated>2023-06-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-use-cases/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-use-cases/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: testing core domain</title>
+        <published>2023-06-14T00:00:00+00:00</published>
+        <updated>2023-06-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-testing-core/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-testing-core/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: commands</title>
+        <published>2023-06-11T00:00:00+00:00</published>
+        <updated>2023-06-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-commands/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-commands/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: events</title>
+        <published>2023-06-07T00:00:00+00:00</published>
+        <updated>2023-06-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-events/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-events/</id>
+        </entry><entry xml:lang="en">
+        <title>Abaks: initial requirements</title>
+        <published>2023-06-04T00:00:00+00:00</published>
+        <updated>2023-06-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-06/abaks-initial-requirements/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-06/abaks-initial-requirements/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Scoped</title>
+        <published>2023-05-28T00:00:00+00:00</published>
+        <updated>2023-05-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-scoped/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-scoped/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Opaque</title>
+        <published>2023-05-24T00:00:00+00:00</published>
+        <updated>2023-05-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-opaque/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-opaque/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Onion architecture</title>
+        <published>2023-05-17T00:00:00+00:00</published>
+        <updated>2023-05-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-onion/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-onion/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Hiding vs Exposing</title>
+        <published>2023-05-14T00:00:00+00:00</published>
+        <updated>2023-05-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-design-hiding-vs-exposing/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-design-hiding-vs-exposing/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Dispatcher</title>
+        <published>2023-05-10T00:00:00+00:00</published>
+        <updated>2023-05-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-design-heuristics-dispatchers/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-design-heuristics-dispatchers/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 10 - Built with plutus</title>
+        <published>2023-05-07T00:00:00+00:00</published>
+        <updated>2023-05-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/plutus-c4-l10/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/plutus-c4-l10/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Hiding interpreters</title>
+        <published>2023-05-03T00:00:00+00:00</published>
+        <updated>2023-05-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-05/polysemy-design-heuristics-hiding-interpreters/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-05/polysemy-design-heuristics-hiding-interpreters/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 9 - Stablecoin</title>
+        <published>2023-04-30T00:00:00+00:00</published>
+        <updated>2023-04-30T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l9/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l9/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 8 - Staking</title>
+        <published>2023-04-23T00:00:00+00:00</published>
+        <updated>2023-04-23T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l8/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l8/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: 1.9.0.0 released!</title>
+        <published>2023-04-21T00:00:00+00:00</published>
+        <updated>2023-04-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/polysemy-v19/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/polysemy-v19/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 7 - Marlowe and hosted smart contracts</title>
+        <published>2023-04-16T00:00:00+00:00</published>
+        <updated>2023-04-16T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l7/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l7/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 6 - Testing</title>
+        <published>2023-04-09T00:00:00+00:00</published>
+        <updated>2023-04-09T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l6/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l6/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Grouping interpreters</title>
+        <published>2023-04-05T00:00:00+00:00</published>
+        <updated>2023-04-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/polysemy-design-heuristics-grouping-interpreters/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/polysemy-design-heuristics-grouping-interpreters/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 5 - Minting</title>
+        <published>2023-04-02T00:00:00+00:00</published>
+        <updated>2023-04-02T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-04/plutus-c4-l5/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-04/plutus-c4-l5/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Effects layering</title>
+        <published>2023-03-29T00:00:00+00:00</published>
+        <updated>2023-03-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/polysemy-design-heuristics-effects-layering/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/polysemy-design-heuristics-effects-layering/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Lecture 4 - On-chain&#x2F;Off-chain smart contract code and indexers</title>
+        <published>2023-03-26T00:00:00+00:00</published>
+        <updated>2023-03-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l4/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l4/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: Split by responsibility</title>
+        <published>2023-03-22T00:00:00+00:00</published>
+        <updated>2023-03-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/polysemy-design-heuristics-srp/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/polysemy-design-heuristics-srp/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - Ouroboros</title>
+        <published>2023-03-19T00:00:00+00:00</published>
+        <updated>2023-03-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-ouroboros/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-ouroboros/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Design heuristics: IO hunting</title>
+        <published>2023-03-15T00:00:00+00:00</published>
+        <updated>2023-03-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/polysemy-design-heuristics-io-hunting/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/polysemy-design-heuristics-io-hunting/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort - lecture 3: Tests, Times, and Dapps</title>
+        <published>2023-03-12T00:00:00+00:00</published>
+        <updated>2023-03-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l3/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l3/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Async gotchas</title>
+        <published>2023-03-08T00:00:00+00:00</published>
+        <updated>2023-03-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/polysemy-async-gotchas/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/polysemy-async-gotchas/</id>
+        </entry><entry xml:lang="en">
+        <title>Plutus: Pioneers Program 4th cohort kick start</title>
+        <published>2023-03-05T00:00:00+00:00</published>
+        <updated>2023-03-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/plutus-c4-l1-l2/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/plutus-c4-l1-l2/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Strategy internals</title>
+        <published>2023-03-01T00:00:00+00:00</published>
+        <updated>2023-03-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-03/polysemy-strategy-internals/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-03/polysemy-strategy-internals/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Changing return</title>
+        <published>2023-02-26T00:00:00+00:00</published>
+        <updated>2023-02-26T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-changing-return/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-changing-return/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: IO</title>
+        <published>2023-02-22T00:00:00+00:00</published>
+        <updated>2023-02-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-io/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-io/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: NonDet</title>
+        <published>2023-02-19T00:00:00+00:00</published>
+        <updated>2023-02-19T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-nondet/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-nondet/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: AtomicState</title>
+        <published>2023-02-15T00:00:00+00:00</published>
+        <updated>2023-02-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-atomicstate/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-atomicstate/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Fixpoint</title>
+        <published>2023-02-12T00:00:00+00:00</published>
+        <updated>2023-02-12T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-fixpoint/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-fixpoint/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Bundle</title>
+        <published>2023-02-08T00:00:00+00:00</published>
+        <updated>2023-02-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-bundle/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-bundle/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Higher order Effects and combined interpreters</title>
+        <published>2023-02-05T00:00:00+00:00</published>
+        <updated>2023-02-05T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-hoe-combined-interpreters/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-hoe-combined-interpreters/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Final vs Embed</title>
+        <published>2023-02-01T00:00:00+00:00</published>
+        <updated>2023-02-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-02/polysemy-final-vs-embed/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-02/polysemy-final-vs-embed/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Tactics binding deprecated workaround</title>
+        <published>2023-01-29T00:00:00+00:00</published>
+        <updated>2023-01-29T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-tactics-binding-deprecated-workaround/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-tactics-binding-deprecated-workaround/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Tactics binding</title>
+        <published>2023-01-25T00:00:00+00:00</published>
+        <updated>2023-01-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-tactics-binding/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-tactics-binding/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Strategies binding</title>
+        <published>2023-01-22T00:00:00+00:00</published>
+        <updated>2023-01-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-strategies-binding/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-strategies-binding/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Async</title>
+        <published>2023-01-18T00:00:00+00:00</published>
+        <updated>2023-01-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-async/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-async/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Higher-order effects with Final</title>
+        <published>2023-01-15T00:00:00+00:00</published>
+        <updated>2023-01-15T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-hoe-final/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-hoe-final/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Final</title>
+        <published>2023-01-11T00:00:00+00:00</published>
+        <updated>2023-01-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-final/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-final/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Higher-order effects introductions</title>
+        <published>2023-01-08T00:00:00+00:00</published>
+        <updated>2023-01-08T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-hoe-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-hoe-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Input</title>
+        <published>2023-01-04T00:00:00+00:00</published>
+        <updated>2023-01-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-input/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-input/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Embed</title>
+        <published>2023-01-01T00:00:00+00:00</published>
+        <updated>2023-01-01T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-01/polysemy-embed/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-01/polysemy-embed/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Interceptors to buffer</title>
+        <published>2022-12-28T00:00:00+00:00</published>
+        <updated>2022-12-28T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-interceptors-buffering/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-interceptors-buffering/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Introduction to Interceptors</title>
+        <published>2022-12-25T00:00:00+00:00</published>
+        <updated>2022-12-25T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-interceptors-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-interceptors-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Tagged effects</title>
+        <published>2022-12-21T00:00:00+00:00</published>
+        <updated>2022-12-21T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-tagged-effects/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-tagged-effects/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Interpretation and effects inline injection</title>
+        <published>2022-12-18T00:00:00+00:00</published>
+        <updated>2022-12-18T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-interpretation-effects-inline-injection/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-interpretation-effects-inline-injection/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Interpretation and effects injection</title>
+        <published>2022-12-14T00:00:00+00:00</published>
+        <updated>2022-12-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-interpretation-effects-injection/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-interpretation-effects-injection/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Introduction to Effect interpretation</title>
+        <published>2022-12-11T00:00:00+00:00</published>
+        <updated>2022-12-11T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-effect-interpretation-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-effect-interpretation-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Introduction to Effect definition</title>
+        <published>2022-12-07T00:00:00+00:00</published>
+        <updated>2022-12-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-effect-definition-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-effect-definition-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: EffectRow design</title>
+        <published>2022-12-04T00:00:00+00:00</published>
+        <updated>2022-12-04T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-12/polysemy-effectrow-design/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-12/polysemy-effectrow-design/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: EffectRow</title>
+        <published>2022-11-30T00:00:00+00:00</published>
+        <updated>2022-11-30T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-11/polysemy-effectrow/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-11/polysemy-effectrow/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: Introduction to interpreters</title>
+        <published>2022-11-27T00:00:00+00:00</published>
+        <updated>2022-11-27T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-11/polysemy-interpreters-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-11/polysemy-interpreters-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Polysemy: An introduction</title>
+        <published>2022-11-23T00:00:00+00:00</published>
+        <updated>2022-11-23T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2022-11/polysemy-intro/" type="text/html"/>
+        <id>https://blackheaven.github.io/2022-11/polysemy-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>TDD: optimizing for inputs vs for outputs</title>
+        <published>2022-11-22T00:00:00+00:00</published>
+        <updated>2022-11-22T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-11/tdd-optimizing-for-inputs-outputs/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-11/tdd-optimizing-for-inputs-outputs/</id>
+        </entry>
+</feed>

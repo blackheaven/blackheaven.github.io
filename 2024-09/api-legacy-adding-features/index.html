@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Haskell Legacy: Adding features</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Haskell Legacy: Adding features" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-09&#x2F;api-legacy-adding-features&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Haskell Legacy: Adding features
+        </h1>
+
+        <ul class="meta">
+                <li>10th Sep 2024</li>
+                <li title="235 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/legacy/">legacy</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/polysemy/">polysemy</a></li>
+        </ul>
+
+        <section class="body"><p>After a short break, let's go back to our <a href="https://blackheaven.github.io/2024-08/api-legacy-pure-projection/">Event-sourced API</a>.</p>
+<p>Until now, we have only changed the internals of our API.</p>
+<p>Our goal is to eventually add a reservation system (I.e. given a train with
+limited tickets, customers should be able to temporarily "lock" tickets, until
+they make the payment or a timeout occurs).</p>
+<p>To begin, we have to be able to create trains with a capacity:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TrainEvent</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TrainCreated</span>
+</span><span class="z-source z-haskell">      { departureDate <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">        <span class="z-entity z-name z-function z-haskell">departureStation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">T</span>.<span class="z-storage z-type z-haskell">Text</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">        <span class="z-entity z-name z-function z-haskell">arrivalStation</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">T</span>.<span class="z-storage z-type z-haskell">Text</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">        <span class="z-entity z-name z-function z-haskell">capacity</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">Int</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>      }
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span></code></pre>
+<p>Note: here, I have choosen to add an optional field to an existing event,
+it's not bad <em>per se</em>, but it's done without event versioning or
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Data_transfer_object">DTO</a>.
+Moreover, it prevents us to have interesting types.
+Alternatively, we could either add a new event, or rewrite the events stream.</p>
+<p>We then have to pass it along in the API (I skip it, since it's pretty mechanical).</p>
+<p>Then, we have to check the capacity when booking is done:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">interpretBookingEffectEvents <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  interpret <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">      <span class="z-constant z-other z-haskell">BookingCreate</span> trainId travelerName <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-other z-haskell">let</span> trainStreamId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">StreamId</span> trainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;
+</span><span class="z-source z-haskell">        events <span class="z-keyword z-operator z-haskell">&lt;-</span> fetchEvents trainStreamId
+</span><span class="z-source z-haskell">        when (null events) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">          throw <span class="z-constant z-other z-haskell">NotFoundIAE</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">        <span class="z-keyword z-other z-haskell">let</span> capacityChange <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">              <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">                event@(<span class="z-constant z-other z-haskell">TrainCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span> fromMaybe <span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span> event<span class="z-keyword z-operator z-haskell">.</span>capacity <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> hopefully, no train will have 1 million traveler
+</span></span><span class="z-source z-haskell">                <span class="z-constant z-other z-haskell">BookingCreated</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">                <span class="z-constant z-other z-haskell">BookingWithdrawn</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">        when (sum (capacityChange <span class="z-keyword z-operator z-haskell">.</span> snd <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> events) <span class="z-keyword z-operator z-haskell">&lt;=</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">          throw <span class="z-constant z-other z-haskell">TooMuchIAE</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">        newBookingId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+</span><span class="z-source z-haskell">        void <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">          storeEvent
+</span><span class="z-source z-haskell">            trainStreamId
+</span><span class="z-source z-haskell">            (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-keyword z-operator z-haskell">$</span> fromIntegral <span class="z-keyword z-operator z-haskell">$</span> length events)
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">BookingCreated</span> {id <span class="z-keyword z-operator z-haskell">=</span> fromIntegral newBookingId<span class="z-keyword z-operator z-haskell">.</span>unBookingId&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> travelerName <span class="z-keyword z-operator z-haskell">=</span> travelerName}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">        return newBookingId
+</span></code></pre>
+<p>Then we can add reservation events:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TrainEvent</span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">BookingReserved</span> {token <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">BookingReservationWithdrawn</span> {token <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span>}
+</span></code></pre>
+<p>We then have to add a new operation in the effect:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">BookingReservationToken</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">BookingReservationToken</span> {unBookingReservationToken <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span>}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Read</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> <span class="z-keyword z-other z-haskell">newtype</span> (<span class="z-constant z-other z-haskell">FromJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">ToJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">PathPiece</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">BookingEffect</span> (m <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span>) (a <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span>) <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">BookingReserve</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">BookingEffect</span> m <span class="z-constant z-other z-haskell">BookingReservationToken</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">BookingCreate</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">BookingReservationToken</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">BookingEffect</span> m <span class="z-constant z-other z-haskell">BookingId</span>&#39;
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">BookingDelete</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">TrainId</span>&#39; <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">BookingEffect</span> m <span class="z-constant z-language z-unit z-haskell">()</span>
+</span></code></pre>
+<p>We also have to adapt our API:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">mkYesod
+</span><span class="z-source z-haskell">  <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>TrainMasterAPI<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">  <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[parseRoutes|</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/train CreateTrainR POST</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/train/#TrainId&#39; DisplayTrainR GET</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/booking/reserve/#TrainId&#39; ReserveBookingR POST</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/booking/book/#TrainId&#39;/#BookingReservationToken CreateBookingR POST</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-string z-quasiquoted z-haskell">/booking/unbook/#TrainId&#39;/#BookingId&#39; ManageBookingR DELETE</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">BookinReserveResponse</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">BookinReserveResponse</span>
+</span><span class="z-source z-haskell">  { token <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">BookingReservationToken</span>
+</span><span class="z-source z-haskell">  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> anyclass (<span class="z-constant z-other z-haskell">FromJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">ToJSON</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">postReserveBookingR</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TrainId</span>&#39; <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">HandlerFor</span> <span class="z-storage z-type z-haskell">TrainMasterAPI</span> (<span class="z-storage z-type z-haskell">JSONResponse</span> <span class="z-storage z-type z-haskell">BookinReserveResponse</span>)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>postReserveBookingR trainId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  token <span class="z-keyword z-operator z-haskell">&lt;-</span> runEffect <span class="z-keyword z-operator z-haskell">$</span> bookingReserve trainId
+</span><span class="z-source z-haskell">  return <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">JSONResponse</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">BookinReserveResponse</span> token
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">CreateBookingRequest</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CreateBookingRequest</span>
+</span><span class="z-source z-haskell">  { travelerName <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Text</span>
+</span><span class="z-source z-haskell">  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Generic</span>)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> anyclass (<span class="z-constant z-other z-haskell">FromJSON</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">ToJSON</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">postCreateBookingR</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">TrainId</span>&#39; <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">BookingReservationToken</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">HandlerFor</span> <span class="z-storage z-type z-haskell">TrainMasterAPI</span> (<span class="z-storage z-type z-haskell">JSONResponse</span> (<span class="z-storage z-type z-haskell">CreatedResponse</span> <span class="z-storage z-type z-haskell">BookingId</span>&#39;))
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>postCreateBookingR trainId token <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  booking <span class="z-keyword z-operator z-haskell">&lt;-</span> requireCheckJsonBody @_ @<span class="z-constant z-other z-haskell">CreateBookingRequest</span>
+</span><span class="z-source z-haskell">  bookingId <span class="z-keyword z-operator z-haskell">&lt;-</span> runEffect <span class="z-keyword z-operator z-haskell">$</span> bookingCreate trainId token booking<span class="z-keyword z-operator z-haskell">.</span>travelerName
+</span><span class="z-source z-haskell">  return <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">JSONResponse</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">CreatedResponse</span> bookingId
+</span></code></pre>
+<p>Note: it would be a good use case for <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>,
+if it <a href="https://blackheaven.github.io/2024-09/autogriff-retrospective/">had proper tooling</a>.</p>
+<p>Then, we can create our new interpretation:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">BookingReserve</span> trainId <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> trainStreamId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">StreamId</span> trainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;
+</span><span class="z-source z-haskell">    events <span class="z-keyword z-operator z-haskell">&lt;-</span> map snd <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> fetchEvents trainStreamId
+</span><span class="z-source z-haskell">    when (null events) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      throw <span class="z-constant z-other z-haskell">NotFoundIAE</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> hasSpareTicket events <span class="z-keyword z-operator z-haskell">=</span> sum (capacityChange <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> events) <span class="z-keyword z-operator z-haskell">&lt;=</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">0</span>
+</span><span class="z-source z-haskell">        capacityChange <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">            event@(<span class="z-constant z-other z-haskell">TrainCreated</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span> fromMaybe <span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span> event<span class="z-keyword z-operator z-haskell">.</span>capacity <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> hopefully, no train will have 1 million traveler
+</span></span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">BookingCreated</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">BookingWithdrawn</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">BookingReserved</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">BookingReservationWithdrawn</span> {} <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>
+</span><span class="z-source z-haskell">    when (hasSpareTicket events) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      throw <span class="z-constant z-other z-haskell">TooMuchIAE</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    newBookingReservationToken <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>pack <span class="z-keyword z-operator z-haskell">.</span> show <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO @<span class="z-constant z-other z-haskell">Int</span> (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+</span><span class="z-source z-haskell">    void <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      storeEvent
+</span><span class="z-source z-haskell">        trainStreamId
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-keyword z-operator z-haskell">$</span> fromIntegral <span class="z-keyword z-operator z-haskell">$</span> length events)
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">BookingReserved</span> {token <span class="z-keyword z-operator z-haskell">=</span> newBookingReservationToken}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    return <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">BookingReservationToken</span> newBookingReservationToken
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span></code></pre>
+<p>Finally, adapt our booking creation.</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">BookingCreate</span> trainId (<span class="z-constant z-other z-haskell">BookingReservationToken</span> token) travelerName <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">    <span class="z-keyword z-other z-haskell">let</span> trainStreamId <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">StreamId</span> trainId<span class="z-keyword z-operator z-haskell">.</span>unTrainId&#39;
+</span><span class="z-source z-haskell">    events0 <span class="z-keyword z-operator z-haskell">&lt;-</span> fetchEvents trainStreamId
+</span><span class="z-source z-haskell">    events <span class="z-keyword z-operator z-haskell">&lt;-</span> map snd <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> fetchEvents trainStreamId
+</span><span class="z-source z-haskell">    when (null events <span class="z-keyword z-operator z-haskell">||</span> <span class="z-constant z-other z-haskell">BookingReserved</span> token <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>notElem<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> events <span class="z-keyword z-operator z-haskell">||</span> <span class="z-constant z-other z-haskell">BookingReservationWithdrawn</span> token <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>elem<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> events) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      throw <span class="z-constant z-other z-haskell">NotFoundIAE</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    newBookingId <span class="z-keyword z-operator z-haskell">&lt;-</span> embed <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">BookingId</span>&#39; <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> randomRIO (<span class="z-constant z-numeric z-integer z-decimal z-haskell">1000000</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">9999999</span>)
+</span><span class="z-source z-haskell">    void <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      storeEvent
+</span><span class="z-source z-haskell">        trainStreamId
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-keyword z-operator z-haskell">$</span> fromIntegral <span class="z-keyword z-operator z-haskell">$</span> length events)
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">BookingCreated</span> {id <span class="z-keyword z-operator z-haskell">=</span> fromIntegral newBookingId<span class="z-keyword z-operator z-haskell">.</span>unBookingId&#39;<span class="z-punctuation z-separator z-comma z-haskell">,</span> travelerName <span class="z-keyword z-operator z-haskell">=</span> travelerName}
+</span><span class="z-source z-haskell">    void <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">      storeEvent
+</span><span class="z-source z-haskell">        trainStreamId
+</span><span class="z-source z-haskell">        (<span class="z-constant z-other z-haskell">EventNumber</span> <span class="z-keyword z-operator z-haskell">$</span> fromIntegral <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span> <span class="z-keyword z-operator z-haskell">+</span> length events)
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">BookingReservationWithdrawn</span> {token <span class="z-keyword z-operator z-haskell">=</span> token}
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell">    return newBookingId
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> ...
+</span></span></code></pre>
+<p>Note: we don't check again the capacity.</p>
+<p>Lastly, we could imagine a system to regularly garbage collect old reservations.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

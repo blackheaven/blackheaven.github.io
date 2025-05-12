@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Event sourcing migrations retrospective</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Event sourcing migrations retrospective" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-10&#x2F;event-sourcing-migration&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Event sourcing migrations retrospective
+        </h1>
+
+        <ul class="meta">
+                <li>8th Oct 2024</li>
+                <li title="673 words"><span class='separator' aria-hidden='true'>•</span>4 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/software-engineering/">software engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/retrospective/">retrospective</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/architecture/">architecture</a></li>
+        </ul>
+
+        <section class="body"><p>Few weeks ago, I was talking to one of my co-workers about <a rel="noopener" target="_blank" href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a>.</p>
+<p>At some point, he was inquiring about retrospectives on migrating old systems
+to event sourcing, benefits obtained, pitfalls to avoid, and so on and so forth.</p>
+<p>I have looked around a bit, ask some friends, nothing relevant came up.</p>
+<p>I'll try to summarize my 6+ years of experiences in this log.</p>
+<h2 id="experiences">Experiences</h2>
+<h3 id="distributed-mail-server">Distributed mail server</h3>
+<p><em>Business context:</em> A FOSS company, providing a G-suit alternative.</p>
+<p><em>Team context:</em> 6 seasoned SWE, already accustomed to software craftmanship,
+DDD, and event sourcing.</p>
+<p><em>Technical context:</em> it was a 10 years old Java project, mostly relying on
+Cassandra, when I have joined, they were in the middle of a complete
+modernization.</p>
+<p><em>Challenges:</em> Solve concurrency issues, especially in the mailboxes area, most
+of the bugs are in this area (race conditions occurs when a new e-mail were
+incoming, while the user was working on them).</p>
+<p><em>Event sourcing scope:</em> the mailboxes, very few events were involved.</p>
+<p><em>Pitfalls:</em> the event sourcing implementation was quite complex and quite limited,
+which means many of the operations were stateful, leading to a global state
+permanently incoherent (e.g. two instances connected to the same Cassandra
+cluster will has two distinct states). Add new events involved a lot of
+boilerplate.</p>
+<p><em>Benefits:</em> Mailboxes concurrency issues were fixed, the implementation was
+comprehensive enough to have a lot of tools (debugging, rebuilding projections).</p>
+<h3 id="shared-dashboard">Shared dashboard</h3>
+<p><em>Business context:</em> A pre-seed startup looking for its product-market-fit.</p>
+<p><em>Team context:</em> 4-people team, mostly juniors, discovering DDD.</p>
+<p><em>Technical context:</em> A brown-field Haskell project I had started few months
+ago, using AWS DynamoDB as primary data store.</p>
+<p><em>Challenges:</em> The project was stressed by numerous changes. We also had to
+figure out what the user was doing, especially when discovering new corner-cases
+(also called business opportunities).</p>
+<p><em>Event sourcing scope:</em> the whole organization, each "group" was in the
+aggregate, alongside with users management, dashboards, etc. everything.</p>
+<p><em>Pitfalls:</em> Team adoption was a huge pain point, most of them considered it
+as a "waste", also, intents were missing (Commands should have been logged),
+migration was done in big-bang mode (7-day effort), which created some tensions.
+Keeping original projections in the discovery phase added burden without any
+benefits.</p>
+<p><em>Benefits:</em> Each new workflow or concept took only a few hours to implement
+in the backend, events and commands where exposed in the API endpoints, new
+events where pushed asynchronously.</p>
+<h3 id="distributed-business-process">Distributed business process</h3>
+<p><em>Business context:</em> A mature B2B company customer-focused with a very
+comprehensive (yet adapting) business processes.</p>
+<p><em>Team context:</em> 6-people team, mostly seniors, with some DDD/Event sourcing
+knowledge.</p>
+<p><em>Technical context:</em> 3 years project, microservice based, each of them had a
+specific data/events store (EventStore, plain files, SQLite) and design discipline.</p>
+<p><em>Challenges:</em> The business process was really complex (40 steps, 60 events),
+constantly changing.</p>
+<p><em>Event sourcing scope:</em> Only the regular, customer-facing process.</p>
+<p><em>Pitfalls:</em> Each microservice had their own events, trying to integrate
+each-other events, loosing information along the way, events were also rigid,
+no event could be added easily, or modified, or the stream rewrote. Most of the
+computation were done around a single stream, projections being computed at
+startup (45 minutes). While only few things were outside the system, but it
+was the missing piece to have a stable stream.
+Every microservice were involved in new features.
+A big events re-design was planed, but never implemented.</p>
+<p><em>Benefits:</em> Each microservice had their own events, giving a lot of flexibility,
+limited changes (such as new projections) were easy.</p>
+<h2 id="lessons-learned">Lessons learned</h2>
+<ul>
+<li>Events shouldn't be set in stone (they aim to evolved, be updated, deprecated, rewritten)</li>
+<li>Big bang rewrites are bad, but incomplete migrations are harmful</li>
+<li>Big aggregates are okay, in the literature, aggregates should have few events, in practice, big aggregates are better than a lot of smaller ones involving synchronization</li>
+<li>Focus on developer experience, focus on tooling and easiness to add events</li>
+<li>Don't focus on projections, they could be added later, if they are really popular and critical</li>
+</ul>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

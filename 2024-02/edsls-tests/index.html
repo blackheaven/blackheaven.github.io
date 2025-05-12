@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • eDSLs for tests</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="eDSLs for tests" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-02&#x2F;edsls-tests&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            eDSLs for tests
+        </h1>
+
+        <ul class="meta">
+                <li>28th Feb 2024</li>
+                <li title="221 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/engineering/">engineering</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/type-driven-design/">type-driven design</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/test-driven-development/">test-driven development</a></li>
+        </ul>
+
+        <section class="body"><p>In the <a href="https://blackheaven.github.io/2024-02/tydd-applied-librarian/">previous log</a>, I have introduced
+<a rel="noopener" target="_blank" href="https://github.com/blackheaven/librarian">librarian</a>, as an example of
+<a href="https://blackheaven.github.io/2024-02/types-tests/">Type-Driven Development</a>.</p>
+<p>Last log ended up with time-related feature.</p>
+<p>For reference, we previously had tests like this:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>remove<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> removeAll <span class="z-keyword z-operator z-haskell">=</span> fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> [removeAllTxtRule] <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> runPlan <span class="z-keyword z-operator z-haskell">.</span> planActions
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Should keep the non-matching file<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    withFiles [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/0.jpg<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>] removeAll
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [ (<span class="z-constant z-other z-haskell">FsRemove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Done</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                       (<span class="z-constant z-other z-haskell">FsRemove</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/sub/0.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Done</span>)
+</span><span class="z-source z-haskell">                     ]
+</span></code></pre>
+<p>Now, we have to add time-related concepts, I have two options:</p>
+<ul>
+<li>replace all the occurrences with a bunch of records or functions (forcing us to change all tests)</li>
+<li>build an <a rel="noopener" target="_blank" href="https://wiki.haskell.org/Embedded_domain_specific_language">Embedded domain specific language (eDSL)</a> which is a way to build a small language dedicated to a problem</li>
+</ul>
+<p>The first step is to define a datatype with all we need:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">FileSpec</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">FileSpec</span>
+</span><span class="z-source z-haskell">  { path <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">FilePath</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">accessTime</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">TimeSpec</span>,
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">modificationTime</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-storage z-type z-haskell">TimeSpec</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span></code></pre>
+<p>Which can be used as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">withFiles</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> [<span class="z-storage z-type z-haskell">FileSpec</span>] <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>withFiles files act <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  withSystemTempDirectory <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>librarian-tests<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>d <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">    withCurrentDirectory d <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">      mapM_ touch files
+</span><span class="z-source z-haskell">      act
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">touch</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">FileSpec</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">IO</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>touch target <span class="z-keyword z-operator z-haskell">=</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  createDirectoryIfMissing <span class="z-constant z-other z-haskell">True</span> <span class="z-keyword z-operator z-haskell">$</span> fst <span class="z-keyword z-operator z-haskell">$</span> splitFileName target<span class="z-keyword z-operator z-haskell">.</span>path
+</span><span class="z-source z-haskell">  writeFile target<span class="z-keyword z-operator z-haskell">.</span>path <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>-<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> computeTime <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">          <span class="z-constant z-other z-haskell">HoursAgo</span> d <span class="z-keyword z-operator z-haskell">-&gt;</span> addUTCTime (secondsToNominalDiffTime <span class="z-keyword z-operator z-haskell">$</span> (<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) * fromInteger d * <span class="z-constant z-numeric z-integer z-decimal z-haskell">60</span> * <span class="z-constant z-numeric z-integer z-decimal z-haskell">60</span>) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> getCurrentTime
+</span><span class="z-source z-haskell">          <span class="z-constant z-other z-haskell">DaysAgo</span> d <span class="z-keyword z-operator z-haskell">-&gt;</span> addUTCTime ((<span class="z-keyword z-operator z-haskell">-</span><span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>) * fromInteger d * nominalDay) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> getCurrentTime
+</span><span class="z-source z-haskell">          <span class="z-constant z-other z-haskell">AbsoluteTime</span> x <span class="z-keyword z-operator z-haskell">-&gt;</span> return x
+</span><span class="z-source z-haskell">  forM_ target<span class="z-keyword z-operator z-haskell">.</span>accessTime <span class="z-keyword z-operator z-haskell">$</span> setAccessTime target<span class="z-keyword z-operator z-haskell">.</span>path <span class="z-keyword z-operator z-haskell">&lt;=&lt;</span> computeTime
+</span><span class="z-source z-haskell">  forM_ target<span class="z-keyword z-operator z-haskell">.</span>modificationTime <span class="z-keyword z-operator z-haskell">$</span> setModificationTime target<span class="z-keyword z-operator z-haskell">.</span>path <span class="z-keyword z-operator z-haskell">&lt;=&lt;</span> computeTime
+</span></code></pre>
+<p>Then we can simply rely on GHC <a rel="noopener" target="_blank" href="https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/overloaded_strings.html">OverloadedString</a> extension:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">IsString</span> <span class="z-storage z-type z-haskell">FileSpec</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  fromString p <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">FileSpec</span> {path <span class="z-keyword z-operator z-haskell">=</span> p<span class="z-punctuation z-separator z-comma z-haskell">,</span> accessTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Nothing</span>}
+</span></code></pre>
+<p>At this point, all our tests are compiled and executed as before.</p>
+<p>Finally, we can write our tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>time-based<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> timeBased <span class="z-keyword z-operator z-haskell">=</span> fetchRulesOn <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> [removeAllMidOldTtxt] <span class="z-keyword z-operator z-haskell">&gt;&gt;=</span> runPlan <span class="z-keyword z-operator z-haskell">.</span> planActions
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Should keep older and younger file<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    withFiles
+</span><span class="z-source z-haskell">      [ <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">1</span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">        <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/7.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">7</span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">        <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/32.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">32</span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">        <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/61.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">61</span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">        <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/81.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">81</span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">        <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>in/101.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> {modificationTime <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">DaysAgo</span> <span class="z-constant z-numeric z-integer z-decimal z-haskell">101</span>}
+</span><span class="z-source z-haskell">      ]
+</span><span class="z-source z-haskell">      (timeBased <span class="z-keyword z-operator z-haskell">&gt;&gt;</span> listFiles)
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldReturn<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> [<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/1.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/101.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/32.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>./in/7.txt<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>]
+</span></code></pre>
+<p>I often hear that functional programming does not scale, and that it only work
+in the small (and we need object-oriented programming in the large).</p>
+<p>The thing is, functional programming does not suffer from stacking components
+(since types ensure strict boundaries).</p>
+<p>eDSLs are the magic ingredient, each component can be seen as the start and the
+end of systems, abstracting used abstractions while exposing a coherent, not
+leaking (hopefully) abstractions.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

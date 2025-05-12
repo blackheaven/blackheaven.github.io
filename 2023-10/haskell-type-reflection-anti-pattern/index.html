@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Haskell Type Reflection Anti-pattern</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Haskell Type Reflection Anti-pattern" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-10&#x2F;haskell-type-reflection-anti-pattern&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Haskell Type Reflection Anti-pattern
+        </h1>
+
+        <ul class="meta">
+                <li>15th Oct 2023</li>
+                <li title="334 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/design/">design</a></li>
+        </ul>
+
+        <section class="body"><p>Few days ago I was <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Team_programming">mob programming</a>
+with my teammates, we had to write some tests for an <a rel="noopener" target="_blank" href="https://www.eventstore.com/event-sourcing#Projections">Event Sourcing Projection</a>
+which use legacy events to produce new events.</p>
+<p>Our tests are running against an in-memory event store which represents events
+as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-import z-haskell"><span class="z-keyword z-other z-haskell">import</span> <span class="z-support z-other z-module z-haskell">Type.Reflection</span></span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">StoredEvent</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> forall a<span class="z-keyword z-operator z-haskell">.</span> (<span class="z-constant z-other z-haskell">Typeable</span> a) <span class="z-keyword z-operator z-haskell">=&gt;</span> <span class="z-constant z-other z-haskell">StoredEvent</span> (<span class="z-constant z-other z-haskell">TypeRep</span> a) a
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkStoredEvent</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">Typeable</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">StoredEvent</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>mkStoredEvent x <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">StoredEvent</span> (typeOf x) x
+</span></code></pre>
+<p>our business events have this form:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">TimerEvent</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Started</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Ended</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Typeable</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">MediaEvent</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Played</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Stopped</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Typeable</span>)
+</span></code></pre>
+<p>in addition of that, we have dedicated types to enrich them:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">WithMeta</span> a <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">WithMeta</span>
+</span><span class="z-source z-haskell">  { time <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">String</span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">value</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>  }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Show</span>)
+</span></code></pre>
+<p>The goal of the test was to check that, for some legacy events, new events are
+correct.</p>
+<p>This issue is that our event store does not give type-level information on the
+event type, which means we need a way to decode them.</p>
+<p>Another concern regarding <code>WithMeta</code>, which should be removed when not required.</p>
+<p>It should behave as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Working<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Meta Timer in Meta Timer<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sun<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">Started</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Just</span> (<span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sun<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">Started</span>)
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Timer in Meta Timer<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sun<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">Started</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-other z-haskell">Started</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Timer in Timer<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-constant z-other z-haskell">Started</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-other z-haskell">Started</span>
+</span><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Not working<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Meta Timer in Meta Media<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sun<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">Played</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Nothing</span> @(<span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-constant z-other z-haskell">TimerEvent</span>)
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Timer in Meta Media<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">WithMeta</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Sun<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">Played</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Nothing</span> @<span class="z-constant z-other z-haskell">TimerEvent</span>
+</span><span class="z-source z-haskell">  it <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Timer in Media<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">    decodeInline (mkStoredEvent <span class="z-constant z-other z-haskell">Played</span>) <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> <span class="z-constant z-other z-haskell">Nothing</span> @<span class="z-constant z-other z-haskell">TimerEvent</span>
+</span></code></pre>
+<p>By default, Haskell does not let you access to type information at runtime,
+we have to rely on <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/base-4.19.0.0/docs/Type-Reflection.html#t:Typeable"><code>Typeable</code></a>.</p>
+<p>The base function is defined as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">decodeFinal</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-variable z-other z-generic-type z-haskell">content</span>. (<span class="z-storage z-type z-haskell">Typeable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">TypeRep</span> <span class="z-variable z-other z-generic-type z-haskell">content</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">content</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>decodeFinal cTypeRep cPayload <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">case</span> eqTypeRep cTypeRep (typeRep @event) <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-other z-haskell">HRefl</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Just</span> cPayload
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span>
+</span></code></pre>
+<p>The magic comes from <code>eqTypeRep</code> which compares <code>TypeRep a</code> and  <code>TypeRep b</code>,
+and if they match emits <code>Just HRefl</code> which, once match, implies <code>a ~ b</code>.</p>
+<p>Then we do something I find bad:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">decodeInline</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>. (<span class="z-storage z-type z-haskell">Typeable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">StoredEvent</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>decodeInline (<span class="z-constant z-other z-haskell">StoredEvent</span> eTypeRep ePayload) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">  decodeFinal eTypeRep ePayload <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> unwrapWithMeta
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">unwrapWithMeta</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>    unwrapWithMeta <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-other z-haskell">case</span> eTypeRep <span class="z-keyword z-other z-haskell">of</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">App</span> wrapperType wrappedType
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Just</span> <span class="z-constant z-other z-haskell">HRefl</span> <span class="z-keyword z-operator z-haskell">&lt;-</span> eqTypeRep wrapperType (typeRep @<span class="z-constant z-other z-haskell">WithMeta</span>) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">              decodeFinal wrappedType ePayload<span class="z-keyword z-operator z-haskell">.</span>value
+</span><span class="z-source z-haskell">        _ <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Nothing</span>
+</span></code></pre>
+<p>It works as follows: try to directly match types, or unwrap <code>WithMeta</code> and try
+again (regardless <code>event</code> is <code>WithMeta a</code> or not).</p>
+<p>So, not only you might do extra work, but you'll be forced to add some code here
+for each new wrapping types.</p>
+<p>Above all, I think dynamically (via reflection) changing the behavior breaks
+the ability to reason from type signatures, it should be avoided, there are no
+excuses here, as we have this information at Type-Level.</p>
+<p>An alternative approach would be to define a type class:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">Decodable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">decodeClass</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">StoredEvent</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Maybe</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>
+</span></span></code></pre>
+<p>and finally few instances:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-meta z-preprocessor z-haskell">{-# <span class="z-keyword z-other z-preprocessor z-haskell">OVERLAPPABLE</span> #-}</span> (<span class="z-storage z-type z-haskell">Typeable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Decodable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  decodeClass stored@(<span class="z-constant z-other z-haskell">StoredEvent</span> eTypeRep ePayload) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    decodeFinal eTypeRep ePayload <span class="z-keyword z-operator z-haskell">&lt;|&gt;</span> (value <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> decodeClass stored)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">Typeable</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">Decodable</span> (<span class="z-storage z-type z-haskell">WithMeta</span> <span class="z-variable z-other z-generic-type z-haskell">event</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  decodeClass (<span class="z-constant z-other z-haskell">StoredEvent</span> eTypeRep ePayload) <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">    decodeFinal eTypeRep ePayload
+</span></code></pre>
+<p>The usage of <code>OVERLAPPABLE</code> is not great, but at least it simplifies the code and
+allows extensibility.</p>
+<p>Note: usually I prefer to have Type-Level information regarding which kind of
+events I'm dealing with. Moreover, I would rely on production serialisation
+(e.g. json, avro, etc.)</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

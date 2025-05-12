@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://blackheaven.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>dark</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>draft concepts</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" /><title>Gautier DI FOLCO - draft concepts</title>
+        <subtitle>A software engineer website</subtitle>
+    <link href="https://blackheaven.github.io/tags/draft-concepts/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://blackheaven.github.io/tags/draft-concepts/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-01-14T00:00:00+00:00</updated>
+    <id>https://blackheaven.github.io/tags/draft-concepts/atom.xml</id><entry xml:lang="en">
+        <title>Access Control: Biscuit</title>
+        <published>2024-01-14T00:00:00+00:00</published>
+        <updated>2024-01-14T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/access-control-biscuit/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/access-control-biscuit/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: topaz</title>
+        <published>2024-01-10T00:00:00+00:00</published>
+        <updated>2024-01-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/access-control-topaz/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/access-control-topaz/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Open Policy Agent</title>
+        <published>2024-01-07T00:00:00+00:00</published>
+        <updated>2024-01-07T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/access-control-opa/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/access-control-opa/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Capabilities</title>
+        <published>2024-01-03T00:00:00+00:00</published>
+        <updated>2024-01-03T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2024-01/access-control-capabilities/" type="text/html"/>
+        <id>https://blackheaven.github.io/2024-01/access-control-capabilities/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Relationship-based Access control</title>
+        <published>2023-12-27T00:00:00+00:00</published>
+        <updated>2023-12-27T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-rebac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-rebac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Organisation-based Access control</title>
+        <published>2023-12-24T00:00:00+00:00</published>
+        <updated>2023-12-24T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-orbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-orbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Graph-based Access control</title>
+        <published>2023-12-20T00:00:00+00:00</published>
+        <updated>2023-12-20T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-gbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-gbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Attribute-based Access control</title>
+        <published>2023-12-17T00:00:00+00:00</published>
+        <updated>2023-12-17T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-abac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-abac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Role-based Access control</title>
+        <published>2023-12-13T00:00:00+00:00</published>
+        <updated>2023-12-13T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-rbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-rbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: Context-based Access control</title>
+        <published>2023-12-10T00:00:00+00:00</published>
+        <updated>2023-12-10T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-cbac/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-cbac/</id>
+        </entry><entry xml:lang="en">
+        <title>Access Control: ACL</title>
+        <published>2023-12-06T00:00:00+00:00</published>
+        <updated>2023-12-06T00:00:00+00:00</updated>
+        <author>
+            <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://blackheaven.github.io/2023-12/access-control-acl/" type="text/html"/>
+        <id>https://blackheaven.github.io/2023-12/access-control-acl/</id>
+        </entry>
+</feed>

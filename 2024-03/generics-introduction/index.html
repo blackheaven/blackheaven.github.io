@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Introduction to GHC's Generics</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Introduction to GHC's Generics" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2024-03&#x2F;generics-introduction&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Introduction to GHC&#x27;s Generics
+        </h1>
+
+        <ul class="meta">
+                <li>20th Mar 2024</li>
+                <li title="533 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a></li>
+        </ul>
+
+        <section class="body"><p>In my <a href="https://blackheaven.github.io/2024-03/aeson-key/">previous log</a>, I have focused on an annoying
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/aeson"><code>aeson</code></a>, I have mentioned that it
+was involving some <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/base-4.19.1.0/docs/GHC-Generics.html">GHC's <code>Generic</code>s</a>
+code which were too complex for this log.</p>
+<p>I had some feedbacks suggesting that it might be interesting to dive deeper in
+this subject, so here I am!</p>
+<p>In brief, <a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/base-4.19.1.0/docs/GHC-Generics.html">GHC's <code>Generic</code>s</a>
+is a mechanism allowing to write code depending on data-types type-level structure.</p>
+<p>It is defined as this:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">Generic</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | Generic representation type
+</span></span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">Rep</span> a <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span>
+</span><span class="z-source z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | Convert from the datatype to its representation
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">from</span>  <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> (<span class="z-storage z-type z-haskell">Rep</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-variable z-other z-generic-type z-haskell">x</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> | Convert from the representation to the datatype
+</span></span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">to</span>    <span class="z-keyword z-other z-double-colon z-haskell">::</span> (<span class="z-storage z-type z-haskell">Rep</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-variable z-other z-generic-type z-haskell">x</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>
+</span></span></code></pre>
+<p><code>Rep a</code> gives a representation based on very specialized type (e.g. <code>M1</code>, <code>K1</code>, <code>:+:</code>, etc.),
+I have never made sense of it (even after 15-20 derivation mechanisms implementation),
+so, instead I rely on examples.</p>
+<p>Usually you let the GHC deriving it:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">T</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">A0</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">A1</span> <span class="z-constant z-language z-unit z-haskell">()</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">A2</span> { a2f0 <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-language z-unit z-haskell">()</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">A3</span> { a3f0 <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-language z-unit z-haskell">()</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> a3f1 <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-language z-unit z-haskell">()</span> }
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Generic</span>)
+</span></code></pre>
+<p>Let's have a look at <code>Rep T</code> in <code>ghci</code> (GHC's repl)</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">&gt;</span> <span class="z-keyword z-operator z-haskell">:</span>kind<span class="z-keyword z-operator z-haskell">!</span> <span class="z-constant z-other z-haskell">Rep</span> <span class="z-constant z-other z-haskell">T</span>
+</span><span class="z-source z-haskell"><span class="z-constant z-other z-haskell">Rep</span> <span class="z-constant z-other z-haskell">T</span> <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Type</span> <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Type</span>
+</span><span class="z-source z-haskell"><span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">    <span class="z-constant z-other z-haskell">D</span>
+</span><span class="z-source z-haskell">    (<span class="z-constant z-other z-haskell">MetaData</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>T<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>Ghci3<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>interactive<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">False</span>)
+</span><span class="z-source z-haskell">    ((<span class="z-constant z-other z-haskell">M1</span> <span class="z-constant z-other z-haskell">C</span> (<span class="z-constant z-other z-haskell">MetaCons</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>A0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">PrefixI</span> <span class="z-constant z-other z-haskell">False</span>) <span class="z-constant z-other z-haskell">U1</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">:+:</span> <span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">C</span>
+</span><span class="z-source z-haskell">            (<span class="z-constant z-other z-haskell">MetaCons</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>A1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">PrefixI</span> <span class="z-constant z-other z-haskell">False</span>)
+</span><span class="z-source z-haskell">            (<span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">               <span class="z-constant z-other z-haskell">S</span>
+</span><span class="z-source z-haskell">               (<span class="z-constant z-other z-haskell">MetaSel</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Nothing</span> <span class="z-constant z-other z-haskell">NoSourceUnpackedness</span> <span class="z-constant z-other z-haskell">NoSourceStrictness</span> <span class="z-constant z-other z-haskell">DecidedLazy</span>)
+</span><span class="z-source z-haskell">               (<span class="z-constant z-other z-haskell">K1</span> <span class="z-constant z-other z-haskell">R</span> <span class="z-constant z-language z-unit z-haskell">()</span>)))
+</span><span class="z-source z-haskell">     <span class="z-keyword z-operator z-haskell">:+:</span> (<span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">            <span class="z-constant z-other z-haskell">C</span>
+</span><span class="z-source z-haskell">            (<span class="z-constant z-other z-haskell">MetaCons</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>A2<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">PrefixI</span> <span class="z-constant z-other z-haskell">True</span>)
+</span><span class="z-source z-haskell">            (<span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">               <span class="z-constant z-other z-haskell">S</span>
+</span><span class="z-source z-haskell">               (<span class="z-constant z-other z-haskell">MetaSel</span>
+</span><span class="z-source z-haskell">                  (<span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>a2f0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) <span class="z-constant z-other z-haskell">NoSourceUnpackedness</span> <span class="z-constant z-other z-haskell">NoSourceStrictness</span> <span class="z-constant z-other z-haskell">DecidedLazy</span>)
+</span><span class="z-source z-haskell">               (<span class="z-constant z-other z-haskell">K1</span> <span class="z-constant z-other z-haskell">R</span> <span class="z-constant z-language z-unit z-haskell">()</span>))
+</span><span class="z-source z-haskell">          <span class="z-keyword z-operator z-haskell">:+:</span> <span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">                <span class="z-constant z-other z-haskell">C</span>
+</span><span class="z-source z-haskell">                (<span class="z-constant z-other z-haskell">MetaCons</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>A3<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-constant z-other z-haskell">PrefixI</span> <span class="z-constant z-other z-haskell">True</span>)
+</span><span class="z-source z-haskell">                (<span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">                   <span class="z-constant z-other z-haskell">S</span>
+</span><span class="z-source z-haskell">                   (<span class="z-constant z-other z-haskell">MetaSel</span>
+</span><span class="z-source z-haskell">                      (<span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>a3f0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) <span class="z-constant z-other z-haskell">NoSourceUnpackedness</span> <span class="z-constant z-other z-haskell">NoSourceStrictness</span> <span class="z-constant z-other z-haskell">DecidedLazy</span>)
+</span><span class="z-source z-haskell">                   (<span class="z-constant z-other z-haskell">K1</span> <span class="z-constant z-other z-haskell">R</span> <span class="z-constant z-language z-unit z-haskell">()</span>)
+</span><span class="z-source z-haskell">                 <span class="z-keyword z-operator z-haskell">:</span>*<span class="z-keyword z-operator z-haskell">:</span> <span class="z-constant z-other z-haskell">M1</span>
+</span><span class="z-source z-haskell">                       <span class="z-constant z-other z-haskell">S</span>
+</span><span class="z-source z-haskell">                       (<span class="z-constant z-other z-haskell">MetaSel</span>
+</span><span class="z-source z-haskell">                          (<span class="z-constant z-other z-haskell">Just</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>a3f1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>) <span class="z-constant z-other z-haskell">NoSourceUnpackedness</span> <span class="z-constant z-other z-haskell">NoSourceStrictness</span> <span class="z-constant z-other z-haskell">DecidedLazy</span>)
+</span><span class="z-source z-haskell">                       (<span class="z-constant z-other z-haskell">K1</span> <span class="z-constant z-other z-haskell">R</span> <span class="z-constant z-language z-unit z-haskell">()</span>))))
+</span></code></pre>
+<p>Overwhelming, I know, let's break this down.</p>
+<p>I have the following heuristics: datatype are described by layers of
+<code>SomeType metadataPhantomTypes actualTypes proxy</code>.</p>
+<p>Let's peel the onion:</p>
+<ul>
+<li><code>M1 D (MetaData "T" "Ghci3" "interactive" False)</code> <code>M1</code> is a metadata holder (here the context) of some structure (<code>D</code> is for datatype)</li>
+<li><code>:+:</code> is the sum type representation (the <code>|</code> like in <code>A0 | A1</code>)</li>
+<li><code>M1 C (MetaCons "A0" PrefixI False) U1</code> is the metadata of a constructor (<code>C</code> is for constructor) without value (<code>U1</code>), also <code>PrefixI</code> indicate the fixity (i.e. prefix / infix)</li>
+<li><code>(M1 S (MetaSel Nothing NoSourceUnpackedness NoSourceStrictness DecidedLazy) (K1 R ()))</code> is a metadata of a record selector (<code>S</code>) without "label" (<code>Nothing</code>) with a field (<code>K1 R</code>) of type unit (<code>()</code>)</li>
+<li><code>M1 C (MetaCons "A2" PrefixI True) (M1 S (MetaSel (Just "a2f0") NoSourceUnpackedness NoSourceStrictness DecidedLazy) (K1 R ()))</code> similar to the previous one, except the named "label" (<code>Just a2f0</code>)</li>
+<li><code>:*:</code> is the product type representation (it happens when you have multiple values per constructors <code>A0 Int Char</code>)</li>
+</ul>
+<p>It's quite verbose, but each type is simple by it-self.</p>
+<p>Then we have to process them, let's illustrate that with an extract of the
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/pure-sum">library</a> I have described in my
+previous log:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">GToSumText</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">gToSumText</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">a</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">T</span>.<span class="z-storage z-type z-haskell">Text</span>
+</span></span></code></pre>
+<p>It will be our <code>type class</code> to work on <code>Generic</code> types.</p>
+<p>It will be used to define generic instances (based on <code>from</code> output):</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span></span>
+</span><span class="z-source z-haskell">  (<span class="z-constant z-other z-haskell">Generic</span> a<span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">GToSumText</span> (<span class="z-constant z-other z-haskell">Rep</span> a)) <span class="z-keyword z-operator z-haskell">=&gt;</span>
+</span><span class="z-source z-haskell">  <span class="z-constant z-other z-haskell">ToSumText</span> (<span class="z-constant z-other z-haskell">PureSum</span> a)
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">  toSumText <span class="z-keyword z-operator z-haskell">=</span> gToSumText <span class="z-keyword z-operator z-haskell">.</span> from <span class="z-keyword z-operator z-haskell">.</span> unPureSum
+</span></code></pre>
+<p>We can start with the top-level case which is not interesting, so we only
+extract its value:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">GToSumText</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GToSumText</span> (<span class="z-storage z-type z-haskell">M1</span> <span class="z-storage z-type z-haskell">D</span> <span class="z-variable z-other z-generic-type z-haskell">meta</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> base type
+</span></span><span class="z-source z-haskell">  gToSumText (<span class="z-constant z-other z-haskell">M1</span> x) <span class="z-keyword z-operator z-haskell">=</span> gToSumText x
+</span></code></pre>
+<p>Then we arrive at constructor-level, and since we only need constructor name,
+we can stop here and extract it through <code>symbolVal</code> which convert a type-level
+literal (string) to a value-level <code>String</code>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">KnownSymbol</span> <span class="z-variable z-other z-generic-type z-haskell">cntr</span>, <span class="z-storage z-type z-haskell">EnsureEmpty</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GToSumText</span> (<span class="z-storage z-type z-haskell">M1</span> <span class="z-storage z-type z-haskell">C</span> (&#39;<span class="z-storage z-type z-haskell">MetaCons</span> <span class="z-variable z-other z-generic-type z-haskell">cntr</span> <span class="z-variable z-other z-generic-type z-haskell">p</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> constructor
+</span></span><span class="z-source z-haskell">  gToSumText (<span class="z-constant z-other z-haskell">M1</span> _) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">T</span><span class="z-keyword z-operator z-haskell">.</span>pack <span class="z-keyword z-operator z-haskell">$</span> symbolVal <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Proxy</span> @cntr
+</span></code></pre>
+<p>Then, the last interesting case is the sum type:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">GToSumText</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>, <span class="z-storage z-type z-haskell">GToSumText</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GToSumText</span> (<span class="z-variable z-other z-generic-type z-haskell">a</span> :+: <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-keyword z-other z-haskell">where</span></span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> sum type
+</span></span><span class="z-source z-haskell">  gToSumText (<span class="z-constant z-other z-haskell">R1</span> x) <span class="z-keyword z-operator z-haskell">=</span> gToSumText x
+</span><span class="z-source z-haskell">  gToSumText (<span class="z-constant z-other z-haskell">L1</span> x) <span class="z-keyword z-operator z-haskell">=</span> gToSumText x
+</span></code></pre>
+<p>Now, what will happen ate runtime, let's take <code>A0</code>, which will be converted via
+<code>from</code> to:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-constant z-other z-haskell">M1</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Datatype
+</span></span><span class="z-source z-haskell">  (<span class="z-constant z-other z-haskell">L1</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> Left part of the sum type (:+:)
+</span></span><span class="z-source z-haskell">     (<span class="z-constant z-other z-haskell">M1</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> &quot;A0&quot; constructor
+</span></span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">U1</span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> No value
+</span></span><span class="z-source z-haskell">     )
+</span><span class="z-source z-haskell">  )
+</span></code></pre>
+<p>The heavy-lifting being done at instance selection.</p>
+<p>It works well when you have the value, but when you only have the type, it's a
+bit more complex.</p>
+<p>For instance, when we had to define <code>FromJSON (PureSum a)</code>, we need type's
+name for <code>withText :: String (Value -&gt; Parser a) -&gt; Parser a</code></p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">FromSumText</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>, <span class="z-storage z-type z-haskell">Generic</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>, <span class="z-storage z-type z-haskell">GConstructorName</span> (<span class="z-storage z-type z-haskell">Rep</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>)) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">FromJSON</span> (<span class="z-storage z-type z-haskell">PureSumWith</span> <span class="z-variable z-other z-generic-type z-haskell">transformation</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">  parseJSON <span class="z-keyword z-operator z-haskell">=</span> withText (getConst <span class="z-keyword z-operator z-haskell">$</span> (to @a) <span class="z-keyword z-operator z-haskell">&lt;$&gt;</span> gConstructorName) pureSumWithParser
+</span></code></pre>
+<p>To do so, we can rely on <code>Const</code>, which as a non-operant <code>Functor</code> <code>instance</code>.</p>
+<p>Not, it is not operant because it is a functor over a phantom type</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Const</span> a b <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Const</span> { getConst <span class="z-keyword z-operator z-haskell">::</span> a }
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> <span class="z-storage z-type z-haskell">Functor</span> (<span class="z-storage z-type z-haskell">Const</span> <span class="z-variable z-other z-generic-type z-haskell">m</span>) <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell">    fmap _ (<span class="z-constant z-other z-haskell">Const</span> v) <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Const</span> v
+</span></code></pre>
+<p>Finally we can simply fetch the literal:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-declaration z-class z-haskell"><span class="z-keyword z-other z-haskell">class</span> <span class="z-entity z-other z-inherited-class z-haskell">GConstructorName</span> <span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-keyword z-other z-haskell">where</span></span>
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-entity z-name z-function z-haskell">gConstructorName</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Const</span> <span class="z-storage z-type z-haskell">String</span> (<span class="z-variable z-other z-generic-type z-haskell">f</span> <span class="z-variable z-other z-generic-type z-haskell">a</span>)
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span><span class="z-meta z-declaration z-instance z-haskell"><span class="z-keyword z-other z-haskell">instance</span> (<span class="z-storage z-type z-haskell">KnownSymbol</span> <span class="z-variable z-other z-generic-type z-haskell">typeName</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span> <span class="z-storage z-type z-haskell">GConstructorName</span> (<span class="z-storage z-type z-haskell">M1</span> <span class="z-storage z-type z-haskell">D</span> (&#39;<span class="z-storage z-type z-haskell">MetaData</span> <span class="z-variable z-other z-generic-type z-haskell">typeName</span> <span class="z-variable z-other z-generic-type z-haskell">c</span> <span class="z-variable z-other z-generic-type z-haskell">i</span> <span class="z-variable z-other z-generic-type z-haskell">b</span>) <span class="z-variable z-other z-generic-type z-haskell">a</span>) <span class="z-keyword z-other z-haskell">where</span></span> <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> base type
+</span></span><span class="z-source z-haskell">  gConstructorName <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Const</span> <span class="z-keyword z-operator z-haskell">$</span> symbolVal (<span class="z-constant z-other z-haskell">Proxy</span> @typeName)
+</span></code></pre>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

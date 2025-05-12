@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Access Control: Relationship-based Access control</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Access Control: Relationship-based Access control" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-12&#x2F;access-control-rebac&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Access Control: Relationship-based Access control
+        </h1>
+
+        <ul class="meta">
+                <li>27th Dec 2023</li>
+                <li title="220 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/access-control/">access control</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/security/">security</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/draft-concepts/">draft concepts</a></li>
+        </ul>
+
+        <section class="body"><p>Finally, here comes the scheme I have discovered and mentioned in
+<a href="https://blackheaven.github.io/2023-12/access-control-acl/">the first log of the series</a>:
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Relationship-based_access_control">Relationship-based Access control</a>.</p>
+<p>This idea is simple: it consists of finding a <code>Relation</code>, between two <code>Object</code>s.</p>
+<p>The true power comes from the fact that the relations can be defined directly
+(e.g. "Alice" "is_owner" "a_file"), or implied (e.g. all "member" "root", "can_write" "a_file").</p>
+<p>We can start with some types:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">type</span> <span class="z-constant z-other z-haskell">ReBACRules</span> object relationName <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Map</span> relationName (<span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span><span class="z-constant z-other z-haskell">Set</span> (<span class="z-constant z-other z-haskell">RelationDefinition</span> object relationName))
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">RelationDefinition</span> object relationName
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Target</span> object relationName<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Target</span> object relationName}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Implied</span> {user <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Target</span> object relationName<span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">::</span> relationName<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">::</span> <span class="z-constant z-other z-haskell">Target</span> object relationName}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">data</span> <span class="z-constant z-other z-haskell">Target</span> object relationName
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> {object <span class="z-keyword z-operator z-haskell">::</span> object}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-operator z-haskell">|</span> <span class="z-constant z-other z-haskell">Relation</span> {relation <span class="z-keyword z-operator z-haskell">::</span> relationName<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">::</span> object}
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">deriving</span> stock (<span class="z-constant z-other z-haskell">Show</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Eq</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">Ord</span>)
+</span></code></pre>
+<p>Actually I have indexed <code>Relation</code>s by <code>relationName</code> for convenience, but there
+are no conceptual reason.</p>
+<p>We can continue with few tests:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell">describe <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>ReBAC<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span> <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-control z-haskell">do</span>
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">let</span> rules <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">          [ ( <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">                [ <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Relation</span> {object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Relation</span> {object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}
+</span><span class="z-source z-haskell">                ]
+</span><span class="z-source z-haskell">            )<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">            ( <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">                [ <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Relation</span> {object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Relation</span> {object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Implied</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Relation</span> {object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>group:users<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>member<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span> relation <span class="z-keyword z-operator z-haskell">=</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>} <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> TODO
+</span></span><span class="z-source z-haskell">                  <span class="z-comment z-line z-double-dash z-haskell"><span class="z-punctuation z-definition z-comment z-haskell">--</span> owners&#39; group member
+</span></span><span class="z-source z-haskell">                ]
+</span><span class="z-source z-haskell">            )<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">            ( <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">                [ <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}
+</span><span class="z-source z-haskell">                ]
+</span><span class="z-source z-haskell">            )<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">            ( <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>member<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">              <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">                [ <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>group:users<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                  <span class="z-constant z-other z-haskell">Direct</span> {user <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:bob<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> object <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Object</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>group:users<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span>}
+</span><span class="z-source z-haskell">                ]
+</span><span class="z-source z-haskell">            )
+</span><span class="z-source z-haskell">          ]
+</span><span class="z-source z-haskell">  forM_
+</span><span class="z-source z-haskell">    [ (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:bob<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:bob<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:0<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:bob<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_write<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:alice<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:bob<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">False</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>can_read<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">      (<span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>user:charlie<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>owner<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-string z-quoted z-double z-haskell"><span class="z-punctuation z-definition z-string z-begin z-haskell">&quot;</span>doc:1<span class="z-punctuation z-definition z-string z-end z-haskell">&quot;</span></span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">True</span>)
+</span><span class="z-source z-haskell">    ]
+</span><span class="z-source z-haskell">    <span class="z-keyword z-operator z-haskell">$</span> <span class="z-keyword z-operator z-haskell">\</span>tc@(user<span class="z-punctuation z-separator z-comma z-haskell">,</span> relation<span class="z-punctuation z-separator z-comma z-haskell">,</span> object<span class="z-punctuation z-separator z-comma z-haskell">,</span> expected) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">      it (show tc) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        canRebac rules user relation object <span class="z-keyword z-operator z-function z-infix z-haskell"><span class="z-punctuation z-definition z-entity z-haskell">`</span>shouldBe<span class="z-punctuation z-definition z-entity z-haskell">`</span></span> expected
+</span></code></pre>
+<p>Finally, we can do our implementation</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">canRebac</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">forall</span> <span class="z-variable z-other z-generic-type z-haskell">object</span> <span class="z-variable z-other z-generic-type z-haskell">relationName</span>.
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">relationName</span>, <span class="z-storage z-type z-haskell">Ord</span> <span class="z-variable z-other z-generic-type z-haskell">object</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  (<span class="z-storage z-type z-haskell">Show</span> <span class="z-variable z-other z-generic-type z-haskell">relationName</span>, <span class="z-storage z-type z-haskell">Show</span> <span class="z-variable z-other z-generic-type z-haskell">object</span>) <span class="z-keyword z-other z-big-arrow z-haskell">=&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">ReBACRules</span> <span class="z-variable z-other z-generic-type z-haskell">object</span> <span class="z-variable z-other z-generic-type z-haskell">relationName</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">object</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">relationName</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-variable z-other z-generic-type z-haskell">object</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">  <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>canRebac rules <span class="z-keyword z-operator z-haskell">=</span> forRelation
+</span><span class="z-source z-haskell">  <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">    forRelation user relation object <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      any (withRelation user object) <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">        <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty relation rules
+</span><span class="z-source z-haskell">    withRelation user object <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">        r@(<span class="z-constant z-other z-haskell">Direct</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">          <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>member user (objects r<span class="z-keyword z-operator z-haskell">.</span>user) &amp;&amp; <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>member object (objects r<span class="z-keyword z-operator z-haskell">.</span>object)
+</span><span class="z-source z-haskell">        r@(<span class="z-constant z-other z-haskell">Implied</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">          or
+</span><span class="z-source z-haskell">            [ forRelation user&#39; r<span class="z-keyword z-operator z-haskell">.</span>relation object
+</span><span class="z-source z-haskell">              <span class="z-keyword z-operator z-haskell">|</span> user&#39; <span class="z-keyword z-operator z-haskell">&lt;-</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>toList (objects r<span class="z-keyword z-operator z-haskell">.</span>user)
+</span><span class="z-source z-haskell">            ]
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell">    <span class="z-entity z-name z-function z-haskell">objects</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">Target</span> <span class="z-variable z-other z-generic-type z-haskell">object</span> <span class="z-variable z-other z-generic-type z-haskell">relationName</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Set</span>.<span class="z-storage z-type z-haskell">Set</span> <span class="z-variable z-other z-generic-type z-haskell">object</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>    objects <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">      <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">        o@(<span class="z-constant z-other z-haskell">Object</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>singleton o<span class="z-keyword z-operator z-haskell">.</span>object
+</span><span class="z-source z-haskell">        o@(<span class="z-constant z-other z-haskell">Relation</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span> foldMap go <span class="z-keyword z-operator z-haskell">$</span> <span class="z-constant z-other z-haskell">Map</span><span class="z-keyword z-operator z-haskell">.</span>findWithDefault mempty o<span class="z-keyword z-operator z-haskell">.</span>relation rules
+</span><span class="z-source z-haskell">          <span class="z-keyword z-other z-haskell">where</span>
+</span><span class="z-source z-haskell">            go <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">              <span class="z-keyword z-operator z-haskell">\</span><span class="z-keyword z-other z-haskell">case</span>
+</span><span class="z-source z-haskell">                r@(<span class="z-constant z-other z-haskell">Direct</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">                  whenTargettedObject r<span class="z-keyword z-operator z-haskell">.</span>object <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">                    objects r<span class="z-keyword z-operator z-haskell">.</span>user
+</span><span class="z-source z-haskell">                r@(<span class="z-constant z-other z-haskell">Implied</span> {}) <span class="z-keyword z-operator z-haskell">-&gt;</span>
+</span><span class="z-source z-haskell">                  whenTargettedObject r<span class="z-keyword z-operator z-haskell">.</span>object <span class="z-keyword z-operator z-haskell">$</span>
+</span><span class="z-source z-haskell">                    <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>fromList
+</span><span class="z-source z-haskell">                      [ user
+</span><span class="z-source z-haskell">                        <span class="z-keyword z-operator z-haskell">|</span> user <span class="z-keyword z-operator z-haskell">&lt;-</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>toList (objects r<span class="z-keyword z-operator z-haskell">.</span>user)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                          object <span class="z-keyword z-operator z-haskell">&lt;-</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>toList (objects r<span class="z-keyword z-operator z-haskell">.</span>object)<span class="z-punctuation z-separator z-comma z-haskell">,</span>
+</span><span class="z-source z-haskell">                          forRelation user r<span class="z-keyword z-operator z-haskell">.</span>relation object
+</span><span class="z-source z-haskell">                      ]
+</span><span class="z-source z-haskell">            whenTargettedObject objs xs <span class="z-keyword z-operator z-haskell">=</span>
+</span><span class="z-source z-haskell">              <span class="z-keyword z-control z-haskell">if</span> <span class="z-constant z-other z-haskell">Set</span><span class="z-keyword z-operator z-haskell">.</span>member o<span class="z-keyword z-operator z-haskell">.</span>object (objects objs)
+</span><span class="z-source z-haskell">                <span class="z-keyword z-control z-haskell">then</span> xs
+</span><span class="z-source z-haskell">                <span class="z-keyword z-control z-haskell">else</span> mempty
+</span></code></pre>
+<p>Well, it does not look simpler in the end, we can break it down:</p>
+<ul>
+<li><code>forRelation</code> determines whether there is a relation between two objects by listing all <code>RelationDefinition</code>s for a <code>relationName</code> and checking them one by one</li>
+<li><code>withRelation</code> checks if a <code>RelationDefinition</code> is between the two given objects (here's where we have to explore transitive <code>Relation</code>s for <code>Implied</code> <code>Relation</code>s)</li>
+<li><code>objects</code> transitively lists objects (on both sides) of a <code>Relation</code></li>
+</ul>
+<p>That's a solid beginning, if you want to go further <a rel="noopener" target="_blank" href="https://openfga.dev">OpenFGA</a>,
+a ReBAC implementation has a good <a rel="noopener" target="_blank" href="https://openfga.dev/docs/modeling/getting-started">modeling tutorial</a>.</p>
+<p>Moreover it has some interesting features:</p>
+<ul>
+<li>Types (e.g. <code>user:Alice</code>, <code>group:users</code>, etc.)</li>
+<li>Wildcards rules (e.g. <code>group:*</code>)</li>
+</ul>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

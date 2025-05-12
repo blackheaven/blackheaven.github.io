@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://blackheaven.github.io">
+
+    
+    <title>Gautier DI FOLCO • Plutus: Pioneers Program 4th cohort - Lecture 5 - Minting</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://blackheaven.github.io/favicon-16x16.png"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Gautier DI FOLCO - Atom Feed" href="https://blackheaven.github.io/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/inter_subset_en.css?h=d8cf4ad058d6c3a4015b">
+    
+
+    
+        <link rel="stylesheet" href="https://blackheaven.github.io/main.css?h=4709f1203e8bd6b4162f" />
+        <link rel="stylesheet" href="https://blackheaven.github.io/skins/blue.css?h=a4dc1e94d3f5759784d2" />
+
+    <meta name="color-scheme" content="dark" />
+        <meta name="description" content="A software engineer website" />
+        <meta property="og:description" content="A software engineer website" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Plutus: Pioneers Program 4th cohort - Lecture 5 - Minting" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;blackheaven.github.io&#x2F;2023-04&#x2F;plutus-c4-l5&#x2F;" /><meta property="og:site_name" content="Gautier DI FOLCO"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data: 'self';img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27; 'unsafe-inline';frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<script defer src="https://blackheaven.github.io/search_index.en.js?h=9ff10f9e8fb83581467d"></script>
+        <script defer src="https://blackheaven.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://blackheaven.github.io">Gautier DI FOLCO</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/foss/">
+                                FOSS Contributions
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/activities/">
+                                Activities
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/hiring/">
+                                Hire me
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/talks/">
+                                Talks
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/blog/">
+                                Posts
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/categories/">
+                                Categories
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://blackheaven.github.io/tags/">
+                                Tags
+                                </a>
+                            </li>
+                        <div class="nav-navs" id="menu-icons-group">
+                        <li class="js">
+                            <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                </svg>
+                            </div>
+                        </li>
+
+                        
+                        
+
+                        </div>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Plutus: Pioneers Program 4th cohort - Lecture 5 - Minting
+        </h1>
+
+        <ul class="meta">
+                <li>2nd Apr 2023</li>
+                <li title="153 words"><span class='separator' aria-hidden='true'>•</span>1 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/haskell/">haskell</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/cardano/">cardano</a>,&nbsp;</li><li class="tag"><a href="https://blackheaven.github.io/tags/smart-contracts/">smart contracts</a></li>
+        </ul>
+
+        <section class="body"><p>This weeks' lesson is focused on NFT (Non-fungible token), which are "tokens" (non-divisible, duplicable, or copyable).</p>
+<p>Cardano contains three elements around NTFs:</p>
+<ul>
+<li>Currency</li>
+<li>Token</li>
+<li>Asset</li>
+</ul>
+<p>Defined as follows:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">CurrencySymbol</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CurrencySymbol</span> <span class="z-constant z-other z-haskell">BuiltinByteString</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">TokenName</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TokenName</span> <span class="z-constant z-other z-haskell">BuiltinByteString</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">AssetClass</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">AssetClass</span> (<span class="z-constant z-other z-haskell">CurrencySymbol</span><span class="z-punctuation z-separator z-comma z-haskell">,</span> <span class="z-constant z-other z-haskell">TokenName</span>)
+</span></code></pre>
+<p><code>AssetClass</code> represents a token.</p>
+<p>Actually, <code>ada</code>s (and, by extension, <code>lovelace</code>s, since <code>1 ada == 1 000 000 lovelace</code>) are simply special tokens:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">adaSymbol</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">CurrencySymbol</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>adaSymbol <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">CurrencySymbol</span> emptyByteString
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">adaToken</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">TokenName</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>adaToken <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">TokenName</span> emptyByteString
+</span></code></pre>
+<p>They are integrated in <code>Value</code> such as:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-keyword z-other z-haskell">newtype</span> <span class="z-constant z-other z-haskell">Value</span> <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">Value</span> (<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">CurrencySymbol</span> (<span class="z-constant z-other z-haskell">Map</span> <span class="z-constant z-other z-haskell">TokenName</span> <span class="z-constant z-other z-haskell">Integer</span>))
+</span></code></pre>
+<p>Actually, it's important to highlight that, usually scripts don't mint (create) or burnt tokens, but when they do, they have to comply to a <em>minting policy</em>.</p>
+<p>Like for scripts, <em>minting policies</em> have an address (which is <code>CurrencySymbol</code>), and is run when working around tokens.</p>
+<p>These <em>minting policies</em> look like <em>validator scripts</em>:</p>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkPolicy</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-support z-constant z-unit z-haskell">()</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">ScriptContext</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">Bool</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>mkPolicy <span class="z-constant z-language z-unit z-haskell">()</span> _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">True</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkWrappedPolicy</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">BuiltinData</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">BuiltinData</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>mkWrappedPolicy <span class="z-keyword z-operator z-haskell">=</span> wrapPolicy mkPolicy
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">myPolicy</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">MintingPolicy</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>myPolicy <span class="z-keyword z-operator z-haskell">=</span> mkMintingPolicyScript <span class="z-keyword z-operator z-haskell">$$</span>(<span class="z-constant z-other z-haskell">PlutusTx</span><span class="z-keyword z-operator z-haskell">.</span>compile <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[|</span><span class="z-string z-quasiquoted z-haskell">| mkWrappedPolicy |</span><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>)
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">myCurrencySymbol</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">CurrencySymbol</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>myCurrencySymbol <span class="z-keyword z-operator z-haskell">=</span> currencySymbol myPolicy
+</span></code></pre>
+<pre data-lang="haskell" class="language-haskell z-code"><code class="language-haskell" data-lang="haskell"><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">mkValidator</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">BuiltinData</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">BuiltinData</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-storage z-type z-haskell">BuiltinData</span> <span class="z-keyword z-other z-arrow z-haskell">-&gt;</span> <span class="z-support z-constant z-unit z-haskell">()</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>mkValidator _ _ _ <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-language z-unit z-haskell">()</span>
+</span><span class="z-source z-haskell">
+</span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"><span class="z-entity z-name z-function z-haskell">validator</span> <span class="z-keyword z-other z-double-colon z-haskell">::</span> <span class="z-storage z-type z-haskell">PlutusV2</span>.<span class="z-storage z-type z-haskell">Validator</span>
+</span></span><span class="z-source z-haskell"><span class="z-meta z-function z-type-declaration z-haskell"></span>validator <span class="z-keyword z-operator z-haskell">=</span> <span class="z-constant z-other z-haskell">PlutusV2</span><span class="z-keyword z-operator z-haskell">.</span>mkValidatorScript <span class="z-keyword z-operator z-haskell">$$</span>(<span class="z-constant z-other z-haskell">PlutusTx</span><span class="z-keyword z-operator z-haskell">.</span>compile <span class="z-meta z-other z-quasiquote z-haskell"><span class="z-keyword z-other z-quasibracket z-haskell">[|</span><span class="z-string z-quasiquoted z-haskell">| mkValidator |</span><span class="z-keyword z-other z-quasibracket z-haskell">|]</span></span>)
+</span></code></pre>
+<p>More here:</p>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://developers.cardano.org/docs/native-tokens/">https://developers.cardano.org/docs/native-tokens/</a></li>
+</ul>
+<p>Note: At some points, I tried many variations to solve the homeworks, ie.</p>
+<pre class="z-code"><code><span class="z-text z-plain">    checkMintedAmount :: Bool
+</span><span class="z-text z-plain">    checkMintedAmount = case flattenValue (txInfoMint info) of
+</span><span class="z-text z-plain">        [(_, &quot;&quot;, 1)] -&gt; True
+</span><span class="z-text z-plain">        _            -&gt; False
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    -- or
+</span><span class="z-text z-plain">    checkMintedAmount :: Bool
+</span><span class="z-text z-plain">    checkMintedAmount = case flattenValue (txInfoMint info) of
+</span><span class="z-text z-plain">        [(_, tn&#39;&#39;, amt)] -&gt; &quot;&quot; == policyTokenName &amp;&amp; amt == 1
+</span><span class="z-text z-plain">        _                -&gt; False
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    -- or
+</span><span class="z-text z-plain">    checkMintedAmount :: Bool
+</span><span class="z-text z-plain">    checkMintedAmount = case flattenValue (txInfoMint info) of
+</span><span class="z-text z-plain">        [(_, tn&#39;&#39;, amt)] -&gt; tn&#39;&#39; == policyTokenName &amp;&amp; amt == 1
+</span><span class="z-text z-plain">        _                -&gt; False
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">{-# INLINABLE policyTokenName #-}
+</span><span class="z-text z-plain">policyTokenName :: TokenName
+</span><span class="z-text z-plain">policyTokenName = &quot;&quot;
+</span></code></pre>
+<p>but since Plutus is a subset of Haskell, I ended-up with errors:</p>
+<pre class="z-code"><code><span class="z-text z-plain">Exception: Error: Unsupported feature: Use of == from the Haskell Eq typeclass
+</span><span class="z-text z-plain">Exception: Error: Unsupported feature: Type constructor: GHC.Prim.Char#
+</span><span class="z-text z-plain">Exception: Error: Unsupported feature: Use of fromString on type other than builtin strings or bytestrings: Plutus.V1.Ledger.Value.TokenName
+</span></code></pre>
+<p>sadly, it's at runtime, which is frustrating to me.</p>
+
+        </section>
+
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+
+<script defer src="https://blackheaven.github.io/js/mermaid.min.js"></script><span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://blackheaven.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul>
+                    
+                    
+                    
+                    <li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank href="https://blackheaven.github.io/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://blackheaven.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="Z2F1dGllci5kaWZvbCtibG9nQGdtYWlsLmNvbQ=="><img loading="lazy" alt="email" title="email" src="https://blackheaven.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://www.linkedin.com/in/gautier-di-folco/">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://blackheaven.github.io/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank href="https://github.com/blackheaven/">
+                                    <img loading="lazy" alt="github" title="github" src="https://blackheaven.github.io/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="noopener" target=_blank href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://blackheaven.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>
